@@ -1,0 +1,46 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7b92520d-392b-49e5-9781-301423974da0": {
+      "ProjectGuid": "7b92520d-392b-49e5-9781-301423974da0",
+      "DisplayName": "VaccineC",
+      "ColorIndex": 0
+    },
+    "d5bbc507-7337-4645-a6b3-e75b96c2e9d3": {
+      "ProjectGuid": "d5bbc507-7337-4645-a6b3-e75b96c2e9d3",
+      "DisplayName": "VaccineC.Command.Application",
+      "ColorIndex": 1
+    },
+    "a23f5e0b-e788-495b-9a4d-33b717b6788a": {
+      "ProjectGuid": "a23f5e0b-e788-495b-9a4d-33b717b6788a",
+      "DisplayName": "VaccineC.Command.Data",
+      "ColorIndex": 2
+    },
+    "f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f": {
+      "ProjectGuid": "f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f",
+      "DisplayName": "VaccineC.Command.Domain",
+      "ColorIndex": 3
+    },
+    "dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81": {
+      "ProjectGuid": "dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81",
+      "DisplayName": "VaccineC.Query.Application",
+      "ColorIndex": 4
+    },
+    "ee839eca-915d-443b-92ab-e020633d8196": {
+      "ProjectGuid": "ee839eca-915d-443b-92ab-e020633d8196",
+      "DisplayName": "VaccineC.Query.Data",
+      "ColorIndex": 5
+    },
+    "f9009306-2168-409d-9a33-08961d36621c": {
+      "ProjectGuid": "f9009306-2168-409d-9a33-08961d36621c",
+      "DisplayName": "VaccineC.Query.Model",
+      "ColorIndex": 6
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 7
+}

@@ -6,7 +6,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[exampleController]")]
     [ApiController]
 
     public class ExampleController : ControllerBase
