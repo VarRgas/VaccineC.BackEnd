@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using VaccineC.Query.Application.Queries.Example;
+using VaccineC.Query.Application.Queries.Login;
 
 namespace VaccineC.Controllers
 {
@@ -17,11 +17,10 @@ namespace VaccineC.Controllers
         }
 
         // GET: api/<ExamplesController>
-        [HttpGet]
-        public async Task<IActionResult> GetAuthenticatedUsers()
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody] LoginQuery query)
         {
-            var command = new GetExampleListQuery();
-            var result = await _mediator.Send(command);
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
     }

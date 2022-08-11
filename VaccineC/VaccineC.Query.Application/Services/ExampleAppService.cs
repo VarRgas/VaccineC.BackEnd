@@ -6,7 +6,7 @@ using VaccineC.Query.Model.Abstractions;
 
 namespace VaccineC.Query.Application.Services
 {
-    public class ExampleAppService : IExampleAppService
+    public class ExampleAppService : ILoginAppService
     {
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;

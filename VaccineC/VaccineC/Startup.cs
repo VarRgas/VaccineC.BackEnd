@@ -48,7 +48,7 @@ namespace VaccineC
 
 
             //AppServices
-            services.AddScoped<IExampleAppService, ExampleAppService>();
+            services.AddScoped<ILoginAppService, ExampleAppService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));
@@ -57,7 +57,7 @@ namespace VaccineC
             services.AddScoped<IQueryContext, QueryContext>();
 
             services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CommandDbConfig")));
-            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer(Configuration.GetConnectionString("QueryDbConfig")));
+            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
