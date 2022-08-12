@@ -40,7 +40,12 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "120b25c9-027b-4b28-b169-7c79a135ad18": {
+      "ProjectGuid": "120b25c9-027b-4b28-b169-7c79a135ad18",
+      "DisplayName": "VaccineC.Security",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 7
+  "NextColorIndex": 8
 }

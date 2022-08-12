@@ -25,11 +25,9 @@ namespace VaccineC.Query.Application.Queries.Login
             return new LoginViewModel()
             {
                 Email = user.Email,
-                Token = "asdasdosadskahdkashdjksad"
+                Token = "h4r87yrg388t3tb3487trg"
 
             };
-
-            return await ;
         }
     }
 }
