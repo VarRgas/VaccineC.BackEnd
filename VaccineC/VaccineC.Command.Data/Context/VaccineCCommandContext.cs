@@ -11,11 +11,15 @@ namespace VaccineC.Command.Data.Context
 
         }
 
-        public DbSet<Example> Customers { get; set; }
+        public DbSet<Example> Example { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Person> Persons { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Example>().ToTable("Customers");
+            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<Person>().ToTable("Persons");
 
             base.OnModelCreating(modelBuilder);
         }

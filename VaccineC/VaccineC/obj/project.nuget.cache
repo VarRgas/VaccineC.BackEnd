@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "IBMIgrtk8P8xKwxVdhywhbpZHj2JJr4PwRGCt5h8UxYLkXS10f6nrhWqhIVUm4931U3dGmi5GMJuuBahYeQymg==",
+  "dgSpecHash": "DybTREvtJkdCH5dYn++ONyGBwGp8v3AGIflBTQzz3be9DbqgVT1ECR1gNcy8ikFqSesCnGxr1FMBj0jhNNMN2g==",
   "success": true,
   "projectFilePath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC\\VaccineC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\varggu\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\varggu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\varggu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\varggu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\varggu\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
     "C:\\Users\\varggu\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",

@@ -1,17 +1,15 @@
 ﻿using MediatR;
-using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
 using VaccineC.Query.Data.Context;
+using VaccineC.Security;
 
 namespace VaccineC.Query.Application.Queries.Login
 {
     public class LoginQueryHandler : IRequestHandler<LoginQuery, LoginViewModel>
     {
-        private readonly ILoginAppService _loginAppService;
         private readonly VaccineCContext _context;
-        public LoginQueryHandler(ILoginAppService loginAppService, VaccineCContext context)
+        public LoginQueryHandler(VaccineCContext context)
         {
-            _loginAppService = loginAppService;
             _context = context;
         }
 
@@ -22,11 +20,16 @@ namespace VaccineC.Query.Application.Queries.Login
             if (user.Password != request.Password)
                 throw new Exception("Usuario o senha invalido");
 
+            var hashedPassword = PasswordManager.HashPassword(request.Password);
+            var tokenIsValid = PasswordManager.ValidatePassword(hashedPassword, request.Password);
+
+            if (!tokenIsValid)
+                throw new Exception("Token invalido!");
+
             return new LoginViewModel()
             {
                 Email = user.Email,
-                Token = "h4r87yrg388t3tb3487trg"
-
+                Token = hashedPassword
             };
         }
     }

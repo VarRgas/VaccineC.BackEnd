@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
-using VaccineC.Command.Data.Context;
 using VaccineC.Command.Data.Repositories;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;
@@ -48,7 +47,7 @@ namespace VaccineC
 
 
             //AppServices
-            services.AddScoped<ILoginAppService, ExampleAppService>();
+            services.AddScoped<IExampleAppService, ExampleAppService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));
@@ -56,7 +55,7 @@ namespace VaccineC
             services.AddAutoMapper(typeof(QueryModelMapper).Assembly);
             services.AddScoped<IQueryContext, QueryContext>();
 
-            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CommandDbConfig")));
+            //services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CommandDbConfig")));
             services.AddDbContext<VaccineCContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
         }
 

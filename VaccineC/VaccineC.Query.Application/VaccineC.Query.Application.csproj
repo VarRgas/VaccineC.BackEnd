@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\VaccineC.Query.Data\VaccineC.Query.Data.csproj" />
     <ProjectReference Include="..\VaccineC.Query.Model\VaccineC.Query.Model.csproj" />
+    <ProjectReference Include="..\VaccineC.Security\VaccineC.Security.csproj" />
   </ItemGroup>
 
 </Project>

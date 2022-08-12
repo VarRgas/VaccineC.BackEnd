@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "DSqljmfzZ2ADojDRqRmmHoHbIKoPL0ZHxrmuVifVGYAvBgtuAaw3GuT2q2kzjLKiPTzwxajUZRFgdy50IAVk0g==",
+  "dgSpecHash": "L+BmG+nHCcYI0uh5jOI0O8547wk2C4Ky4uXAHe4Ree2fGoEwzSbWf9PD91MBOoTg/Ujhz4yL2i/DhuJio3qRJA==",
   "success": true,
   "projectFilePath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Application\\VaccineC.Command.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\varggu\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\varggu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\varggu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\varggu\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
     "C:\\Users\\varggu\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\varggu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

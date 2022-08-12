@@ -9,6 +9,7 @@ namespace VaccineC.Query.Application.Mapper
         public QueryModelMapper()
         {
             CreateMap<Example, ExampleViewModel>();
+            CreateMap<User, LoginViewModel>();
         }
     }
 }
