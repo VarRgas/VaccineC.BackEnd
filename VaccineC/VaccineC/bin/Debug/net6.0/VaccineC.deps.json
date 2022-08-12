@@ -546,6 +546,7 @@
       "VaccineC.Command.Application/1.0.0": {
         "dependencies": {
           "MediatR": "10.0.1",
+          "VaccineC.Command.Data": "1.0.0",
           "VaccineC.Command.Domain": "1.0.0",
           "VaccineC.Query.Application": "1.0.0"
         },

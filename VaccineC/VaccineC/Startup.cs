@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
+using VaccineC.Command.Data.Context;
 using VaccineC.Command.Data.Repositories;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;
@@ -42,8 +43,7 @@ namespace VaccineC
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                 });
 
-            //Repositories
-            services.AddScoped<IExampleRepository, ExampleRepository>();
+
 
 
             //AppServices
@@ -55,8 +55,12 @@ namespace VaccineC
             services.AddAutoMapper(typeof(QueryModelMapper).Assembly);
             services.AddScoped<IQueryContext, QueryContext>();
 
-            //services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CommandDbConfig")));
-            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
+            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
+            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
+
+            //Repositories
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

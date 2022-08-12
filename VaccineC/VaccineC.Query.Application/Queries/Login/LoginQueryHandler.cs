@@ -17,19 +17,14 @@ namespace VaccineC.Query.Application.Queries.Login
         {
             var user = _context.Users.FirstOrDefault(a => a.Email == request.Email);
 
-            if (user.Password != request.Password)
-                throw new Exception("Usuario o senha invalido");
-
-            var hashedPassword = PasswordManager.HashPassword(request.Password);
-            var tokenIsValid = PasswordManager.ValidatePassword(hashedPassword, request.Password);
-
-            if (!tokenIsValid)
-                throw new Exception("Token invalido!");
+            if (user == null || !PasswordManager.ValidatePassword(request.Password, user.Password))
+                throw new Exception("Usuário ou senha inválidos, verifique e tente novamente!");
 
             return new LoginViewModel()
             {
+                ID = user.ID,
                 Email = user.Email,
-                Token = hashedPassword
+                Token = ""
             };
         }
     }

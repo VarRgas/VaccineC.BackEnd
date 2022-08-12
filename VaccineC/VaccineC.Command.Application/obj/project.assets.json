@@ -653,6 +653,21 @@
           }
         }
       },
+      "VaccineC.Command.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.7",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.7",
+          "VaccineC.Command.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/VaccineC.Command.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VaccineC.Command.Data.dll": {}
+        }
+      },
       "VaccineC.Command.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1974,6 +1989,11 @@
         "version.txt"
       ]
     },
+    "VaccineC.Command.Data/1.0.0": {
+      "type": "project",
+      "path": "../VaccineC.Command.Data/VaccineC.Command.Data.csproj",
+      "msbuildProject": "../VaccineC.Command.Data/VaccineC.Command.Data.csproj"
+    },
     "VaccineC.Command.Domain/1.0.0": {
       "type": "project",
       "path": "../VaccineC.Command.Domain/VaccineC.Command.Domain.csproj",
@@ -2003,6 +2023,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "MediatR >= 10.0.1",
+      "VaccineC.Command.Data >= 1.0.0",
       "VaccineC.Command.Domain >= 1.0.0",
       "VaccineC.Query.Application >= 1.0.0"
     ]
@@ -2038,6 +2059,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Data\\VaccineC.Command.Data.csproj": {
+              "projectPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Data\\VaccineC.Command.Data.csproj"
+            },
             "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj": {
               "projectPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj"
             },

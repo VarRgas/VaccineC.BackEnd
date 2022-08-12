@@ -11,6 +11,12 @@ namespace VaccineC.Command.Data.Context
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder o)
+        {
+            o.LogTo(Console.WriteLine);
+
+        }
+
         public DbSet<Example> Example { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Person> Persons { get; set; }

@@ -21,3 +21,5 @@ C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\Vaccin
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Command.Application\obj\Debug\net6.0\VaccineC.Command.Application.pdb
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Command.Application\bin\Debug\net6.0\VaccineC.Security.dll
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Command.Application\bin\Debug\net6.0\VaccineC.Security.pdb
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Command.Application\bin\Debug\net6.0\VaccineC.Command.Data.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Command.Application\bin\Debug\net6.0\VaccineC.Command.Data.pdb

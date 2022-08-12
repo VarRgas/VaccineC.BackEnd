@@ -2,9 +2,11 @@
 {
     public class User
     {
-        public Guid UserID { get; set; }
+        public Guid ID { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public Person Person { get; set; }
+        public string Situation { get; set; }
+        public DateTime Register { get; set; }
+        public Guid PersonId { get; set; }
     }
 }

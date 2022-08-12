@@ -2,7 +2,7 @@
 
 namespace VaccineC.Command.Domain.Abstractions.Repositories
 {
-    public interface IExampleRepository : IRepositoryBase<Example>
+    public interface IPersonRepository : IRepositoryBase<Person>
     {
     }
 }

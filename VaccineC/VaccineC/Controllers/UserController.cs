@@ -1,26 +1,25 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using VaccineC.Query.Application.Queries.Login;
+using VaccineC.Command.Application.Commands.UserCommands;
 
 namespace VaccineC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
 
-    public class LoginController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public LoginController(IMediator mediator)
+        public UserController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
-        // GET: api/<ExamplesController>
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] LoginQuery query)
+        public async Task<IActionResult> AddUserAsync([FromBody] AddUserCommand command)
         {
-            var result = await _mediator.Send(query);
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
     }

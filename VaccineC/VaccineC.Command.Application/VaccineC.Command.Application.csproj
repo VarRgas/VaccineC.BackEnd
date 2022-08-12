@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VaccineC.Command.Data\VaccineC.Command.Data.csproj" />
     <ProjectReference Include="..\VaccineC.Command.Domain\VaccineC.Command.Domain.csproj" />
     <ProjectReference Include="..\VaccineC.Query.Application\VaccineC.Query.Application.csproj" />
   </ItemGroup>
