@@ -11,12 +11,17 @@ namespace VaccineC.Query.Data.Context
 
         }
 
-
         public DbSet<User> Users { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<PaymentForm> PaymentForms { get; set; }
+        public DbSet<Resource> Resources { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<Person>().ToTable("Persons");
+            modelBuilder.Entity<PaymentForm>().ToTable("PaymentForms");
+            modelBuilder.Entity<Resource>().ToTable("Resources");
 
             base.OnModelCreating(modelBuilder);
         }

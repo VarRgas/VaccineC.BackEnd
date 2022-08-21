@@ -7,5 +7,7 @@
         public string Password { get; set; }
         public string Situation { get; set; }
         public DateTime Register { get; set; }
+        public Guid PersonId { get; set; }
+
     }
 }

@@ -43,11 +43,16 @@ namespace VaccineC
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                 });
 
-
-
+            //Repositories
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IPaymentFormRepository, PaymentFormRepository>();
+            services.AddScoped<IResourceRepository, ResourceRepository>();
 
             //AppServices
             services.AddScoped<IExampleAppService, ExampleAppService>();
+            services.AddScoped<IPaymentFormAppService, PaymentFormAppService>();
+            services.AddScoped<IResourceAppService, ResourceAppService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));
@@ -55,12 +60,8 @@ namespace VaccineC
             services.AddAutoMapper(typeof(QueryModelMapper).Assembly);
             services.AddScoped<IQueryContext, QueryContext>();
 
-            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
-            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
-
-            //Repositories
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
+            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -13,14 +13,32 @@ namespace VaccineC.Query.Data.QueryContext
             _context = context;
         }
 
-
-
         public IQueryable<Example> AllExamples
         {
             get
             {
                 return _context
                 .Set<Example>();
+            }
+        }
+
+        public IQueryable<PaymentForm> AllPaymentForms
+        {
+            get
+            {
+                return _context
+               .Set<PaymentForm>()
+               .OrderBy(r => r.Name);
+            }
+        }
+
+        public IQueryable<Resource> AllResources
+        {
+            get
+            {
+                return _context
+               .Set<Resource>()
+               .OrderBy(r => r.Name);
             }
         }
     }

@@ -1,0 +1,30 @@
+﻿using MediatR;
+using System.Threading;
+using System.Threading.Tasks;
+using VaccineC.Command.Domain.Abstractions.Repositories;
+
+namespace VaccineC.Command.Application.Commands.Resource
+{
+    public class UpdateResourceCommandHandler : IRequestHandler<UpdateResourceCommand, Unit>
+    {
+
+        private readonly IResourceRepository _resourceRepository;
+
+        public UpdateResourceCommandHandler(IResourceRepository resourceRepository)
+        {
+            _resourceRepository = resourceRepository;
+        }
+
+        public async Task<Unit> Handle(UpdateResourceCommand request, CancellationToken cancellationToken)
+        {
+            var resource = _resourceRepository.GetById(request.ID);
+            resource.SetName(request.Name);
+            resource.SetUrlName(request.UrlName);
+            resource.SetRegister(DateTime.Now);
+
+            await _resourceRepository.SaveChangesAsync();
+
+            return Unit.Value;
+        }
+    }
+}

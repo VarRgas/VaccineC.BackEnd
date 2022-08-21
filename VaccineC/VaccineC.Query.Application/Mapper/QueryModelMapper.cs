@@ -10,6 +10,8 @@ namespace VaccineC.Query.Application.Mapper
         {
             CreateMap<Example, ExampleViewModel>();
             CreateMap<User, LoginViewModel>();
+            CreateMap<PaymentForm, PaymentFormViewModel>();
+            CreateMap<Resource, ResourceViewModel>();
         }
     }
 }

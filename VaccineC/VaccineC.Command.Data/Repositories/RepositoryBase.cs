@@ -22,7 +22,7 @@ namespace VaccineC.Command.Data.Repositories
             return Db.Set<TEntity>().ToList();
         }
 
-        public TEntity GetById(int id)
+        public TEntity GetById(Guid id)
         {
             return Db.Set<TEntity>().Find(id);
         }
@@ -30,11 +30,6 @@ namespace VaccineC.Command.Data.Repositories
         public void Remove(TEntity obj)
         {
             Db.Set<TEntity>().Remove(obj);
-        }
-
-        public void UpdateRowVersionTimestamp(TEntity obj, byte[] rowVersion)
-        {
-            Db.Entry(obj).OriginalValues["Timestamp"] = rowVersion;
         }
 
         public async Task SaveChangesAsync()

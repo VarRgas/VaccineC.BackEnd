@@ -16,12 +16,19 @@ namespace VaccineC.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/<ExamplesController>
+        // GET: api/<LoginController>
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginQuery query)
         {
-            var result = await _mediator.Send(query);
-            return Ok(result);
+            try
+            {
+                var result = await _mediator.Send(query);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

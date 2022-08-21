@@ -4,9 +4,9 @@ using VaccineC.Command.Domain.Entities;
 
 namespace VaccineC.Command.Data.Repositories
 {
-    public class UserRepository : RepositoryBase<User>, IUserRepository
+    public class PersonRepository : RepositoryBase<Person>, IPersonRepository
     {
-        public UserRepository(VaccineCCommandContext db) : base(db)
+        public PersonRepository(VaccineCCommandContext db) : base(db)
         {
         }
     }

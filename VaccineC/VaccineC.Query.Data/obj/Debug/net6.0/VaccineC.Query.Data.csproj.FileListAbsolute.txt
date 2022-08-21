@@ -15,3 +15,20 @@ C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\Vaccin
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\ref\VaccineC.Query.Data.dll
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.pdb
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.genruntimeconfig.cache
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\bin\Debug\net6.0\VaccineC.Query.Data.deps.json
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\bin\Debug\net6.0\VaccineC.Query.Data.runtimeconfig.json
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\bin\Debug\net6.0\VaccineC.Query.Data.dll
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\bin\Debug\net6.0\VaccineC.Query.Data.pdb
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\bin\Debug\net6.0\VaccineC.Query.Model.dll
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\bin\Debug\net6.0\VaccineC.Query.Model.pdb
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.csproj.AssemblyReference.cache
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.AssemblyInfoInputs.cache
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.AssemblyInfo.cs
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.csproj.CoreCompileInputs.cache
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.csproj.CopyComplete
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.dll
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\refint\VaccineC.Query.Data.dll
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.pdb
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\VaccineC.Query.Data.genruntimeconfig.cache
+C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Data\obj\Debug\net6.0\ref\VaccineC.Query.Data.dll
