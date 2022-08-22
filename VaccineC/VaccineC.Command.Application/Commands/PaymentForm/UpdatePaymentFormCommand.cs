@@ -4,7 +4,7 @@
 namespace VaccineC.Command.Application.Commands.PaymentForm
 {
 
-    public class UpdatePaymentFormCommand : IRequest
+    public class UpdatePaymentFormCommand : IRequest<Guid>
     {
         public Guid ID;
         public string Name;

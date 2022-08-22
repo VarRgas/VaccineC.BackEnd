@@ -5,7 +5,7 @@ using VaccineC.Command.Domain.Abstractions.Repositories;
 
 namespace VaccineC.Command.Application.Commands.PaymentForm
 {
-    internal class UpdatePaymentFormCommandHandler : IRequestHandler<UpdatePaymentFormCommand, Unit>
+    internal class UpdatePaymentFormCommandHandler : IRequestHandler<UpdatePaymentFormCommand, Guid>
     {
 
         private readonly IPaymentFormRepository _paymentFormRepository;
@@ -15,7 +15,7 @@ namespace VaccineC.Command.Application.Commands.PaymentForm
             _paymentFormRepository = paymentFormRepository;
         }
 
-        public async Task<Unit> Handle(UpdatePaymentFormCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(UpdatePaymentFormCommand request, CancellationToken cancellationToken)
         {
             var paymentForm = _paymentFormRepository.GetById(request.ID);
             paymentForm.SetName(request.Name);
@@ -24,7 +24,7 @@ namespace VaccineC.Command.Application.Commands.PaymentForm
 
             await _paymentFormRepository.SaveChangesAsync();
 
-            return Unit.Value;
+            return paymentForm.ID;
         }
     }
 }

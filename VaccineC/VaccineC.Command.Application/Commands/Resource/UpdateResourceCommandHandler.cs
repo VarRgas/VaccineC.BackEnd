@@ -5,7 +5,7 @@ using VaccineC.Command.Domain.Abstractions.Repositories;
 
 namespace VaccineC.Command.Application.Commands.Resource
 {
-    public class UpdateResourceCommandHandler : IRequestHandler<UpdateResourceCommand, Unit>
+    public class UpdateResourceCommandHandler : IRequestHandler<UpdateResourceCommand, Guid>
     {
 
         private readonly IResourceRepository _resourceRepository;
@@ -15,7 +15,7 @@ namespace VaccineC.Command.Application.Commands.Resource
             _resourceRepository = resourceRepository;
         }
 
-        public async Task<Unit> Handle(UpdateResourceCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(UpdateResourceCommand request, CancellationToken cancellationToken)
         {
             var resource = _resourceRepository.GetById(request.ID);
             resource.SetName(request.Name);
@@ -24,7 +24,7 @@ namespace VaccineC.Command.Application.Commands.Resource
 
             await _resourceRepository.SaveChangesAsync();
 
-            return Unit.Value;
+            return resource.ID;
         }
     }
 }

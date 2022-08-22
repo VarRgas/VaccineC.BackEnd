@@ -2,7 +2,7 @@
 
 namespace VaccineC.Command.Application.Commands.Resource
 {
-    public class UpdateResourceCommand : IRequest
+    public class UpdateResourceCommand : IRequest<Guid>
     {
         public Guid ID;
         public string Name;
