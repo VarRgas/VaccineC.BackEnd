@@ -8,7 +8,7 @@ using VaccineC.Command.Domain.Abstractions.Repositories;
 
 namespace VaccineC.Command.Application.Commands.PaymentForm
 {
-    public class AddPaymentFormCommandHandler : IRequestHandler<AddPaymentFormCommand, Unit>
+    public class AddPaymentFormCommandHandler : IRequestHandler<AddPaymentFormCommand, Guid>
     {
 
         private readonly IPaymentFormRepository _paymentFormRepository;
@@ -18,12 +18,12 @@ namespace VaccineC.Command.Application.Commands.PaymentForm
             _paymentFormRepository = paymentFormRepository;
         }
 
-        public async Task<Unit> Handle(AddPaymentFormCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(AddPaymentFormCommand request, CancellationToken cancellationToken)
         {
             Domain.Entities.PaymentForm newPaymentForm = new Domain.Entities.PaymentForm(Guid.NewGuid(), request.Name, request.MaximumInstallments, DateTime.Now);
             _paymentFormRepository.Add(newPaymentForm);
             await _paymentFormRepository.SaveChangesAsync();
-            return Unit.Value;
+            return newPaymentForm.ID;
         }
     }
 }

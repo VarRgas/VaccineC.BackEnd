@@ -30,6 +30,15 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        // GET: api/<PaymentFormsController>/Info/GetByName
+        [HttpGet("{name}/GetByName")]
+        public async Task<IActionResult> GetByName(string name)
+        {
+            var command = new GetPaymentFormByNameQuery(name);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // GET api/<PaymentFormsController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)

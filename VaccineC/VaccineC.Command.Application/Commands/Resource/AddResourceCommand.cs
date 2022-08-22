@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VaccineC.Command.Application.Commands.Resource
 {
-    public class AddResourceCommand : IRequest
+    public class AddResourceCommand : IRequest<Guid>
     {
         public Guid ID;
         public string Name;

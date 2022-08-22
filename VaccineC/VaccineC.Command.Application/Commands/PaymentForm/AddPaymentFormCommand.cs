@@ -7,7 +7,7 @@ using MediatR;
 
 namespace VaccineC.Command.Application.Commands.PaymentForm
 {
-    public class AddPaymentFormCommand : IRequest
+    public class AddPaymentFormCommand : IRequest<Guid>
     {
         public Guid ID;
         public string Name;

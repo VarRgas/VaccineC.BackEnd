@@ -30,6 +30,18 @@ namespace VaccineC.Query.Application.Services
             return resourcesViewModel;
         }
 
+        public async Task<IEnumerable<ResourceViewModel>> GetByName(String name)
+        {
+
+            var resources = await _queryContext.AllResources.ToListAsync();
+            var resourcesViewModel = resources
+                .Select(r => _mapper.Map<ResourceViewModel>(r))
+                .Where(r => r.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase))
+                .ToList();
+            return resourcesViewModel;
+
+        }
+
         public ResourceViewModel GetById(Guid id)
         {
             var resource = _mapper.Map<ResourceViewModel>(_queryContext.AllResources.Where(r => r.ID == id).First());

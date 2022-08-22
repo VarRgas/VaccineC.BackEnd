@@ -28,6 +28,15 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        // GET: api/<ResourcesController>/Info/GetByName
+        [HttpGet("{name}/GetByName")]
+        public async Task<IActionResult> GetByName(string name)
+        {
+            var command = new GetResourceByNameQuery(name);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // GET api/<ResourcesController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)

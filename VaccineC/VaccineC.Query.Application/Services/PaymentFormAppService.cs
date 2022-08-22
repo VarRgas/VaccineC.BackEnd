@@ -29,6 +29,18 @@ namespace VaccineC.Query.Application.Services
             return paymentFormsViewModel;
         }
 
+        public async Task<IEnumerable<PaymentFormViewModel>> GetByName(String name)
+        {
+
+            var paymentForms = await _queryContext.AllPaymentForms.ToListAsync();
+            var paymentFormsViewModel = paymentForms
+                .Select(r => _mapper.Map<PaymentFormViewModel>(r))
+                .Where(r => r.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase))
+                .ToList();
+            return paymentFormsViewModel;
+
+        }
+
         public PaymentFormViewModel GetById(Guid id)
         {
             var paymentForm = _mapper.Map<PaymentFormViewModel>(_queryContext.AllPaymentForms.Where(r => r.ID == id).First());

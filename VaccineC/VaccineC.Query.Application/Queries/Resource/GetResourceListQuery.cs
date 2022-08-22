@@ -5,5 +5,6 @@ namespace VaccineC.Query.Application.Queries.Resource
 {
     public class GetResourceListQuery : IRequest<IEnumerable<ResourceViewModel>>
     {
+
     }
 }
