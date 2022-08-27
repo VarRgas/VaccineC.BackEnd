@@ -27,6 +27,7 @@ namespace VaccineC.Command.Application.Commands.UserCommands
                 request.Email,
                 PasswordManager.HashPassword(request.Password),
                 request.Situation,
+                request.FunctionUser,
                 DateTime.Now
                 );
 

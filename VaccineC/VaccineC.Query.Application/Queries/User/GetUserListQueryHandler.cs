@@ -16,7 +16,7 @@ namespace VaccineC.Query.Application.Queries.User
 
         public async Task<IEnumerable<UserViewModel>> Handle(GetUserListQuery request, CancellationToken cancellationToken)
         {
-            return await _userAppService.GetAllAsync(); ;
+            return await _userAppService.GetAllAsync();
         }
     }
 }

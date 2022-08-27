@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using VaccineC.Command.Application.Commands.Resource;
 using VaccineC.Command.Application.Commands.UserCommands;
 using VaccineC.Query.Application.Queries.User;
 using VaccineC.Query.Application.ViewModels;
@@ -69,6 +68,7 @@ namespace VaccineC.Controllers
                     user.Email,
                     user.Password,
                     user.Situation,
+                    user.FunctionUser,
                     user.Register
                 );
                 var result = await _mediator.Send(command);
@@ -92,6 +92,7 @@ namespace VaccineC.Controllers
                     user.Email,
                     user.Password,
                     user.Situation,
+                    user.FunctionUser,
                     user.Register
                 );
                 var result = await _mediator.Send(command);

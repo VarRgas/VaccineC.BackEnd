@@ -22,6 +22,7 @@ namespace VaccineC.Command.Application.Commands.UserCommands
             var user = _userRepository.GetById(request.ID);
             user.SetPersonId(request.PersonID);
             user.SetEmail(request.Email);
+            user.SetFunctionUser(request.FunctionUser);
             user.SetRegister(DateTime.Now);
 
             await _userRepository.SaveChangesAsync();

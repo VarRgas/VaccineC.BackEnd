@@ -54,6 +54,7 @@ namespace VaccineC
             services.AddScoped<IPaymentFormAppService, PaymentFormAppService>();
             services.AddScoped<IResourceAppService, ResourceAppService>();
             services.AddScoped<IUserAppService, UserAppService>();
+            services.AddScoped<IPersonAppService, PersonAppService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));

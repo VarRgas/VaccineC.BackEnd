@@ -22,16 +22,20 @@ namespace VaccineC.Command.Domain.Entities
         [Column("situation", TypeName = "varchar(1)")]
         public string Situation { get; set; }
 
+        [Column("functionUser", TypeName = "varchar(1)")]
+        public string FunctionUser { get; set; }
+
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        public User(Guid id, Guid personId, string email, string password, string situation, DateTime register)
+        public User(Guid id, Guid personId, string email, string password, string situation, string functionUser, DateTime register)
         {
             ID = id;
             PersonId = personId;
             Email = email;
             Password = password;
             Situation = situation;
+            FunctionUser = functionUser;
             Register = register;
         }
 
@@ -58,6 +62,11 @@ namespace VaccineC.Command.Domain.Entities
         public void SetSituation(string situation)
         {
             Situation = situation;
+        }
+
+        public void SetFunctionUser(string functionUser)
+        {
+            FunctionUser = functionUser;
         }
 
         public void SetRegister(DateTime register)
