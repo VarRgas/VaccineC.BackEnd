@@ -16,8 +16,8 @@ namespace VaccineC.Command.Application.Commands.Resource
 
         public async Task<Unit> Handle(DeleteResourceCommand request, CancellationToken cancellationToken)
         {
-            var paymentForm = _resourceRepository.GetById(request.Id);
-            _resourceRepository.Remove(paymentForm);
+            var resource = _resourceRepository.GetById(request.Id);
+            _resourceRepository.Remove(resource);
             await _resourceRepository.SaveChangesAsync();
 
             return Unit.Value;

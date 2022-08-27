@@ -41,5 +41,15 @@ namespace VaccineC.Query.Data.QueryContext
                .OrderBy(r => r.Name);
             }
         }
+
+        public IQueryable<User> AllUsers
+        {
+            get
+            {
+                return _context
+               .Set<User>()
+               .OrderBy(r => r.Email);
+            }
+        }
     }
 }

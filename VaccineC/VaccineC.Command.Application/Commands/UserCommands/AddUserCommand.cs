@@ -4,11 +4,21 @@ namespace VaccineC.Command.Application.Commands.UserCommands
 {
     public class AddUserCommand : IRequest<Guid>
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Name { get; set; }
-        public string Situation { get; set; }
-        public DateTime Register { get; set; }
-        public string PersonType { get; set; }
+        public Guid ID;
+        public Guid PersonID;
+        public string Email;
+        public string Password;
+        public string Situation;
+        public DateTime Register;
+
+        public AddUserCommand(Guid id, Guid personId, string email, string password, string situation, DateTime register)
+        {
+            ID = id;
+            PersonID = personId;
+            Email = email;
+            Password = password;
+            Situation = situation;
+            Register = register;
+        }
     }
 }

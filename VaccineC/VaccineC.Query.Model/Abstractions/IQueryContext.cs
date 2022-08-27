@@ -7,5 +7,6 @@ namespace VaccineC.Query.Model.Abstractions
         IQueryable<Example> AllExamples { get; }
         IQueryable<PaymentForm> AllPaymentForms { get; }
         IQueryable<Resource> AllResources { get; }
+        IQueryable<User> AllUsers { get; }
     }
 }

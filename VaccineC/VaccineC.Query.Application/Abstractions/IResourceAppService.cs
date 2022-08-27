@@ -6,6 +6,7 @@ namespace VaccineC.Query.Application.Abstractions
     {
         Task<IEnumerable<ResourceViewModel>> GetAllAsync();
         Task<IEnumerable<ResourceViewModel>> GetByName(String name);
+
         ResourceViewModel GetById(Guid id);
     }
 }
