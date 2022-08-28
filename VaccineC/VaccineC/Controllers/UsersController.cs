@@ -112,5 +112,56 @@ namespace VaccineC.Controllers
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
+        // POST api/<UsersController>/3/ActivateSituation
+        [HttpPost("{id}/ActivateSituation")]
+        public async Task<IActionResult> ActivateSituation(Guid id)
+        {
+            try
+            {
+                var command = new UpdateActivateUserSituationCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        // POST api/<UsersController>/3/DeactivateSituation
+        [HttpPost("{id}/DeactivateSituation")]
+        public async Task<IActionResult> DeactivateSituation(Guid id)
+        {
+            try
+            {
+                var command = new UpdateDeactivateUserSituationCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        // POST api/<UsersController>/3/ResetPassword
+        [HttpPost("{id}/ResetPassword")]
+        public async Task<IActionResult> ResetPassword(Guid id, [FromBody] string password)
+        {
+            try
+            {
+                var command = new ResetPasswordUserCommand(
+                    id,
+                    password
+                );
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
