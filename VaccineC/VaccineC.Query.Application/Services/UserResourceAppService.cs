@@ -36,5 +36,11 @@ namespace VaccineC.Query.Application.Services
                 .ToList();
             return usersResourcesViewModel;
         }
+
+        public UserResourceViewModel GetById(Guid id)
+        {
+            var userResource = _mapper.Map<UserResourceViewModel>(_queryContext.AllUserResources.Where(ur => ur.ID == id).First());
+            return userResource;
+        }
     }
 }
