@@ -3,11 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Command.Domain.Entities;
+using VaccineC.Query.Application.ViewModels;
 using VaccineC.Security;
 
 namespace VaccineC.Command.Application.Commands.UserCommands
 {
-    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Guid>
+    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UserViewModel>
     {
         private readonly IUserRepository _userRepository;
 
@@ -16,7 +17,7 @@ namespace VaccineC.Command.Application.Commands.UserCommands
             _userRepository = userRepository;
         }
 
-        public async Task<Guid> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserViewModel> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
 
             var user = _userRepository.GetById(request.ID);
@@ -28,7 +29,15 @@ namespace VaccineC.Command.Application.Commands.UserCommands
 
             await _userRepository.SaveChangesAsync();
 
-            return user.ID;
+            return new UserViewModel()
+            {
+                ID = user.ID,
+                Email = user.Email,
+                Password = user.Password,
+                Situation = user.Situation,
+                FunctionUser = user.FunctionUser,
+                PersonId = user.PersonId
+            };
 
         }
     }

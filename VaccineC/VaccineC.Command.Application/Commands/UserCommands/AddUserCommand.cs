@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.UserCommands
 {
-    public class AddUserCommand : IRequest<Guid>
+    public class AddUserCommand : IRequest<UserViewModel>
     {
         public Guid ID;
         public Guid PersonID;

@@ -147,15 +147,11 @@ namespace VaccineC.Controllers
 
         // POST api/<UsersController>/3/ResetPassword
         [HttpPost("{id}/ResetPassword")]
-        public async Task<IActionResult> ResetPassword(Guid id, [FromBody] string password)
+        public async Task<IActionResult> ResetPassword(Guid id, [FromBody] ResetPasswordUserCommand query)
         {
             try
             {
-                var command = new ResetPasswordUserCommand(
-                    id,
-                    password
-                );
-                var result = await _mediator.Send(command);
+                var result = await _mediator.Send(query);
                 return Ok(result);
             }
             catch (ArgumentException ex)

@@ -16,5 +16,6 @@ namespace VaccineC.Query.Application.ViewModels
         public string? ProfilePic { get; set; }
         public string? Details { get; set; }
         public DateTime Register { get; set; }
+
     }
 }

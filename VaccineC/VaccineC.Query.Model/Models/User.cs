@@ -9,6 +9,6 @@
         public string FunctionUser { get; set; }
         public DateTime Register { get; set; }
         public Guid PersonId { get; set; }
-
+        public Person? Person { get; set; }
     }
 }

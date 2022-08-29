@@ -15,6 +15,7 @@ namespace VaccineC.Query.Data.Context
         public DbSet<Person> Persons { get; set; }
         public DbSet<PaymentForm> PaymentForms { get; set; }
         public DbSet<Resource> Resources { get; set; }
+        public DbSet<UserResource> UsersResources { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +23,7 @@ namespace VaccineC.Query.Data.Context
             modelBuilder.Entity<Person>().ToTable("Persons");
             modelBuilder.Entity<PaymentForm>().ToTable("PaymentForms");
             modelBuilder.Entity<Resource>().ToTable("Resources");
+            modelBuilder.Entity<UserResource>().ToTable("UsersResources");
 
             base.OnModelCreating(modelBuilder);
         }

@@ -15,5 +15,6 @@ namespace VaccineC.Query.Application.ViewModels
         public string FunctionUser { get; set; }
         public DateTime Register { get; set; }
         public Guid PersonId { get; set; }
+        public PersonViewModel? Person { get; set; }
     }
 }
