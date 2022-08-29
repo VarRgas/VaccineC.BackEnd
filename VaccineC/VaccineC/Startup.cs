@@ -48,11 +48,8 @@ namespace VaccineC
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IPaymentFormRepository, PaymentFormRepository>();
             services.AddScoped<IResourceRepository, ResourceRepository>();
-<<<<<<< Updated upstream
             services.AddScoped<IUserResourceRepository, UserResourceRepository>();
-=======
             services.AddScoped<ICompanyRepository, CompanyRepository>();
->>>>>>> Stashed changes
 
             //AppServices
             services.AddScoped<IExampleAppService, ExampleAppService>();
