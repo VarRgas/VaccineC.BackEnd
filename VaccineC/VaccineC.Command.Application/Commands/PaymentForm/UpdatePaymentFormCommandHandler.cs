@@ -1,11 +1,9 @@
 ﻿using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 
 namespace VaccineC.Command.Application.Commands.PaymentForm
 {
-    internal class UpdatePaymentFormCommandHandler : IRequestHandler<UpdatePaymentFormCommand, Guid>
+    public class UpdatePaymentFormCommandHandler : IRequestHandler<UpdatePaymentFormCommand, Guid>
     {
 
         private readonly IPaymentFormRepository _paymentFormRepository;

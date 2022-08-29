@@ -43,6 +43,17 @@ namespace VaccineC.Query.Data.QueryContext
             }
         }
 
+        public IQueryable<Company> AllCompanies
+        {
+            get
+            {
+                return _context
+               .Set<Company>()
+               .Include(r => r.Person)
+               .OrderBy(r => r.Person.Name);
+            }
+        }
+
         public IQueryable<User> AllUsers
         {
             get

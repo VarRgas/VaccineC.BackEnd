@@ -1,13 +1,10 @@
 ﻿using MediatR;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Query.Application.Queries.PaymentForm
 {
-    internal class GetPaymentFormListQueryHandler : IRequestHandler<GetPaymentFormListQuery, IEnumerable<PaymentFormViewModel>>
+    public class GetPaymentFormListQueryHandler : IRequestHandler<GetPaymentFormListQuery, IEnumerable<PaymentFormViewModel>>
     {
 
         private readonly IPaymentFormAppService _paymentFormAppService;

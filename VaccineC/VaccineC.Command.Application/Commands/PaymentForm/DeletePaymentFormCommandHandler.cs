@@ -1,11 +1,9 @@
 ﻿using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 
 namespace VaccineC.Command.Application.Commands.PaymentForm
 {
-    internal class DeletePaymentFormCommandHandler : IRequestHandler<DeletePaymentFormCommand, Unit>
+    public class DeletePaymentFormCommandHandler : IRequestHandler<DeletePaymentFormCommand, Unit>
     {
 
         private readonly IPaymentFormRepository _paymentFormRepository;
