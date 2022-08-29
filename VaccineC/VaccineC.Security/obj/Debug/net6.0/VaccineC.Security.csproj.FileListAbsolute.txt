@@ -21,3 +21,4 @@ C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Security\obj\Debug\
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Security\obj\Debug\net6.0\refint\VaccineC.Security.dll
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Security\obj\Debug\net6.0\VaccineC.Security.pdb
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Security\obj\Debug\net6.0\ref\VaccineC.Security.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Security\obj\Debug\net6.0\VaccineC.Security.csproj.AssemblyReference.cache
