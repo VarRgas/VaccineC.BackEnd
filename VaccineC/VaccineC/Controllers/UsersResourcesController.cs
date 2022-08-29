@@ -50,6 +50,21 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        // GET: api/<UsersResourcesController>/GetByUserResource
+        [HttpPost, Route("GetByUserResource")]
+        public async Task<IActionResult> GetByUserResource([FromBody] GetUserResourceByUserResourceQuery query)
+        {
+            try
+            {
+                var result = await _mediator.Send(query);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         // POST api/<UsersResourcesController>/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] UserResourceViewModel userResource)

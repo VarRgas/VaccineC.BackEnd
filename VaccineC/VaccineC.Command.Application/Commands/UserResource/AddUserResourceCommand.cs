@@ -1,9 +1,10 @@
 ﻿using MediatR;
+using System.Collections;
 using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.UserResource
 {
-    public class AddUserResourceCommand : IRequest<UserResourceViewModel>
+    public class AddUserResourceCommand : IRequest<IEnumerable<ResourceViewModel>>
     {
         public Guid ID;
         public Guid UsersId;
@@ -17,5 +18,6 @@ namespace VaccineC.Command.Application.Commands.UserResource
             ResourcesId = resourcesId;
             Register = register;
         }
+
     }
 }

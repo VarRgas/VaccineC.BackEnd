@@ -3,7 +3,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.UserResource
 {
-    public class UpdateUserResourceCommand : IRequest<UserResourceViewModel>
+    public class UpdateUserResourceCommand : IRequest<IEnumerable<ResourceViewModel>>
     {
         public Guid ID;
         public Guid UsersId;
