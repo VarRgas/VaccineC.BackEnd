@@ -1,4 +1,5 @@
-﻿using VaccineC.Query.Data.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using VaccineC.Query.Data.Context;
 using VaccineC.Query.Model.Abstractions;
 using VaccineC.Query.Model.Models;
 
@@ -48,6 +49,7 @@ namespace VaccineC.Query.Data.QueryContext
             {
                 return _context
                .Set<User>()
+               .Include(r => r.Person)
                .OrderBy(r => r.Email);
             }
         }
@@ -59,6 +61,16 @@ namespace VaccineC.Query.Data.QueryContext
                 return _context
                .Set<Person>()
                .OrderBy(r => r.Name);
+            }
+        }
+
+        public IQueryable<UserResource> AllUserResources
+        {
+            get
+            {
+                return _context
+               .Set<UserResource>()
+               .OrderBy(r => r.ID);
             }
         }
     }

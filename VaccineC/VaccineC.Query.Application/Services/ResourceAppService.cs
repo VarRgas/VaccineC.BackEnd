@@ -42,6 +42,26 @@ namespace VaccineC.Query.Application.Services
 
         }
 
+        public async Task<IEnumerable<ResourceViewModel>> GetByUserResource(Guid userId)
+        {
+
+            var userResources = await _queryContext.AllUserResources.Where(ur => ur.UsersId == userId).ToListAsync();
+
+            List<Guid> listResourcesId = new List<Guid>();
+
+            foreach (var userResource in userResources)
+            {
+                listResourcesId.Add(userResource.ResourcesId);
+            }
+
+            var resources = await _queryContext.AllResources
+                .Where(r => listResourcesId.Contains(r.ID)).ToListAsync();
+
+            var resourcesViewModel = resources.Select(r => _mapper.Map<ResourceViewModel>(r)).ToList();
+            return resourcesViewModel;
+
+        }
+
         public ResourceViewModel GetById(Guid id)
         {
             var resource = _mapper.Map<ResourceViewModel>(_queryContext.AllResources.Where(r => r.ID == id).First());

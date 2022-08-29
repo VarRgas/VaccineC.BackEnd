@@ -3,11 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Command.Domain.Entities;
+using VaccineC.Query.Application.ViewModels;
 using VaccineC.Security;
 
 namespace VaccineC.Command.Application.Commands.UserCommands
 {
-    public class AddUserCommandHandler : IRequestHandler<AddUserCommand, Guid>
+    public class AddUserCommandHandler : IRequestHandler<AddUserCommand, UserViewModel>
     {
         private readonly IUserRepository _userRepository;
         private readonly VaccineCCommandContext _ctx;
@@ -18,7 +19,7 @@ namespace VaccineC.Command.Application.Commands.UserCommands
             _ctx = ctx;
         }
 
-        public async Task<Guid> Handle(AddUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserViewModel> Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
 
             User newUser = new User(
@@ -29,12 +30,22 @@ namespace VaccineC.Command.Application.Commands.UserCommands
                 request.Situation,
                 request.FunctionUser,
                 DateTime.Now
-                );
+            );
 
             _userRepository.Add(newUser);
             await _userRepository.SaveChangesAsync();
-            return newUser.ID;
+
+            return new UserViewModel()
+            {
+                ID = newUser.ID,
+                Email = newUser.Email,
+                Password = newUser.Password,
+                Situation = newUser.Situation,
+                FunctionUser = newUser.FunctionUser,
+                PersonId = newUser.PersonId
+            };
 
         }
+
     }
 }
