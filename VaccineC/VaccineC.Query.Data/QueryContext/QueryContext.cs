@@ -54,6 +54,16 @@ namespace VaccineC.Query.Data.QueryContext
             }
         }
 
+        public IQueryable<CompaniesParameters> AllCompaniesParameters
+        {
+            get
+            {
+                return _context
+               .Set<CompaniesParameters>()
+               .Include(r => r.Company);
+            }
+        }
+
         public IQueryable<User> AllUsers
         {
             get

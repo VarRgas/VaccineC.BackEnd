@@ -5,11 +5,11 @@ namespace VaccineC.Query.Application.Queries.Company
 {
     public class GetCompanyByNameQuery : IRequest<IEnumerable<CompanyViewModel>>
     {
-        public string FantasyName { get; set; }
+        public string Name { get; set; }
 
         public GetCompanyByNameQuery(string name)
         {
-            FantasyName = name;
+            Name = name;
         }
     }
 }

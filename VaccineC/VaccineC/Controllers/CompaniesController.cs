@@ -43,6 +43,14 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{id}/GetCompaniesParametersByCompanyID")]
+        public async Task<IActionResult> GetCompaniesParametersByCompanyID(Guid id)
+        {
+            var command = new GetCompaniesParametersByCompanyIDQuery(id);
+            var result = await _mediator.Send(command);
+            return Ok(result); //amanda
+        }
+
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] CompanyViewModel company)
         {

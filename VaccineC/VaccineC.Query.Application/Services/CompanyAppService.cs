@@ -25,12 +25,22 @@ namespace VaccineC.Query.Application.Services
             return companiesViewModel;
         }
 
+        public async Task<IEnumerable<CompaniesParametersViewModel>> GetAllParametersByCompanyID(Guid id)
+        {
+            var companiesParams = await _queryContext.AllCompaniesParameters.ToListAsync();
+            var companiesparmsVm = companiesParams.Select(c => _mapper.Map<CompaniesParametersViewModel>(c))
+                .Where(c => c.ID.Equals(id))
+                .ToList();
+            return companiesparmsVm; //amanda
+        }
+
         public async Task<IEnumerable<CompanyViewModel>> GetByName(String name)
         {
 
             var companies = await _queryContext.AllCompanies.ToListAsync();
             var companiesViewModel = companies
-                .Select(r => _mapper.Map<CompanyViewModel>(r)).ToList();
+                .Select(r => _mapper.Map<CompanyViewModel>(r))
+                .Where(r => r.Person.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).ToList();
             return companiesViewModel;
 
         }

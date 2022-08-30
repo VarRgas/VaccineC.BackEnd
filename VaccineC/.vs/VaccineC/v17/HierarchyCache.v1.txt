@@ -3,38 +3,22 @@ i:{00000000-0000-0000-0000-000000000000}:VaccineC.sln
 ++VaccineC
 i:{00000000-0000-0000-0000-000000000000}:VaccineC
 ++Connected Services 
-<<<<<<< Updated upstream
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1426
+i:{7b92520d-392b-49e5-9781-301423974da0}:>1174
 ++Dependencies
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1425
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:>1840
-i:{ee839eca-915d-443b-92ab-e020633d8196}:>1643
-i:{f9009306-2168-409d-9a33-08961d36621c}:>2004
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:>1915
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:>1286
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>1598
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:>983
-=======
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1108
-++Dependencies
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1107
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:>968
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:>710
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>711
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:>712
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:>713
-i:{ee839eca-915d-443b-92ab-e020633d8196}:>804
-i:{f9009306-2168-409d-9a33-08961d36621c}:>895
->>>>>>> Stashed changes
+i:{7b92520d-392b-49e5-9781-301423974da0}:>1173
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:>894
+i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>858
+i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:>857
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:>940
+i:{ee839eca-915d-443b-92ab-e020633d8196}:>1035
+i:{f9009306-2168-409d-9a33-08961d36621c}:>942
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:>941
 ++Properties
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\properties\
 ++Controllers
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\controllers\
 ++CompaniesController.cs
-<<<<<<< Updated upstream
-=======
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\controllers\companiescontroller.cs
->>>>>>> Stashed changes
 ++LoginController.cs
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\controllers\logincontroller.cs
 ++PaymentFormsController.cs
@@ -45,6 +29,8 @@ i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\controllers\resourcescontroller.cs
 ++UsersController.cs
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\controllers\userscontroller.cs
+++UsersResourcesController.cs
+i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\controllers\usersresourcescontroller.cs
 ++appsettings.json
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\appsettings.json
 ++Program.cs
@@ -52,71 +38,38 @@ i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\
 ++Startup.cs
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\startup.cs
 ++No service dependencies discovered
-<<<<<<< Updated upstream
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1427
+i:{7b92520d-392b-49e5-9781-301423974da0}:>1175
 ++Analyzers
 i:{7b92520d-392b-49e5-9781-301423974da0}:analyzers
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:analyzers
-i:{ee839eca-915d-443b-92ab-e020633d8196}:analyzers
-i:{f9009306-2168-409d-9a33-08961d36621c}:analyzers
-=======
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1109
-++Analyzers
-i:{7b92520d-392b-49e5-9781-301423974da0}:analyzers
->>>>>>> Stashed changes
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:analyzers
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:analyzers
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:analyzers
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:analyzers
-<<<<<<< Updated upstream
-++Frameworks
-i:{7b92520d-392b-49e5-9781-301423974da0}:frameworks
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:frameworks
-i:{ee839eca-915d-443b-92ab-e020633d8196}:frameworks
-i:{f9009306-2168-409d-9a33-08961d36621c}:frameworks
-=======
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:analyzers
 i:{ee839eca-915d-443b-92ab-e020633d8196}:analyzers
 i:{f9009306-2168-409d-9a33-08961d36621c}:analyzers
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:analyzers
 ++Frameworks
 i:{7b92520d-392b-49e5-9781-301423974da0}:frameworks
->>>>>>> Stashed changes
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:frameworks
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:frameworks
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:frameworks
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:frameworks
-<<<<<<< Updated upstream
-++Packages
-i:{7b92520d-392b-49e5-9781-301423974da0}:packages
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:packages
-i:{ee839eca-915d-443b-92ab-e020633d8196}:packages
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:packages
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:packages
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:packages
-++Projects
-i:{7b92520d-392b-49e5-9781-301423974da0}:projects
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:projects
-i:{ee839eca-915d-443b-92ab-e020633d8196}:projects
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:projects
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:projects
-=======
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:frameworks
 i:{ee839eca-915d-443b-92ab-e020633d8196}:frameworks
 i:{f9009306-2168-409d-9a33-08961d36621c}:frameworks
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:frameworks
 ++Packages
 i:{7b92520d-392b-49e5-9781-301423974da0}:packages
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:packages
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:packages
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:packages
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:packages
 i:{ee839eca-915d-443b-92ab-e020633d8196}:packages
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:packages
 ++Projects
 i:{7b92520d-392b-49e5-9781-301423974da0}:projects
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:projects
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:projects
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:projects
 i:{ee839eca-915d-443b-92ab-e020633d8196}:projects
->>>>>>> Stashed changes
 ++launchSettings.json
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\properties\launchsettings.json
 ++appsettings.Development.json
@@ -135,50 +88,22 @@ i:{7b92520d-392b-49e5-9781-301423974da0}:c:\program files\dotnet\sdk\6.0.101\sdk
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.internal.sourcegenerator.transport.dll
 ++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-<<<<<<< Updated upstream
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-=======
->>>>>>> Stashed changes
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-<<<<<<< Updated upstream
-++Microsoft.CodeAnalysis.NetAnalyzers
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-=======
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
 i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
 i:{f9009306-2168-409d-9a33-08961d36621c}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
 ++Microsoft.CodeAnalysis.NetAnalyzers
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
->>>>>>> Stashed changes
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-<<<<<<< Updated upstream
-++Microsoft.EntityFrameworkCore.Analyzers
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.7\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.7\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.7\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.7\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.7\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-++Microsoft.Extensions.Logging.Generators
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-=======
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
 i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
 i:{f9009306-2168-409d-9a33-08961d36621c}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
 ++Microsoft.EntityFrameworkCore.Analyzers
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.7\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.7\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
@@ -191,127 +116,70 @@ i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\.nuget\packages\microso
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
 i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
->>>>>>> Stashed changes
 ++Microsoft.NET.Sdk.Razor.SourceGenerators
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
 ++System.Text.Json.SourceGeneration
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-<<<<<<< Updated upstream
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-=======
->>>>>>> Stashed changes
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-<<<<<<< Updated upstream
-=======
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
 i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
 i:{f9009306-2168-409d-9a33-08961d36621c}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
->>>>>>> Stashed changes
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
 ++Microsoft.AspNetCore.App
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\microsoft.aspnetcore.app
 ++Microsoft.NETCore.App
 i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\microsoft.netcore.app
-<<<<<<< Updated upstream
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\microsoft.netcore.app
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\microsoft.netcore.app
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\microsoft.netcore.app
-=======
->>>>>>> Stashed changes
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.security\microsoft.netcore.app
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\microsoft.netcore.app
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\microsoft.netcore.app
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\microsoft.netcore.app
-<<<<<<< Updated upstream
-++AutoMapper.Extensions.Microsoft.DependencyInjection (11.0.0)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>2067
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:>2014
-++MediatR.Extensions.Microsoft.DependencyInjection (10.0.1)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>2070
-++Microsoft.AspNetCore.Mvc.NewtonsoftJson (6.0.7)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>2069
-++Microsoft.EntityFrameworkCore (6.0.7)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>2065
-i:{ee839eca-915d-443b-92ab-e020633d8196}:>2107
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>2029
-++Microsoft.EntityFrameworkCore.Design (6.0.7)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>2068
-++Microsoft.EntityFrameworkCore.SqlServer (6.0.7)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>2066
-i:{ee839eca-915d-443b-92ab-e020633d8196}:>2108
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>2030
-=======
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\microsoft.netcore.app
 i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\microsoft.netcore.app
 i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\microsoft.netcore.app
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.security\microsoft.netcore.app
 ++AutoMapper.Extensions.Microsoft.DependencyInjection (11.0.0)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1206
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:>1181
+i:{7b92520d-392b-49e5-9781-301423974da0}:>1250
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:>1232
 ++MediatR.Extensions.Microsoft.DependencyInjection (10.0.1)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1209
+i:{7b92520d-392b-49e5-9781-301423974da0}:>1253
 ++Microsoft.AspNetCore.Mvc.NewtonsoftJson (6.0.7)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1208
+i:{7b92520d-392b-49e5-9781-301423974da0}:>1252
 ++Microsoft.EntityFrameworkCore (6.0.7)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1204
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>1135
-i:{ee839eca-915d-443b-92ab-e020633d8196}:>1161
+i:{7b92520d-392b-49e5-9781-301423974da0}:>1248
+i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>1198
+i:{ee839eca-915d-443b-92ab-e020633d8196}:>1191
 ++Microsoft.EntityFrameworkCore.Design (6.0.7)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1207
+i:{7b92520d-392b-49e5-9781-301423974da0}:>1251
 ++Microsoft.EntityFrameworkCore.SqlServer (6.0.7)
-i:{7b92520d-392b-49e5-9781-301423974da0}:>1205
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>1136
-i:{ee839eca-915d-443b-92ab-e020633d8196}:>1162
->>>>>>> Stashed changes
+i:{7b92520d-392b-49e5-9781-301423974da0}:>1249
+i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>1199
+i:{ee839eca-915d-443b-92ab-e020633d8196}:>1193
 ++VaccineC.Command.Application
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\bin\debug\net6.0\vaccinec.command.application.dll
+i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\vaccinec.command.application.csproj
 i:{9c305277-6380-4c21-86f4-632ccdcb0840}:VaccineC.Command.Application
 ++VaccineC.Command.Data
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\bin\debug\net6.0\vaccinec.command.data.dll
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\bin\debug\net6.0\vaccinec.command.data.dll
+i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\vaccinec.command.data.csproj
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\vaccinec.command.data.csproj
 i:{9c305277-6380-4c21-86f4-632ccdcb0840}:VaccineC.Command.Data
 ++VaccineC.Command.Domain
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\bin\debug\net6.0\vaccinec.command.domain.dll
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\bin\debug\net6.0\vaccinec.command.domain.dll
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\bin\debug\net6.0\vaccinec.command.domain.dll
+i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\vaccinec.command.domain.csproj
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\vaccinec.command.domain.csproj
+i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\vaccinec.command.domain.csproj
 i:{9c305277-6380-4c21-86f4-632ccdcb0840}:VaccineC.Command.Domain
 ++VaccineC.Query.Application
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\bin\debug\net6.0\vaccinec.query.application.dll
-<<<<<<< Updated upstream
+i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\vaccinec.query.application.csproj
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\vaccinec.query.application.csproj
 i:{63904c77-09ac-414d-b778-038cc78f8b7d}:VaccineC.Query.Application
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\bin\debug\net6.0\vaccinec.query.application.dll
-=======
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\bin\debug\net6.0\vaccinec.query.application.dll
-i:{63904c77-09ac-414d-b778-038cc78f8b7d}:VaccineC.Query.Application
->>>>>>> Stashed changes
 ++VaccineC.Query.Data
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\bin\debug\net6.0\vaccinec.query.data.dll
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\bin\debug\net6.0\vaccinec.query.data.dll
+i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\vaccinec.query.data.csproj
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\vaccinec.query.data.csproj
 i:{63904c77-09ac-414d-b778-038cc78f8b7d}:VaccineC.Query.Data
 ++VaccineC.Query.Model
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\bin\debug\net6.0\vaccinec.query.model.dll
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\bin\debug\net6.0\vaccinec.query.model.dll
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\bin\debug\net6.0\vaccinec.query.model.dll
+i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\vaccinec.query.model.csproj
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\vaccinec.query.model.csproj
+i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\vaccinec.query.model.csproj
 i:{63904c77-09ac-414d-b778-038cc78f8b7d}:VaccineC.Query.Model
-<<<<<<< Updated upstream
-++Query Stack
-i:{00000000-0000-0000-0000-000000000000}:Query Stack
-++Abstractions
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\abstractions\
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\
-++ICompanyAppService.cs
-=======
-++VaccineC.Security
-i:{00000000-0000-0000-0000-000000000000}:VaccineC.Security
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.security\bin\debug\net6.0\vaccinec.security.dll
-++PasswordManager.cs
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.security\passwordmanager.cs
-++BCrypt.Net-Next (4.0.3)
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:>1151
 ++Command Stack
 i:{00000000-0000-0000-0000-000000000000}:Command Stack
 ++Commands
@@ -334,33 +202,9 @@ i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\
 ++PaymentForm
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\paymentform\
-++AddPaymentFormCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\addpaymentformcommand.cs
-++AddPaymentFormCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\addpaymentformcommandhandler.cs
-++DeletePaymentFormCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\deletepaymentformcommand.cs
-++DeletePaymentFormCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\deletepaymentformcommandhandler.cs
-++UpdatePaymentFormCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\updatepaymentformcommand.cs
-++UpdatePaymentFormCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\updatepaymentformcommandhandler.cs
 ++Resource
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\
-++AddResourceCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\addresourcecommand.cs
-++AddResourceCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\addresourcecommandhandler.cs
-++DeleteResourceCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\deleteresourcecommand.cs
-++DeleteResourceCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\deleteresourcecommandhandler.cs
-++UpdateResourceCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\updateresourcecommand.cs
-++UpdateResourceCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\updateresourcecommandhandler.cs
 ++UserCommands
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\
 ++AddUserCommand.cs
@@ -387,14 +231,51 @@ i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\updateusercommand.cs
 ++UpdateUserCommandHandler.cs
 i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\updateusercommandhandler.cs
+++UserResource
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\userresource\
+++AddUserResourceCommand.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\adduserresourcecommand.cs
+++AddUserResourceCommandHandler.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\adduserresourcecommandhandler.cs
+++DeleteUserResourceCommand.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\deleteuserresourcecommand.cs
+++DeleteUserResourceCommandHandler.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\deleteuserresourcecommandhandler.cs
+++UpdateUserResourceCommand.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\updateuserresourcecommand.cs
+++UpdateUserResourceCommandHandler.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\updateuserresourcecommandhandler.cs
+++AddPaymentFormCommand.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\addpaymentformcommand.cs
+++AddPaymentFormCommandHandler.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\addpaymentformcommandhandler.cs
+++DeletePaymentFormCommand.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\deletepaymentformcommand.cs
+++DeletePaymentFormCommandHandler.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\deletepaymentformcommandhandler.cs
+++UpdatePaymentFormCommand.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\updatepaymentformcommand.cs
+++UpdatePaymentFormCommandHandler.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\updatepaymentformcommandhandler.cs
+++AddResourceCommand.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\addresourcecommand.cs
+++AddResourceCommandHandler.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\addresourcecommandhandler.cs
+++DeleteResourceCommand.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\deleteresourcecommand.cs
+++DeleteResourceCommandHandler.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\deleteresourcecommandhandler.cs
+++UpdateResourceCommand.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\updateresourcecommand.cs
+++UpdateResourceCommandHandler.cs
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\updateresourcecommandhandler.cs
 ++MediatR (10.0.1)
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:>1132
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:>1182
+i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:>1223
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:>1233
 ++Context
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\context\
 i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\context\
-++VaccineCCommandContext.cs
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\context\vaccineccommandcontext.cs
 ++Repositories
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\
@@ -410,9 +291,13 @@ i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\resourcerepository.cs
 ++UserRepository.cs
 i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\userrepository.cs
+++UserResourceRepository.cs
+i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\userresourcerepository.cs
+++VaccineCCommandContext.cs
+i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\context\vaccineccommandcontext.cs
 ++Microsoft.EntityFrameworkCore.Tools (6.0.7)
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>1137
-i:{ee839eca-915d-443b-92ab-e020633d8196}:>1163
+i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>1200
+i:{ee839eca-915d-443b-92ab-e020633d8196}:>1194
 ++Abstractions
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\
@@ -429,6 +314,8 @@ i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\iresourcerepository.cs
 ++IUserRepository.cs
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\iuserrepository.cs
+++IUserResourceRepository.cs
+i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\iuserresourcerepository.cs
 ++Entities
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\
 ++Company.cs
@@ -449,36 +336,15 @@ i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\
 ++User.cs
 i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\user.cs
 i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\user.cs
+++UserResource.cs
+i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\userresource.cs
+i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\userresource.cs
 ++Query Stack
 i:{00000000-0000-0000-0000-000000000000}:Query Stack
-++ICompanyAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\icompanyappservice.cs
->>>>>>> Stashed changes
-++IExampleAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\iexampleappservice.cs
-++IPaymentFormAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\ipaymentformappservice.cs
-++IPersonAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\ipersonappservice.cs
-++IResourceAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\iresourceappservice.cs
-++IUserAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\iuserappservice.cs
 ++Mapper
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\mapper\
-++QueryModelMapper.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\mapper\querymodelmapper.cs
 ++Queries
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\
-<<<<<<< Updated upstream
-++Company
-++GetCompanyByIdQuery.cs
-++GetCompanyByIdQueryHandler.cs
-++GetCompanyByNameQuery.cs
-++GetCompanyByNameQueryHandler.cs
-++GetCompanyListQuery.cs
-++GetCompanyListQueryHandler.cs
-=======
 ++GetCompanyByIdQuery.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\company\getcompanybyidquery.cs
 ++GetCompanyByIdQueryHandler.cs
@@ -491,21 +357,92 @@ i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\company\getcompanylistquery.cs
 ++GetCompanyListQueryHandler.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\company\getcompanylistqueryhandler.cs
->>>>>>> Stashed changes
 ++Example
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\
 ++Login
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\login\
+++Person
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\person\
+++GetResourceByIdQuery.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcebyidquery.cs
+++GetResourceByIdQueryHandler.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcebyidqueryhandler.cs
+++GetResourceByNameQuery.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcebynamequery.cs
+++GetResourceByNameQueryHandler.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcebynamequeryhandler.cs
+++GetResourceListByUserResourceQuery.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcelistbyuserresourcequery.cs
+++GetResourceListByUserResourceQueryHandler.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcelistbyuserresourcequeryhandler.cs
+++GetResourceListQuery.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcelistquery.cs
+++GetResourceListQueryHandler.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcelistqueryhandler.cs
+++User
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\user\
+++Services
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\
+++CompanyAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\companyappservice.cs
+++ExampleAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\exampleappservice.cs
+++PaymentFormAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\paymentformappservice.cs
+++PersonAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\personappservice.cs
+++ResourceAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\resourceappservice.cs
+++UserAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\userappservice.cs
+++UserResourceAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\userresourceappservice.cs
+++ViewModels
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\
+++CompanyViewModel.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\companyviewmodel.cs
+++ExampleViewModel.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\exampleviewmodel.cs
+++LoginViewModel.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\loginviewmodel.cs
+++PaymentFormViewModel.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\paymentformviewmodel.cs
+++PersonViewModel.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\personviewmodel.cs
+++ResourceViewModel.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\resourceviewmodel.cs
+++UserResourceViewModel.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\userresourceviewmodel.cs
+++UserViewModel.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\userviewmodel.cs
+++ICompanyAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\icompanyappservice.cs
+++IExampleAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\iexampleappservice.cs
+++IPaymentFormAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\ipaymentformappservice.cs
+++IPersonAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\ipersonappservice.cs
+++IResourceAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\iresourceappservice.cs
+++IUserAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\iuserappservice.cs
+++IUserResourceAppService.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\iuserresourceappservice.cs
+++QueryModelMapper.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\mapper\querymodelmapper.cs
+++GetExampleByIDQuery.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplebyidquery.cs
+++GetExampleByIdQueryHandler.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplebyidqueryhandler.cs
+++GetExampleListQuery.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplelistquery.cs
+++GetExampleListQueryHandler.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplelistqueryhandler.cs
 ++LoginQuery.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\login\loginquery.cs
 ++LoginQueryHandler.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\login\loginqueryhandler.cs
-<<<<<<< Updated upstream
-++PaymentForm
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\paymentform\
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\
-=======
->>>>>>> Stashed changes
 ++GetPaymentFormByIdQuery.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\paymentform\getpaymentformbyidquery.cs
 ++GetPaymentFormByIdQueryHandler.cs
@@ -518,39 +455,6 @@ i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\paymentform\getpaymentformlistquery.cs
 ++GetPaymentFormListQueryHandler.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\paymentform\getpaymentformlistqueryhandler.cs
-++Person
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\person\
-<<<<<<< Updated upstream
-++Resource
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\
-++User
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\user\
-++Services
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\
-++CompanyAppService.cs
-++ExampleAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\exampleappservice.cs
-++PaymentFormAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\paymentformappservice.cs
-++PersonAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\personappservice.cs
-++ResourceAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\resourceappservice.cs
-++UserAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\userappservice.cs
-++ViewModels
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\
-++GetExampleByIDQuery.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplebyidquery.cs
-++GetExampleByIdQueryHandler.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplebyidqueryhandler.cs
-++GetExampleListQuery.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplelistquery.cs
-++GetExampleListQueryHandler.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplelistqueryhandler.cs
-=======
->>>>>>> Stashed changes
 ++GetPersonListByTypeQuery.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\person\getpersonlistbytypequery.cs
 ++GetPersonListByTypeQueryHandler.cs
@@ -559,23 +463,6 @@ i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\person\getpersonlistquery.cs
 ++GetPersonListQueryHandler.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\person\getpersonlistqueryhandler.cs
-++GetResourceByIdQuery.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcebyidquery.cs
-++GetResourceByIdQueryHandler.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcebyidqueryhandler.cs
-++GetResourceByNameQuery.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcebynamequery.cs
-++GetResourceByNameQueryHandler.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcebynamequeryhandler.cs
-++GetResourceListQuery.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcelistquery.cs
-++GetResourceListQueryHandler.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcelistqueryhandler.cs
-<<<<<<< Updated upstream
-=======
-++User
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\user\
->>>>>>> Stashed changes
 ++GetUserByEmailQuery.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\user\getuserbyemailquery.cs
 ++GetUserByEmailQueryHandler.cs
@@ -592,216 +479,6 @@ i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\user\getuserlistquery.cs
 ++GetUserListQueryHandler.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\user\getuserlistqueryhandler.cs
-<<<<<<< Updated upstream
-++CompanyViewModel.cs
-=======
-++Services
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\
-++CompanyAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\companyappservice.cs
-++ExampleAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\exampleappservice.cs
-++PaymentFormAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\paymentformappservice.cs
-++PersonAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\personappservice.cs
-++ResourceAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\resourceappservice.cs
-++UserAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\userappservice.cs
-++ViewModels
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\
-++CompanyViewModel.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\companyviewmodel.cs
->>>>>>> Stashed changes
-++ExampleViewModel.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\exampleviewmodel.cs
-++LoginViewModel.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\loginviewmodel.cs
-++PaymentFormViewModel.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\paymentformviewmodel.cs
-++PersonViewModel.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\personviewmodel.cs
-++ResourceViewModel.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\resourceviewmodel.cs
-++UserViewModel.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\userviewmodel.cs
-<<<<<<< Updated upstream
-++MediatR (10.0.1)
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:>2015
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:>2043
-++VaccineC.Security
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.security\bin\debug\net6.0\vaccinec.security.dll
-i:{00000000-0000-0000-0000-000000000000}:VaccineC.Security
-++Context
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\context\
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\context\
-=======
-++GetExampleByIDQuery.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplebyidquery.cs
-++GetExampleByIdQueryHandler.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplebyidqueryhandler.cs
-++GetExampleListQuery.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplelistquery.cs
-++GetExampleListQueryHandler.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\example\getexamplelistqueryhandler.cs
->>>>>>> Stashed changes
-++VaccineCContext.cs
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\context\vaccineccontext.cs
-++Migrations
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\migrations\
-++QueryContext
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\querycontext\
-++QueryContext.cs
-i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\querycontext\querycontext.cs
-<<<<<<< Updated upstream
-++Microsoft.EntityFrameworkCore.Tools (6.0.7)
-i:{ee839eca-915d-443b-92ab-e020633d8196}:>2109
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:>2031
-=======
->>>>>>> Stashed changes
-++IQueryContext.cs
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\abstractions\iquerycontext.cs
-++Models
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\
-<<<<<<< Updated upstream
-++Company.cs
-++Example.cs
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\example.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\example.cs
-++PaymentForm.cs
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\paymentform.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\paymentform.cs
-++Person.cs
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\person.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\person.cs
-++Resource.cs
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\resource.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\resource.cs
-++User.cs
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\user.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\user.cs
-++PasswordManager.cs
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.security\passwordmanager.cs
-++BCrypt.Net-Next (4.0.3)
-i:{120b25c9-027b-4b28-b169-7c79a135ad18}:>2085
-++Command Stack
-i:{00000000-0000-0000-0000-000000000000}:Command Stack
-++Commands
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\
-++AddCompanyCommand.cs
-++AddCompanyCommandHandler.cs
-++DeleteCompanyCommand.cs
-++DeleteCompanyCommandHandler.cs
-++UpdateCompanyCommand.cs
-++UpdateCompanyCommandHandler.cs
-++UserCommands
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\
-++AddPaymentFormCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\addpaymentformcommand.cs
-++AddPaymentFormCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\addpaymentformcommandhandler.cs
-++DeletePaymentFormCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\deletepaymentformcommand.cs
-++DeletePaymentFormCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\deletepaymentformcommandhandler.cs
-++UpdatePaymentFormCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\updatepaymentformcommand.cs
-++UpdatePaymentFormCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\paymentform\updatepaymentformcommandhandler.cs
-++AddResourceCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\addresourcecommand.cs
-++AddResourceCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\addresourcecommandhandler.cs
-++DeleteResourceCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\deleteresourcecommand.cs
-++DeleteResourceCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\deleteresourcecommandhandler.cs
-++UpdateResourceCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\updateresourcecommand.cs
-++UpdateResourceCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\resource\updateresourcecommandhandler.cs
-++AddUserCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\addusercommand.cs
-++AddUserCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\addusercommandhandler.cs
-++DeleteUserCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\deleteusercommand.cs
-++DeleteUserCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\deleteusercommandhandler.cs
-++ResetPasswordUserCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\resetpasswordusercommand.cs
-++ResetPasswordUserCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\resetpasswordusercommandhandler.cs
-++UpdateActivateUserSituationCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\updateactivateusersituationcommand.cs
-++UpdateActivateUserSituationCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\updateactivateusersituationcommandhandler.cs
-++UpdateDeactivateUserSituationCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\updatedeactivateusersituationcommand.cs
-++UpdateDeactivateUserSituationCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\updatedeactivateusersituationcommandhandler.cs
-++UpdateUserCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\updateusercommand.cs
-++UpdateUserCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\usercommands\updateusercommandhandler.cs
-++Repositories
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\
-++VaccineCCommandContext.cs
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\context\vaccineccommandcontext.cs
-++CompanyRepository.cs
-++PaymentFormRepository.cs
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\paymentformrepository.cs
-++PersonRepository.cs
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\personrepository.cs
-++RepositoryBase.cs
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\repositorybase.cs
-++ResourceRepository.cs
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\resourcerepository.cs
-++UserRepository.cs
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\userrepository.cs
-++Entities
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\
-++ICompanyRepository.cs
-++IPaymentFormRepository.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\ipaymentformrepository.cs
-++IPersonRepository.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\ipersonrepository.cs
-++IRepositoryBase.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\irepositorybase.cs
-++IResourceRepository.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\iresourcerepository.cs
-++IUserRepository.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\iuserrepository.cs
-++UserResourceRepository.cs
-i:{a23f5e0b-e788-495b-9a4d-33b717b6788a}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.data\repositories\userresourcerepository.cs
-++UserResource
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\userresource\
-++AddUserResourceCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\adduserresourcecommand.cs
-++AddUserResourceCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\adduserresourcecommandhandler.cs
-++DeleteUserResourceCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\deleteuserresourcecommand.cs
-++DeleteUserResourceCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\deleteuserresourcecommandhandler.cs
-++UpdateUserResourceCommand.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\updateuserresourcecommand.cs
-++UpdateUserResourceCommandHandler.cs
-i:{d5bbc507-7337-4645-a6b3-e75b96c2e9d3}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.application\commands\userresource\updateuserresourcecommandhandler.cs
-++IUserResourceRepository.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\abstractions\repositories\iuserresourcerepository.cs
-++UserResource.cs
-i:{f5d54d98-c1c0-4e6b-91d3-5ee77917ed2f}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.command.domain\entities\userresource.cs
-i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\userresource.cs
-++IUserResourceAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\abstractions\iuserresourceappservice.cs
-++GetResourceListByUserResourceQuery.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcelistbyuserresourcequery.cs
-++GetResourceListByUserResourceQueryHandler.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\resource\getresourcelistbyuserresourcequeryhandler.cs
 ++GetUserResourceByIdQuery.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\userresource\getuserresourcebyidquery.cs
 ++GetUserResourceByIdQueryHandler.cs
@@ -818,11 +495,32 @@ i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\userresource\getuserresourcelistquery.cs
 ++GetUserResourceListQueryHandler.cs
 i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\userresource\getuserresourcelistqueryhandler.cs
-++UserResourceAppService.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\services\userresourceappservice.cs
-++UserResourceViewModel.cs
-i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\userresourceviewmodel.cs
-++UsersResourcesController.cs
-i:{7b92520d-392b-49e5-9781-301423974da0}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec\controllers\usersresourcescontroller.cs
-=======
->>>>>>> Stashed changes
+++VaccineC.Security
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.security\vaccinec.security.csproj
+i:{00000000-0000-0000-0000-000000000000}:VaccineC.Security
+++Migrations
+i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\migrations\
+++QueryContext
+i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\querycontext\
+++QueryContext.cs
+i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\querycontext\querycontext.cs
+++VaccineCContext.cs
+i:{ee839eca-915d-443b-92ab-e020633d8196}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.data\context\vaccineccontext.cs
+++IQueryContext.cs
+i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\abstractions\iquerycontext.cs
+++Models
+i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\
+++PasswordManager.cs
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.security\passwordmanager.cs
+++BCrypt.Net-Next (4.0.3)
+i:{120b25c9-027b-4b28-b169-7c79a135ad18}:>1182
+++GetCompaniesParametersByUserIDQuery.cs
+++GetCompaniesParametersByUserIDQueryHandler.cs
+++CompaniesParametersViewModel.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\viewmodels\companiesparametersviewmodel.cs
+++CompaniesParameters.cs
+i:{f9009306-2168-409d-9a33-08961d36621c}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.model\models\companiesparameters.cs
+++GetCompaniesParametersByCompanyIDQuery.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\company\getcompaniesparametersbyuseridquery.cs
+++GetCompaniesParametersByCompanyIDQueryHandler.cs
+i:{dc2e5ad1-d4db-4b26-8fa3-b97b42bebf81}:c:\users\varggu\onedrive - 2020 spaces\área de trabalho\guilherme vargas\vaccinec\vaccinec.backend\vaccinec\vaccinec.query.application\queries\company\getcompaniesparametersbyuseridqueryhandler.cs

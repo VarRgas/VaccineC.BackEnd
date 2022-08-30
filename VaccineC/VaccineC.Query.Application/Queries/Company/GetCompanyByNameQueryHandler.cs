@@ -15,7 +15,7 @@ namespace VaccineC.Query.Application.Queries.Company
 
         public async Task<IEnumerable<CompanyViewModel>> Handle(GetCompanyByNameQuery request, CancellationToken cancellationToken)
         {
-            return await _companyAppService.GetByName(request.FantasyName);
+            return await _companyAppService.GetByName(request.Name);
         }
 
     }

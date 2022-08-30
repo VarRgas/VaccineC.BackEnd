@@ -14,12 +14,12 @@ namespace VaccineC.Command.Domain.Entities
         public Guid PersonId { get; set; }
 
         [Column("details", TypeName = "varchar(255)")]
-        public string Details { get; set; }
+        public string? Details { get; set; }
 
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        public Company(Guid id, Guid personId, string details, DateTime register)
+        public Company(Guid id, Guid personId, string? details, DateTime register)
         {
             ID = id;
             PersonId = personId;
