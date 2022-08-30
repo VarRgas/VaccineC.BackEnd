@@ -21,3 +21,4 @@ C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Command.Domain\obj\
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Command.Domain\obj\Debug\net6.0\refint\VaccineC.Command.Domain.dll
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Command.Domain\obj\Debug\net6.0\VaccineC.Command.Domain.pdb
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Command.Domain\obj\Debug\net6.0\ref\VaccineC.Command.Domain.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Command.Domain\obj\Debug\net6.0\VaccineC.Command.Domain.csproj.AssemblyReference.cache
