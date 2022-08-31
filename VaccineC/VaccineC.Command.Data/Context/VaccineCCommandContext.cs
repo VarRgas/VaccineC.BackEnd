@@ -33,6 +33,7 @@ namespace VaccineC.Command.Data.Context
             modelBuilder.Entity<Resource>().ToTable("Resources");
             modelBuilder.Entity<UserResource>().ToTable("UsersResources");
             modelBuilder.Entity<Company>().ToTable("Companies");
+            modelBuilder.Entity<CompaniesParameters>().ToTable("CompaniesParameters");
 
 
             base.OnModelCreating(modelBuilder);

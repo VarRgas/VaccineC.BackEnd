@@ -16,6 +16,7 @@ namespace VaccineC.Query.Application.Mapper
             CreateMap<Person, PersonViewModel>();
             CreateMap<UserResource, UserResourceViewModel>();
             CreateMap<Company, CompanyViewModel>();
+            CreateMap<CompaniesParameters, CompaniesParametersViewModel>();
         }
     }
 }
