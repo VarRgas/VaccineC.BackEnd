@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using VaccineC.Command.Application.Commands.CompanySchedule;
 using VaccineC.Query.Application.Queries.CompanySchedule;
 
 namespace VaccineC.Controllers
@@ -26,11 +27,28 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        // GET: api/<CompaniesSchedulesController>/5/GetAllCompaniesSchedulesByCompanyID
+        [HttpGet("{companyId}/GetAllCompaniesSchedulesByCompanyID")]
+        public async Task<IActionResult> GetAllCompaniesSchedulesByCompanyID(Guid companyId)
+        {
+            var command = new GetCompaniesSchedulesByCompanyIdQuery(companyId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // GET api/<CompaniesSchedulesController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var command = new GetCompanyScheduleByIdQuery(id);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}/Delete")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeleteCompanyScheduleCommand(id);
             var result = await _mediator.Send(command);
             return Ok(result);
         }

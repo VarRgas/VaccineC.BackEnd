@@ -25,6 +25,7 @@ namespace VaccineC.Command.Data.Context
         public DbSet<UserResource> UsersResources { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<CompanyParameter> CompaniesParameters { get; set; }
+        public DbSet<CompanySchedule> CompaniesSchedules { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +36,7 @@ namespace VaccineC.Command.Data.Context
             modelBuilder.Entity<UserResource>().ToTable("UsersResources");
             modelBuilder.Entity<Company>().ToTable("Companies");
             modelBuilder.Entity<CompanyParameter>().ToTable("CompaniesParameters");
+            modelBuilder.Entity<CompanySchedule>().ToTable("CompaniesSchedules");
 
             base.OnModelCreating(modelBuilder);
         }

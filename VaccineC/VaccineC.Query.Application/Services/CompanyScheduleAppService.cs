@@ -25,6 +25,14 @@ namespace VaccineC.Query.Application.Services
             return companiesSchedulesViewModel;
         }
 
+        public async Task<IEnumerable<CompanyScheduleViewModel>> GetAllCompaniesSchedulesByCompanyID(Guid companyId)
+        {
+            var companiesSchedules = await _queryContext.AllCompaniesSchedules.Where(ur => ur.CompanyId == companyId).ToListAsync();
+            var companiesSchedulesViewModel = companiesSchedules.Select(r => _mapper.Map<CompanyScheduleViewModel>(r)).ToList();
+            return companiesSchedulesViewModel;
+        }
+
+
         public CompanyScheduleViewModel GetById(Guid id)
         {
             var companySchedule = _mapper.Map<CompanyScheduleViewModel>(_queryContext.AllCompaniesSchedules.Where(r => r.ID == id).First());
