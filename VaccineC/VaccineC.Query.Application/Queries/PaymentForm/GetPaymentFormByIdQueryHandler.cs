@@ -1,7 +1,4 @@
 ﻿using MediatR;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Query.Application.Queries.PaymentForm
@@ -13,7 +10,7 @@ namespace VaccineC.Query.Application.Queries.PaymentForm
         public GetPaymentFormByIdQueryHandler(IMediator mediator)
         {
             _mediator = mediator;
-        }   
+        }
 
         public async Task<PaymentFormViewModel> Handle(GetPaymentFormByIdQuery request, CancellationToken cancellationToken)
         {

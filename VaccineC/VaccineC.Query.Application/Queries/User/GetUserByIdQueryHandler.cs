@@ -1,8 +1,4 @@
 ﻿using MediatR;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Query.Application.Queries.User

@@ -9,7 +9,8 @@ namespace VaccineC.Query.Application.Queries.UserResource
 
         private readonly IUserResourceAppService _userResourceAppService;
 
-        public GetUserResourceListQueryHandler(IUserResourceAppService userResourceAppService) {
+        public GetUserResourceListQueryHandler(IUserResourceAppService userResourceAppService)
+        {
             _userResourceAppService = userResourceAppService;
         }
 

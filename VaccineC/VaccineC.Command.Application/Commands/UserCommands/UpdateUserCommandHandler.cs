@@ -1,10 +1,6 @@
 ﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
-using VaccineC.Command.Domain.Entities;
 using VaccineC.Query.Application.ViewModels;
-using VaccineC.Security;
 
 namespace VaccineC.Command.Application.Commands.UserCommands
 {

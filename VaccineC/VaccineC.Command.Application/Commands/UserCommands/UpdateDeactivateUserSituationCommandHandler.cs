@@ -1,9 +1,6 @@
 ﻿using MediatR;
-using Microsoft.Data.SqlClient;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.ViewModels;
-using VaccineC.Query.Data.Context;
-using VaccineC.Security;
 
 namespace VaccineC.Command.Application.Commands.UserCommands
 {

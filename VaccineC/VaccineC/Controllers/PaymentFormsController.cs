@@ -1,8 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Threading.Tasks;
 using VaccineC.Command.Application.Commands.PaymentForm;
 using VaccineC.Query.Application.Queries.PaymentForm;
 using VaccineC.Query.Application.ViewModels;

@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Command.Domain.Entities;

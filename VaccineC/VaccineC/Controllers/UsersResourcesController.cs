@@ -1,9 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using VaccineC.Command.Application.Commands.UserCommands;
 using VaccineC.Command.Application.Commands.UserResource;
-using VaccineC.Query.Application.Queries.User;
 using VaccineC.Query.Application.Queries.UserResource;
 using VaccineC.Query.Application.ViewModels;
 

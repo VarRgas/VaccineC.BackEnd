@@ -9,7 +9,8 @@ namespace VaccineC.Command.Application.Commands.UserCommands
 
         private readonly IUserRepository _userRepository;
 
-        public UpdateActivateUserSituationCommandHandler(IUserRepository userRepository) { 
+        public UpdateActivateUserSituationCommandHandler(IUserRepository userRepository)
+        {
             _userRepository = userRepository;
         }
 

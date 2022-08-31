@@ -1,6 +1,4 @@
 ﻿using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 
 namespace VaccineC.Command.Application.Commands.Resource

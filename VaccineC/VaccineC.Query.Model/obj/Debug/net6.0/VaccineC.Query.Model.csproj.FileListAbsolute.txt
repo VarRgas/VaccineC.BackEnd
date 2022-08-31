@@ -22,3 +22,15 @@ C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Model\obj\Deb
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.pdb
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\ref\VaccineC.Query.Model.dll
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.csproj.AssemblyReference.cache
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\bin\Debug\net6.0\VaccineC.Query.Model.deps.json
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\bin\Debug\net6.0\VaccineC.Query.Model.dll
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\bin\Debug\net6.0\VaccineC.Query.Model.pdb
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.csproj.AssemblyReference.cache
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.AssemblyInfoInputs.cache
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.AssemblyInfo.cs
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.csproj.CoreCompileInputs.cache
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.dll
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\refint\VaccineC.Query.Model.dll
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.pdb
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\ref\VaccineC.Query.Model.dll

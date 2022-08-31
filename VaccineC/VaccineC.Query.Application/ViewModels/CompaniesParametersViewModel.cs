@@ -10,7 +10,6 @@ namespace VaccineC.Query.Application.ViewModels
         public int MaximumDaysBudgetValidity { get; set; }
         public DateTime Register { get; set; }
         public string ScheduleColor { get; set; }
-        public DateTime Details { get; set; }
         public Company? Company { get; set; }
     }
 }

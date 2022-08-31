@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.Data.SqlClient;
 using VaccineC.Query.Application.ViewModels;
 using VaccineC.Query.Data.Context;
 using VaccineC.Security;

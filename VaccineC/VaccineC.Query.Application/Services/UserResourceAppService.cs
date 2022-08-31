@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
 using VaccineC.Query.Model.Abstractions;

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VaccineC.Command.Domain.Entities
 {
-    public class CompaniesParameters
+    public class CompanyParameter
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -25,7 +25,7 @@ namespace VaccineC.Command.Domain.Entities
         [Column("scheduleColor", TypeName = "Varchar(60)")]
         public string ScheduleColor { get; set; }
 
-        public CompaniesParameters(Guid id, Guid companyId, int applicationTimePerMinute, int maximumDaysBudgetValidity, DateTime register, string scheduleColor)
+        public CompanyParameter(Guid id, Guid companyId, int applicationTimePerMinute, int maximumDaysBudgetValidity, DateTime register, string scheduleColor)
         {
             ID = id;
             CompanyId = companyId;
@@ -34,7 +34,7 @@ namespace VaccineC.Command.Domain.Entities
             Register = register;
             ScheduleColor = scheduleColor;
         }
-        public CompaniesParameters()
+        public CompanyParameter()
         {
 
         }

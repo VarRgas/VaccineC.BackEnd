@@ -25,20 +25,10 @@ namespace VaccineC.Query.Application.Services
             return companiesViewModel;
         }
 
-        public async Task<IEnumerable<CompaniesParametersViewModel>> GetAllParametersByCompanyID(Guid id)
+        public async Task<IEnumerable<CompaniesParametersViewModel>> GetAllParametersByCompanyID(Guid companyId)
         {
-            var companiesParams = await _queryContext.AllCompaniesParameters.Where(ur => ur.CompanyId == id).ToListAsync();
-
-            List<Guid> listCompaniesId = new List<Guid>();
-
-            foreach (var item in companiesParams)
-            {
-                listCompaniesId.Add(item.CompanyId);
-            }
-
-            var companies = await _queryContext.AllResources.Where(r => listCompaniesId.Contains(r.ID)).ToListAsync();
-
-            var companiesViewModel = companies.Select(r => _mapper.Map<CompaniesParametersViewModel>(r)).ToList();
+            var companiesParams = await _queryContext.AllCompaniesParameters.Where(ur => ur.CompanyId == companyId).ToListAsync();
+            var companiesViewModel = companiesParams.Select(r => _mapper.Map<CompaniesParametersViewModel>(r)).ToList();
             return companiesViewModel;
         }
 
@@ -58,5 +48,6 @@ namespace VaccineC.Query.Application.Services
             var company = _mapper.Map<CompanyViewModel>(_queryContext.AllCompanies.Where(r => r.ID == id).First());
             return company;
         }
+
     }
 }

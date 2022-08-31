@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using System.Collections;
 using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.UserResource

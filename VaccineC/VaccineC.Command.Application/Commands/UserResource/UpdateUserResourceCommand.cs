@@ -17,6 +17,6 @@ namespace VaccineC.Command.Application.Commands.UserResource
             ResourcesId = resourcesId;
             Register = register;
         }
-    
+
     }
 }

@@ -19,7 +19,8 @@ namespace VaccineC.Command.Domain.Entities
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        public UserResource(Guid id, Guid usersId, Guid resourcesId, DateTime register) {
+        public UserResource(Guid id, Guid usersId, Guid resourcesId, DateTime register)
+        {
             ID = id;
             UsersId = usersId;
             ResourcesId = resourcesId;

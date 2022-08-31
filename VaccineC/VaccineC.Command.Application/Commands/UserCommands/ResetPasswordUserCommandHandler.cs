@@ -10,7 +10,8 @@ namespace VaccineC.Command.Application.Commands.UserCommands
 
         private readonly IUserRepository _userRepository;
 
-        public ResetPasswordUserCommandHandler(IUserRepository userRepository) { 
+        public ResetPasswordUserCommandHandler(IUserRepository userRepository)
+        {
             _userRepository = userRepository;
         }
 

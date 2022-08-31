@@ -1,5 +1,5 @@
-﻿using VaccineC.Query.Application.ViewModels;
-using MediatR;
+﻿using MediatR;
+using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Query.Application.Queries.PaymentForm
 {
