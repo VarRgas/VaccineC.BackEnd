@@ -42,7 +42,6 @@ namespace VaccineC.Controllers
         {
             try
             {
-
                 var command = new AddCompanyParameterCommand(
                     companyParameter.ID,
                     companyParameter.CompanyId,
@@ -50,8 +49,7 @@ namespace VaccineC.Controllers
                     companyParameter.MaximumDaysBudgetValidity,
                     companyParameter.Register,
                     companyParameter.ScheduleColor
-                );
-
+                    );
                 var result = await _mediator.Send(command);
                 return Ok(result);
             }

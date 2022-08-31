@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using VaccineC.Command.Application.Commands.CompanySchedule;
 using VaccineC.Query.Application.Queries.CompanySchedule;
+using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Controllers
 {
@@ -43,6 +44,22 @@ namespace VaccineC.Controllers
             var command = new GetCompanyScheduleByIdQuery(id);
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+        // POST api/<ResourcesController>/CreateOnDemand
+        [HttpPost("CreateOnDemand")]
+        public async Task<IActionResult> CreateOnDemand([FromBody] List<CompanyScheduleViewModel> listCompanyScheduleViewModel)
+        {
+            try
+            {
+                var command = new AddCompanyScheduleOnDemandCommand(listCompanyScheduleViewModel);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}/Delete")]
