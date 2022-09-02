@@ -25,11 +25,11 @@ namespace VaccineC.Query.Application.Services
             return companiesViewModel;
         }
 
-        public async Task<IEnumerable<CompaniesParametersViewModel>> GetAllParametersByCompanyID(Guid companyId)
+        public async Task <CompaniesParametersViewModel> GetAllParametersByCompanyID(Guid companyId)
         {
-            var companiesParams = await _queryContext.AllCompaniesParameters.Where(ur => ur.CompanyId == companyId).ToListAsync();
-            var companiesViewModel = companiesParams.Select(r => _mapper.Map<CompaniesParametersViewModel>(r)).ToList();
-            return companiesViewModel;
+            var companiesParameters = await _queryContext.AllCompaniesParameters.Where(ur => ur.CompanyId == companyId).ToListAsync();
+            var companyParameter = companiesParameters.Select(r => _mapper.Map<CompaniesParametersViewModel>(r)).FirstOrDefault();
+            return companyParameter;
         }
 
         public async Task<IEnumerable<CompanyViewModel>> GetByName(String name)
