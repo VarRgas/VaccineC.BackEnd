@@ -71,5 +71,16 @@ namespace VaccineC.Query.Application.Services
             return Task.FromResult(response);
         }
 
+        public async Task<IEnumerable<PersonViewModel>> GetByName(String name)
+        {
+
+            var persons = await _queryContext.AllPersons.ToListAsync();
+            var personsViewModel = persons
+                .Select(r => _mapper.Map<PersonViewModel>(r))
+                .Where(r => r.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            return personsViewModel;
+
+        }
+
     }
 }

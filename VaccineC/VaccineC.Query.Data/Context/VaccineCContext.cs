@@ -13,6 +13,8 @@ namespace VaccineC.Query.Data.Context
 
         public DbSet<User> Users { get; set; }
         public DbSet<Person> Persons { get; set; }
+        public DbSet<PersonsPhysical> PersonsPhysical { get; set; }
+        public DbSet<PersonsJuridical> PersonsJuridical { get; set; }
         public DbSet<PaymentForm> PaymentForms { get; set; }
         public DbSet<Resource> Resources { get; set; }
         public DbSet<UserResource> UsersResources { get; set; }
@@ -24,6 +26,8 @@ namespace VaccineC.Query.Data.Context
         {
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Person>().ToTable("Persons");
+            modelBuilder.Entity<PersonsPhysical>().ToTable("PersonsPhysical");
+            modelBuilder.Entity<PersonsJuridical>().ToTable("PersonsJuridical");
             modelBuilder.Entity<PaymentForm>().ToTable("PaymentForms");
             modelBuilder.Entity<Resource>().ToTable("Resources");
             modelBuilder.Entity<UserResource>().ToTable("UsersResources");

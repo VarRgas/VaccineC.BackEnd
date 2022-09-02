@@ -33,7 +33,7 @@ namespace VaccineC.Command.Domain.Entities
         public DateTime Register { get; set; }
 
 
-        public Person(Guid id, string personType, string name, DateTime commemorativeDate, string email, string profilePic, string details, DateTime register)
+        public Person(Guid id, string personType, string name, DateTime? commemorativeDate, string? email, string? profilePic, string? details, DateTime register)
         {
             ID = id;
             PersonType = personType;
@@ -58,22 +58,22 @@ namespace VaccineC.Command.Domain.Entities
             PersonType = personType;
         }
 
-        public void SetCommemorativeDate(DateTime commemorativeDate)
+        public void SetCommemorativeDate(DateTime? commemorativeDate)
         {
             CommemorativeDate = commemorativeDate;
         }
 
-        public void SetEmail(string email)
+        public void SetEmail(string? email)
         {
             Email = email;
         }
 
-        public void SetProfilePic(string profilePic)
+        public void SetProfilePic(string? profilePic)
         {
             ProfilePic = profilePic;
         }
 
-        public void SetDetails(string details)
+        public void SetDetails(string? details)
         {
             Details = details;
         }

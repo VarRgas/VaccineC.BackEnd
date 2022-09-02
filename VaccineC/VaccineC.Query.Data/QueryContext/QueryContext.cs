@@ -91,6 +91,8 @@ namespace VaccineC.Query.Data.QueryContext
             {
                 return _context
                .Set<Person>()
+               .Include(r => r.PersonsJuridical)
+               .Include(r => r.PersonsPhysical)
                .OrderBy(r => r.Name);
             }
         }

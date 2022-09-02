@@ -8,6 +8,7 @@ namespace VaccineC.Query.Application.Abstractions
         Task<IEnumerable<PersonViewModel>> GetAllUserAutocomplete();
         Task<IEnumerable<PersonViewModel>> GetAllCompanyAutocomplete();
         Task<IEnumerable<PersonViewModel>> GetAllByType(string personType);
+        Task<IEnumerable<PersonViewModel>> GetByName(String name);
 
     }
 }

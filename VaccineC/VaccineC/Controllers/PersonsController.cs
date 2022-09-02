@@ -1,6 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using VaccineC.Command.Application.Commands.Person;
 using VaccineC.Query.Application.Queries.Person;
+using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Controllers
 
@@ -17,7 +20,6 @@ namespace VaccineC.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/<PersonsController>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -26,7 +28,6 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET: api/<PersonsController>/Info/GetAllByType
         [HttpGet("{personType}/GetAllByType")]
         public async Task<IActionResult> GetAllByType(string personType)
         {
@@ -35,7 +36,78 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET: api/<PersonsController>/GetAllUserAutocomplete
+        [HttpGet("{name}/GetByName")]
+        public async Task<IActionResult> GetByName(string name)
+        {
+            var command = new GetPersonListByNameQuery(name);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var command = new GetPersonByIdQuery(id);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([FromBody] PersonViewModel person)
+        {
+            try
+            {
+                var command = new AddPersonCommand(
+                    person.ID,
+                    person.PersonType,
+                    person.Name,
+                    person.CommemorativeDate,
+                    person.Email,
+                    person.ProfilePic,
+                    person.Details,
+                    person.Register
+                );
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}/Update")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] PersonViewModel person)
+        {
+            try
+            {
+                var command = new UpdatePersonCommand(
+                    id,
+                    person.PersonType,
+                    person.Name,
+                    person.CommemorativeDate,
+                    person.Email,
+                    person.ProfilePic,
+                    person.Details,
+                    person.Register
+                );
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Conflict(ex);
+            }
+        }
+
+        [HttpDelete("{id}/Delete")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeletePersonCommand(id);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpGet, Route("GetAllUserAutocomplete")]
         public async Task<IActionResult> GetAllUserAutocomplete()
         {
@@ -44,7 +116,6 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET: api/<PersonsController>/GetAllCompanyAutocomplete
         [HttpGet, Route("GetAllCompanyAutocomplete")]
         public async Task<IActionResult> GetAllCompanyAutocomplete()
         {

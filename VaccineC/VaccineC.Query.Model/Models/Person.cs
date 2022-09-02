@@ -10,6 +10,8 @@
         public string? ProfilePic { get; set; }
         public string? Details { get; set; }
         public DateTime Register { get; set; }
+        public PersonsJuridical? PersonsJuridical { get; set; }
+        public PersonsPhysical? PersonsPhysical { get; set; }
 
     }
 }
