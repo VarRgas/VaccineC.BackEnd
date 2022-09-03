@@ -52,6 +52,7 @@ namespace VaccineC
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICompanyParameterRepository, CompanyParameterRepository>();
             services.AddScoped<ICompanyScheduleRepository, CompanyScheduleRepository>();
+            services.AddScoped<IPersonPhoneRepository, PersonPhoneRepository>();
 
             //AppServices
             services.AddScoped<IExampleAppService, ExampleAppService>();
