@@ -59,8 +59,7 @@ namespace VaccineC.Query.Data.QueryContext
             get
             {
                 return _context
-               .Set<CompanyParameter>()
-               .Include(r => r.Company);
+               .Set<CompanyParameter>();
             }
         }
 
@@ -70,7 +69,7 @@ namespace VaccineC.Query.Data.QueryContext
             {
                 return _context
                .Set<CompanySchedule>()
-              .OrderBy(r => r.Day);
+               .OrderBy(r => r.Day);
             }
         }
 

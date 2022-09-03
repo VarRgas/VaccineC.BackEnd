@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Application.Commands.CompanySchedule;
 using VaccineC.Query.Application.Queries.CompanySchedule;
 using VaccineC.Query.Application.ViewModels;
@@ -59,6 +60,30 @@ namespace VaccineC.Controllers
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        // POST api/<CompaniesSchedulesController>/Update
+        [HttpPut("{id}/Update")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] CompanyScheduleViewModel companySchedule)
+        {
+            try
+            {
+                var command = new UpdateCompanyScheduleCommand(
+                    id, 
+                    companySchedule.CompanyId, 
+                    companySchedule.Day, 
+                    companySchedule.StartTime, 
+                    companySchedule.FinalTime, 
+                    companySchedule.Register
+                );
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Conflict(ex);
             }
         }
 

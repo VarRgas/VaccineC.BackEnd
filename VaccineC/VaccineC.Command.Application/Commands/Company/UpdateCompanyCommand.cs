@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.Company
 {
-    public class UpdateCompanyCommand : IRequest<Guid>
+    public class UpdateCompanyCommand : IRequest<CompanyViewModel>
     {
         public Guid ID;
         public Guid PersonId { get; set; }

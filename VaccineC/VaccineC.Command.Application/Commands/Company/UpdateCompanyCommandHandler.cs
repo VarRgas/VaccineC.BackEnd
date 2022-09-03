@@ -1,28 +1,39 @@
 ﻿using MediatR;
 using VaccineC.Command.Domain.Abstractions.Repositories;
+using VaccineC.Query.Application.ViewModels;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using VaccineC.Query.Model.Abstractions;
 
 namespace VaccineC.Command.Application.Commands.Company
 {
-    public class UpdateCompanyCommandHandler : IRequestHandler<UpdateCompanyCommand, Guid>
+    public class UpdateCompanyCommandHandler : IRequestHandler<UpdateCompanyCommand, CompanyViewModel>
     {
         private readonly ICompanyRepository _companyRepository;
+        private readonly IQueryContext _queryContext;
+        private readonly IMapper _mapper;
 
-        public UpdateCompanyCommandHandler(ICompanyRepository companyRepository)
+        public UpdateCompanyCommandHandler(ICompanyRepository companyRepository, IQueryContext queryContext, IMapper mapper)
         {
             _companyRepository = companyRepository;
+            _queryContext = queryContext;
+            _mapper = mapper;
         }
 
-        public async Task<Guid> Handle(UpdateCompanyCommand request, CancellationToken cancellationToken)
+        public async Task<CompanyViewModel> Handle(UpdateCompanyCommand request, CancellationToken cancellationToken)
         {
 
-            var user = _companyRepository.GetById(request.ID);
-            user.SetPersonId(request.PersonId);
-            user.SetDetails(request.Details);
-            user.SetRegister(DateTime.Now);
+            var updatedCompany = _companyRepository.GetById(request.ID);
+            updatedCompany.SetPersonId(request.PersonId);
+            updatedCompany.SetDetails(request.Details);
+            updatedCompany.SetRegister(DateTime.Now);
 
             await _companyRepository.SaveChangesAsync();
 
-            return user.ID;
+            var companies = await _queryContext.AllCompanies.Where(c => c.ID == updatedCompany.ID).ToListAsync();
+            var company = companies.Select(r => _mapper.Map<CompanyViewModel>(r)).FirstOrDefault();
+
+            return company;
 
         }
     }
