@@ -20,6 +20,8 @@ namespace VaccineC.Query.Application.Mapper
             CreateMap<Company, CompanyViewModel>();
             CreateMap<CompanyParameter, CompaniesParametersViewModel>();
             CreateMap<CompanySchedule, CompanyScheduleViewModel>();
+            CreateMap<PersonPhone, PersonPhoneViewModel>();
+            CreateMap<PersonAddress, PersonAddressViewModel>();
         }
     }
 }

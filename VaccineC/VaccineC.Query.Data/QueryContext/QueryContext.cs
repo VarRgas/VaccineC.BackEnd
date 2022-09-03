@@ -96,6 +96,17 @@ namespace VaccineC.Query.Data.QueryContext
             }
         }
 
+        public IQueryable<PersonPhone> AllPersonsPhones
+        {
+            get
+            {
+                return _context
+               .Set<PersonPhone>()
+               .OrderBy(r => r.CodeArea)
+               .OrderBy(r => r.NumberPhone);
+            }
+        }
+
         public IQueryable<UserResource> AllUserResources
         {
             get
@@ -103,6 +114,15 @@ namespace VaccineC.Query.Data.QueryContext
                 return _context
                .Set<UserResource>()
                .OrderBy(r => r.ID);
+            }
+        }
+
+        public IQueryable<PersonAddress> AllPersonsAddresses
+        {
+            get
+            {
+                return _context
+               .Set<PersonAddress>();
             }
         }
     }
