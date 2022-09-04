@@ -114,5 +114,13 @@ namespace VaccineC.Controllers
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
+        [HttpGet("{personId}/GetPrincipalPersonAddress")]
+        public async Task<IActionResult> GetPrincipalPersonAddress(Guid personId)
+        {
+            var command = new GetPrincipalPersonAddressByPersonIdQuery(personId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
     }
 }
