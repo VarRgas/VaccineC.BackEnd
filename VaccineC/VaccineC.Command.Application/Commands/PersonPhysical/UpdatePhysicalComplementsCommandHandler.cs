@@ -23,8 +23,6 @@ namespace VaccineC.Command.Application.Commands.PersonPhysical
             physicalComplements.SetGender(request.Gender);
             physicalComplements.SetDeathDate(request.DeathDate);
             physicalComplements.SetRegister(DateTime.Now);
-            physicalComplements.SetCNS(request.CpfNumber);
-            physicalComplements.SetCPF(request.CnsNumber);
 
             await _repository.SaveChangesAsync();
 

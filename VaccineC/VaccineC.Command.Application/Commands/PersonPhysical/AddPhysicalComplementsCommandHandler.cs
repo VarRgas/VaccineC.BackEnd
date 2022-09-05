@@ -5,7 +5,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.PersonPhysical
 {
-    public class AddPhysicalComplementsCommandHandler : IRequestHandler<AddPhysicalComplementsCommand, IEnumerable<PersonsPhysicalViewModel>>
+    public class AddPhysicalComplementsCommandHandler : IRequestHandler<AddPhysicalComplementsCommand, PersonsPhysicalViewModel>
     {
         private readonly IPersonPhysicalAppService _personPhysicalAppService;
         private readonly IPersonPhysicalRepository _repository;
@@ -15,7 +15,7 @@ namespace VaccineC.Command.Application.Commands.PersonPhysical
             _personPhysicalAppService = personPhysicalAppService;
             _repository = repository;
         }
-        public async Task<IEnumerable<PersonsPhysicalViewModel>> Handle(AddPhysicalComplementsCommand request, CancellationToken cancellationToken)
+        public async Task<PersonsPhysicalViewModel> Handle(AddPhysicalComplementsCommand request, CancellationToken cancellationToken)
         {
 
             Domain.Entities.PersonsPhysical newPersonsPhysical = new Domain.Entities.PersonsPhysical(
@@ -31,7 +31,18 @@ namespace VaccineC.Command.Application.Commands.PersonPhysical
 
             _repository.Add(newPersonsPhysical);
             await _repository.SaveChangesAsync();
-            return await _personPhysicalAppService.GetAllPhysicalComplementsByPersonId(newPersonsPhysical.ID);
+
+            return new PersonsPhysicalViewModel()
+            {
+                ID = newPersonsPhysical.ID,
+                PersonID = newPersonsPhysical.PersonId,
+                MaritalStatus = newPersonsPhysical.MaritalStatus,
+                Gender = newPersonsPhysical.Gender,
+                DeathDate = newPersonsPhysical.DeathDate,
+                Register = newPersonsPhysical.Register,
+                CnsNumber = newPersonsPhysical.CnsNumber,
+                CpfNumber = newPersonsPhysical.CpfNumber,
+            };
 
         }
     }

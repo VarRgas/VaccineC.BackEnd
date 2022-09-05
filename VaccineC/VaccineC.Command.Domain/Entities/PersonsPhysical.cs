@@ -63,12 +63,12 @@ namespace VaccineC.Command.Domain.Entities
             Register = register;
         }
 
-        public void SetCNS(string cns)
+        public void SetCNS(string? cns)
         {
             CnsNumber = cns;
         }
 
-        public void SetCPF(string cpf)
+        public void SetCPF(string? cpf)
         {
             CpfNumber = cpf;
         }

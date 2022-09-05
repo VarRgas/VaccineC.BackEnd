@@ -3,7 +3,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.PersonPhysical
 {
-    public class AddPhysicalComplementsCommand : IRequest<IEnumerable<PersonsPhysicalViewModel>>
+    public class AddPhysicalComplementsCommand : IRequest<PersonsPhysicalViewModel>
     {
         public Guid ID;
         public Guid PersonID;
