@@ -54,6 +54,7 @@ namespace VaccineC
             services.AddScoped<ICompanyScheduleRepository, CompanyScheduleRepository>();
             services.AddScoped<IPersonPhoneRepository, PersonPhoneRepository>();
             services.AddScoped<IPersonAddressRepository, PersonAddressRepository>();
+            services.AddScoped<IPersonPhysicalRepository, PersonPhysicalRepository>();
 
             //AppServices
             services.AddScoped<IExampleAppService, ExampleAppService>();
@@ -68,6 +69,7 @@ namespace VaccineC
             services.AddScoped<IPersonPhoneAppService, PersonPhoneAppService>();
             services.AddScoped<IPersonAddressAppService, PersonAddressAppService>();
             services.AddScoped<IPersonPhysicalAppService, PersonPhysicalAppService>();
+            services.AddScoped<IPersonJuridicalAppService, PersonJuridicalAppService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));
@@ -75,8 +77,11 @@ namespace VaccineC
             services.AddAutoMapper(typeof(QueryModelMapper).Assembly);
             services.AddScoped<IQueryContext, QueryContext>();
 
-            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
-            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
+            //services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
+            //services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
+
+            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
+            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

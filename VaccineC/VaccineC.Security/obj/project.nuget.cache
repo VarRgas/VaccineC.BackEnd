@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hvkoav164xLbS/pYi8NSYTMsIL9D6Ve7/cETu9+6j14UP8uUC5U2OYdoXSr7ujz1+K4izBMwfcO6N8kLSW0RZg==",
+  "dgSpecHash": "z+e3TFd3XXKNoalBL2/n98GH8+bqWYpkIuTu6AUbhl3ePxU7av5EeqTHWfkTucZTkkd6WSblrDyhcZv4wCrf4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj",
+  "projectFilePath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Amanda Maschio\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+    "C:\\Users\\varggu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
   ],
   "logs": []
 }

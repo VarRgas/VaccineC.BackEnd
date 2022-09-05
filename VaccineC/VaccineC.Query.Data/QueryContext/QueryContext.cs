@@ -134,5 +134,14 @@ namespace VaccineC.Query.Data.QueryContext
                .Set<PersonsPhysical>();
             }
         }
+
+        public IQueryable<PersonsJuridical> AllPersonsJuridicals
+        {
+            get
+            {
+                return _context
+               .Set<PersonsJuridical>();
+            }
+        }
     }
 }
