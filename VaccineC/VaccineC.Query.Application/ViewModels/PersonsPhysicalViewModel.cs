@@ -10,5 +10,6 @@
         public DateTime Register { get; set; }
         public string? CnsNumber { get; set; }
         public string? CpfNumber { get; set; }
+        public PersonViewModel? Person { get; set; }
     }
 }

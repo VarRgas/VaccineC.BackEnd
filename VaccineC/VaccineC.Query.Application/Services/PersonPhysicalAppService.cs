@@ -27,9 +27,9 @@ namespace VaccineC.Query.Application.Services
 
         public async Task<IEnumerable<PersonsPhysicalViewModel>> GetAllPhysicalComplementsByPersonId(Guid personId)
         {
-            var personsPhones = await _queryContext.AllPersonsPhysicals.Where(pp => pp.PersonID == personId).ToListAsync();
-            var personsPhonesViewModel = personsPhones.Select(r => _mapper.Map<PersonsPhysicalViewModel>(r)).ToList();
-            return personsPhonesViewModel;
+            var personsPhysicals = await _queryContext.AllPersonsPhysicals.Where(pp => pp.PersonID == personId).ToListAsync();
+            var personsPhysicalsViewModel = personsPhysicals.Select(r => _mapper.Map<PersonsPhysicalViewModel>(r)).ToList();
+            return personsPhysicalsViewModel;
         }
     }
 }

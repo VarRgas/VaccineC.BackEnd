@@ -18,7 +18,6 @@ namespace VaccineC.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/<PersonsPhysicalsController>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -27,7 +26,6 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET: api/<PersonsPhysicalsController>/5/GetPersonPhysicalByPersonId
         [HttpGet("{personId}/GetPersonPhysicalByPersonId")]
         public async Task<IActionResult> GetPersonPhysicalByPersonId(Guid personId)
         {

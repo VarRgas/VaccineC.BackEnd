@@ -18,17 +18,17 @@ namespace VaccineC.Command.Application.Commands.PersonPhysical
         public async Task<IEnumerable<PersonsPhysicalViewModel>> Handle(AddPhysicalComplementsCommand request, CancellationToken cancellationToken)
         {
 
-            var personPhone = _repository.GetById(request.ID);
-            personPhone.SetMaritalStatus(request.MaritalStatus);
-            personPhone.SetGender(request.Gender);
-            personPhone.SetDeathDate(request.DeathDate);
-            personPhone.SetRegister(DateTime.Now);
-            personPhone.SetCNS(request.CpfNumber);
-            personPhone.SetCPF(request.CnsNumber);
+            var physicalComplements = _repository.GetById(request.ID);
+            physicalComplements.SetMaritalStatus(request.MaritalStatus);
+            physicalComplements.SetGender(request.Gender);
+            physicalComplements.SetDeathDate(request.DeathDate);
+            physicalComplements.SetRegister(DateTime.Now);
+            physicalComplements.SetCNS(request.CpfNumber);
+            physicalComplements.SetCPF(request.CnsNumber);
 
             await _repository.SaveChangesAsync();
 
-            return await _personPhysicalAppService.GetAllPhysicalComplementsByPersonId(personPhone.ID);
+            return await _personPhysicalAppService.GetAllPhysicalComplementsByPersonId(physicalComplements.ID);
 
         }
     }

@@ -23,5 +23,12 @@ namespace VaccineC.Query.Application.Services
             var personJuridicalViewModel = personsJuridicals.Select(r => _mapper.Map<PersonsJuridicalViewModel>(r)).ToList();
             return personJuridicalViewModel;
         }
+
+        public async Task<IEnumerable<PersonsJuridicalViewModel>> GetAllJuridicalComplementsByPersonId(Guid personId)
+        {
+            var personsJuridicals = await _queryContext.AllPersonsJuridicals.Where(pp => pp.PersonID == personId).ToListAsync();
+            var personsJuridicalsViewModel = personsJuridicals.Select(r => _mapper.Map<PersonsJuridicalViewModel>(r)).ToList();
+            return personsJuridicalsViewModel;
+        }
     }
 }

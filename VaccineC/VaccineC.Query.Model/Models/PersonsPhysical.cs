@@ -7,8 +7,9 @@
         public string MaritalStatus { get; set; }
         public string Gender { get; set; }
         public DateTime? DeathDate { get; set; }
-        public DateTime? Register { get; set; }
-        public string CnsNumber { get; set; }
-        public string CpfNumber { get; set; }
+        public DateTime Register { get; set; }
+        public string? CnsNumber { get; set; }
+        public string? CpfNumber { get; set; }
+        public Person? Person { get; set; }
     }
 }
