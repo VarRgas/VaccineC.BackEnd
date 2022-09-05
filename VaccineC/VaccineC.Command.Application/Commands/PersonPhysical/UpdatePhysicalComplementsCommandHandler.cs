@@ -5,7 +5,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.PersonPhysical
 {
-    public class UpdatePhysicalComplementsCommandHandler : IRequestHandler<AddPhysicalComplementsCommand, IEnumerable<PersonsPhysicalViewModel>>
+    public class UpdatePhysicalComplementsCommandHandler : IRequestHandler<UpdatePhysicalComplementsCommand, IEnumerable<PersonsPhysicalViewModel>>
     {
         private readonly IPersonPhysicalAppService _personPhysicalAppService;
         private readonly IPersonPhysicalRepository _repository;
@@ -15,7 +15,7 @@ namespace VaccineC.Command.Application.Commands.PersonPhysical
             _personPhysicalAppService = personPhysicalAppService;
             _repository = repository;
         }
-        public async Task<IEnumerable<PersonsPhysicalViewModel>> Handle(AddPhysicalComplementsCommand request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<PersonsPhysicalViewModel>> Handle(UpdatePhysicalComplementsCommand request, CancellationToken cancellationToken)
         {
 
             var physicalComplements = _repository.GetById(request.ID);
