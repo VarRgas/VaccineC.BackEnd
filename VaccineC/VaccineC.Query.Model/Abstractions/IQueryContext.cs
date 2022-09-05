@@ -10,6 +10,7 @@ namespace VaccineC.Query.Model.Abstractions
         IQueryable<Company> AllCompanies { get; }
         IQueryable<User> AllUsers { get; }
         IQueryable<Person> AllPersons { get; }
+        IQueryable<PersonsPhysical> AllPersonsPhysicals { get; }
         IQueryable<PersonPhone> AllPersonsPhones { get; }
         IQueryable<PersonAddress> AllPersonsAddresses { get; }
         IQueryable<UserResource> AllUserResources { get; }
