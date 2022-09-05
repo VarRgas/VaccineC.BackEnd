@@ -129,8 +129,7 @@ namespace VaccineC.Query.Data.QueryContext
             get
             {
                 return _context
-               .Set<PersonsPhysical>()
-               .Include(r => r.Person);
+               .Set<PersonsPhysical>();
             }
         }
 
@@ -139,8 +138,7 @@ namespace VaccineC.Query.Data.QueryContext
             get
             {
                 return _context
-               .Set<PersonsJuridical>()
-               .Include(r => r.Person);
+               .Set<PersonsJuridical>();
             }
         }
     }

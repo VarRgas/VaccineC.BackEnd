@@ -7,6 +7,5 @@
         public string FantasyName { get; set; }
         public string CnpjNumber { get; set; }
         public DateTime Register { get; set; }
-        public PersonViewModel? Person { get; set; }
     }
 }
