@@ -3,7 +3,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.PersonJuridical
 {
-    public class AddJuridicalComplementsCommand : IRequest<IEnumerable<PersonsJuridicalViewModel>>
+    public class AddJuridicalComplementsCommand : IRequest<PersonsJuridicalViewModel>
     {
         public Guid ID;
         public Guid PersonID;

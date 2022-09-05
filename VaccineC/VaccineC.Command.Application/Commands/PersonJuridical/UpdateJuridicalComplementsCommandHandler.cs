@@ -5,7 +5,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.PersonJuridical
 {
-    public class UpdateJuridicalComplementsCommandHandler : IRequestHandler<AddJuridicalComplementsCommand, IEnumerable<PersonsJuridicalViewModel>>
+    public class UpdateJuridicalComplementsCommandHandler : IRequestHandler<UpdateJuridicalComplementsCommand, IEnumerable<PersonsJuridicalViewModel>>
     {
         private readonly IPersonJuridicalAppService _personJuridicalAppService;
         private readonly IPersonJuridicalRepository _repository;
@@ -15,7 +15,7 @@ namespace VaccineC.Command.Application.Commands.PersonJuridical
             _personJuridicalAppService = personJuridicalAppService;
             _repository = repository;
         }
-        public async Task<IEnumerable<PersonsJuridicalViewModel>> Handle(AddJuridicalComplementsCommand request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<PersonsJuridicalViewModel>> Handle(UpdateJuridicalComplementsCommand request, CancellationToken cancellationToken)
         {
 
             var juridicalComplement = _repository.GetById(request.ID);

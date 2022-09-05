@@ -5,7 +5,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.PersonJuridical
 {
-    public class AddJuridicalComplementsCommandHandler : IRequestHandler<AddJuridicalComplementsCommand, IEnumerable<PersonsJuridicalViewModel>>
+    public class AddJuridicalComplementsCommandHandler : IRequestHandler<AddJuridicalComplementsCommand, PersonsJuridicalViewModel>
     {
         private readonly IPersonJuridicalAppService _personJuridicalAppService;
         private readonly IPersonJuridicalRepository _repository;
@@ -15,7 +15,7 @@ namespace VaccineC.Command.Application.Commands.PersonJuridical
             _personJuridicalAppService = personJuridicalAppService;
             _repository = repository;
         }
-        public async Task<IEnumerable<PersonsJuridicalViewModel>> Handle(AddJuridicalComplementsCommand request, CancellationToken cancellationToken)
+        public async Task<PersonsJuridicalViewModel> Handle(AddJuridicalComplementsCommand request, CancellationToken cancellationToken)
         {
 
             Domain.Entities.PersonsJuridical newPersonsJuridical = new Domain.Entities.PersonsJuridical(
@@ -28,8 +28,15 @@ namespace VaccineC.Command.Application.Commands.PersonJuridical
 
             _repository.Add(newPersonsJuridical);
             await _repository.SaveChangesAsync();
-            return await _personJuridicalAppService.GetAllJuridicalComplementsByPersonId(newPersonsJuridical.ID);
 
+            return new PersonsJuridicalViewModel()
+            {
+                ID = newPersonsJuridical.ID,
+                PersonID = newPersonsJuridical.PersonId,
+                FantasyName = newPersonsJuridical.FantasyName,
+                CnpjNumber = newPersonsJuridical.CnpjNumber,
+                Register = newPersonsJuridical.Register,
+            };
         }
     }
 }
