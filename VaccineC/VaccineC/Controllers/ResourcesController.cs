@@ -92,9 +92,17 @@ namespace VaccineC.Controllers
         [HttpDelete("{id}/Delete")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeleteResourceCommand(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new DeleteResourceCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest("Existem informações vinculadas a este recurso que impedem sua exclusão.");
+            }
+   
         }
     }
 }

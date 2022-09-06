@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Application.Commands.Person;
 using VaccineC.Query.Application.Queries.Person;
@@ -103,9 +104,16 @@ namespace VaccineC.Controllers
         [HttpDelete("{id}/Delete")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeletePersonCommand(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new DeletePersonCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest("Existem informações vinculadas a esta pessoa que impedem sua exclusão.");
+            }
         }
 
         [HttpGet, Route("GetAllUserAutocomplete")]

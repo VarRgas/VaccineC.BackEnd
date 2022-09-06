@@ -82,9 +82,16 @@ namespace VaccineC.Controllers
         [HttpDelete("{id}/Delete")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeletePaymentFormCommand(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new DeletePaymentFormCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest("Existem informações vinculadas a esta forma de pagamento que impedem sua exclusão.");
+            }
         }
 
     }

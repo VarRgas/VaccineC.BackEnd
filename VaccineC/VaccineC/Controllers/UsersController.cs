@@ -108,9 +108,16 @@ namespace VaccineC.Controllers
         [HttpDelete("{id}/Delete")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeleteUserCommand(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new DeleteUserCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest("Existem informações vinculadas a este usuário que impedem sua exclusão.");
+            }
         }
 
         // POST api/<UsersController>/3/ActivateSituation
