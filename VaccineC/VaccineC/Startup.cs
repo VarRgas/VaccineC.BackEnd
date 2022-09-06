@@ -79,12 +79,12 @@ namespace VaccineC
             services.AddScoped<IQueryContext, QueryContext>();
 
             //Conexão Amanda
-            //services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
-            //services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
+            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
+            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
 
             //Conexão Guilherme
-            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
-            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
+            //services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
+            //services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

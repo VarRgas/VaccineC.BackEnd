@@ -5,7 +5,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.PersonJuridical
 {
-    public class UpdateJuridicalComplementsCommandHandler : IRequestHandler<UpdateJuridicalComplementsCommand, IEnumerable<PersonsJuridicalViewModel>>
+    public class UpdateJuridicalComplementsCommandHandler : IRequestHandler<UpdateJuridicalComplementsCommand, PersonsJuridicalViewModel>
     {
         private readonly IPersonJuridicalAppService _personJuridicalAppService;
         private readonly IPersonJuridicalRepository _repository;
@@ -15,7 +15,7 @@ namespace VaccineC.Command.Application.Commands.PersonJuridical
             _personJuridicalAppService = personJuridicalAppService;
             _repository = repository;
         }
-        public async Task<IEnumerable<PersonsJuridicalViewModel>> Handle(UpdateJuridicalComplementsCommand request, CancellationToken cancellationToken)
+        public async Task<PersonsJuridicalViewModel> Handle(UpdateJuridicalComplementsCommand request, CancellationToken cancellationToken)
         {
 
             var juridicalComplement = _repository.GetById(request.ID);
@@ -25,8 +25,14 @@ namespace VaccineC.Command.Application.Commands.PersonJuridical
 
             await _repository.SaveChangesAsync();
 
-            return await _personJuridicalAppService.GetAllJuridicalComplementsByPersonId(juridicalComplement.ID);
-
+            return new PersonsJuridicalViewModel()
+            {
+                ID = juridicalComplement.ID,
+                PersonID = juridicalComplement.PersonId,
+                FantasyName = juridicalComplement.FantasyName,
+                CnpjNumber = juridicalComplement.CnpjNumber,
+                Register = juridicalComplement.Register,
+            };
         }
     }
 }

@@ -46,3 +46,15 @@ C:\Users\Amanda Maschio\source\repos\VaccineC.Backend\VaccineC\VaccineC.Query.Mo
 C:\Users\Amanda Maschio\source\repos\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\refint\VaccineC.Query.Model.dll
 C:\Users\Amanda Maschio\source\repos\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.pdb
 C:\Users\Amanda Maschio\source\repos\VaccineC.Backend\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\ref\VaccineC.Query.Model.dll
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\bin\Debug\net6.0\VaccineC.Query.Model.deps.json
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\bin\Debug\net6.0\VaccineC.Query.Model.dll
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\bin\Debug\net6.0\VaccineC.Query.Model.pdb
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.csproj.AssemblyReference.cache
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.AssemblyInfoInputs.cache
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.AssemblyInfo.cs
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.csproj.CoreCompileInputs.cache
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.dll
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\refint\VaccineC.Query.Model.dll
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\VaccineC.Query.Model.pdb
+C:\Users\Amanda Maschio\Documents\TCC\VaccineC\VaccineC.Query.Model\obj\Debug\net6.0\ref\VaccineC.Query.Model.dll
