@@ -71,14 +71,52 @@ namespace VaccineC.Query.Application.Services
             return Task.FromResult(response);
         }
 
-        public async Task<IEnumerable<PersonViewModel>> GetByName(String name)
+        public Task<IEnumerable<PersonViewModel>> GetByName(String information)
         {
 
-            var persons = await _queryContext.AllPersons.ToListAsync();
-            var personsViewModel = persons
-                .Select(r => _mapper.Map<PersonViewModel>(r))
-                .Where(r => r.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).ToList();
-            return personsViewModel;
+
+            long n;
+            bool isNumeric = long.TryParse(information, out n);
+
+            if (isNumeric)
+            {
+                if (information.Length <= 11) {
+                    List<Person> persons = (from p in _context.Persons
+                                            join c in _context.PersonsPhysical on p.ID equals c.PersonID into _c
+                                            from x in _c.DefaultIfEmpty()
+                                            where x.CpfNumber.Contains(information)
+                                            select p).ToList();
+
+                    var response = _mapper.Map<IEnumerable<PersonViewModel>>(persons);
+
+                    return Task.FromResult(response);
+                }
+                else
+                {
+                    List<Person> persons = (from p in _context.Persons
+                                            join c in _context.PersonsJuridical on p.ID equals c.PersonID into _c
+                                            from x in _c.DefaultIfEmpty()
+                                            where x.CnpjNumber.Contains(information)
+                                            select p).ToList();
+
+                    var response = _mapper.Map<IEnumerable<PersonViewModel>>(persons);
+
+                    return Task.FromResult(response);
+                }
+
+            }
+            else
+            {
+                List<Person> persons = (from p in _context.Persons
+                                        where p.Name.Contains(information)
+                                        select p).ToList();
+
+                var response = _mapper.Map<IEnumerable<PersonViewModel>>(persons);
+
+                return Task.FromResult(response);
+            }
+
+
 
         }
 
