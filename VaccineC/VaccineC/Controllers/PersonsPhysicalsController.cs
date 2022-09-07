@@ -77,6 +77,10 @@ namespace VaccineC.Controllers
                 var result = await _mediator.Send(command);
                 return Ok(result);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
             catch (DbUpdateConcurrencyException ex)
             {
                 return Conflict(ex);
