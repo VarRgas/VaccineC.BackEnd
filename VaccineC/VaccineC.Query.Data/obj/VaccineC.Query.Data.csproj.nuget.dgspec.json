@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj": {}
+    "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj": {
+    "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj",
+        "projectUniqueName": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj",
         "projectName": "VaccineC.Query.Data",
-        "projectPath": "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj",
-        "packagesPath": "C:\\Users\\Amanda Maschio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Data\\obj\\",
+        "projectPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj",
+        "packagesPath": "C:\\Users\\varggu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Amanda Maschio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\varggu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +31,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj": {
-                "projectPath": "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj"
+              "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj": {
+                "projectPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj"
               }
             }
           }
@@ -74,21 +77,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj": {
+    "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj",
+        "projectUniqueName": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj",
         "projectName": "VaccineC.Query.Model",
-        "projectPath": "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj",
-        "packagesPath": "C:\\Users\\Amanda Maschio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Amanda Maschio\\Documents\\TCC\\VaccineC\\VaccineC.Query.Model\\obj\\",
+        "projectPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj",
+        "packagesPath": "C:\\Users\\varggu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Model\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Amanda Maschio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\varggu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -128,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

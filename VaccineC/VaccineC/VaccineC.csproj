@@ -27,4 +27,8 @@
     <ProjectReference Include="..\VaccineC.Query.Model\VaccineC.Query.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+  </ItemGroup>
+
 </Project>
