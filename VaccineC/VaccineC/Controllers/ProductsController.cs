@@ -1,6 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using VaccineC.Command.Application.Commands.Product;
 using VaccineC.Query.Application.Queries.Product;
+using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Controllers
 {
@@ -46,6 +49,69 @@ namespace VaccineC.Controllers
             var command = new GetProductListVaccinesAutocompleteQuery();
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([FromBody] ProductViewModel product)
+        {
+            try
+            {
+                var command = new AddProductCommand(
+                    product.ID,
+                    product.SbimVaccinesId,
+                    product.Situation,
+                    product.Details,
+                    product.SaleValue,
+                    product.Register,
+                    product.Name,
+                    product.MinimumStock
+                );
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}/Update")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] ProductViewModel product)
+        {
+            try
+            {
+                var command = new UpdateProductCommand(
+                    id,
+                    product.SbimVaccinesId,
+                    product.Situation,
+                    product.Details,
+                    product.SaleValue,
+                    product.Register,
+                    product.Name,
+                    product.MinimumStock
+                );
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Conflict(ex);
+            }
+        }
+
+        [HttpDelete("{id}/Delete")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            try
+            {
+                var command = new DeleteProductCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

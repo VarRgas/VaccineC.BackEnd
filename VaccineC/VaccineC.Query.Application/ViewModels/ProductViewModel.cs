@@ -9,5 +9,6 @@
         public decimal SaleValue { get; set; }
         public DateTime Register { get; set; }
         public string Name { get; set; }
+        public int MinimumStock { get; set; }
     }
 }

@@ -30,6 +30,7 @@ namespace VaccineC.Command.Data.Context
         public DbSet<CompanySchedule> CompaniesSchedules { get; set; }
         public DbSet<PersonPhone> PersonsPhones { get; set; }
         public DbSet<PersonAddress> PersonsAddresses { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -45,6 +46,7 @@ namespace VaccineC.Command.Data.Context
             modelBuilder.Entity<CompanySchedule>().ToTable("CompaniesSchedules");
             modelBuilder.Entity<PersonPhone>().ToTable("PersonsPhones");
             modelBuilder.Entity<PersonAddress>().ToTable("PersonsAddresses");
+            modelBuilder.Entity<Product>().ToTable("Products");
 
             base.OnModelCreating(modelBuilder);
         }
