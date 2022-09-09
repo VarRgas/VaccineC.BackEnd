@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Application.Commands.Person;
 using VaccineC.Query.Application.Queries.Person;

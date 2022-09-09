@@ -141,5 +141,15 @@ namespace VaccineC.Query.Data.QueryContext
                .Set<PersonsJuridical>();
             }
         }
+
+        public IQueryable<Product> AllProducts
+        {
+            get
+            {
+                return _context
+               .Set<Product>()
+               .OrderBy(r => r.Name);
+            }
+        }
     }
 }
