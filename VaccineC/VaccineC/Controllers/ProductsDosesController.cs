@@ -4,6 +4,8 @@ using VaccineC.Query.Application.Queries.ProductDoses;
 
 namespace VaccineC.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ProductsDosesController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -21,10 +23,10 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{doseType}/GetByType")]
-        public async Task<IActionResult> GetByType(string doseType)
+        [HttpGet("{productsId}/GetAllByProductId")]
+        public async Task<IActionResult> GetProductsDosesByProductId(Guid productsId)
         {
-            var command = new GetProductsDosesByTypeQuery(doseType);
+            var command = new GetProductsDosesByProductIdQuery(productsId);
             var result = await _mediator.Send(command);
             return Ok(result);
         }

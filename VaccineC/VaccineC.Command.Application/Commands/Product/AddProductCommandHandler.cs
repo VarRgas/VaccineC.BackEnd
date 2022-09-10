@@ -20,13 +20,13 @@ namespace VaccineC.Command.Application.Commands.Product
         {
 
             Domain.Entities.Product newProduct = new Domain.Entities.Product(Guid.NewGuid(),
-                                                                          request.SbimVaccinesId,
-                                                                          request.Situation,
-                                                                          request.Details,
-                                                                          request.SaleValue,
-                                                                          DateTime.Now,
-                                                                          request.Name,
-                                                                          request.MinimumStock
+                                                        request.SbimVaccinesId,
+                                                        request.Situation,
+                                                        request.Details,
+                                                        request.SaleValue,
+                                                        DateTime.Now,
+                                                        request.Name,
+                                                        request.MinimumStock
 
             );
 
@@ -37,7 +37,7 @@ namespace VaccineC.Command.Application.Commands.Product
             {
                 ID = newProduct.ID,
                 SbimVaccinesId = newProduct.SbimVaccinesId,
-                Situation = newProduct.Name,
+                Situation = newProduct.Situation,
                 Details = newProduct.Details,
                 SaleValue = newProduct.SaleValue,
                 Register = newProduct.Register,

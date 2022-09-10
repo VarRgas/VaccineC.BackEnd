@@ -8,23 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\varggu\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Amanda Maschio\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj",
       "projectName": "VaccineC.Command.Domain",
-      "projectPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj",
-      "packagesPath": "C:\\Users\\varggu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\obj\\",
+      "projectPath": "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj",
+      "packagesPath": "C:\\Users\\Amanda Maschio\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Command.Domain\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\varggu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Amanda Maschio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }

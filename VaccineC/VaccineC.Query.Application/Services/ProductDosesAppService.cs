@@ -27,13 +27,13 @@ namespace VaccineC.Query.Application.Services
             return productsDosesViewModel;
         }
 
-        public async Task<IEnumerable<ProductDosesViewModel>> GetByType(String type)
+        public async Task<IEnumerable<ProductDosesViewModel>> GetProductsDosesByProductId(Guid productsId)
         {
 
             var productsDoses = await _queryContext.AllProductsDoses.ToListAsync();
             var productsDosesViewModel = productsDoses
                 .Select(r => _mapper.Map<ProductDosesViewModel>(r))
-                .Where(r => r.DoseType.Contains(type, StringComparison.InvariantCultureIgnoreCase))
+                .Where(r => r.ProductsId == productsId)
                 .ToList();
             return productsDosesViewModel;
 

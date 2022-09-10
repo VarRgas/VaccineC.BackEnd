@@ -23,6 +23,7 @@ namespace VaccineC.Query.Application.Mapper
             CreateMap<PersonPhone, PersonPhoneViewModel>();
             CreateMap<PersonAddress, PersonAddressViewModel>();
             CreateMap<Product, ProductViewModel>();
+            CreateMap<ProductDoses, ProductDosesViewModel>();
             CreateMap<SbimVaccines, SbimVaccinesViewModel>();
         }
     }

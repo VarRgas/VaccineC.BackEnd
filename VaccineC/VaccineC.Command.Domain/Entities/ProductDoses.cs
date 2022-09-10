@@ -18,12 +18,12 @@ namespace VaccineC.Command.Domain.Entities
         public string DoseType { get; set; }
 
         [Column("doseRangeMonth", TypeName = "int")]
-        public string? DoseRangeMonth { get; set; }
+        public int? DoseRangeMonth { get; set; }
 
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        public ProductDoses(Guid id, Guid productsId, string doseType, string? doseRangeMonth, DateTime register)
+        public ProductDoses(Guid id, Guid productsId, string doseType, int? doseRangeMonth, DateTime register)
         {
             ID = id;
             ProductsId = productsId;
@@ -46,7 +46,7 @@ namespace VaccineC.Command.Domain.Entities
             DoseType = doseType;
         }
 
-        public void SetDoseRangeMonth(string? doseRangeMonth)
+        public void SetDoseRangeMonth(int? doseRangeMonth)
         {
             DoseRangeMonth = doseRangeMonth;
         }
