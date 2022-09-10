@@ -77,6 +77,7 @@ namespace VaccineC
             services.AddScoped<IPersonJuridicalAppService, PersonJuridicalAppService>();
             services.AddScoped<IProductAppService, ProductAppService>();
             services.AddScoped<IProductDosesAppService, ProductDosesAppService>();
+            services.AddScoped<IProductSummaryBatchAppService, ProductSummaryBatchAppService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));

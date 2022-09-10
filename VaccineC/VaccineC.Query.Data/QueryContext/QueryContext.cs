@@ -162,5 +162,15 @@ namespace VaccineC.Query.Data.QueryContext
                .OrderBy(r => r.DoseType);
             }
         }
+
+        public IQueryable<ProductSummaryBatch> AllProductsSummariesBatches 
+        {
+            get
+            {
+                return _context
+               .Set<ProductSummaryBatch>()
+               .OrderBy(r => r.Batch);
+            }
+        }
     }
 }

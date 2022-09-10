@@ -19,6 +19,7 @@ namespace VaccineC.Query.Model.Abstractions
         IQueryable<CompanySchedule> AllCompaniesSchedules { get; }
         IQueryable<Product> AllProducts { get; }
         IQueryable<ProductDoses> AllProductsDoses { get; }
+        IQueryable<ProductSummaryBatch> AllProductsSummariesBatches { get; }
 
     }
 }
