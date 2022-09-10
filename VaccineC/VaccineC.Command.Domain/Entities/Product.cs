@@ -11,8 +11,8 @@ namespace VaccineC.Command.Domain.Entities
         [Column("id")]
         public Guid ID { get; set; }
 
-        [Column("id")]
-        public Guid SbimVaccinesId { get; set; }
+        [Column("sbimVaccinesId")]
+        public Guid? SbimVaccinesId { get; set; }
 
         [Column("situation", TypeName = "varchar(1)")]
         public string Situation { get; set; }
@@ -34,7 +34,7 @@ namespace VaccineC.Command.Domain.Entities
 
 
 
-        public Product(Guid id, Guid sbimVaccinesId, string situation, string? details, decimal saleValue, DateTime register, string name, int minimumStock)
+        public Product(Guid id, Guid? sbimVaccinesId, string situation, string? details, decimal saleValue, DateTime register, string name, int minimumStock)
         {
             ID = id;
             SbimVaccinesId = sbimVaccinesId;
@@ -50,6 +50,10 @@ namespace VaccineC.Command.Domain.Entities
 
         }
 
+        public void SetSbimVaccinesId(Guid? sbimVaccinesId)
+        {
+            SbimVaccinesId = sbimVaccinesId;
+        }
 
         public void SetSituation(string situation)
         {

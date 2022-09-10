@@ -7,6 +7,6 @@ namespace VaccineC.Query.Application.Abstractions
         Task<IEnumerable<ProductViewModel>> GetAllAsync();
         Task<IEnumerable<ProductViewModel>> GetByName(String name);
         ProductViewModel GetById(Guid id);
-        Task<IEnumerable<ProductViewModel>> GetAllProductsVaccinesAutocomplete();
+        Task<IEnumerable<SbimVaccinesViewModel>> GetAllVaccinesAutocomplete();
     }
 }

@@ -43,8 +43,8 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        [HttpGet, Route("GetAllCompanyAutocomplete")]
-        public async Task<IActionResult> GetAllCompanyAutocomplete()
+        [HttpGet, Route("GetAllVaccinesAutocomplete")]
+        public async Task<IActionResult> GetAllVaccinesAutocomplete()
         {
             var command = new GetProductListVaccinesAutocompleteQuery();
             var result = await _mediator.Send(command);

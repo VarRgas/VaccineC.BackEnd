@@ -148,6 +148,7 @@ namespace VaccineC.Query.Data.QueryContext
             {
                 return _context
                .Set<Product>()
+               .Include(r => r.SbimVaccines)
                .OrderBy(r => r.Name);
             }
         }

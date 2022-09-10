@@ -6,7 +6,7 @@ namespace VaccineC.Command.Application.Commands.Product
     public class AddProductCommand : IRequest<ProductViewModel>
     {
         public Guid ID;
-        public Guid SbimVaccinesId;
+        public Guid? SbimVaccinesId { get; set; }
         public string Situation;
         public string? Details;
         public decimal SaleValue;
@@ -14,7 +14,7 @@ namespace VaccineC.Command.Application.Commands.Product
         public string Name;
         public int MinimumStock;
 
-        public AddProductCommand(Guid id, Guid sbimVaccinesId, string situation, string? details, decimal saleValue, DateTime register, string name, int minimumStock)
+        public AddProductCommand(Guid id, Guid? sbimVaccinesId, string situation, string? details, decimal saleValue, DateTime register, string name, int minimumStock)
         {
             ID = id;
             SbimVaccinesId = sbimVaccinesId;

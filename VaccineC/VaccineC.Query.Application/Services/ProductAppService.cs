@@ -42,17 +42,19 @@ namespace VaccineC.Query.Application.Services
 
         public ProductViewModel GetById(Guid id)
         {
-            var product = _mapper.Map<ProductViewModel>(_queryContext.AllProducts.Where(r => r.ID == id).First());
+            var product = _mapper.Map<ProductViewModel>(_queryContext.AllProducts
+                                 .Where(r => r.ID == id)
+                                 .First());
             return product;
         }
 
-        public Task<IEnumerable<ProductViewModel>> GetAllProductsVaccinesAutocomplete()
+        public Task<IEnumerable<SbimVaccinesViewModel>> GetAllVaccinesAutocomplete()
         {
 
-            List<Product> products = (from p in _context.Products
-                                      select p).ToList();
+            List<SbimVaccines> vaccines = (from p in _context.SbimVaccines
+                                           select p).ToList();
 
-            var response = _mapper.Map<IEnumerable<ProductViewModel>>(products);
+            var response = _mapper.Map<IEnumerable<SbimVaccinesViewModel>>(vaccines);
 
             return Task.FromResult(response);
         }

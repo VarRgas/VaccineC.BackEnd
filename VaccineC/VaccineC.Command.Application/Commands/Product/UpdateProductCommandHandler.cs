@@ -27,6 +27,7 @@ namespace VaccineC.Command.Application.Commands.Product
         {
 
             var updatedProduct = _repository.GetById(request.ID);
+            updatedProduct.SetSbimVaccinesId(request.SbimVaccinesId);
             updatedProduct.SetSituation(request.Situation);
             updatedProduct.SetDetails(request.Details);
             updatedProduct.SetSaleValue(request.SaleValue);
