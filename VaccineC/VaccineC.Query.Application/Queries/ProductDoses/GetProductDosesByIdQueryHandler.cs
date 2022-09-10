@@ -3,7 +3,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Query.Application.Queries.ProductDoses
 {
-    internal class GetProductDosesByIdQueryHandler : IRequestHandler<GetProductDosesByIdQuery, ProductDosesViewModel>
+    public class GetProductDosesByIdQueryHandler : IRequestHandler<GetProductDosesByIdQuery, ProductDosesViewModel>
     {
 
         private readonly IMediator _mediator;
