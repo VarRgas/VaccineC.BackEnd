@@ -18,6 +18,7 @@ namespace VaccineC.Query.Model.Abstractions
         IQueryable<CompanyParameter> AllCompaniesParameters { get; }
         IQueryable<CompanySchedule> AllCompaniesSchedules { get; }
         IQueryable<Product> AllProducts { get; }
+        IQueryable<ProductDoses> AllProductsDoses { get; }
 
     }
 }

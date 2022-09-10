@@ -25,6 +25,7 @@ namespace VaccineC.Query.Data.Context
         public DbSet<PersonAddress> PersonsAddresses { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SbimVaccines> SbimVaccines { get; set; }
+        public DbSet<ProductDoses> ProductsDoses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -42,6 +43,7 @@ namespace VaccineC.Query.Data.Context
             modelBuilder.Entity<PersonAddress>().ToTable("PersonsAddresses");
             modelBuilder.Entity<Product>().ToTable("Products");
             modelBuilder.Entity<SbimVaccines>().ToTable("SbimVaccines");
+            modelBuilder.Entity<ProductDoses>().ToTable("ProductsDoses");
 
             base.OnModelCreating(modelBuilder);
         }

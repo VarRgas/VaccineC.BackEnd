@@ -59,6 +59,7 @@ namespace VaccineC
             services.AddScoped<IPersonPhysicalRepository, PersonPhysicalRepository>();
             services.AddScoped<IPersonJuridicalRepository, PersonJuridicalRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductDosesRepository, ProductDosesRepository>();
 
             //AppServices
             services.AddScoped<IExampleAppService, ExampleAppService>();
@@ -75,6 +76,7 @@ namespace VaccineC
             services.AddScoped<IPersonPhysicalAppService, PersonPhysicalAppService>();
             services.AddScoped<IPersonJuridicalAppService, PersonJuridicalAppService>();
             services.AddScoped<IProductAppService, ProductAppService>();
+            services.AddScoped<IProductDosesAppService, ProductDosesAppService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));
