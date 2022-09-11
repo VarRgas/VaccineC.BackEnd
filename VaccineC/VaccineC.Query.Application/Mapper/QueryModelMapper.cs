@@ -26,6 +26,8 @@ namespace VaccineC.Query.Application.Mapper
             CreateMap<ProductDoses, ProductDosesViewModel>();
             CreateMap<SbimVaccines, SbimVaccinesViewModel>();
             CreateMap<ProductSummaryBatch, ProductSummaryBatchViewModel>();
+            CreateMap<Movement, MovementViewModel>();
+            CreateMap<MovementProduct, MovementProductViewModel>();
         }
     }
 }

@@ -172,5 +172,25 @@ namespace VaccineC.Query.Data.QueryContext
                .OrderBy(r => r.Batch);
             }
         }
+
+        public IQueryable<Movement> AllMovements
+        {
+            get
+            {
+                return _context
+               .Set<Movement>()
+               .OrderByDescending(r => r.MovementNumber);
+            }
+        }
+
+        public IQueryable<MovementProduct> AllMovementsProducts
+        {
+            get
+            {
+                return _context
+               .Set<MovementProduct>()
+               .Include(r => r.Product);
+            }
+        }
     }
 }
