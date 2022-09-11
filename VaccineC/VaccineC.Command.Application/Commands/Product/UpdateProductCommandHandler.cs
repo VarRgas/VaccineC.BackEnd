@@ -11,14 +11,12 @@ namespace VaccineC.Command.Application.Commands.Product
     public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, ProductViewModel>
     {
         private readonly IProductRepository _repository;
-        private readonly VaccineCCommandContext _ctx;
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
 
-        public UpdateProductCommandHandler(IProductRepository repository, VaccineCCommandContext ctx, IQueryContext queryContext, IMapper mapper)
+        public UpdateProductCommandHandler(IProductRepository repository, IQueryContext queryContext, IMapper mapper)
         {
             _repository = repository;
-            _ctx = ctx;
             _queryContext = queryContext;
             _mapper = mapper;
         }

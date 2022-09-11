@@ -11,7 +11,7 @@ namespace VaccineC.Command.Domain.Entities
         [Column("id")]
         public Guid ID { get; set; }
 
-        [Column("productsDosesId")]
+        [Column("productsId")]
         public Guid ProductsId { get; set; }
 
         [Column("doseType", TypeName = "varchar(2)")]
