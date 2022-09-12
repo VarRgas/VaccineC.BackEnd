@@ -51,8 +51,11 @@ namespace VaccineC.Query.Application.Services
         public Task<IEnumerable<SbimVaccinesViewModel>> GetAllVaccinesAutocomplete()
         {
 
-            List<SbimVaccines> vaccines = (from p in _context.SbimVaccines
-                                           select p).ToList();
+            List<SbimVaccines> vaccines = (from sv in _context.SbimVaccines
+                                           join p in _context.Products on sv.ID equals p.SbimVaccinesId into _p
+                                           from x in _p.DefaultIfEmpty()
+                                           where x.SbimVaccinesId.Equals(null)
+                                           select sv).ToList();
 
             var response = _mapper.Map<IEnumerable<SbimVaccinesViewModel>>(vaccines);
 

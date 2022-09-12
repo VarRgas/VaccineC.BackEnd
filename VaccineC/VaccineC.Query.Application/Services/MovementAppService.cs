@@ -42,21 +42,18 @@ namespace VaccineC.Query.Application.Services
 
         public Task<IEnumerable<MovementViewModel>> GetAllByProductName(string productName)
         {
-            /*
-               List<Person> persons = (from p in _context.Persons
-                                    join u in _context.Users on p.ID equals u.PersonId into _u
-                                    from x in _u.DefaultIfEmpty()
-                                    where p.PersonType.Equals("F")
-                                    where x.PersonId.Equals(null)
-                                    select p).ToList();
+  
+            List<Movement> movements = (from m in _context.Movements
+                                        join mp in _context.MovementsProducts on m.ID equals mp.MovementId 
+                                        join p in _context.Products on mp.ProductId equals p.ID into _mp
+                                        from x in _mp.DefaultIfEmpty()
+                                        where x.Name.Contains(productName)
+                                        select m
+                                        ).ToList();
 
-            var response = _mapper.Map<IEnumerable<PersonViewModel>>(persons);
+            var response = _mapper.Map<IEnumerable<MovementViewModel>>(movements);
 
             return Task.FromResult(response);
-             */
-
-
-            throw new NotImplementedException();
         }
     }
 }
