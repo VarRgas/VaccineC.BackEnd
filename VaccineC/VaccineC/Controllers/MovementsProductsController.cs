@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using VaccineC.Command.Application.Commands.MovementProduct;
 using VaccineC.Query.Application.Queries.MovementProduct;
 using VaccineC.Query.Application.ViewModels;
 
@@ -43,6 +44,79 @@ namespace VaccineC.Controllers
             var command = new GetMovementProductByIdQuery(id);
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+        // POST api/<MovementsProductsController>/Create
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([FromBody] MovementProductViewModel movementProduct)
+        {
+            try
+            {
+                var command = new AddMovementProductCommand(
+                    movementProduct.ID,
+                    movementProduct.MovementId,
+                    movementProduct.ProductId,
+                    movementProduct.Batch,
+                    movementProduct.UnitsNumber,
+                    movementProduct.UnitaryValue,
+                    movementProduct.Amount,
+                    movementProduct.Details,
+                    movementProduct.Register,
+                    movementProduct.BatchManufacturingDate,
+                    movementProduct.BatchExpirationDate,
+                    movementProduct.Manufacturer
+                );
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        // PUT api/<MovementsProductsController>/3/Update
+        [HttpPut("{id}/Update")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] MovementProductViewModel movementProduct)
+        {
+            try
+            {
+                var command = new UpdateMovementProductCommand(
+                    id,
+                    movementProduct.MovementId,
+                    movementProduct.ProductId,
+                    movementProduct.Batch,
+                    movementProduct.UnitsNumber,
+                    movementProduct.UnitaryValue,
+                    movementProduct.Amount,
+                    movementProduct.Details,
+                    movementProduct.Register,
+                    movementProduct.BatchManufacturingDate,
+                    movementProduct.BatchExpirationDate,
+                    movementProduct.Manufacturer
+                ); var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Conflict(ex);
+            }
+        }
+
+        // DELETE api/<MovementsProductsController>/3/Delete
+        [HttpDelete("{id}/Delete")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            try
+            {
+                var command = new DeleteMovementProductCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

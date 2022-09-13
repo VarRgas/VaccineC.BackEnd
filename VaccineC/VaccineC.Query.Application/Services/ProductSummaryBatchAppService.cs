@@ -29,6 +29,16 @@ namespace VaccineC.Query.Application.Services
             return productSummaryBatch;
         }
 
+        public async Task<ProductSummaryBatchViewModel> GetByName(Guid id, string name)
+        {
+            var productsSummariesBatches = await _queryContext.AllProductsSummariesBatches.ToListAsync();
+            var productSummaryBatchViewModel = productsSummariesBatches
+                .Select(r => _mapper.Map<ProductSummaryBatchViewModel>(r))
+                .Where(r => r.ProductsId == id && r.Batch.Equals(name))
+                .FirstOrDefault();
+            return productSummaryBatchViewModel;
+        }
+
         public async Task<IEnumerable<ProductSummaryBatchViewModel>> GetProductSummaryBatchByProductId(Guid productsId)
         {
             var productsSummariesBatches = await _queryContext.AllProductsSummariesBatches.ToListAsync();

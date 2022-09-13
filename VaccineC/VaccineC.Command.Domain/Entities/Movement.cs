@@ -47,7 +47,7 @@ namespace VaccineC.Command.Domain.Entities
             Situation = situation;
         }
 
-        public void SetProductsAmount(decimal productsAmount)
+        public void SetProductsAmount(decimal? productsAmount)
         {
             ProductsAmount = productsAmount;
         }

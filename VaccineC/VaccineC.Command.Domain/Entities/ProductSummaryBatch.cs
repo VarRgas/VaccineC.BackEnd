@@ -17,10 +17,10 @@ namespace VaccineC.Command.Domain.Entities
         public decimal NumberOfUnitsBatch { get; set; }
 
         [Column("manufacturingDate", TypeName = "datetime")]
-        public DateTime ManufacturingDate { get; set; }
+        public DateTime? ManufacturingDate { get; set; }
 
         [Column("validityBatchDate", TypeName = "datetime")]
-        public DateTime ValidityBatchDate { get; set; }
+        public DateTime? ValidityBatchDate { get; set; }
 
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
@@ -31,7 +31,7 @@ namespace VaccineC.Command.Domain.Entities
         [Column("productsId")]
         public Guid ProductsId { get; set; }
 
-        public ProductSummaryBatch(Guid id, string batch, decimal numberOfUnitsBatch, DateTime manufacturingDate, DateTime validityBatchDate, DateTime register, string manufacturer, Guid productsId)
+        public ProductSummaryBatch(Guid id, string batch, decimal numberOfUnitsBatch, DateTime? manufacturingDate, DateTime? validityBatchDate, DateTime register, string manufacturer, Guid productsId)
         {
             ID = id;
             Batch = batch;
@@ -57,12 +57,12 @@ namespace VaccineC.Command.Domain.Entities
             NumberOfUnitsBatch = numberOfUnitsBatch;
         }
 
-        public void SetManufacturingDate(DateTime manufacturingDate)
+        public void SetManufacturingDate(DateTime? manufacturingDate)
         {
             ManufacturingDate = manufacturingDate;
         }
 
-        public void SetValidityBatchDate(DateTime validityBatchDate)
+        public void SetValidityBatchDate(DateTime? validityBatchDate)
         {
             ValidityBatchDate = validityBatchDate;
         }

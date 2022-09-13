@@ -21,6 +21,7 @@ namespace VaccineC.Command.Application.Commands.Movement
             var movement = _movementRepository.GetById(request.ID);
             movement.SetSituation("C");
             movement.SetUsersId(request.UsersId);
+            movement.SetProductsAmount(request.ProductsAmount);
             movement.SetRegister(DateTime.Now);
 
             await _movementRepository.SaveChangesAsync();

@@ -14,24 +14,68 @@ namespace VaccineC.Command.Application.Commands.Movement
         private readonly VaccineCCommandContext _ctx;
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
+        private readonly IProductSummaryBatchRepository _productSummaryBatchRepository;
 
-        public FinishMovementCommandHandler(IMovementRepository movementRepository, VaccineCCommandContext ctx, IQueryContext queryContext, IMapper mapper)
+        public FinishMovementCommandHandler(IMovementRepository movementRepository, VaccineCCommandContext ctx, IQueryContext queryContext, IMapper mapper, IProductSummaryBatchRepository productSummaryBatchRepository)
         {
             _movementRepository = movementRepository;
             _ctx = ctx;
             _mapper = mapper;
             _queryContext = queryContext;
+            _productSummaryBatchRepository = productSummaryBatchRepository;
         }
 
         public async Task<MovementViewModel> Handle(FinishMovementCommand request, CancellationToken cancellationToken)
         {
 
             var movement = _movementRepository.GetById(request.ID);
+           
+            List<Domain.Entities.MovementProduct> listMovementProductViewModel = await this.getMovementsProductsByMovement(movement);
 
-            await this.validateMovementProduct(movement);
+            await this.validateMovementProduct(listMovementProductViewModel);
+
+            foreach (var movementProduct in listMovementProductViewModel)
+            {
+                var productSummaryBatch = _ctx.ProductsSummariesBatches
+                    .Where(pmb => pmb.Batch.Equals(movementProduct.Batch) && pmb.ManufacturingDate.Equals(movementProduct.BatchManufacturingDate))
+                    .FirstOrDefault();
+
+                if(productSummaryBatch == null && movement.MovementType.Equals("E"))
+                {
+      
+                    Domain.Entities.ProductSummaryBatch newProductSummaryBatch = new Domain.Entities.ProductSummaryBatch(
+
+                        Guid.NewGuid(),
+                        movementProduct.Batch,
+                        movementProduct.UnitsNumber,
+                        movementProduct.BatchManufacturingDate,
+                        movementProduct.BatchExpirationDate,
+                        DateTime.Now,
+                        movementProduct.Manufacturer,
+                        movementProduct.ProductId
+                        );
+
+                    _productSummaryBatchRepository.Add(newProductSummaryBatch);
+                    await _productSummaryBatchRepository.SaveChangesAsync();
+                }
+                else
+                {
+
+                    if (movement.MovementType.Equals("E")) {
+                        productSummaryBatch.SetNumberOfUnitsBatch(productSummaryBatch.NumberOfUnitsBatch+ movementProduct.UnitsNumber);
+                    }
+                    else
+                    {
+                        productSummaryBatch.SetNumberOfUnitsBatch(productSummaryBatch.NumberOfUnitsBatch - movementProduct.UnitsNumber);
+                    }
+                    productSummaryBatch.SetRegister(DateTime.Now);
+                    await _productSummaryBatchRepository.SaveChangesAsync();
+                }
+            }
 
             movement.SetSituation("F");
             movement.SetUsersId(request.UsersId);
+            movement.SetProductsAmount(request.ProductsAmount);
             movement.SetRegister(DateTime.Now);
 
             await _movementRepository.SaveChangesAsync();
@@ -47,15 +91,9 @@ namespace VaccineC.Command.Application.Commands.Movement
             };
         }
 
-        private async Task<Boolean> validateMovementProduct(Domain.Entities.Movement movement)
+        private async Task<Boolean> validateMovementProduct(List<Domain.Entities.MovementProduct> listMovementProductViewModel)
         {
-            var movementsProducts = await _queryContext.AllMovementsProducts.ToListAsync();
-            var movementsProductsViewModel = movementsProducts
-                .Select(r => _mapper.Map<MovementProductViewModel>(r))
-                .Where(r => r.MovementId == movement.ID)
-                .ToList();
-
-            if (movementsProductsViewModel.Count == 0)
+            if (listMovementProductViewModel.Count == 0)
             {
                 throw new ArgumentException("Não é possível finalizar um movimento sem Produtos!");
             }
@@ -63,6 +101,16 @@ namespace VaccineC.Command.Application.Commands.Movement
             {
                 return true;
             }
+        }
+
+        private async Task<List<Domain.Entities.MovementProduct>> getMovementsProductsByMovement(Domain.Entities.Movement movement)
+        {
+
+            List<Domain.Entities.MovementProduct> movementsProducts = (from mp in _ctx.MovementsProducts
+                                                                       where mp.MovementId == movement.ID
+                                                                       select mp).ToList();
+
+            return movementsProducts;
         }
 
     }
