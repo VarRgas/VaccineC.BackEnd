@@ -110,8 +110,9 @@ namespace VaccineC.Controllers
             }
             catch (DbUpdateException ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest("Existem informações vinculadas a este produto que impedem sua exclusão.");
             }
+
         }
     }
 }

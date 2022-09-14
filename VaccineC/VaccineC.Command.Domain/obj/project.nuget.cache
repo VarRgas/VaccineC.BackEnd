@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BduVjBRkJUbruUpOOWnDBTuzFgYC4ThheDMOXQqVflXSenF0dlMj2/cibaiAONUp3wVUwiNFlhMIJ1g/1lHyJA==",
+  "dgSpecHash": "wJS/q/ghEekjobM5cH2teAhhg4ZcxjPV7WkOJCCPu39n4/qmID2AbBg1LlHw0GRmdp4vw2bGccaMM84gptZzAQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

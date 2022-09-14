@@ -2,25 +2,28 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Domain.Abstractions.Repositories;
+using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
 using VaccineC.Query.Model.Abstractions;
 
 namespace VaccineC.Command.Application.Commands.ProductDoses
 {
-    public class UpdateProductDosesCommandHandler : IRequestHandler<UpdateProductDosesCommand, ProductDosesViewModel>
+    public class UpdateProductDosesCommandHandler : IRequestHandler<UpdateProductDosesCommand, IEnumerable<ProductDosesViewModel>>
     {
         private readonly IProductDosesRepository _repository;
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
+        private readonly IProductDosesAppService _appService;
 
-        public UpdateProductDosesCommandHandler(IProductDosesRepository repository, IQueryContext queryContext, IMapper mapper)
+        public UpdateProductDosesCommandHandler(IProductDosesRepository repository, IQueryContext queryContext, IMapper mapper, IProductDosesAppService appService)
         {
             _repository = repository;
             _queryContext = queryContext;
             _mapper = mapper;
+            _appService = appService;   
         }
 
-        public async Task<ProductDosesViewModel> Handle(UpdateProductDosesCommand request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ProductDosesViewModel>> Handle(UpdateProductDosesCommand request, CancellationToken cancellationToken)
         {
 
             var updatedDose = _repository.GetById(request.ID);
@@ -31,11 +34,8 @@ namespace VaccineC.Command.Application.Commands.ProductDoses
 
             await _repository.SaveChangesAsync();
 
-            var doses = await _queryContext.AllProducts.Where(c => c.ID == updatedDose.ID).ToListAsync();
-            var dose = doses.Select(r => _mapper.Map<ProductDosesViewModel>(r)).FirstOrDefault();
-
-            return dose;
-
+            return await _appService.GetProductsDosesByProductId(updatedDose.ProductsId);
+            
         }
 
     }

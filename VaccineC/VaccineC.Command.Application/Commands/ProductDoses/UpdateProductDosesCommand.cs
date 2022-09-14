@@ -3,7 +3,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.ProductDoses
 {
-    public class UpdateProductDosesCommand : IRequest<ProductDosesViewModel>
+    public class UpdateProductDosesCommand : IRequest<IEnumerable<ProductDosesViewModel>>
     {
         public Guid ID;
         public Guid ProductsId;

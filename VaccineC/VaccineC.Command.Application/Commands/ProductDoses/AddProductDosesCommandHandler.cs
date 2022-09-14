@@ -1,22 +1,25 @@
 ﻿using MediatR;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
+using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.ProductDoses
 {
-    public class AddProductDosesCommandHandler : IRequestHandler<AddProductDosesCommand, ProductDosesViewModel>
+    public class AddProductDosesCommandHandler : IRequestHandler<AddProductDosesCommand, IEnumerable<ProductDosesViewModel>>
     {
         private readonly IProductDosesRepository _repository;
         private readonly VaccineCCommandContext _ctx;
+        private readonly IProductDosesAppService _appService;
 
-        public AddProductDosesCommandHandler(IProductDosesRepository repository, VaccineCCommandContext ctx)
+        public AddProductDosesCommandHandler(IProductDosesRepository repository, VaccineCCommandContext ctx, IProductDosesAppService service)
         {
             _repository = repository;
             _ctx = ctx;
+            _appService = service;
         }
 
-        public async Task<ProductDosesViewModel> Handle(AddProductDosesCommand request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ProductDosesViewModel>> Handle(AddProductDosesCommand request, CancellationToken cancellationToken)
         {
 
             Domain.Entities.ProductDoses newDose = new Domain.Entities.ProductDoses(Guid.NewGuid(),
@@ -30,14 +33,7 @@ namespace VaccineC.Command.Application.Commands.ProductDoses
             _repository.Add(newDose);
             await _repository.SaveChangesAsync();
 
-            return new ProductDosesViewModel()
-            {
-                ID = newDose.ID,
-                ProductsId = newDose.ProductsId,
-                DoseType = newDose.DoseType,
-                DoseRangeMonth = newDose.DoseRangeMonth,
-                Register = newDose.Register
-            };
+            return await _appService.GetProductsDosesByProductId(newDose.ProductsId);
 
         }
 

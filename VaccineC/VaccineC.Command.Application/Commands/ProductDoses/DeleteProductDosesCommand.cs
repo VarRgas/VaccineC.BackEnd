@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.ProductDoses
 {
-    public class DeleteProductDosesCommand : IRequest
+    public class DeleteProductDosesCommand : IRequest<IEnumerable<ProductDosesViewModel>>
     {
         public Guid Id;
 
