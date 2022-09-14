@@ -47,8 +47,8 @@ namespace VaccineC.Controllers
         }
 
         // POST api/<MovementsProductsController>/Create
-        [HttpPost("Create")]
-        public async Task<IActionResult> Create([FromBody] MovementProductViewModel movementProduct)
+        [HttpPost("{movementType}/Create")]
+        public async Task<IActionResult> Create([FromBody] MovementProductViewModel movementProduct, string movementType)
         {
             try
             {
@@ -64,7 +64,8 @@ namespace VaccineC.Controllers
                     movementProduct.Register,
                     movementProduct.BatchManufacturingDate,
                     movementProduct.BatchExpirationDate,
-                    movementProduct.Manufacturer
+                    movementProduct.Manufacturer,
+                    movementType
                 );
                 var result = await _mediator.Send(command);
                 return Ok(result);
@@ -76,8 +77,8 @@ namespace VaccineC.Controllers
         }
 
         // PUT api/<MovementsProductsController>/3/Update
-        [HttpPut("{id}/Update")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] MovementProductViewModel movementProduct)
+        [HttpPut("{id}/{movementType}/Update")]
+        public async Task<IActionResult> Update(Guid id, string movementType, [FromBody] MovementProductViewModel movementProduct)
         {
             try
             {
@@ -93,7 +94,8 @@ namespace VaccineC.Controllers
                     movementProduct.Register,
                     movementProduct.BatchManufacturingDate,
                     movementProduct.BatchExpirationDate,
-                    movementProduct.Manufacturer
+                    movementProduct.Manufacturer,
+                    movementType
                 ); var result = await _mediator.Send(command);
                 return Ok(result);
             }

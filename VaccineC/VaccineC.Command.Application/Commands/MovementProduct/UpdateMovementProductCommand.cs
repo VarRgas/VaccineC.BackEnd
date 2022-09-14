@@ -17,8 +17,9 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
         public DateTime? BatchManufacturingDate;
         public DateTime? BatchExpirationDate;
         public string? Manufacturer;
+        public string? MovementType;
 
-        public UpdateMovementProductCommand(Guid id, Guid movementId, Guid productId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime? batchExpirationDate, string? manufacturer)
+        public UpdateMovementProductCommand(Guid id, Guid movementId, Guid productId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime? batchExpirationDate, string? manufacturer, string? movementType)
         {
             ID = id;
             MovementId = movementId;
@@ -32,6 +33,7 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
             BatchManufacturingDate = batchManufacturingDate;
             BatchExpirationDate = batchExpirationDate;
             Manufacturer = manufacturer;
+            MovementType = movementType;
         }
     }
 }

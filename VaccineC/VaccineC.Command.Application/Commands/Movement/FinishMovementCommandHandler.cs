@@ -66,7 +66,13 @@ namespace VaccineC.Command.Application.Commands.Movement
                     }
                     else
                     {
+                        if (productSummaryBatch.NumberOfUnitsBatch < movementProduct.UnitsNumber)
+                        {
+                            throw new ArgumentException("Não é possível retirar " + movementProduct.UnitsNumber + " unidades do lote " + productSummaryBatch.Batch + ", pois o total de unidades presentes é " + productSummaryBatch.NumberOfUnitsBatch);
+                        }
+                        
                         productSummaryBatch.SetNumberOfUnitsBatch(productSummaryBatch.NumberOfUnitsBatch - movementProduct.UnitsNumber);
+
                     }
                     productSummaryBatch.SetRegister(DateTime.Now);
                     await _productSummaryBatchRepository.SaveChangesAsync();
