@@ -170,7 +170,7 @@ namespace VaccineC.Query.Data.QueryContext
                 return _context
                .Set<ProductSummaryBatch>()
                .Include(r => r.Products)
-               .OrderBy(r => r.Batch);
+               .OrderBy(r => r.ValidityBatchDate);
             }
         }
 

@@ -28,7 +28,11 @@ namespace VaccineC.Controllers
 
                 if (file.Length > 0)
                 {
-                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                   // var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+
+                    var fileType = file.ContentType.Split("/")[1];
+                    var fileName = Guid.NewGuid() + "." + fileType;
+
                     var fullPath = Path.Combine(pathToSave, fileName);
                     var dbPath = Path.Combine(folderName, fileName);
 
@@ -50,5 +54,6 @@ namespace VaccineC.Controllers
                 return StatusCode(500, $"Internal server error: {ex}");
             }
         }
+
     }
 }

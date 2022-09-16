@@ -51,7 +51,7 @@ namespace VaccineC.Command.Application.Commands.Movement
                         movementProduct.BatchExpirationDate,
                         DateTime.Now,
                         movementProduct.Manufacturer,
-                        movementProduct.ProductsId
+                        movementProduct.ProductId
                         );
 
                     _productSummaryBatchRepository.Add(newProductSummaryBatch);

@@ -4,7 +4,7 @@
     {
         public Guid ID { get; set; }
         public Guid MovementId { get; set; }
-        public Guid ProductsId { get; set; }
+        public Guid ProductId { get; set; }
         public string? Batch { get; set; }
         public decimal UnitsNumber { get; set; }
         public decimal UnitaryValue { get; set; }

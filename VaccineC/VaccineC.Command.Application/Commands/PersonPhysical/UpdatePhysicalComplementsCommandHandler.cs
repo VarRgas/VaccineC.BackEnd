@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
+using VaccineC.Query.Data.Context;
 using VaccineC.Query.Model.Abstractions;
 
 namespace VaccineC.Command.Application.Commands.PersonPhysical
@@ -14,13 +15,15 @@ namespace VaccineC.Command.Application.Commands.PersonPhysical
         private readonly IPersonPhysicalRepository _repository;
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
+        private readonly VaccineCContext _context;
 
-        public UpdatePhysicalComplementsCommandHandler(IPersonPhysicalAppService personPhysicalAppService, IPersonPhysicalRepository repository, IQueryContext queryContext, IMapper mapper)
+        public UpdatePhysicalComplementsCommandHandler(IPersonPhysicalAppService personPhysicalAppService, IPersonPhysicalRepository repository, IQueryContext queryContext, IMapper mapper, VaccineCContext context)
         {
             _personPhysicalAppService = personPhysicalAppService;
             _repository = repository;
             _queryContext = queryContext;
             _mapper = mapper;
+            _context = context;
         }
         public async Task <PersonsPhysicalViewModel> Handle(UpdatePhysicalComplementsCommand request, CancellationToken cancellationToken)
         {
@@ -53,19 +56,20 @@ namespace VaccineC.Command.Application.Commands.PersonPhysical
         public async Task<Boolean> isExistingCpf(String cpf, Guid id)
         {
 
-            var personsPhysicals = await _queryContext.AllPersonsPhysicals.ToListAsync();
-            var personPhysicalViewModel = personsPhysicals
-                .Select(r => _mapper.Map<PersonsPhysicalViewModel>(r))
-                .Where(r => r.CpfNumber.Equals(cpf) && r.ID != id)
-                .FirstOrDefault();
 
-            if (personPhysicalViewModel == null)
+            var person = (from pp in _context.PersonsPhysical
+                          join p in _context.Persons on pp.PersonID equals p.ID
+                          where pp.CpfNumber.Equals(cpf) && pp.ID != id
+                          select p).FirstOrDefault();
+
+
+            if (person == null)
             {
                 return false;
             }
             else
             {
-                throw new ArgumentException("Este CPF já está cadastrado para outra pessoa!");
+                throw new ArgumentException("Este CPF já está cadastrado para a pessoa " + person.Name + "!");
             }
 
         }

@@ -46,7 +46,6 @@ namespace VaccineC.Query.Application.Services
                 .Select(r => _mapper.Map<ProductSummaryBatchViewModel>(r))
                 .Where(r => r.ProductsId == productsId)
                 .OrderByDescending(r => r.NumberOfUnitsBatch)
-                .ThenBy(r => r.ValidityBatchDate)
                 .ToList();
 
             return productsSummariesBatchesViewModel;

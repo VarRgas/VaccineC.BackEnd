@@ -13,8 +13,8 @@ namespace VaccineC.Command.Domain.Entities
         [Column("movementId")]
         public Guid MovementId { get; set; }
 
-        [Column("productsId")]
-        public Guid ProductsId { get; set; }
+        [Column("productId")]
+        public Guid ProductId { get; set; }
 
         [Column("batch", TypeName = "varchar(10)")]
         public string? Batch { get; set; }
@@ -43,11 +43,11 @@ namespace VaccineC.Command.Domain.Entities
         [Column("manufacturer", TypeName = "varchar(255)")]
         public string? Manufacturer { get; set; }
 
-        public MovementProduct(Guid id, Guid movementId, Guid productsId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime? batchExpirationDate, string? manufacturer)
+        public MovementProduct(Guid id, Guid movementId, Guid productId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime? batchExpirationDate, string? manufacturer)
         {
             ID = id;
             MovementId = movementId;
-            ProductsId = productsId;
+            ProductId = productId;
             Batch = batch;
             UnitsNumber = unitsNumber;
             UnitaryValue = unitaryValue;
@@ -70,7 +70,7 @@ namespace VaccineC.Command.Domain.Entities
 
         public void SetProductId(Guid productId)
         {
-            ProductsId = productId;
+            ProductId = productId;
         }
 
         public void SetBatch(string batch)
