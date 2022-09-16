@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.ViewModels;
@@ -29,7 +28,7 @@ namespace VaccineC.Command.Application.Commands.Movement
         {
 
             var movement = _movementRepository.GetById(request.ID);
-           
+
             List<Domain.Entities.MovementProduct> listMovementProductViewModel = await this.getMovementsProductsByMovement(movement);
 
             await this.validateMovementProduct(listMovementProductViewModel);
@@ -40,9 +39,9 @@ namespace VaccineC.Command.Application.Commands.Movement
                     .Where(pmb => pmb.Batch.Equals(movementProduct.Batch) && pmb.ManufacturingDate.Equals(movementProduct.BatchManufacturingDate))
                     .FirstOrDefault();
 
-                if(productSummaryBatch == null && movement.MovementType.Equals("E"))
+                if (productSummaryBatch == null && movement.MovementType.Equals("E"))
                 {
-      
+
                     Domain.Entities.ProductSummaryBatch newProductSummaryBatch = new Domain.Entities.ProductSummaryBatch(
 
                         Guid.NewGuid(),
@@ -52,7 +51,7 @@ namespace VaccineC.Command.Application.Commands.Movement
                         movementProduct.BatchExpirationDate,
                         DateTime.Now,
                         movementProduct.Manufacturer,
-                        movementProduct.ProductId
+                        movementProduct.ProductsId
                         );
 
                     _productSummaryBatchRepository.Add(newProductSummaryBatch);
@@ -61,8 +60,9 @@ namespace VaccineC.Command.Application.Commands.Movement
                 else
                 {
 
-                    if (movement.MovementType.Equals("E")) {
-                        productSummaryBatch.SetNumberOfUnitsBatch(productSummaryBatch.NumberOfUnitsBatch+ movementProduct.UnitsNumber);
+                    if (movement.MovementType.Equals("E"))
+                    {
+                        productSummaryBatch.SetNumberOfUnitsBatch(productSummaryBatch.NumberOfUnitsBatch + movementProduct.UnitsNumber);
                     }
                     else
                     {
@@ -70,7 +70,7 @@ namespace VaccineC.Command.Application.Commands.Movement
                         {
                             throw new ArgumentException("Não é possível retirar " + movementProduct.UnitsNumber + " unidades do lote " + productSummaryBatch.Batch + ", pois o total de unidades presentes é " + productSummaryBatch.NumberOfUnitsBatch);
                         }
-                        
+
                         productSummaryBatch.SetNumberOfUnitsBatch(productSummaryBatch.NumberOfUnitsBatch - movementProduct.UnitsNumber);
 
                     }

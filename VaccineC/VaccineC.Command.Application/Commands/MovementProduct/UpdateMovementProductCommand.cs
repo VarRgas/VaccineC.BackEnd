@@ -7,7 +7,7 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
     {
         public Guid ID;
         public Guid MovementId;
-        public Guid ProductId;
+        public Guid ProductsId;
         public string? Batch;
         public decimal UnitsNumber;
         public decimal UnitaryValue;
@@ -19,11 +19,11 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
         public string? Manufacturer;
         public string? MovementType;
 
-        public UpdateMovementProductCommand(Guid id, Guid movementId, Guid productId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime? batchExpirationDate, string? manufacturer, string? movementType)
+        public UpdateMovementProductCommand(Guid id, Guid movementId, Guid productsId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime? batchExpirationDate, string? manufacturer, string? movementType)
         {
             ID = id;
             MovementId = movementId;
-            ProductId = productId;
+            ProductsId = productsId;
             Batch = batch;
             UnitsNumber = unitsNumber;
             UnitaryValue = unitaryValue;

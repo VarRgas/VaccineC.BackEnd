@@ -22,14 +22,17 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
         public async Task<IEnumerable<MovementProductViewModel>> Handle(AddMovementProductCommand request, CancellationToken cancellationToken)
         {
 
-            if (request.MovementType.Equals("S")) {
+            if (request.MovementType.Equals("S"))
+            {
 
                 var productSummaryBatch = _ctx.ProductsSummariesBatches
                  .Where(pmb => pmb.Batch.Equals(request.Batch) && pmb.ManufacturingDate.Equals(request.BatchManufacturingDate))
                  .FirstOrDefault();
 
-                if (productSummaryBatch != null) {
-                    if (productSummaryBatch.NumberOfUnitsBatch < request.UnitsNumber) {
+                if (productSummaryBatch != null)
+                {
+                    if (productSummaryBatch.NumberOfUnitsBatch < request.UnitsNumber)
+                    {
                         throw new ArgumentException("Não é possível retirar " + request.UnitsNumber + " unidades do lote " + productSummaryBatch.Batch + ", pois o total de unidades presentes é " + productSummaryBatch.NumberOfUnitsBatch);
                     }
                 }
@@ -43,7 +46,7 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
             Domain.Entities.MovementProduct newMovementProduct = new Domain.Entities.MovementProduct(
                 Guid.NewGuid(),
                 request.MovementId,
-                request.ProductId,
+                request.ProductsId,
                 request.Batch,
                 request.UnitsNumber,
                 request.UnitaryValue,

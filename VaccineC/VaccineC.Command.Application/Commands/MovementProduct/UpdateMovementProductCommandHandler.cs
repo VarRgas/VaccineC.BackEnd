@@ -44,7 +44,7 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
             }
 
             var movementProduct = _movementProductRepository.GetById(request.ID);
-            movementProduct.SetProductId(request.ProductId);
+            movementProduct.SetProductId(request.ProductsId);
             movementProduct.SetBatch(request.Batch);
             movementProduct.SetUnitsNumber(request.UnitsNumber);
             movementProduct.SetUnitaryValue(request.UnitaryValue);

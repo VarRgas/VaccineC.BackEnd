@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VaccineC.Query.Model.Models
+﻿namespace VaccineC.Query.Model.Models
 {
     public class ProductSummaryBatch
     {
@@ -16,5 +10,6 @@ namespace VaccineC.Query.Model.Models
         public DateTime Register { get; set; }
         public string Manufacturer { get; set; }
         public Guid ProductsId { get; set; }
+        public Product? Products { get; set; }
     }
 }

@@ -55,7 +55,7 @@ namespace VaccineC.Controllers
                 var command = new AddMovementProductCommand(
                     movementProduct.ID,
                     movementProduct.MovementId,
-                    movementProduct.ProductId,
+                    movementProduct.ProductsId,
                     movementProduct.Batch,
                     movementProduct.UnitsNumber,
                     movementProduct.UnitaryValue,
@@ -85,7 +85,7 @@ namespace VaccineC.Controllers
                 var command = new UpdateMovementProductCommand(
                     id,
                     movementProduct.MovementId,
-                    movementProduct.ProductId,
+                    movementProduct.ProductsId,
                     movementProduct.Batch,
                     movementProduct.UnitsNumber,
                     movementProduct.UnitaryValue,

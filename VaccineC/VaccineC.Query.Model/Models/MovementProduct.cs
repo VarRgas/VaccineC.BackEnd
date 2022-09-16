@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VaccineC.Query.Model.Models
+﻿namespace VaccineC.Query.Model.Models
 {
     public class MovementProduct
     {
         public Guid ID { get; set; }
         public Guid MovementId { get; set; }
-        public Guid ProductId { get; set; }
+        public Guid ProductsId { get; set; }
         public string? Batch { get; set; }
         public decimal UnitsNumber { get; set; }
         public decimal UnitaryValue { get; set; }

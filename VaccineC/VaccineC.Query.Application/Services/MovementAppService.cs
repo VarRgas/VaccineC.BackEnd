@@ -42,10 +42,10 @@ namespace VaccineC.Query.Application.Services
 
         public Task<IEnumerable<MovementViewModel>> GetAllByProductName(string productName)
         {
-  
+
             List<Movement> movements = (from m in _context.Movements
-                                        join mp in _context.MovementsProducts on m.ID equals mp.MovementId 
-                                        join p in _context.Products on mp.ProductId equals p.ID into _mp
+                                        join mp in _context.MovementsProducts on m.ID equals mp.MovementId
+                                        join p in _context.Products on mp.ProductsId equals p.ID into _mp
                                         from x in _mp.DefaultIfEmpty()
                                         where x.Name.Contains(productName)
                                         select m

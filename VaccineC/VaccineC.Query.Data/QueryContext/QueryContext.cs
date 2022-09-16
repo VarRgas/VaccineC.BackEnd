@@ -163,12 +163,13 @@ namespace VaccineC.Query.Data.QueryContext
             }
         }
 
-        public IQueryable<ProductSummaryBatch> AllProductsSummariesBatches 
+        public IQueryable<ProductSummaryBatch> AllProductsSummariesBatches
         {
             get
             {
                 return _context
                .Set<ProductSummaryBatch>()
+               .Include(r => r.Products)
                .OrderBy(r => r.Batch);
             }
         }
