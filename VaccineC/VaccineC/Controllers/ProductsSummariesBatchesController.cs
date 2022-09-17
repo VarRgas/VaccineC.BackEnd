@@ -19,7 +19,6 @@ namespace VaccineC.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/<ProductsSummariesBatchesController>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -28,7 +27,14 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET api/<ProductsSummariesBatchesController>/5
+        [HttpGet("GetAllBelowMinimumStock")]
+        public async Task<IActionResult> getAllBatchsBelowMinimumStock()
+        {
+            var command = new GetProductSummaryBatchBelowMinimumStockListQuery();
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
@@ -37,7 +43,6 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET api/<ProductsSummariesBatchesController>/5/GetAllByProductId
         [HttpGet("{productsId}/GetAllByProductId")]
         public async Task<IActionResult> GetProductsDosesByProductId(Guid productsId)
         {
@@ -46,7 +51,6 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET api/<ProductsSummariesBatchesController>/5/GetValidProductsSummariesBatches
         [HttpGet("{productsId}/GetValidProductsSummariesBatches")]
         public async Task<IActionResult> GetValidProductsSummariesBatches(Guid productsId)
         {
@@ -55,7 +59,6 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET api/<ProductsSummariesBatchesController>/5/A/GetProductSummaryBatchByName
         [HttpGet("{productId}/{name}/GetProductSummaryBatchByName")]
         public async Task<IActionResult> GetProductSummaryBatchByName(Guid productId, string name)
         {
@@ -64,7 +67,6 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // POST api/<ProductsSummariesBatchesController>/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] ProductSummaryBatchViewModel summaryBatchViewModel)
         {
@@ -89,7 +91,6 @@ namespace VaccineC.Controllers
             }
         }
 
-        // POST api/<ProductsSummariesBatchesController>/5/Update
         [HttpPut("{id}/Update")]
         public async Task<IActionResult> Update(Guid id, [FromBody] ProductSummaryBatchViewModel summaryBatchViewModel)
         {
@@ -114,7 +115,6 @@ namespace VaccineC.Controllers
             }
         }
 
-        // POST api/<ProductsSummariesBatchesController>/5/Delete
         [HttpDelete("{id}/Delete")]
         public async Task<IActionResult> Delete(Guid id)
         {

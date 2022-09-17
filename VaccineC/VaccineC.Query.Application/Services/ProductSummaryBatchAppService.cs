@@ -62,5 +62,15 @@ namespace VaccineC.Query.Application.Services
 
             return productsSummariesBatchesViewModel;
         }
+
+        public async Task<IEnumerable<ProductSummaryBatchViewModel>> GetAllBelowMinimumStockAsync()
+        {
+            var productsSummariesBatches = await _queryContext.AllProductsSummariesBatches.ToListAsync();
+            var productsSummariesBatchesViewModel = productsSummariesBatches
+                .Select(r => _mapper.Map<ProductSummaryBatchViewModel>(r))
+                .Where(r => r.Products?.MinimumStock > r.NumberOfUnitsBatch)
+                .ToList();
+            return productsSummariesBatchesViewModel;
+        }
     }
 }
