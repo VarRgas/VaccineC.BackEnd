@@ -53,10 +53,11 @@ namespace VaccineC.Query.Application.Services
 
         public async Task<IEnumerable<ProductSummaryBatchViewModel>> GetValidProductSummaryBatchList(Guid productsId)
         {
+            //.Where(r => r.ProductsId == productsId && r.NumberOfUnitsBatch > 0 && r.ValidityBatchDate >= DateTime.Now)
             var productsSummariesBatches = await _queryContext.AllProductsSummariesBatches.ToListAsync();
             var productsSummariesBatchesViewModel = productsSummariesBatches
                 .Select(r => _mapper.Map<ProductSummaryBatchViewModel>(r))
-                .Where(r => r.ProductsId == productsId && r.NumberOfUnitsBatch > 0 && r.ValidityBatchDate >= DateTime.Now)
+                .Where(r => r.ProductsId == productsId && r.NumberOfUnitsBatch > 0)
                 .OrderBy(r => r.ValidityBatchDate)
                 .ToList();
 

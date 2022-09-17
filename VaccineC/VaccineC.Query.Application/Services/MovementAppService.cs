@@ -27,6 +27,30 @@ namespace VaccineC.Query.Application.Services
         {
             var movements = await _queryContext.AllMovements.ToListAsync();
             var movementsViewModel = movements.Select(r => _mapper.Map<MovementViewModel>(r)).ToList();
+
+            foreach (var movementViewModel in movementsViewModel)
+            {
+                var movementsProducts = await _queryContext.AllMovementsProducts.ToListAsync();
+                var movementsProductsViewModel = movementsProducts
+                    .Select(r => _mapper.Map<MovementProductViewModel>(r))
+                    .Where(r => r.MovementId == movementViewModel.ID)
+                    .ToList();
+
+                if (movementsProductsViewModel.Count() == 0)
+                {
+                    movementViewModel.ProductsInfo = "";
+                }
+                else if (movementsProductsViewModel.Count() == 1)
+                {
+                    movementViewModel.ProductsInfo = movementsProductsViewModel[0].Product.Name;
+                }
+                else
+                {
+                    movementViewModel.ProductsInfo = movementsProductsViewModel[0].Product.Name + " + " + (movementsProductsViewModel.Count() - 1).ToString();
+                }
+
+
+            }
             return movementsViewModel;
         }
 
@@ -37,10 +61,36 @@ namespace VaccineC.Query.Application.Services
                 .Select(r => _mapper.Map<MovementViewModel>(r))
                 .Where(r => r.MovementNumber == movementNumber)
                 .ToList();
+
+            foreach (var movementViewModel in movementsViewModel)
+            {
+                var movementsProducts = await _queryContext.AllMovementsProducts.ToListAsync();
+                var movementsProductsViewModel = movementsProducts
+                    .Select(r => _mapper.Map<MovementProductViewModel>(r))
+                    .Where(r => r.MovementId == movementViewModel.ID)
+                    .ToList();
+
+                if (movementsProductsViewModel.Count() == 0)
+                {
+                    movementViewModel.ProductsInfo = "";
+                }
+                else if (movementsProductsViewModel.Count() == 1)
+                {
+                    movementViewModel.ProductsInfo = movementsProductsViewModel[0].Product.Name;
+                }
+                else
+                {
+                    movementViewModel.ProductsInfo = movementsProductsViewModel[0].Product.Name + " + " + (movementsProductsViewModel.Count() - 1).ToString();
+                }
+
+
+            }
+
+
             return movementsViewModel;
         }
 
-        public Task<IEnumerable<MovementViewModel>> GetAllByProductName(string productName)
+        public async Task<IEnumerable<MovementViewModel>> GetAllByProductName(string productName)
         {
 
             List<Movement> movements = (from m in _context.Movements
@@ -53,7 +103,30 @@ namespace VaccineC.Query.Application.Services
 
             var response = _mapper.Map<IEnumerable<MovementViewModel>>(movements);
 
-            return Task.FromResult(response);
+            foreach (var movementViewModel in response)
+            {
+                var movementsProducts = await _queryContext.AllMovementsProducts.ToListAsync();
+                var movementsProductsViewModel = movementsProducts
+                    .Select(r => _mapper.Map<MovementProductViewModel>(r))
+                    .Where(r => r.MovementId == movementViewModel.ID)
+                    .ToList();
+
+                if (movementsProductsViewModel.Count() == 0)
+                {
+                    movementViewModel.ProductsInfo = "";
+                }
+                else if (movementsProductsViewModel.Count() == 1)
+                {
+                    movementViewModel.ProductsInfo = movementsProductsViewModel[0].Product.Name;
+                }
+                else
+                {
+                    movementViewModel.ProductsInfo = movementsProductsViewModel[0].Product.Name + " + " + (movementsProductsViewModel.Count() - 1).ToString();
+                }
+
+            }
+
+            return await Task.FromResult(response);
         }
     }
 }

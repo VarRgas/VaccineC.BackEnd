@@ -19,6 +19,14 @@ namespace VaccineC.Command.Application.Commands.Movement
         public async Task<MovementViewModel> Handle(CancelMovementCommand request, CancellationToken cancellationToken)
         {
             var movement = _movementRepository.GetById(request.ID);
+        
+            if (movement.Situation.Equals("F") || movement.Situation.Equals("C")) {
+
+                string situationMovement = movement.Situation.Equals("F") ? "Finalizado" : "Cancelado";
+
+                throw new ArgumentException("Não é possível cancelar um Movimento com Situação " + situationMovement + "!");
+            }
+
             movement.SetSituation("C");
             movement.SetUsersId(request.UsersId);
             movement.SetProductsAmount(request.ProductsAmount);

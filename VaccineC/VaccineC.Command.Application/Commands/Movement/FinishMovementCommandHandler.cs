@@ -29,6 +29,13 @@ namespace VaccineC.Command.Application.Commands.Movement
 
             var movement = _movementRepository.GetById(request.ID);
 
+            if (movement.Situation.Equals("F") || movement.Situation.Equals("C"))
+            {
+                string situationMovement = movement.Situation.Equals("F") ? "Finalizado" : "Cancelado";
+
+                throw new ArgumentException("Não é possível finalizar um Movimento com Situação " + situationMovement + "!");
+            }
+
             List<Domain.Entities.MovementProduct> listMovementProductViewModel = await this.getMovementsProductsByMovement(movement);
 
             await this.validateMovementProduct(listMovementProductViewModel);
