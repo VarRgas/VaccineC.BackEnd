@@ -15,7 +15,7 @@ namespace VaccineC.Query.Model.Models
         public decimal? ProductsAmount { get; set; }
         public DateTime Register { get; set; }
         public string Situation { get; set; }
-        public Product? Product { get; set; }
+        //public Product? Product { get; set; }
     }
 
 }

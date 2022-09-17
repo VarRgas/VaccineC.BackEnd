@@ -35,6 +35,14 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetAllNotEmpty")]
+        public async Task<IActionResult> getAllNotEmpty()
+        {
+            var command = new GetNotEmptyProductSummaryBatchListQuery();
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
