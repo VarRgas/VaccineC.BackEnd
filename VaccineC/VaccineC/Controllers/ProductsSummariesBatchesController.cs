@@ -46,6 +46,15 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        // GET api/<ProductsSummariesBatchesController>/5/GetValidProductsSummariesBatches
+        [HttpGet("{productsId}/GetValidProductsSummariesBatches")]
+        public async Task<IActionResult> GetValidProductsSummariesBatches(Guid productsId)
+        {
+            var command = new GetValidProductSummaryBatchListQuery(productsId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // GET api/<ProductsSummariesBatchesController>/5/A/GetProductSummaryBatchByName
         [HttpGet("{productId}/{name}/GetProductSummaryBatchByName")]
         public async Task<IActionResult> GetProductSummaryBatchByName(Guid productId, string name)

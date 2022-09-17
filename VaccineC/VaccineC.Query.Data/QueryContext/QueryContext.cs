@@ -180,7 +180,8 @@ namespace VaccineC.Query.Data.QueryContext
             {
                 return _context
                .Set<Movement>()
-               .OrderByDescending(r => r.MovementNumber);
+               .OrderByDescending(r => r.Situation)
+               .ThenByDescending(r => r.MovementNumber);
             }
         }
 
