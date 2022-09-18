@@ -3,7 +3,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Query.Application.Queries.ProductSummaryBatch
 {
-    public class GetProductSummaryBatchBelowMinimumStockListQuery : IRequest<IEnumerable<ProductSummaryBatchViewModel>>
+    public class GetProductSummaryBatchBelowMinimumStockListQuery : IRequest<IEnumerable<ProductBelowMinimumViewModel>>
     {
     }
 }

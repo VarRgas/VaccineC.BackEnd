@@ -29,6 +29,8 @@ namespace VaccineC.Query.Data.Context
         public DbSet<ProductSummaryBatch> ProductsSummariesBatches { get; set; }
         public DbSet<Movement> Movements { get; set; }
         public DbSet<MovementProduct> MovementsProducts { get; set; }
+        public DbSet<BudgetProduct> BudgetsProducts { get; set; }
+        public DbSet<Authorization> Authorizations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -50,6 +52,8 @@ namespace VaccineC.Query.Data.Context
             modelBuilder.Entity<ProductSummaryBatch>().ToTable("ProductsSummariesBatches");
             modelBuilder.Entity<Movement>().ToTable("Movements");
             modelBuilder.Entity<MovementProduct>().ToTable("MovementsProducts");
+            modelBuilder.Entity<BudgetProduct>().ToTable("BudgetsProducts");
+            modelBuilder.Entity<Authorization>().ToTable("Authorizations");
 
             base.OnModelCreating(modelBuilder);
         }

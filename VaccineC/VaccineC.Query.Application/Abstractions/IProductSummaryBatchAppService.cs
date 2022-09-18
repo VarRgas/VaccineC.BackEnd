@@ -7,7 +7,7 @@ namespace VaccineC.Query.Application.Abstractions
         Task<IEnumerable<ProductSummaryBatchViewModel>> GetAllAsync();
         Task<IEnumerable<ProductSummaryBatchViewModel>> GetProductSummaryBatchByProductId(Guid productsId);
         Task<IEnumerable<ProductSummaryBatchViewModel>> GetValidProductSummaryBatchList(Guid productsId);
-        Task<IEnumerable<ProductSummaryBatchViewModel>> GetAllBelowMinimumStockAsync();
+        Task<IEnumerable<ProductBelowMinimumViewModel>> GetAllBelowMinimumStockAsync();
         Task<IEnumerable<ProductSummaryBatchViewModel>> GetNotEmptyProductSummaryBatchList();
         ProductSummaryBatchViewModel GetById(Guid id);
         Task<ProductSummaryBatchViewModel> GetByName(Guid id, string name);

@@ -76,15 +76,39 @@ namespace VaccineC.Query.Application.Services
             return productsSummariesBatchesViewModel;
         }
 
-        public async Task<IEnumerable<ProductSummaryBatchViewModel>> GetAllBelowMinimumStockAsync()
+        public async Task<IEnumerable<ProductBelowMinimumViewModel>> GetAllBelowMinimumStockAsync()
         {
-            var productsSummariesBatches = await _queryContext.AllProductsSummariesBatches.ToListAsync();
-            var productsSummariesBatchesViewModel = productsSummariesBatches
-                .Select(r => _mapper.Map<ProductSummaryBatchViewModel>(r))
-                .Where(r => r.Products?.MinimumStock > r.NumberOfUnitsBatch && r.NumberOfUnitsBatch != 0)
-                .OrderBy(r => r.NumberOfUnitsBatch)
-                .ToList();
-            return productsSummariesBatchesViewModel;
+
+            List<ProductBelowMinimumViewModel> listProductBelowMinimumViewModel = new List<ProductBelowMinimumViewModel>();
+
+            var products = await _queryContext.AllProducts.ToListAsync();
+            var productsViewModel = products.Select(r => _mapper.Map<ProductViewModel>(r)).ToList();
+
+            foreach (var product in productsViewModel)
+            {
+
+                ProductBelowMinimumViewModel productBelowMinimumViewModel = new ProductBelowMinimumViewModel();
+
+                var productsSummariesBatches = await _queryContext.AllProductsSummariesBatches.ToListAsync();
+                var totalUnitsProduct = productsSummariesBatches
+                    .Select(r => _mapper.Map<ProductSummaryBatchViewModel>(r))
+                    .Where(r => r.ProductsId == product.ID)
+                    .Sum(r => r.NumberOfUnitsBatch);
+
+                if (totalUnitsProduct > 0 && totalUnitsProduct < product.MinimumStock)
+                {
+                    productBelowMinimumViewModel.ProductId = product.ID;
+                    productBelowMinimumViewModel.ProductName = product.Name;
+                    productBelowMinimumViewModel.MinimumStock = product.MinimumStock;
+                    productBelowMinimumViewModel.TotalUnits = (int)totalUnitsProduct;
+
+                    listProductBelowMinimumViewModel.Add(productBelowMinimumViewModel);
+                }
+
+
+            }
+
+                return listProductBelowMinimumViewModel;
         }
     }
 }

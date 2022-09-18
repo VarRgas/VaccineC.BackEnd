@@ -4,7 +4,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Query.Application.Queries.ProductSummaryBatch
 {
-    public class GetProductSummaryBatchBelowMinimumStockListQueryHandler : IRequestHandler<GetProductSummaryBatchBelowMinimumStockListQuery, IEnumerable<ProductSummaryBatchViewModel>>
+    public class GetProductSummaryBatchBelowMinimumStockListQueryHandler : IRequestHandler<GetProductSummaryBatchBelowMinimumStockListQuery, IEnumerable<ProductBelowMinimumViewModel>>
     {
         private readonly IProductSummaryBatchAppService _productSummaryBatchAppService;
 
@@ -12,7 +12,7 @@ namespace VaccineC.Query.Application.Queries.ProductSummaryBatch
         {
             _productSummaryBatchAppService = productSummaryBatchAppService;
         }
-        public async Task<IEnumerable<ProductSummaryBatchViewModel>> Handle(GetProductSummaryBatchBelowMinimumStockListQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ProductBelowMinimumViewModel>> Handle(GetProductSummaryBatchBelowMinimumStockListQuery request, CancellationToken cancellationToken)
         {
             return await _productSummaryBatchAppService.GetAllBelowMinimumStockAsync();
         }

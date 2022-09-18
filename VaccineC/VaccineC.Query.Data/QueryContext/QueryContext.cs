@@ -194,5 +194,28 @@ namespace VaccineC.Query.Data.QueryContext
                .Include(r => r.Product);
             }
         }
+
+        public IQueryable<BudgetProduct> AllBudgetsProducts
+        {
+            get
+            {
+                return _context
+               .Set<BudgetProduct>()
+               .Include(r => r.Product)
+               .OrderBy(r => r.Product.Name);
+            }
+        }
+
+        public IQueryable<Authorization> AllAuthorizations
+        {
+            get
+            {
+                return _context
+               .Set<Authorization>()
+               .Include(bp => bp.BudgetProduct)
+                .ThenInclude(p => p.Product)
+               .OrderBy(r => r.AuthorizationNumber);
+            }
+        }
     }
 }
