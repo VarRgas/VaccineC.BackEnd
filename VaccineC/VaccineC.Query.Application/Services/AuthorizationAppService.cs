@@ -56,8 +56,9 @@ namespace VaccineC.Query.Application.Services
                 var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
                 var totalAuthorizationsByProduct = authorizations
                     .Select(r => _mapper.Map<AuthorizationViewModel>(r))
-                    .Where(r => r.BudgetProduct.ProductId == product.ID && r.AuthorizationDate >= firstDay && r.AuthorizationDate <= lastDay).Count();
+                        .Where(r => r.BudgetProduct.ProductId == product.ID && r.AuthorizationDate >= firstDay && r.AuthorizationDate <= lastDay).Count();
 
+                authorizationSummarySituationViewModel.ProductId = product.ID;
                 authorizationSummarySituationViewModel.ProductName = product.Name;
                 authorizationSummarySituationViewModel.TotalUnitsProduct = (int)totalUnitsProduct;
                 authorizationSummarySituationViewModel.TotalAuthorizationsMonth = totalAuthorizationsByProduct;

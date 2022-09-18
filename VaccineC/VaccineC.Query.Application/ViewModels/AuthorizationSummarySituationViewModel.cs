@@ -8,6 +8,7 @@ namespace VaccineC.Query.Application.ViewModels
 {
     public class AuthorizationSummarySituationViewModel
     {
+        public Guid ProductId { get; set; }
         public string ProductName { get; set; }
         public int TotalAuthorizationsMonth { get; set; }
         public int TotalUnitsProduct { get; set; }
