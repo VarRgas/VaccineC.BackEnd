@@ -24,6 +24,7 @@ namespace VaccineC.Query.Model.Abstractions
         IQueryable<MovementProduct> AllMovementsProducts { get; }
         IQueryable<BudgetProduct> AllBudgetsProducts { get; }
         IQueryable<Authorization> AllAuthorizations { get; }
+        IQueryable<Notification> AllNotifications { get; }
 
     }
 }

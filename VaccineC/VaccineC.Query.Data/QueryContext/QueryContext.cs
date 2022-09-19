@@ -217,5 +217,15 @@ namespace VaccineC.Query.Data.QueryContext
                .OrderBy(r => r.AuthorizationNumber);
             }
         }
+
+        public IQueryable<Notification> AllNotifications
+        {
+            get
+            {
+                return _context
+               .Set<Notification>()
+               .OrderBy(r => r.Register);
+            }
+        }
     }
 }

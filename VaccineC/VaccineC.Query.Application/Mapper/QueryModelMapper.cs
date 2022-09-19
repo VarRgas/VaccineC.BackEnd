@@ -30,6 +30,7 @@ namespace VaccineC.Query.Application.Mapper
             CreateMap<MovementProduct, MovementProductViewModel>();
             CreateMap<BudgetProduct, BudgetProductViewModel>();
             CreateMap<Authorization, AuthorizationViewModel>();
+            CreateMap<Notification, NotificationViewModel>();
         }
     }
 }
