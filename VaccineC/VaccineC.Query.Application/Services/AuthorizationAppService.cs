@@ -39,7 +39,6 @@ namespace VaccineC.Query.Application.Services
             var productsViewModel = products.Select(r => _mapper.Map<ProductViewModel>(r)).ToList();
 
             DateTime now = DateTime.Today;
-            DateTime firstDay = new DateTime(now.Year, now.Month, 1);
             DateTime lastDay = new DateTime(now.Year, now.Month, DateTime.DaysInMonth(now.Year, now.Month));
 
             foreach (var product in productsViewModel)
@@ -56,7 +55,7 @@ namespace VaccineC.Query.Application.Services
                 var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
                 var totalAuthorizationsByProduct = authorizations
                     .Select(r => _mapper.Map<AuthorizationViewModel>(r))
-                        .Where(r => r.BudgetProduct.ProductId == product.ID && r.AuthorizationDate >= firstDay && r.AuthorizationDate <= lastDay).Count();
+                        .Where(r => r.BudgetProduct.ProductId == product.ID && r.AuthorizationDate >= now && r.AuthorizationDate <= lastDay).Count();
 
                 authorizationSummarySituationViewModel.ProductId = product.ID;
                 authorizationSummarySituationViewModel.ProductName = product.Name;
