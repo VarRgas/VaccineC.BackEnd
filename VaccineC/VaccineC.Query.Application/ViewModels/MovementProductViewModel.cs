@@ -12,7 +12,7 @@
         public string? Details { get; set; }
         public DateTime Register { get; set; }
         public DateTime? BatchManufacturingDate { get; set; }
-        public DateTime? BatchExpirationDate { get; set; }
+        public DateTime BatchExpirationDate { get; set; }
         public string? Manufacturer { get; set; }
         public ProductViewModel? Product { get; set; }
     }

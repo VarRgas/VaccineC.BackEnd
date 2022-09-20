@@ -38,12 +38,12 @@ namespace VaccineC.Command.Domain.Entities
         public DateTime? BatchManufacturingDate { get; set; }
 
         [Column("batchExpirationDate", TypeName = "datetime")]
-        public DateTime? BatchExpirationDate { get; set; }
+        public DateTime BatchExpirationDate { get; set; }
 
         [Column("manufacturer", TypeName = "varchar(255)")]
         public string? Manufacturer { get; set; }
 
-        public MovementProduct(Guid id, Guid movementId, Guid productId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime? batchExpirationDate, string? manufacturer)
+        public MovementProduct(Guid id, Guid movementId, Guid productId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime batchExpirationDate, string? manufacturer)
         {
             ID = id;
             MovementId = movementId;
@@ -108,7 +108,7 @@ namespace VaccineC.Command.Domain.Entities
             BatchManufacturingDate = batchManufacturingDate;
         }
 
-        public void SetBatchExpirationDate(DateTime? batchExpirationDate)
+        public void SetBatchExpirationDate(DateTime batchExpirationDate)
         {
             BatchExpirationDate = batchExpirationDate;
         }

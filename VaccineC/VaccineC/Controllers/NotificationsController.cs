@@ -46,6 +46,14 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("ManageNotifications")]
+        public async Task<IActionResult> getManageNotifications()
+        {
+            var command = new ManageNotificationsCommand();
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // POST api/<NotificationsController>/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] NotificationViewModel notification)

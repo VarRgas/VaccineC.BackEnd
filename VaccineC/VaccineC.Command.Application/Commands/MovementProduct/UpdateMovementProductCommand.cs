@@ -15,11 +15,11 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
         public string? Details;
         public DateTime Register;
         public DateTime? BatchManufacturingDate;
-        public DateTime? BatchExpirationDate;
+        public DateTime BatchExpirationDate;
         public string? Manufacturer;
         public string? MovementType;
 
-        public UpdateMovementProductCommand(Guid id, Guid movementId, Guid productsId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime? batchExpirationDate, string? manufacturer, string? movementType)
+        public UpdateMovementProductCommand(Guid id, Guid movementId, Guid productsId, string? batch, decimal unitsNumber, decimal unitaryValue, decimal amount, string? details, DateTime register, DateTime? batchManufacturingDate, DateTime batchExpirationDate, string? manufacturer, string? movementType)
         {
             ID = id;
             MovementId = movementId;

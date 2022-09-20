@@ -9,12 +9,12 @@ namespace VaccineC.Command.Application.Commands.ProductSummaryBatch
         public string Batch;
         public decimal NumberOfUnitsBatch;
         public DateTime? ManufacturingDate;
-        public DateTime? ValidityBatchDate;
+        public DateTime ValidityBatchDate;
         public DateTime Register;
         public string Manufacturer;
         public Guid ProductsId;
 
-        public UpdateProductSummaryBatchCommand(Guid id, string batch, decimal numberOfUnitsBatch, DateTime? manufacturingDate, DateTime? validityBatchDate, DateTime register, string manufacturer, Guid productsId)
+        public UpdateProductSummaryBatchCommand(Guid id, string batch, decimal numberOfUnitsBatch, DateTime? manufacturingDate, DateTime validityBatchDate, DateTime register, string manufacturer, Guid productsId)
         {
             ID = id;
             Batch = batch;

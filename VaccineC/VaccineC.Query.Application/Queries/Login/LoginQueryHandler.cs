@@ -43,15 +43,15 @@ namespace VaccineC.Query.Application.Queries.Login
                 throw new ArgumentException("Usuário ou senha inválidos, verifique e tente novamente!");
             }
 
-            var usersResources = await _queryContext.AllUserResources.ToListAsync();
-            var userResourceViewModel = usersResources
-                .Select(ur => _mapper.Map<UserResourceViewModel>(ur))
-                .Where(ur => ur.UsersId.Equals(user.ID) && ur.ResourcesId.ToString().Equals("9D027829-002B-460B-9E8D-31FADB3FF313", StringComparison.OrdinalIgnoreCase))
-                .FirstOrDefault();
+            int userValidId = (from u in _context.UsersResources
+                                      join r in _context.Resources on u.ResourcesId equals r.ID
+                                      where r.Name.Equals("SITUAÇÃO ESTOQUE")
+                                      && u.UsersId.Equals(user.ID)
+                                      select u).Count();
 
             string showNotification = "";
 
-            if (userResourceViewModel != null) 
+            if (userValidId > 0) 
             {
                 showNotification = "S";
             }
