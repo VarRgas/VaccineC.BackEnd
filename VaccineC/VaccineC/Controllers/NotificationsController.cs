@@ -94,5 +94,21 @@ namespace VaccineC.Controllers
             }
         }
 
+        // POST api/<NotificationsController>/UpdateOnDemand
+        [HttpPost("UpdateOnDemand")]
+        public async Task<IActionResult> CreateOnDemand([FromBody] List<NotificationViewModel> listNotificationViewModel)
+        {
+            try
+            {
+                var command = new UpdateNotificationsOnDemandCommand(listNotificationViewModel);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

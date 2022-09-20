@@ -23,7 +23,6 @@ namespace VaccineC.Command.Application.Commands.Notification
         {
             var updatedNotification = _notificationRepository.GetById(request.ID);
             updatedNotification.SetSituation(request.Situation);
-            updatedNotification.SetRegister(DateTime.Now);
 
             await _notificationRepository.SaveChangesAsync();
 

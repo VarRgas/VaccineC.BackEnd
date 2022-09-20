@@ -3,7 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
+using VaccineC.Query.Data.Context;
 using VaccineC.Query.Model.Abstractions;
+using VaccineC.Query.Model.Models;
 
 namespace VaccineC.Query.Application.Services
 {
@@ -11,11 +13,13 @@ namespace VaccineC.Query.Application.Services
     {
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
+        private readonly VaccineCContext _context;
 
-        public NotificationAppService(IQueryContext queryContext, IMapper mapper)
+        public NotificationAppService(IQueryContext queryContext, IMapper mapper, VaccineCContext context )
         {
             _queryContext = queryContext;
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task<IEnumerable<NotificationViewModel>> GetAllAsync()
@@ -34,13 +38,21 @@ namespace VaccineC.Query.Application.Services
             DateTime todayMin = today.Date + minHour;
             DateTime todayMax = today.Date + maxHour;
 
-            var notifications = await _queryContext.AllNotifications.ToListAsync();
-            var notificationsViewModel = notifications
-                .Select(r => _mapper.Map<NotificationViewModel>(r))
-                .Where(r => r.UserId == userID && r.Register >= todayMin && r.Register <= todayMax)
-                .ToList();
+            List<Notification> notificationsUnread = (from n in _context.Notifications
+                                                     where n.UserId.Equals(userID)
+                                                     && n.Situation == "X"
+                                                     select n).ToList();
 
-            foreach(var notification in notificationsViewModel)
+            List<Notification> notificationsCurrentDay = (from n in _context.Notifications
+                                                      where n.UserId.Equals(userID)
+                                                      && (n.Register >= todayMin && n.Register <= todayMax)
+                                                      select n).ToList();
+
+            var all = notificationsUnread.Union(notificationsCurrentDay);
+
+            var notificationsViewModel = _mapper.Map<IEnumerable<NotificationViewModel>>(all).OrderByDescending(r => r.Register);
+
+            foreach (var notification in notificationsViewModel)
             {
                 notification.FormatedDate = getFormatedDate(notification.Register);
             }
