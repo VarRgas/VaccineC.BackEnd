@@ -14,5 +14,6 @@ namespace VaccineC.Query.Application.ViewModels
         public string MessageType { get; set; }
         public string Situation { get; set; }
         public DateTime Register { get; set; }
+        public string? FormatedDate { get; set; }
     }
 }

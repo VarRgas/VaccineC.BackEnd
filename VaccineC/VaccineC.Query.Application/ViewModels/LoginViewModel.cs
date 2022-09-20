@@ -8,6 +8,7 @@
         public string PersonName { get; set; }
         public Guid PersonID { get; set; }
         public string? PersonProfilePic { get; set; }
+        public string? ShowNotification { get; set; }
 
     }
 }

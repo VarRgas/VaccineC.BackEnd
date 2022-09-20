@@ -224,7 +224,7 @@ namespace VaccineC.Query.Data.QueryContext
             {
                 return _context
                .Set<Notification>()
-               .OrderBy(r => r.Register);
+               .OrderByDescending(r => r.Register);
             }
         }
     }
