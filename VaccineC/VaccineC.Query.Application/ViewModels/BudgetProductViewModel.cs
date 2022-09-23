@@ -1,6 +1,4 @@
-﻿using VaccineC.Query.Model.Models;
-
-namespace VaccineC.Query.Application.ViewModels
+﻿namespace VaccineC.Query.Application.ViewModels
 {
     public class BudgetProductViewModel
     {
@@ -14,5 +12,6 @@ namespace VaccineC.Query.Application.ViewModels
         public string SituationProduct { get; set; }
         public DateTime Register { get; set; }
         public ProductViewModel? Product { get; set; }
+        public UserViewModel? Users { get; set; }
     }
 }
