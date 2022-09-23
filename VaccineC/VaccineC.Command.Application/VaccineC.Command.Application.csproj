@@ -25,4 +25,8 @@
     <ProjectReference Include="..\VaccineC.Query.Application\VaccineC.Query.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Commands\Budget\" />
+  </ItemGroup>
+
 </Project>

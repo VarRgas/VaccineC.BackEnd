@@ -64,6 +64,7 @@ namespace VaccineC
             services.AddScoped<IMovementRepository, MovementRepository>();
             services.AddScoped<IMovementProductRepository, MovementProductRepository>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
+            services.AddScoped<IBudgetRepository, BudgetRepository>();
 
             //AppServices
             services.AddScoped<IExampleAppService, ExampleAppService>();
