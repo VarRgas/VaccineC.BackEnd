@@ -15,6 +15,7 @@
         public string? Details { get; set; }
         public int BudgetNumber { get; set; }
         public DateTime Register { get; set; }
-        public PersonViewModel? Persons { get; set; }
+        //public PersonViewModel? Persons { get; set; }
+        public UserViewModel? Users { get; set; }
     }
 }

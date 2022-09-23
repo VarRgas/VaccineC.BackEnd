@@ -31,6 +31,7 @@ namespace VaccineC.Controllers
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {

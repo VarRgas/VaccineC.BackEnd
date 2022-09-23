@@ -15,7 +15,7 @@
         public string? Details { get; set; }
         public DateTime Register { get; set; }
         public int BudgetNumber { get; set; }
-        public Person? Persons { get; set; }
+        //public Person? Persons { get; set; }
         public User? Users { get; set; }
     }
 }

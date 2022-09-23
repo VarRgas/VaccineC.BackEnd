@@ -30,7 +30,7 @@ namespace VaccineC.Query.Application.Services
             var budgets = await _queryContext.AllBudgets.ToListAsync();
             var budgetsViewModel = budgets
                 .Select(r => _mapper.Map<BudgetViewModel>(r))
-                .Where(r => r.Persons.Name.Contains(personName, StringComparison.InvariantCultureIgnoreCase)).ToList();
+                .Where(r => r.Users.Person.Name.Contains(personName, StringComparison.InvariantCultureIgnoreCase)).ToList();
             return budgetsViewModel;
 
         }
