@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using VaccineC.Command.Application.Commands.Budget;
 using VaccineC.Query.Application.Queries.Budget;
+using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Controllers
 {
@@ -38,6 +40,23 @@ namespace VaccineC.Controllers
             var command = new GetBudgetByIdQuery(id);
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([FromBody] BudgetViewModel budget)
+        {
+            try
+            {
+                var command = new AddBudgetCommand(budget.ID, budget.UserId, budget.PersonId, budget.Situation, budget.DiscountPercentage, budget.DiscountValue, budget.TotalBudgetAmount,
+                    budget.TotalBudgetedAmount, budget.ExpirationDate, budget.ApprovalDate, budget.Details, budget.BudgetNumber, budget.Register);
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

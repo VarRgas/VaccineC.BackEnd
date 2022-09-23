@@ -48,7 +48,7 @@ namespace VaccineC.Command.Domain.Entities
         public DateTime Register { get; set; }
 
         public Budget(Guid id, Guid userId, Guid personId, string situation, decimal discountPercentage, decimal discountValue,
-            decimal totalBudgetAmount, decimal totalBudgetedAmount, DateTime? expirationDate, DateTime? approvalDate, string? details, DateTime register)
+            decimal totalBudgetAmount, decimal totalBudgetedAmount, DateTime? expirationDate, DateTime? approvalDate, string? details, int budgetNumber, DateTime register)
         {
             ID = id;
             UserId = userId;
@@ -61,6 +61,7 @@ namespace VaccineC.Command.Domain.Entities
             ExpirationDate = expirationDate;
             ApprovalDate = approvalDate;
             Details = details;
+            BudgetNumber = budgetNumber;
             Register = register;
         }
         public Budget()
