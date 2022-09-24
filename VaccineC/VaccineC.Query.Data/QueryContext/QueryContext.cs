@@ -202,6 +202,7 @@ namespace VaccineC.Query.Data.QueryContext
                 return _context
                .Set<BudgetProduct>()
                .Include(r => r.Product)
+               .Include(r => r.Person)
                .OrderBy(r => r.Product.Name);
             }
         }
