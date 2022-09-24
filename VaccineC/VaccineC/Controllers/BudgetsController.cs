@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using VaccineC.Command.Application.Commands.Budget;
 using VaccineC.Query.Application.Queries.Budget;
 using VaccineC.Query.Application.ViewModels;
@@ -52,6 +53,38 @@ namespace VaccineC.Controllers
 
                 var result = await _mediator.Send(command);
                 return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}/Update")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] BudgetViewModel budget)
+        {
+            try
+            {
+                var command = new UpdateBudgetCommand(id, 
+                                                      budget.UserId, 
+                                                      budget.PersonId, 
+                                                      budget.Situation, 
+                                                      budget.DiscountPercentage, 
+                                                      budget.DiscountValue, 
+                                                      budget.TotalBudgetAmount,
+                                                      budget.TotalBudgetedAmount, 
+                                                      budget.ExpirationDate, 
+                                                      budget.ApprovalDate, 
+                                                      budget.Details, 
+                                                      budget.BudgetNumber, 
+                                                      budget.Register);
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Conflict(ex);
             }
             catch (ArgumentException ex)
             {

@@ -18,6 +18,7 @@ namespace VaccineC.Command.Application.Commands.Budget
         public string? Details;
         public int BudgetNumber;
         public DateTime Register;
+
         public AddBudgetCommand(Guid id, Guid userId, Guid personId, string situation, decimal discountPercentage, decimal discountValue,
             decimal totalBudgetAmount, decimal totalBudgetedAmount, DateTime? expirationDate, DateTime? approvalDate, string? details, int budgetNumber, DateTime register)
         {

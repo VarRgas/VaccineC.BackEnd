@@ -41,7 +41,7 @@ namespace VaccineC.Command.Domain.Entities
         public string? Details { get; set; }
 
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        [Column("budgetNumber", TypeName = "")]
+        [Column("budgetNumber")]
         public int BudgetNumber { get; set; }
 
         [Column("register", TypeName = "datetime")]

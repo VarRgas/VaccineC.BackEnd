@@ -212,7 +212,7 @@ namespace VaccineC.Query.Data.QueryContext
                 return _context
                .Set<Budget>()
                .Include(u => u.Users)
-                .ThenInclude(p => p.Person)
+               .Include(p => p.Persons)
                .OrderBy(r => r.BudgetNumber);
             }
         }
