@@ -35,6 +35,15 @@ namespace VaccineC.Query.Application.Services
 
         }
 
+        public async Task<IEnumerable<BudgetViewModel>> GetAllByBudgetNumber(int budgetNumber)
+        {
+            var budgets = await _queryContext.AllBudgets.ToListAsync();
+            var budgetsViewModel = budgets
+                .Select(r => _mapper.Map<BudgetViewModel>(r))
+                .Where(r => r.BudgetNumber == budgetNumber).ToList();
+            return budgetsViewModel;
+        }
+
         public async Task<BudgetViewModel> GetById(Guid id)
         {
             var budget = _mapper.Map<BudgetViewModel>(_queryContext.AllBudgets.Where(r => r.ID == id).FirstOrDefault());

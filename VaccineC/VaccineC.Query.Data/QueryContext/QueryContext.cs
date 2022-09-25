@@ -214,7 +214,7 @@ namespace VaccineC.Query.Data.QueryContext
                .Set<Budget>()
                .Include(u => u.Users)
                .Include(p => p.Persons)
-               .OrderByDescending(r => r.BudgetNumber);
+               .OrderByDescending(r => r.Register);
             }
         }
 

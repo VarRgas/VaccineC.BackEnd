@@ -15,7 +15,21 @@ namespace VaccineC.Query.Application.Queries.Budget
 
         public async Task<IEnumerable<BudgetViewModel>> Handle(GetBudgetByPersonNameQuery request, CancellationToken cancellationToken)
         {
-            return await _appService.GetByName(request.PersonName);
+            long n;
+            bool isNumeric = long.TryParse(request.PersonName, out n);
+
+            if (isNumeric)
+            {
+                int budgetNumber = int.Parse(request.PersonName);
+                return await _appService.GetAllByBudgetNumber(budgetNumber);
+
+            }
+            else
+            {
+                return await _appService.GetByName(request.PersonName);
+
+            }
+
         }
 
     }
