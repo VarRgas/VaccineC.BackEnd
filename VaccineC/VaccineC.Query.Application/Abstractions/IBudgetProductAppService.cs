@@ -5,7 +5,7 @@ namespace VaccineC.Query.Application.Abstractions
     public interface IBudgetProductAppService
     {
         Task<IEnumerable<BudgetProductViewModel>> GetAllAsync();
-        Task<IEnumerable<BudgetProductViewModel>> GetAllBudgetsProductsByBudgetId(Guid companyId);
+        Task<IEnumerable<BudgetProductViewModel>> GetAllBudgetsProductsByBudgetId(Guid budgetId);
         BudgetProductViewModel GetById(Guid id);
     }
 }

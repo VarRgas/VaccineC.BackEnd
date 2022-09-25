@@ -214,7 +214,7 @@ namespace VaccineC.Query.Data.QueryContext
                .Set<Budget>()
                .Include(u => u.Users)
                .Include(p => p.Persons)
-               .OrderBy(r => r.BudgetNumber);
+               .OrderByDescending(r => r.BudgetNumber);
             }
         }
 
@@ -237,6 +237,17 @@ namespace VaccineC.Query.Data.QueryContext
                 return _context
                .Set<Notification>()
                .OrderByDescending(r => r.Register);
+            }
+        }
+
+        public IQueryable<BudgetNegotiation> AllBudgetsNegotiations
+        {
+            get
+            {
+                return _context
+               .Set<BudgetNegotiation>()
+               .Include(bn => bn.PaymentForm)
+               .OrderBy(bn => bn.PaymentForm.Name);
             }
         }
     }
