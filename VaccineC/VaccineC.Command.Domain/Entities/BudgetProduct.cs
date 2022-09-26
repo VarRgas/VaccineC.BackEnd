@@ -20,7 +20,7 @@ namespace VaccineC.Command.Domain.Entities
         public Guid? BorrowerPersonId { get; set; }
 
         [Column("productDose", TypeName = "varchar(2)")]
-        public string ProductDose { get; set; }
+        public string? ProductDose { get; set; }
 
         [Column("details", TypeName = "varchar(1000)")]
         public string? Details { get; set; }
@@ -34,7 +34,7 @@ namespace VaccineC.Command.Domain.Entities
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        public BudgetProduct(Guid id, Guid budgetId, Guid productId, Guid? borrowerPersonId, string productDose, string? details, decimal estimatedSalesValue, string situationProduct, DateTime register)
+        public BudgetProduct(Guid id, Guid budgetId, Guid productId, Guid? borrowerPersonId, string? productDose, string? details, decimal estimatedSalesValue, string situationProduct, DateTime register)
         {
             ID = id;
             BudgetId = budgetId;
@@ -63,7 +63,7 @@ namespace VaccineC.Command.Domain.Entities
         {
             BorrowerPersonId = borrowerPersonId;
         }
-        public void SetProductDose(string productDose)
+        public void SetProductDose(string? productDose)
         {
             ProductDose = productDose;
         }

@@ -13,7 +13,7 @@ namespace VaccineC.Query.Model.Models
         public Guid BudgetId { get; set; }
         public Guid ProductId { get; set; }
         public Guid? BorrowerPersonId { get; set; }
-        public string ProductDose { get; set; }
+        public string? ProductDose { get; set; }
         public string? Details { get; set; }
         public decimal EstimatedSalesValue { get; set; }
         public string SituationProduct { get; set; }
