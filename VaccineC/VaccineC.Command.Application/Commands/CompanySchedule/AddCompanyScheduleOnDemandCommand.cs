@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using VaccineC.Query.Application.ViewModels;
+
 namespace VaccineC.Command.Application.Commands.CompanySchedule
 {
     public class AddCompanyScheduleOnDemandCommand : IRequest<IEnumerable<CompanyScheduleViewModel>>

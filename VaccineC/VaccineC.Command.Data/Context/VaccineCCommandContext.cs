@@ -39,6 +39,7 @@ namespace VaccineC.Command.Data.Context
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Budget> Budgets { get; set; }
         public DbSet<BudgetNegotiation> BudgetsNegotiations { get; set; }
+        public DbSet<BudgetProduct> BudgetsProducts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -63,6 +64,7 @@ namespace VaccineC.Command.Data.Context
             modelBuilder.Entity<Notification>().ToTable("Notifications");
             modelBuilder.Entity<Budget>().ToTable("Budgets");
             modelBuilder.Entity<BudgetNegotiation>().ToTable("BudgetsNegotiations");
+            modelBuilder.Entity<BudgetProduct>().ToTable("BudgetsProducts");
 
             base.OnModelCreating(modelBuilder);
         }

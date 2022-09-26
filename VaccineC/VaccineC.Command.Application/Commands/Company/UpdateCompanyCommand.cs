@@ -6,7 +6,7 @@ namespace VaccineC.Command.Application.Commands.Company
     public class UpdateCompanyCommand : IRequest<CompanyViewModel>
     {
         public Guid ID;
-        public Guid PersonId { get; set; }
+        public Guid PersonId;
         public string Details;
         public DateTime Register;
 

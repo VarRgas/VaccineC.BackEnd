@@ -63,7 +63,7 @@ namespace VaccineC.Controllers
             }
         }
 
-        // POST api/<CompaniesSchedulesController>/Update
+        // PUT api/<CompaniesSchedulesController>/Update
         [HttpPut("{id}/Update")]
         public async Task<IActionResult> Update(Guid id, [FromBody] CompanyScheduleViewModel companySchedule)
         {

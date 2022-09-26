@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "quMZiW2WYIeklIIzrD3T9cpG/pkhdLdDxlEDXUpvs/YhLHwBwcAQereMeKjDayP/jmPvAMVACVmCTQvkb0fKkw==",
+  "dgSpecHash": "wo5lXTdSWBdcZ7fw0esMwP4/aCMmMAM0AtlC7P6bNvsEUtsU2dR3Ik7c9chWp8zHyvGbS+Tze/shwgZUP6uIUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj",
+  "projectFilePath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Model\\VaccineC.Query.Model.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

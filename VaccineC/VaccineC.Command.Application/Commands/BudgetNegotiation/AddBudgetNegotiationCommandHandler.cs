@@ -24,7 +24,7 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
         public async Task<IEnumerable<BudgetNegotiationViewModel>> Handle(AddBudgetNegotiationCommand request, CancellationToken cancellationToken)
         {
 
-            await validadeTotalAmountBalance(request.TotalAmountBalance);
+            await validadeTotalAmountBalance(request.TotalAmountBalance, request.TotalAmountTraded);
             await validateInstallments(request.Installments);
             await validateMaximumInstallments(request.PaymentFormId, request.Installments);
 
@@ -72,12 +72,16 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
             return Unit.Value;
         }
 
-        public async Task<Unit> validadeTotalAmountBalance(decimal totalAmountBalance)
+        public async Task<Unit> validadeTotalAmountBalance(decimal totalAmountBalance, decimal totalAmountTraded)
         {
 
             if (totalAmountBalance <= 0)
             {
                 throw new ArgumentException("A negociação já está completa!");
+            }
+            else if (totalAmountBalance < totalAmountTraded)
+            {
+                throw new ArgumentException("O valor da negociação não pode ser maior do que o saldo restante a ser negociado!");
             }
 
             return Unit.Value;
