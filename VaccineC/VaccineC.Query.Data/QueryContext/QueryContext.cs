@@ -203,7 +203,9 @@ namespace VaccineC.Query.Data.QueryContext
                .Set<BudgetProduct>()
                .Include(r => r.Product)
                .Include(r => r.Person)
-               .OrderBy(r => r.Product.Name);
+               .OrderBy(r => r.Person.Name)
+                .ThenBy(r => r.Product.Name)
+                .ThenBy(r => r.ProductDose);
             }
         }
         public IQueryable<Budget> AllBudgets
