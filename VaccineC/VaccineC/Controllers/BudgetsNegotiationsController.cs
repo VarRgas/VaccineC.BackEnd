@@ -85,5 +85,21 @@ namespace VaccineC.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        // POST api/<BudgetsNegotiationsController>/DeleteOnDemand
+        [HttpPost("DeleteOnDemand")]
+        public async Task<IActionResult> DeleteOnDemand([FromBody] List<BudgetNegotiationViewModel> listBudgetNegotiationViewModel)
+        {
+            try
+            {
+                var command = new DeleteBudgetNegotiationOnDemandCommand(listBudgetNegotiationViewModel);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

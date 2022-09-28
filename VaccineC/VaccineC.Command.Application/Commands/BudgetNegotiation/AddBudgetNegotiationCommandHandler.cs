@@ -74,8 +74,10 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
 
         public async Task<Unit> validadeTotalAmountBalance(decimal totalAmountBalance, decimal totalAmountTraded)
         {
-
-            if (totalAmountBalance <= 0)
+            if (totalAmountTraded <= 0) {
+                throw new ArgumentException("O R$ Negociado precisa ser maior que 0!");
+            }
+            else if (totalAmountBalance <= 0)
             {
                 throw new ArgumentException("A negociação já está completa!");
             }
