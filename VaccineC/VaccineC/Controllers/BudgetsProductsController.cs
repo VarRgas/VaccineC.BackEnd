@@ -136,5 +136,21 @@ namespace VaccineC.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        // POST api/<BudgetsProductsController>/CreateOnDemand
+        [HttpPost("{id}/{numberOfTimes}/{repeatBorrower}/RepeatOnDemand")]
+        public async Task<IActionResult> RepeatOnDemand(Guid id, int numberOfTimes, Boolean repeatBorrower)
+        {
+            try
+            {
+                var command = new RepeatBudgetProductOnDemandCommand(numberOfTimes, id, repeatBorrower);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
