@@ -10,7 +10,7 @@ namespace VaccineC.Command.Domain.Entities
         [Column("id")]
         public Guid ID { get; set; }
 
-        [Column("batch", TypeName = "varchar(20)")]
+        [Column("batch", TypeName = "varchar(255)")]
         public string Batch { get; set; }
 
         [Column("numberOfUnitsBatch", TypeName = "numeric(15,2)")]

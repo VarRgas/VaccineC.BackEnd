@@ -252,5 +252,19 @@ namespace VaccineC.Query.Data.QueryContext
                .OrderBy(bn => bn.PaymentForm.Name);
             }
         }
+
+        public IQueryable<Discard> AllDiscards
+        {
+            get
+            {
+                return _context
+               .Set<Discard>()
+               .Include(d => d.ProductSummaryBatch)
+                .ThenInclude(psb => psb.Products)
+               .Include(d => d.User)
+                .ThenInclude(u => u.Person)   
+               .OrderByDescending(d => d.Register);
+            }
+        }
     }
 }
