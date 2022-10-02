@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using VaccineC.Command.Application.Commands.BudgetHistoric;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;
@@ -10,11 +11,13 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
     {
         private readonly IBudgetProductRepository _repository;
         private readonly IBudgetProductAppService _appService;
+        private readonly IMediator _mediator;
 
-        public RepeatBudgetProductOnDemandCommandHandler(IBudgetProductRepository repository, IBudgetProductAppService appService)
+        public RepeatBudgetProductOnDemandCommandHandler(IBudgetProductRepository repository, IBudgetProductAppService appService, IMediator mediator)
         {
             _repository = repository;
             _appService = appService;
+            _mediator = mediator;   
         }
 
         public async Task<IEnumerable<BudgetProductViewModel>> Handle(RepeatBudgetProductOnDemandCommand request, CancellationToken cancellationToken)
@@ -23,9 +26,9 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
                 throw new ArgumentException("O Nº de Vezes deve ser maior que 0!");
             }
 
-            var budgetProduct = _repository.GetById(request.BudgetProductId);
+            var budgetProductViewModel = _appService.GetById(request.BudgetProductId);
 
-            if (budgetProduct == null)
+            if (budgetProductViewModel == null)
             {
                 throw new ArgumentException("Produto Orçamento não encontrado!");
 
@@ -34,7 +37,7 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
             Guid? borrowerId = Guid.Empty;
 
             if (request.RepeatBorrower) {
-                borrowerId = budgetProduct.BorrowerPersonId;
+                borrowerId = budgetProductViewModel.BorrowerPersonId;
             }
             else{
                 borrowerId = null;
@@ -45,13 +48,13 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
                 
                 Domain.Entities.BudgetProduct repeatedBudgetProduct = new Domain.Entities.BudgetProduct(
                  Guid.NewGuid(),
-                 budgetProduct.BudgetId,
-                 budgetProduct.ProductId,
+                 budgetProductViewModel.BudgetId,
+                 budgetProductViewModel.ProductId,
                  borrowerId,
-                 budgetProduct.ProductDose,
-                 budgetProduct.Details,
-                 budgetProduct.EstimatedSalesValue,
-                 budgetProduct.SituationProduct,
+                 budgetProductViewModel.ProductDose,
+                 budgetProductViewModel.Details,
+                 budgetProductViewModel.EstimatedSalesValue,
+                 budgetProductViewModel.SituationProduct,
                  DateTime.Now
                  );
 
@@ -59,7 +62,15 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
                 await _repository.SaveChangesAsync();
             }
 
-            return await _appService.GetAllBudgetsProductsByBudgetId(budgetProduct.BudgetId);
+            await _mediator.Send(new AddBudgetHistoricCommand(
+                 Guid.NewGuid(),
+                 budgetProductViewModel.BudgetId,
+                 request.UserId,
+                 "O Produto " + budgetProductViewModel.Product.Name + " foi repetido " + request.NumberOfTimes + " vez(es) no orçamento.",
+                 DateTime.Now
+                 ));
+
+            return await _appService.GetAllBudgetsProductsByBudgetId(budgetProductViewModel.BudgetId);
 
         }
     }

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using VaccineC.Command.Application.Commands.BudgetHistoric;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;

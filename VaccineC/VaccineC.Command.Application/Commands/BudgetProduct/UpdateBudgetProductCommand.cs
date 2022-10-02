@@ -14,8 +14,9 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
         public decimal EstimatedSalesValue;
         public string SituationProduct;
         public DateTime Register;
+        public Guid? UserId;
 
-        public UpdateBudgetProductCommand(Guid id, Guid budgetId, Guid productId, Guid? borrowerPersonId, string productDose, string? details, decimal estimatedSalesValue, string situationProduct, DateTime register)
+        public UpdateBudgetProductCommand(Guid id, Guid budgetId, Guid productId, Guid? borrowerPersonId, string productDose, string? details, decimal estimatedSalesValue, string situationProduct, DateTime register, Guid? userId)
         {
             ID = id;
             BudgetId = budgetId;
@@ -26,6 +27,7 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
             EstimatedSalesValue = estimatedSalesValue;
             SituationProduct = situationProduct;
             Register = register;
+            UserId = userId;    
         }
     }
 }

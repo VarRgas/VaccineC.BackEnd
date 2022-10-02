@@ -68,6 +68,7 @@ namespace VaccineC
             services.AddScoped<IBudgetNegotiationRepository, BudgetNegotiationRepository>();
             services.AddScoped<IBudgetProductRepository, BudgetProductRepository>();
             services.AddScoped<IDiscardRepository, DiscardRepository>();
+            services.AddScoped<IBudgetHistoricRepository, BudgetHistoricRepository>();
 
             //AppServices
             services.AddScoped<IExampleAppService, ExampleAppService>();
@@ -94,6 +95,7 @@ namespace VaccineC
             services.AddScoped<IAuthorizationAppService, AuthorizationAppService>();
             services.AddScoped<INotificationAppService, NotificationAppService>();
             services.AddScoped<IDiscardAppService, DiscardAppService>();
+            services.AddScoped<IBudgetHistoricAppService, BudgetHistoricAppService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));

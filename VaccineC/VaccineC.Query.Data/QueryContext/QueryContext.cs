@@ -267,5 +267,17 @@ namespace VaccineC.Query.Data.QueryContext
                .OrderByDescending(d => d.Register);
             }
         }
+
+        public IQueryable<BudgetHistoric> AllBudgetsHistorics
+        {
+            get
+            {
+                return _context
+               .Set<BudgetHistoric>()
+               .Include(bh => bh.User)
+                .ThenInclude(u => u.Person)
+               .OrderByDescending(bh => bh.Register);
+            }
+        }
     }
 }

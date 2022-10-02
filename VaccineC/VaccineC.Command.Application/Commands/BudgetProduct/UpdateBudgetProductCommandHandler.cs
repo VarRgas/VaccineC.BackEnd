@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using VaccineC.Command.Application.Commands.BudgetHistoric;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;
@@ -10,11 +11,13 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
     {
         private readonly IBudgetProductRepository _repository;
         private readonly IBudgetProductAppService _appService;
+        private readonly IMediator _mediator;
 
-        public UpdateBudgetProductCommandHandler(IBudgetProductRepository repository, IBudgetProductAppService appService)
+        public UpdateBudgetProductCommandHandler(IBudgetProductRepository repository, IBudgetProductAppService appService, IMediator mediator)
         {
             _repository = repository;
             _appService = appService;
+            _mediator = mediator;   
         }
 
         public async Task<IEnumerable<BudgetProductViewModel>> Handle(UpdateBudgetProductCommand request, CancellationToken cancellationToken)
@@ -30,6 +33,26 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
             updatedBudgetProduct.SetRegister(DateTime.Now);
 
             await _repository.SaveChangesAsync();
+
+            var budgetProductViewModel = _appService.GetById(updatedBudgetProduct.ID);
+
+            string historic = "";
+
+            if (budgetProductViewModel.Person == null) {
+                historic = "O Produto " + budgetProductViewModel.Product.Name + " (Sem Tomador) teve informações alteradas.";
+            }
+            else
+            {
+                historic = "O Produto " + budgetProductViewModel.Product.Name + " (Tomador " + budgetProductViewModel.Person.Name + ") teve informações alteradas.";
+            }
+
+            await _mediator.Send(new AddBudgetHistoricCommand(
+                Guid.NewGuid(),
+                updatedBudgetProduct.BudgetId,
+                request.UserId,
+                historic,
+                DateTime.Now
+                ));
 
             return await _appService.GetAllBudgetsProductsByBudgetId(updatedBudgetProduct.BudgetId);
 

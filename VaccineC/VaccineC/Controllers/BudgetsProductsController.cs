@@ -105,7 +105,8 @@ namespace VaccineC.Controllers
                     budgetProductViewModel.Details,
                     budgetProductViewModel.EstimatedSalesValue,
                     budgetProductViewModel.SituationProduct,
-                    budgetProductViewModel.Register
+                    budgetProductViewModel.Register,
+                    budgetProductViewModel.UserId
                 );
 
                 var result = await _mediator.Send(command);
@@ -122,12 +123,12 @@ namespace VaccineC.Controllers
         }
 
         // DELETE api/<BudgetsProductsController>/5/Delete
-        [HttpDelete("{id}/Delete")]
-        public async Task<IActionResult> Delete(Guid id)
+        [HttpDelete("{id}/{userId}/Delete")]
+        public async Task<IActionResult> Delete(Guid id, Guid userId)
         {
             try
             {
-                var command = new DeleteBudgetProductCommand(id);
+                var command = new DeleteBudgetProductCommand(id, userId);
                 var result = await _mediator.Send(command);
                 return Ok(result);
             }
@@ -138,12 +139,12 @@ namespace VaccineC.Controllers
         }
 
         // POST api/<BudgetsProductsController>/CreateOnDemand
-        [HttpPost("{id}/{numberOfTimes}/{repeatBorrower}/RepeatOnDemand")]
-        public async Task<IActionResult> RepeatOnDemand(Guid id, int numberOfTimes, Boolean repeatBorrower)
+        [HttpPost("{id}/{numberOfTimes}/{repeatBorrower}/{userId}/RepeatOnDemand")]
+        public async Task<IActionResult> RepeatOnDemand(Guid id, int numberOfTimes, Boolean repeatBorrower, Guid? userId)
         {
             try
             {
-                var command = new RepeatBudgetProductOnDemandCommand(numberOfTimes, id, repeatBorrower);
+                var command = new RepeatBudgetProductOnDemandCommand(numberOfTimes, id, repeatBorrower, userId);
                 var result = await _mediator.Send(command);
                 return Ok(result);
             }

@@ -9,12 +9,14 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
         public int NumberOfTimes;
         public Guid BudgetProductId;
         public Boolean RepeatBorrower;
+        public Guid? UserId;
 
-        public RepeatBudgetProductOnDemandCommand(int numberOfTimes, Guid budgetProductId, Boolean repeatBorrower)
+        public RepeatBudgetProductOnDemandCommand(int numberOfTimes, Guid budgetProductId, Boolean repeatBorrower, Guid? userId)
         {
             NumberOfTimes = numberOfTimes;
             BudgetProductId = budgetProductId;
             RepeatBorrower = repeatBorrower;
+            UserId = userId;    
         }
     }
 }

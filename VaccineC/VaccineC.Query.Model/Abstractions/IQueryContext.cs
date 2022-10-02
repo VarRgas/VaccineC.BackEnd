@@ -28,5 +28,6 @@ namespace VaccineC.Query.Model.Abstractions
         IQueryable<Notification> AllNotifications { get; }
         IQueryable<BudgetNegotiation> AllBudgetsNegotiations { get; }
         IQueryable<Discard> AllDiscards { get; }
+        IQueryable<BudgetHistoric> AllBudgetsHistorics { get; }
     }
 }

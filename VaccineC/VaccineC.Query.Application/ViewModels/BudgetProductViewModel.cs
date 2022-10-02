@@ -11,6 +11,7 @@
         public decimal EstimatedSalesValue { get; set; }
         public string SituationProduct { get; set; }
         public DateTime Register { get; set; }
+        public Guid? UserId { get; set; }
         public ProductViewModel? Product { get; set; }
         public PersonViewModel? Person { get; set; }
     }

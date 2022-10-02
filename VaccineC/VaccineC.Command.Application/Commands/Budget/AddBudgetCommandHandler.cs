@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using VaccineC.Command.Application.Commands.BudgetHistoric;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;
@@ -11,12 +12,14 @@ namespace VaccineC.Command.Application.Commands.Budget
         private readonly IBudgetRepository _repository;
         private readonly VaccineCCommandContext _ctx;
         private readonly IBudgetAppService _appService;
+        private readonly IMediator _mediator;
 
-        public AddBudgetCommandHandler(IBudgetRepository repository, VaccineCCommandContext ctx, IBudgetAppService appService)
+        public AddBudgetCommandHandler(IBudgetRepository repository, VaccineCCommandContext ctx, IBudgetAppService appService, IMediator mediator)
         {
             _repository = repository;
             _ctx = ctx;
             _appService = appService;
+            _mediator = mediator;
         }
 
         public async Task<BudgetViewModel> Handle(AddBudgetCommand request, CancellationToken cancellationToken)
@@ -40,6 +43,14 @@ namespace VaccineC.Command.Application.Commands.Budget
 
             _repository.Add(newBudget);
             await _repository.SaveChangesAsync();
+
+            await _mediator.Send(new AddBudgetHistoricCommand(
+                Guid.NewGuid(), 
+                newBudget.ID, 
+                newBudget.UserId, 
+                "Orçamento Criado.", 
+                DateTime.Now
+                ));
 
             return await _appService.GetById(newBudget.ID);
 
