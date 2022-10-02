@@ -59,7 +59,8 @@ namespace VaccineC.Query.Data.QueryContext
             get
             {
                 return _context
-               .Set<CompanyParameter>();
+               .Set<CompanyParameter>()
+               .Include(r => r.PaymentForm);
             }
         }
 

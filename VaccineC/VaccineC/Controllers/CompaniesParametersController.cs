@@ -53,6 +53,7 @@ namespace VaccineC.Controllers
                 var command = new AddCompanyParameterCommand(
                     companyParameter.ID,
                     companyParameter.CompanyId,
+                    companyParameter.DefaultPaymentFormId,
                     companyParameter.ApplicationTimePerMinute,
                     companyParameter.MaximumDaysBudgetValidity,
                     companyParameter.Register,
@@ -75,6 +76,7 @@ namespace VaccineC.Controllers
                 var command = new UpdateCompanyParameterCommand(
                     id,
                     companyParameter.CompanyId,
+                    companyParameter.DefaultPaymentFormId,
                     companyParameter.ApplicationTimePerMinute,
                     companyParameter.MaximumDaysBudgetValidity,
                     companyParameter.Register,

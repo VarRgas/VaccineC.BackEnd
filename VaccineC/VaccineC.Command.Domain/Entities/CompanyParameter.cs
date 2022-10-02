@@ -13,6 +13,9 @@ namespace VaccineC.Command.Domain.Entities
         [Column("companyId")]
         public Guid CompanyId { get; set; }
 
+        [Column("defaultPaymentFormId")]
+        public Guid? DefaultPaymentFormId { get; set; }
+
         [Column("applicationTimePerMinute", TypeName = "int")]
         public int ApplicationTimePerMinute { get; set; }
 
@@ -25,10 +28,11 @@ namespace VaccineC.Command.Domain.Entities
         [Column("scheduleColor", TypeName = "Varchar(60)")]
         public string ScheduleColor { get; set; }
 
-        public CompanyParameter(Guid id, Guid companyId, int applicationTimePerMinute, int maximumDaysBudgetValidity, DateTime register, string scheduleColor)
+        public CompanyParameter(Guid id, Guid companyId, Guid? defaultPaymentFormId, int applicationTimePerMinute, int maximumDaysBudgetValidity, DateTime register, string scheduleColor)
         {
             ID = id;
             CompanyId = companyId;
+            DefaultPaymentFormId = defaultPaymentFormId;
             ApplicationTimePerMinute = applicationTimePerMinute;
             MaximumDaysBudgetValidity = maximumDaysBudgetValidity;
             Register = register;
@@ -39,15 +43,21 @@ namespace VaccineC.Command.Domain.Entities
 
         }
 
-        public void SetPersonId(Guid companyID)
+        public void SetCompanyId(Guid companyID)
         {
             CompanyId = companyID;
+        }
+
+        public void SetDefaultPaymentFormId(Guid? defaultPaymentFormId)
+        {
+            DefaultPaymentFormId = defaultPaymentFormId;
         }
 
         public void SetApplicationTimePerMinute(int applicationTimePerMinute)
         {
             ApplicationTimePerMinute = applicationTimePerMinute;
         }
+
         public void SetMaximumDaysBudgetValidity(int maximumDaysBudgetValidity)
         {
             MaximumDaysBudgetValidity = maximumDaysBudgetValidity;

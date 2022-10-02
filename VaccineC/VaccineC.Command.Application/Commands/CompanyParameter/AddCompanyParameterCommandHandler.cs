@@ -19,6 +19,7 @@ namespace VaccineC.Command.Application.Commands.CompanyParameter
             Domain.Entities.CompanyParameter newCompanyParameter = new Domain.Entities.CompanyParameter(
                 Guid.NewGuid(),
                 request.CompanyId,
+                request.DefaultPaymentFormId,
                 request.ApplicationTimePerMinute,
                 request.MaximumDaysBudgetValidity,
                 DateTime.Now,
@@ -33,6 +34,7 @@ namespace VaccineC.Command.Application.Commands.CompanyParameter
             {
                 ID = newCompanyParameter.ID,
                 CompanyId = newCompanyParameter.CompanyId,
+                DefaultPaymentFormId = newCompanyParameter.DefaultPaymentFormId,
                 ApplicationTimePerMinute = newCompanyParameter.ApplicationTimePerMinute,
                 MaximumDaysBudgetValidity = newCompanyParameter.MaximumDaysBudgetValidity,
                 ScheduleColor = newCompanyParameter.ScheduleColor,

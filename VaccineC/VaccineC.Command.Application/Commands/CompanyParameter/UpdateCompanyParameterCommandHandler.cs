@@ -18,6 +18,7 @@ namespace VaccineC.Command.Application.Commands.CompanyParameter
 
             var companyParameter = _companyParameterRepository.GetById(request.ID);
             companyParameter.SetMaximumDaysBudgetValidity(request.MaximumDaysBudgetValidity);
+            companyParameter.SetDefaultPaymentFormId(request.DefaultPaymentFormId);
             companyParameter.SetApplicationTimePerMinute(request.ApplicationTimePerMinute);
             companyParameter.SetScheduleColor(request.ScheduleColor);
             companyParameter.SetRegister(DateTime.Now);
@@ -28,6 +29,7 @@ namespace VaccineC.Command.Application.Commands.CompanyParameter
             {
                 ID = companyParameter.ID,
                 CompanyId = companyParameter.CompanyId,
+                DefaultPaymentFormId = companyParameter.DefaultPaymentFormId,
                 ApplicationTimePerMinute = companyParameter.ApplicationTimePerMinute,
                 MaximumDaysBudgetValidity = companyParameter.MaximumDaysBudgetValidity,
                 ScheduleColor = companyParameter.ScheduleColor
