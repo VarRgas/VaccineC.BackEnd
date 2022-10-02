@@ -6,9 +6,11 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
     public class DeleteBudgetNegotiationCommand : IRequest<IEnumerable<BudgetNegotiationViewModel>>
     {
         public Guid Id;
-        public DeleteBudgetNegotiationCommand(Guid id)
+        public Guid? UserId;
+        public DeleteBudgetNegotiationCommand(Guid id, Guid? userId)
         {
             Id = id;
+            UserId = userId;    
         }
     }
 }

@@ -12,8 +12,9 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
         public decimal TotalAmountTraded;
         public int Installments;
         public DateTime Register;
+        public Guid? UserId;
 
-        public AddBudgetNegotiationCommand(Guid id, Guid budgetId, Guid paymentFormId, decimal totalAmountBalance, decimal totalAmountTraded, int installments, DateTime register)
+        public AddBudgetNegotiationCommand(Guid id, Guid budgetId, Guid paymentFormId, decimal totalAmountBalance, decimal totalAmountTraded, int installments, DateTime register, Guid? userId)
         {
             ID = id;
             BudgetId = budgetId;
@@ -22,6 +23,7 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
             TotalAmountTraded = totalAmountTraded;
             Installments = installments;
             Register = register;
+            UserId = userId;    
         }
     }
 }

@@ -7,10 +7,11 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
     {
 
         public List<BudgetNegotiationViewModel> ListBudgetNegotiationViewModel;
-
-        public DeleteBudgetNegotiationOnDemandCommand(List<BudgetNegotiationViewModel> listBudgetNegotiationViewModel)
+        public Guid? userId;
+        public DeleteBudgetNegotiationOnDemandCommand(List<BudgetNegotiationViewModel> listBudgetNegotiationViewModel, Guid? userId)
         {
             ListBudgetNegotiationViewModel = listBudgetNegotiationViewModel;
+            this.userId = userId;   
         }
     }
 }

@@ -58,8 +58,8 @@ namespace VaccineC.Controllers
                     budgetNegotiationViewModel.TotalAmountBalance,
                     budgetNegotiationViewModel.TotalAmountTraded,
                     budgetNegotiationViewModel.Installments,
-                    budgetNegotiationViewModel.Register
-
+                    budgetNegotiationViewModel.Register,
+                    budgetNegotiationViewModel.UserId
                     );
                 var result = await _mediator.Send(command);
                 return Ok(result);
@@ -71,12 +71,12 @@ namespace VaccineC.Controllers
         }
 
         // DELETE api/<BudgetsNegotiationsController>/5/Delete
-        [HttpDelete("{id}/Delete")]
-        public async Task<IActionResult> Delete(Guid id)
+        [HttpDelete("{id}/{userId}/Delete")]
+        public async Task<IActionResult> Delete(Guid id, Guid userId)
         {
             try
             {
-                var command = new DeleteBudgetNegotiationCommand(id);
+                var command = new DeleteBudgetNegotiationCommand(id, userId);
                 var result = await _mediator.Send(command);
                 return Ok(result);
             }
@@ -87,12 +87,12 @@ namespace VaccineC.Controllers
         }
 
         // POST api/<BudgetsNegotiationsController>/DeleteOnDemand
-        [HttpPost("DeleteOnDemand")]
-        public async Task<IActionResult> DeleteOnDemand([FromBody] List<BudgetNegotiationViewModel> listBudgetNegotiationViewModel)
+        [HttpPost("{userId}/DeleteOnDemand")]
+        public async Task<IActionResult> DeleteOnDemand([FromBody] List<BudgetNegotiationViewModel> listBudgetNegotiationViewModel, Guid? userId)
         {
             try
             {
-                var command = new DeleteBudgetNegotiationOnDemandCommand(listBudgetNegotiationViewModel);
+                var command = new DeleteBudgetNegotiationOnDemandCommand(listBudgetNegotiationViewModel, userId);
                 var result = await _mediator.Send(command);
                 return Ok(result);
             }

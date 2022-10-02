@@ -16,5 +16,6 @@ namespace VaccineC.Query.Application.ViewModels
         public int Installments { get; set; }
         public DateTime Register { get; set; }
         public PaymentFormViewModel? PaymentForm { get; set; }
+        public Guid? UserId { get; set; }
     }
 }

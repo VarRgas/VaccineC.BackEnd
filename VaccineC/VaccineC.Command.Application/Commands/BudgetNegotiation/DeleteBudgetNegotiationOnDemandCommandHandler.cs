@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using VaccineC.Command.Application.Commands.BudgetHistoric;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;
@@ -10,11 +11,13 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
     {
         private readonly IBudgetNegotiationRepository _repository;
         private readonly IBudgetNegotiationAppService _appService;
+        private readonly IMediator _mediator;
 
-        public DeleteBudgetNegotiationOnDemandCommandHandler(IBudgetNegotiationRepository repository, IBudgetNegotiationAppService appService)
+        public DeleteBudgetNegotiationOnDemandCommandHandler(IBudgetNegotiationRepository repository, IBudgetNegotiationAppService appService, IMediator mediator)
         {
             _repository = repository;
             _appService = appService;
+            _mediator = mediator;   
         }
 
         public async Task<IEnumerable<BudgetNegotiationViewModel>> Handle(DeleteBudgetNegotiationOnDemandCommand request, CancellationToken cancellationToken)
@@ -22,7 +25,9 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
 
             List<BudgetNegotiationViewModel> listBudgetNegotiationViewModel = request.ListBudgetNegotiationViewModel;
 
-            foreach(BudgetNegotiationViewModel budgetNegotiationViewModel in listBudgetNegotiationViewModel)
+            await addNewBudgetHistoric(listBudgetNegotiationViewModel[0], request.userId);
+
+            foreach (BudgetNegotiationViewModel budgetNegotiationViewModel in listBudgetNegotiationViewModel)
             {
                 var budgetNegotiation = _repository.GetById(budgetNegotiationViewModel.ID);
 
@@ -37,6 +42,23 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
             }
 
             return await _appService.GetAllBudgetsNegotiationsByBudgetId(listBudgetNegotiationViewModel[0].BudgetId);
+        }
+
+        public async Task<Unit> addNewBudgetHistoric(BudgetNegotiationViewModel budgetNegotiation, Guid? userId)
+        {
+            var budgetProductViewModel = _appService.GetById(budgetNegotiation.ID);
+
+            string historic = "Negociações removidas do orçamento.";
+
+            await _mediator.Send(new AddBudgetHistoricCommand(
+                 Guid.NewGuid(),
+                 budgetProductViewModel.BudgetId,
+                 userId,
+                 historic,
+                 DateTime.Now
+                 ));
+
+            return Unit.Value;
         }
     }
 }
