@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using VaccineC.Command.Application.Commands.Event;
 using VaccineC.Query.Application.Queries.Event;
 using VaccineC.Query.Application.ViewModels;
 
@@ -33,6 +34,88 @@ namespace VaccineC.Controllers
             var command = new GetEventByIdQuery(id);
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+        // POST api/<EventsController>/Create
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([FromBody] EventViewModel eventClass)
+        {
+            try
+            {
+                var command = new AddEventCommand(
+                    eventClass.ID,
+                    eventClass.UserId,
+                    eventClass.Situation,
+                    eventClass.EventType,
+                    eventClass.Concluded,
+                    eventClass.StartDate,
+                    eventClass.EndDate,
+                    eventClass.StartTime,
+                    eventClass.EndTime,
+                    eventClass.Details,
+                    eventClass.Register);
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        // PUT api/<EventsController>/3/Update
+        [HttpPut("{id}/Update")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] EventViewModel eventClass)
+        {
+            try
+            {
+                var command = new UpdateEventCommand(
+                    id,
+                    eventClass.UserId,
+                    eventClass.Situation,
+                    eventClass.EventType,
+                    eventClass.Concluded,
+                    eventClass.StartDate,
+                    eventClass.EndDate,
+                    eventClass.StartTime,
+                    eventClass.EndTime,
+                    eventClass.Details,
+                    eventClass.Register);
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Conflict(ex);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        // DELETE api/<EventsController>/3/Delete
+        [HttpDelete("{id}/Delete")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            try
+            {
+                var command = new DeleteEventCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }

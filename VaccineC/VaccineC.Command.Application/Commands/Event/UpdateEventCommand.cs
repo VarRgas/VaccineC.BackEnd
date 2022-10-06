@@ -1,0 +1,35 @@
+﻿using MediatR;
+using VaccineC.Query.Application.ViewModels;
+
+namespace VaccineC.Command.Application.Commands.Event
+{
+    public class UpdateEventCommand : IRequest
+    {
+        public Guid ID;
+        public Guid UserId;
+        public string Situation;
+        public string EventType;
+        public string Concluded;
+        public DateTime StartDate;
+        public DateTime EndDate;
+        public TimeSpan StartTime;
+        public TimeSpan EndTime;
+        public string? Details;
+        public DateTime Register;
+
+        public UpdateEventCommand(Guid id, Guid userId, string situation, string eventType, string concluded, DateTime startDate, DateTime endDate, TimeSpan startTime, TimeSpan endTime, string? details, DateTime register)
+        {
+            ID = id;
+            UserId = userId;
+            Situation = situation;
+            EventType = eventType;
+            Concluded = concluded;
+            StartDate = startDate;
+            EndDate = endDate;
+            StartTime = startTime;
+            EndTime = endTime;
+            Details = details;
+            Register = register;
+        }
+    }
+}
