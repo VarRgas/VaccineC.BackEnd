@@ -13,6 +13,7 @@ namespace VaccineC.Query.Application.ViewModels
         public Guid UserId { get; set; }
         public string Batch { get; set; }
         public int DiscardedUnits { get; set; }
+        public string Reason { get; set; }
         public DateTime Register { get; set; }
         public ProductSummaryBatchViewModel? ProductSummaryBatch { get; set; }
         public UserViewModel? User { get; set; }

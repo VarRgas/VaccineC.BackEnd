@@ -48,6 +48,7 @@ namespace VaccineC.Controllers
                     discard.UserId,
                     discard.Batch, 
                     discard.DiscardedUnits,
+                    discard.Reason,
                     discard.Register);
 
                 var result = await _mediator.Send(command);

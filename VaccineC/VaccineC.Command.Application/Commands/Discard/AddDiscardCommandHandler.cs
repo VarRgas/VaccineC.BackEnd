@@ -37,6 +37,7 @@ namespace VaccineC.Command.Application.Commands.Discard
                 request.UserId,
                 request.Batch,
                 request.DiscardedUnits,
+                request.Reason,
                 DateTime.Now);
 
             _discardRepository.Add(newDiscard);

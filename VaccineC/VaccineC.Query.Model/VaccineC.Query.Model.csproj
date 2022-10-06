@@ -10,4 +10,8 @@
     <Compile Remove="Models\Class1.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Models\Class Diagram0.asta" />
+  </ItemGroup>
+
 </Project>

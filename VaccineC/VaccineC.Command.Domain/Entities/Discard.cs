@@ -22,16 +22,20 @@ namespace VaccineC.Command.Domain.Entities
         [Column("discardedUnits", TypeName = "int")]
         public int DiscardedUnits { get; set; }
 
+        [Column("reason", TypeName = "varchar(100)")]
+        public string Reason { get; set; }
+
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        public Discard(Guid id, Guid productSummaryBatchId, Guid userId, string batch, int discardedUnits, DateTime register)
+        public Discard(Guid id, Guid productSummaryBatchId, Guid userId, string batch, int discardedUnits, string reason, DateTime register)
         {
             ID = id;
             ProductSummaryBatchId = productSummaryBatchId;
             UserId = userId;
             Batch = batch;
             DiscardedUnits = discardedUnits;
+            Reason = reason;    
             Register = register;
         }
         
@@ -58,6 +62,11 @@ namespace VaccineC.Command.Domain.Entities
         public void SetDiscardedUnits(int discardedUnits)
         {
             DiscardedUnits = discardedUnits;
+        }
+
+        public void SetReason(string reason)
+        {
+            Reason = reason;
         }
 
         public void SetRegister(DateTime register)
