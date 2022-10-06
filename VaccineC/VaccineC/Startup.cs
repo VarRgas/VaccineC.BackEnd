@@ -70,6 +70,7 @@ namespace VaccineC
             services.AddScoped<IDiscardRepository, DiscardRepository>();
             services.AddScoped<IBudgetHistoricRepository, BudgetHistoricRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IAuthorizationRepository, AuthorizationRepository>();
 
             //AppServices
             services.AddScoped<IExampleAppService, ExampleAppService>();

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using VaccineC.Command.Application.Commands.Authorization;
 using VaccineC.Query.Application.Queries.Authorization;
 using VaccineC.Query.Application.ViewModels;
 
@@ -43,6 +44,90 @@ namespace VaccineC.Controllers
             var command = new GetSummarySituationAuthorizationQuery();
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+        // POST api/<AuthorizationsController>/Create
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([FromBody] AuthorizationViewModel authorization)
+        {
+            try
+            {
+                var command = new AddAuthorizationCommand(
+                    authorization.ID,
+                    authorization.UserId,
+                    authorization.EventId,
+                    authorization.BudgetProductId,
+                    authorization.BorrowerPersonId,
+                    authorization.ProviderPersonId,
+                    authorization.AuthorizationNumber,
+                    authorization.Situation,
+                    authorization.TypeOfService,
+                    authorization.Notify,
+                    authorization.AuthorizationDate,
+                    authorization.Register);
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        // PUT api/<AuthorizationsController>/3/Update
+        [HttpPut("{id}/Update")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] AuthorizationViewModel authorization)
+        {
+            try
+            {
+                var command = new UpdateAuthorizationCommand(
+                    id,
+                    authorization.UserId,
+                    authorization.EventId,
+                    authorization.BudgetProductId,
+                    authorization.BorrowerPersonId,
+                    authorization.ProviderPersonId,
+                    authorization.AuthorizationNumber,
+                    authorization.Situation,
+                    authorization.TypeOfService,
+                    authorization.Notify,
+                    authorization.AuthorizationDate,
+                    authorization.Register);
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Conflict(ex);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        // DELETE api/<AuthorizationsController>/3/Delete
+        [HttpDelete("{id}/Delete")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            try
+            {
+                var command = new DeleteAuthorizationCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }
