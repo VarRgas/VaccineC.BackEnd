@@ -279,5 +279,15 @@ namespace VaccineC.Query.Data.QueryContext
                .OrderByDescending(bh => bh.Register);
             }
         }
+
+        public IQueryable<Event> AllEvents
+        {
+            get
+            {
+                return _context
+               .Set<Event>()
+               .OrderByDescending(e => e.Register);
+            }
+        }
     }
 }

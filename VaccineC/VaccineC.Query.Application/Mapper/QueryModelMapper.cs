@@ -35,6 +35,7 @@ namespace VaccineC.Query.Application.Mapper
             CreateMap<BudgetNegotiation, BudgetNegotiationViewModel>();
             CreateMap<Discard, DiscardViewModel>();
             CreateMap<BudgetHistoric, BudgetHistoricViewModel>();
+            CreateMap<Event, EventViewModel>();
 
         }
     }

@@ -26,7 +26,6 @@ namespace VaccineC.Command.Application.Commands.Budget
         {
             var updatedBudget = _repository.GetById(request.ID);
 
-            string historic = "";
             string budgetSituation = updatedBudget.Situation;
            
             updatedBudget.SetSituation(request.Situation);
@@ -44,20 +43,26 @@ namespace VaccineC.Command.Application.Commands.Budget
 
             if (budgetSituation != request.Situation)
             {
-                historic = "Situação do Orçamento alterada: de " + situationFormated(budgetSituation) + " para " + situationFormated(request.Situation) + ".";
+                await addNewBudgetHistoric(updatedBudget, budgetSituation);
 
-                await _mediator.Send(new AddBudgetHistoricCommand(
-                      Guid.NewGuid(),
-                      updatedBudget.ID,
-                      updatedBudget.UserId,
-                      historic,
-                      DateTime.Now
-                      ));
             }
 
             return await _appService.GetById(updatedBudget.ID);
         }
 
+        public async Task<Unit> addNewBudgetHistoric(Domain.Entities.Budget budget, string requestSituation)
+        {
+
+            await _mediator.Send(new AddBudgetHistoricCommand(
+                 Guid.NewGuid(),
+                 budget.ID,
+                 budget.UserId,
+                 "Situação do Orçamento alterada: de " + situationFormated(requestSituation) + " para " + situationFormated(budget.Situation) + ".",
+                 DateTime.Now
+                 ));
+
+            return Unit.Value;
+        }
 
         public string situationFormated(string situation) {
 
@@ -89,5 +94,6 @@ namespace VaccineC.Command.Application.Commands.Budget
                 return "";
             }
         }
+
     }
 }

@@ -44,16 +44,24 @@ namespace VaccineC.Command.Application.Commands.Budget
             _repository.Add(newBudget);
             await _repository.SaveChangesAsync();
 
-            await _mediator.Send(new AddBudgetHistoricCommand(
-                Guid.NewGuid(), 
-                newBudget.ID, 
-                newBudget.UserId, 
-                "Orçamento Criado.", 
-                DateTime.Now
-                ));
+            await addNewBudgetHistoric(newBudget, request.UserID);
 
             return await _appService.GetById(newBudget.ID);
 
+        }
+
+        public async Task<Unit> addNewBudgetHistoric(Domain.Entities.Budget budget, Guid? userId)
+        {
+
+            await _mediator.Send(new AddBudgetHistoricCommand(
+                 Guid.NewGuid(),
+                 budget.ID,
+                 userId,
+                 "Orçamento Criado.",
+                 DateTime.Now
+                 ));
+
+            return Unit.Value;
         }
     }
 }
