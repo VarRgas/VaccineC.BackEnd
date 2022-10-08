@@ -12,6 +12,7 @@
         public DateTime Register { get; set; }
         public PersonsPhysicalViewModel? PersonsPhysical { get; set; }
         public PersonsJuridicalViewModel? PersonsJuridical { get; set; }
-
+        public PersonAddressViewModel? PersonPrincipalAddress { get; set; }
+        public PersonPhoneViewModel? PersonPrincipalPhone { get; set; }
     }
 }

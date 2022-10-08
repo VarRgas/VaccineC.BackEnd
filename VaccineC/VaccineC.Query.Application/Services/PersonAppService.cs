@@ -71,6 +71,34 @@ namespace VaccineC.Query.Application.Services
             return Task.FromResult(response);
         }
 
+        public async Task<IEnumerable<PersonViewModel>> GetAllAuthorizationAutocomplete()
+        {
+            var persons = await _queryContext.AllPersons.ToListAsync();
+            var personsViewModel = persons
+                .Select(p => _mapper.Map<PersonViewModel>(p))
+                .ToList();
+
+            foreach(var person in personsViewModel)
+            {
+                var personPhone = (from pp in _context.PersonsPhones
+                                   where pp.PhoneType.Equals("P") && pp.PersonID.Equals(person.ID)
+                                   select pp).FirstOrDefault();
+
+                var personPhoneViewModel = _mapper.Map<PersonPhoneViewModel>(personPhone);
+                person.PersonPrincipalPhone = personPhoneViewModel;
+
+
+                var personAddress = (from pa in _context.PersonsAddresses
+                                     where pa.AddressType.Equals("P") && pa.PersonID.Equals(person.ID)
+                                     select pa).FirstOrDefault();
+
+                var personAddressViewModel = _mapper.Map<PersonAddressViewModel>(personAddress);
+                person.PersonPrincipalAddress = personAddressViewModel;
+            }
+
+            return personsViewModel;
+        }
+
         public Task<IEnumerable<PersonViewModel>> GetByName(String information)
         {
 

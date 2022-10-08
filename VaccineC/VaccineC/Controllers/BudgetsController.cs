@@ -35,6 +35,14 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{borrowerId}/GetAllByBorrower")]
+        public async Task<IActionResult> GetAllByBorrower(Guid borrowerId)
+        {
+            var command = new GetBudgetListByBorrowerQuery(borrowerId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {

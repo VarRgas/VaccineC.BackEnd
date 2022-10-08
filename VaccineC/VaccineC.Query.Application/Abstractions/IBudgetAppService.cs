@@ -7,6 +7,7 @@ namespace VaccineC.Query.Application.Abstractions
         Task<IEnumerable<BudgetViewModel>> GetAllAsync();
         Task<IEnumerable<BudgetViewModel>> GetByName(string personName);
         Task<IEnumerable<BudgetViewModel>> GetAllByBudgetNumber(int budgetNumber);
+        Task<IEnumerable<BudgetViewModel>> GetAllByBorrower(Guid borrowerId);
         Task<BudgetViewModel> GetById(Guid id);
     }
 }

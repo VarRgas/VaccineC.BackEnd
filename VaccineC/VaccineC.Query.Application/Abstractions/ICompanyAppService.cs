@@ -8,5 +8,8 @@ namespace VaccineC.Query.Application.Abstractions
         Task <CompaniesParametersViewModel> GetAllParametersByCompanyID(Guid id);
         Task<IEnumerable<CompanyViewModel>> GetByName(String name);
         CompanyViewModel GetById(Guid id);
+        CompanyViewModel GetFirst();
+        CompaniesParametersViewModel GetCompanyParameterByCompanyId(Guid companyId);
+        List<TimeSpan> GetMinMaxCompanySchedule(Guid companyId);
     }
 }

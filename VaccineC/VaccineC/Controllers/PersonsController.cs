@@ -130,5 +130,13 @@ namespace VaccineC.Controllers
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
+        [HttpGet, Route("GetAllAuthorizationAutocomplete")]
+        public async Task<IActionResult> GetAllAuthorizationAutocomplete()
+        {
+            var command = new GetPersonListAuthorizationAutocompleteQuery();
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
     }
 }

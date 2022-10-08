@@ -51,6 +51,22 @@ namespace VaccineC.Controllers
             return Ok(result); //amanda
         }
 
+
+        [HttpGet("GetCompanyConfig")]
+        public async Task<IActionResult> GetCompanyConfig()
+        {
+            try
+            {
+                var command = new GetCompanyConfigForAuthorizationQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] CompanyViewModel company)
         {

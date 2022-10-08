@@ -29,7 +29,7 @@ namespace VaccineC.Command.Application.Commands.Authorization
             {
                 throw new ArgumentException("Autorização não encontrada!");
             }
-
+            
             _repository.Remove(authorization);
             await _repository.SaveChangesAsync();
 

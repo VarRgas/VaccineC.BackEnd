@@ -2,7 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
+using VaccineC.Query.Data.Context;
 using VaccineC.Query.Model.Abstractions;
+using VaccineC.Query.Model.Models;
 
 namespace VaccineC.Query.Application.Services
 {
@@ -11,11 +13,13 @@ namespace VaccineC.Query.Application.Services
 
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
+        private readonly VaccineCContext _context;
 
-        public CompanyAppService(IQueryContext queryContext, IMapper mapper)
+        public CompanyAppService(IQueryContext queryContext, IMapper mapper, VaccineCContext context)
         {
             _queryContext = queryContext;
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task<IEnumerable<CompanyViewModel>> GetAllAsync()
@@ -49,5 +53,53 @@ namespace VaccineC.Query.Application.Services
             return company;
         }
 
+        public CompanyViewModel GetFirst()
+        {
+            var company = _mapper.Map<CompanyViewModel>(_queryContext.AllCompanies.First());
+            return company;
+        }
+
+        public CompaniesParametersViewModel GetCompanyParameterByCompanyId(Guid companyId)
+        {
+            var companyParameter = _mapper.Map<CompaniesParametersViewModel>(_queryContext.AllCompaniesParameters.Where(r => r.CompanyId == companyId).First());
+            return companyParameter;
+        }
+
+        public List<TimeSpan> GetMinMaxCompanySchedule(Guid companyId)
+        {
+
+            List<TimeSpan> listTime = new List<TimeSpan>();
+
+            List<CompanySchedule> companiesSchedules = (from cs in _context.CompaniesSchedules
+                                                                 where cs.CompanyId == companyId
+                                                                 select cs).ToList();
+
+            if (companiesSchedules.Count() > 0) {
+            
+
+                TimeSpan minValue = TimeSpan.MaxValue;
+                TimeSpan maxValue = TimeSpan.MinValue;
+
+                foreach (CompanySchedule companiesSchedule in companiesSchedules)
+                {
+                    if(TimeSpan.Compare(companiesSchedule.StartTime, minValue) == -1)
+                    {
+                        minValue = companiesSchedule.StartTime;
+                    }
+
+                    if(TimeSpan.Compare(companiesSchedule.FinalTime, maxValue) == 1)
+                    {
+                        maxValue = companiesSchedule.FinalTime;
+                    }
+
+                }
+                               
+                listTime.Add(minValue);
+                listTime.Add(maxValue + TimeSpan.FromMinutes(1));
+            }
+
+
+            return listTime;
+        }
     }
 }
