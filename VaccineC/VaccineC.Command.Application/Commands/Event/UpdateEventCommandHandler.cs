@@ -26,7 +26,6 @@ namespace VaccineC.Command.Application.Commands.Event
             }
 
             eventClass.SetSituation(request.Situation);
-            eventClass.SetEventType(request.EventType);
             eventClass.SetConcluded(request.Concluded);
             eventClass.SetStartDate(request.StartDate);
             eventClass.SetEndDate(request.EndDate);

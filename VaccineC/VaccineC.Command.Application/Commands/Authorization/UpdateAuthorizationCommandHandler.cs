@@ -34,7 +34,6 @@ namespace VaccineC.Command.Application.Commands.Authorization
             authorization.SetEventId(request.EventId);
             authorization.SetBudgetProductId(request.BudgetProductId);
             authorization.SetBorrowerPersonId(request.BorrowerPersonId);
-            authorization.SetProviderPersonId(request.ProviderPersonId);
             authorization.SetSituation(request.Situation);
             authorization.SetTypeOfService(request.TypeOfService);
             authorization.SetNotify(request.Notify);

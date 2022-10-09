@@ -31,6 +31,13 @@ namespace VaccineC.Query.Application.Services
             return budgetsProductsViewModel;
         }
 
+        public async Task<IEnumerable<BudgetProductViewModel>> GetAllPendingBudgetsProductsByBorrower(Guid budgetId, Guid borrowerId)
+        {
+            var budgetsProducts = await _queryContext.AllBudgetsProducts.Where(bp => bp.BudgetId == budgetId && bp.BorrowerPersonId == borrowerId && bp.SituationProduct.Equals("P")).ToListAsync();
+            var budgetsProductsViewModel = budgetsProducts.Select(r => _mapper.Map<BudgetProductViewModel>(r)).ToList();
+            return budgetsProductsViewModel;
+        }
+
         public BudgetProductViewModel GetById(Guid id)
         {
             var budgetProduct = _mapper.Map<BudgetProductViewModel>(_queryContext.AllBudgetsProducts.Where(r => r.ID == id).First());

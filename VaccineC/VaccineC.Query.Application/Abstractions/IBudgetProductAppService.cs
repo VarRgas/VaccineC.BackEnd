@@ -6,6 +6,7 @@ namespace VaccineC.Query.Application.Abstractions
     {
         Task<IEnumerable<BudgetProductViewModel>> GetAllAsync();
         Task<IEnumerable<BudgetProductViewModel>> GetAllBudgetsProductsByBudgetId(Guid budgetId);
+        Task<IEnumerable<BudgetProductViewModel>> GetAllPendingBudgetsProductsByBorrower(Guid budgetId, Guid borrowerId);
         BudgetProductViewModel GetById(Guid id);
     }
 }

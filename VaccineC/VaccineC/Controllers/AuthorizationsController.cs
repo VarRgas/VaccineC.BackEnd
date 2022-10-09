@@ -58,7 +58,6 @@ namespace VaccineC.Controllers
                     authorization.EventId,
                     authorization.BudgetProductId,
                     authorization.BorrowerPersonId,
-                    authorization.ProviderPersonId,
                     authorization.AuthorizationNumber,
                     authorization.Situation,
                     authorization.TypeOfService,
@@ -66,6 +65,22 @@ namespace VaccineC.Controllers
                     authorization.AuthorizationDate,
                     authorization.Register);
 
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        // POST api/<AuthorizationsController>/CreateOnDemand
+        [HttpPost("CreateOnDemand")]
+        public async Task<IActionResult> CreateOnDemand([FromBody] List<AuthorizationViewModel> listAuthorizationViewModel)
+        {
+            try
+            {
+                var command = new AddAuthorizationOnDemandCommand(listAuthorizationViewModel);
                 var result = await _mediator.Send(command);
                 return Ok(result);
             }
@@ -87,7 +102,6 @@ namespace VaccineC.Controllers
                     authorization.EventId,
                     authorization.BudgetProductId,
                     authorization.BorrowerPersonId,
-                    authorization.ProviderPersonId,
                     authorization.AuthorizationNumber,
                     authorization.Situation,
                     authorization.TypeOfService,

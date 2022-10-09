@@ -10,7 +10,6 @@ namespace VaccineC.Command.Application.Commands.Authorization
         public Guid EventId;
         public Guid BudgetProductId;
         public Guid BorrowerPersonId;
-        public Guid ProviderPersonId;
         public int AuthorizationNumber;
         public string Situation;
         public string TypeOfService;
@@ -18,14 +17,13 @@ namespace VaccineC.Command.Application.Commands.Authorization
         public DateTime AuthorizationDate;
         public DateTime Register;
 
-        public AddAuthorizationCommand(Guid id, Guid userId, Guid eventId, Guid budgetProductId, Guid borrowerPersonId, Guid providerPersonId, int authorizationNumber, string situation, string typeOfService, string notify, DateTime authorizationDate, DateTime register)
+        public AddAuthorizationCommand(Guid id, Guid userId, Guid eventId, Guid budgetProductId, Guid borrowerPersonId, int authorizationNumber, string situation, string typeOfService, string notify, DateTime authorizationDate, DateTime register)
         {
             ID = id;
             UserId = userId;
             EventId = eventId;
             BudgetProductId = budgetProductId;
             BorrowerPersonId = borrowerPersonId;
-            ProviderPersonId = providerPersonId;
             AuthorizationNumber = authorizationNumber;
             Situation = situation;
             TypeOfService = typeOfService;

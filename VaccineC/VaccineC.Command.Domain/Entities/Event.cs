@@ -16,9 +16,6 @@ namespace VaccineC.Command.Domain.Entities
         [Column("situation", TypeName = "varchar(1)")]
         public string Situation { get; set; }
 
-        [Column("eventType", TypeName = "varchar(1)")]
-        public string EventType { get; set; }
-
         [Column("concluded", TypeName = "varchar(1)")]
         public string Concluded { get; set; }
 
@@ -40,12 +37,11 @@ namespace VaccineC.Command.Domain.Entities
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        public Event(Guid id, Guid userId, string situation, string eventType, string concluded, DateTime startDate, DateTime endDate, TimeSpan startTime, TimeSpan endTime, string? details, DateTime register)
+        public Event(Guid id, Guid userId, string situation, string concluded, DateTime startDate, DateTime endDate, TimeSpan startTime, TimeSpan endTime, string? details, DateTime register)
         {
             ID = id;
             UserId = userId;
             Situation = situation;
-            EventType = eventType;
             Concluded = concluded;
             StartDate = startDate;
             EndDate = endDate;
@@ -68,11 +64,6 @@ namespace VaccineC.Command.Domain.Entities
         public void SetSituation(string situation)
         {
             Situation = situation;
-        }
-
-        public void SetEventType(string eventType)
-        {
-            EventType = eventType;
         }
 
         public void SetConcluded(string concluded)

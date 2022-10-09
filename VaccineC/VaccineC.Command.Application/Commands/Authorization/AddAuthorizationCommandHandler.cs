@@ -30,7 +30,6 @@ namespace VaccineC.Command.Application.Commands.Authorization
                 request.EventId,
                 request.BudgetProductId,
                 request.BorrowerPersonId,
-                request.ProviderPersonId,
                 request.AuthorizationNumber,
                 request.Situation,
                 request.TypeOfService,

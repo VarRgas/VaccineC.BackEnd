@@ -15,7 +15,6 @@ namespace VaccineC.Query.Application.ViewModels
         public decimal? ProductsAmount { get; set; }
         public DateTime Register { get; set; }
         public string Situation { get; set; }
-
         public string? ProductsInfo { get; set; }
     }
 }

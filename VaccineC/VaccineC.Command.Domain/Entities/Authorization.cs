@@ -26,9 +26,6 @@ namespace VaccineC.Command.Domain.Entities
         [Column("borrowerPersonId")]
         public Guid BorrowerPersonId { get; set; }
 
-        [Column("providerPersonId")]
-        public Guid ProviderPersonId { get; set; }
-
         [Column("situation", TypeName = "varchar(1)")]
         public string Situation { get; set; }
 
@@ -44,14 +41,13 @@ namespace VaccineC.Command.Domain.Entities
         [Column("budgetProductId")]
         public Guid BudgetProductId { get; set; }
 
-        public Authorization(Guid id, Guid userId, Guid eventId, Guid budgetProductId, Guid borrowerPersonId, Guid providerPersonId, int authorizationNumber, string situation, string typeOfService, string notify, DateTime authorizationDate, DateTime register)
+        public Authorization(Guid id, Guid userId, Guid eventId, Guid budgetProductId, Guid borrowerPersonId, int authorizationNumber, string situation, string typeOfService, string notify, DateTime authorizationDate, DateTime register)
         {
             ID = id;
             UserId = userId;
             EventId = eventId;
             BudgetProductId = budgetProductId;
             BorrowerPersonId = borrowerPersonId;
-            ProviderPersonId = providerPersonId;
             AuthorizationNumber = authorizationNumber;
             Situation = situation;
             TypeOfService = typeOfService;
@@ -83,11 +79,6 @@ namespace VaccineC.Command.Domain.Entities
         public void SetBorrowerPersonId(Guid borrowerPersonId)
         {
             BorrowerPersonId = borrowerPersonId;
-        }
-
-        public void SetProviderPersonId(Guid providerPersonId)
-        {
-            ProviderPersonId = providerPersonId;
         }
 
         public void SetAuthorizationNumber(int authorizationNumber)

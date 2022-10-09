@@ -22,7 +22,6 @@ namespace VaccineC.Command.Application.Commands.Event
                 Guid.NewGuid(),
                 request.UserId,
                 request.Situation,
-                request.EventType,
                 request.Concluded,
                 request.StartDate,
                 request.EndDate,

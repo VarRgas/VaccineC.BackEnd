@@ -11,7 +11,6 @@ namespace VaccineC.Query.Model.Models
         public Guid ID { get; set; }
         public Guid UserId { get; set; }
         public string Situation { get; set; }
-        public string EventType { get; set; }
         public string Concluded { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

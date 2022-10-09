@@ -11,7 +11,6 @@ namespace VaccineC.Query.Application.ViewModels
         public Guid ID { get; set; }
         public Guid UserId { get; set; }
         public string Situation { get; set; }
-        public string EventType { get; set; }
         public string Concluded { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -19,5 +18,6 @@ namespace VaccineC.Query.Application.ViewModels
         public TimeSpan EndTime { get; set; }
         public string? Details { get; set; }
         public DateTime Register { get; set; }
+        public string? Info { get; set; }
     }
 }
