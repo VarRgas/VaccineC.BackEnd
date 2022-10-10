@@ -55,6 +55,15 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        // GET api/<AuthorizationsController>/GetAuthorizationByParameter
+        [HttpGet("{information}/GetAuthorizationByParameter")]
+        public async Task<IActionResult> getAuthorizationByParameter(string information)
+        {
+            var command = new GetAuthorizationByParameterQuery(information);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // POST api/<AuthorizationsController>/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] AuthorizationViewModel authorization)

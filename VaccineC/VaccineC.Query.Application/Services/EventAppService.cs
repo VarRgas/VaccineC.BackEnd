@@ -18,7 +18,7 @@ namespace VaccineC.Query.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<EventViewModel>> GetAllAsync()
+        public async Task<IEnumerable<EventViewModel>> GetAllActive()
         {
             var events = await _queryContext.AllEvents.ToListAsync();
             var eventsViewModel = events.Select(r => _mapper.Map<EventViewModel>(r)).Where(e => e.Situation.Equals("A")).ToList();
@@ -31,8 +31,16 @@ namespace VaccineC.Query.Application.Services
                 string firstName = authorizationViewModel.Person.Name.Split(" ")[0];
 
                 eventClass.Info = firstName + " - " + authorizationViewModel.BudgetProduct.Product.Name;
-                eventClass.CompleteInfo = authorizationViewModel.Person.Name+ " - " + authorizationViewModel.BudgetProduct.Product.Name;
+                eventClass.CompleteInfo = authorizationViewModel.Person.Name + " - " + authorizationViewModel.BudgetProduct.Product.Name;
             }
+
+            return eventsViewModel;
+        }
+
+        public async Task<IEnumerable<EventViewModel>> GetAllAsync()
+        {
+            var events = await _queryContext.AllEvents.ToListAsync();
+            var eventsViewModel = events.Select(r => _mapper.Map<EventViewModel>(r)).ToList();
 
             return eventsViewModel;
         }

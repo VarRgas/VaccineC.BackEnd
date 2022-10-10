@@ -13,14 +13,16 @@ namespace VaccineC.Command.Application.Commands.Authorization
         private readonly VaccineCCommandContext _ctx;
         private readonly IMediator _mediator;
         private readonly IEventRepository _eventRepository;
+        private readonly IBudgetProductRepository _budgetProductRepository;
 
-        public DeleteAuthorizationCommandHandler(IAuthorizationRepository repository, IAuthorizationAppService appService, VaccineCCommandContext ctx, IMediator mediator, IEventRepository eventRepository)
+        public DeleteAuthorizationCommandHandler(IAuthorizationRepository repository, IAuthorizationAppService appService, VaccineCCommandContext ctx, IMediator mediator, IEventRepository eventRepository, IBudgetProductRepository budgetProductRepository)
         {
             _repository = repository;
             _appService = appService;
             _ctx = ctx;
             _mediator = mediator;
-            _eventRepository = eventRepository; 
+            _eventRepository = eventRepository;
+            _budgetProductRepository = budgetProductRepository; 
         }
 
         public async Task<IEnumerable<AuthorizationViewModel>> Handle(DeleteAuthorizationCommand request, CancellationToken cancellationToken)
@@ -44,6 +46,16 @@ namespace VaccineC.Command.Application.Commands.Authorization
 
             eventClass.SetSituation("X");
             await _eventRepository.SaveChangesAsync();
+
+            var budgetProduct = _budgetProductRepository.GetById(authorization.BudgetProductId);
+
+            if (budgetProduct == null)
+            {
+                throw new ArgumentException("Orçamento Produto não encontrado!");
+            }
+
+            budgetProduct.SetSituationProduct("P");
+            await _budgetProductRepository.SaveChangesAsync();
 
             return await _appService.GetAllAsync();
 

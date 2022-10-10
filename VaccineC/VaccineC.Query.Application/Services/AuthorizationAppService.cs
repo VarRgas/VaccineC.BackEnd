@@ -24,6 +24,23 @@ namespace VaccineC.Query.Application.Services
             return authorizationsViewModel;
         }
 
+        public async Task<IEnumerable<AuthorizationViewModel>> GetAllByAuthNumber(int authNumber)
+        {
+            var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+            var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.AuthorizationNumber == authNumber).ToList();
+
+            return authorizationsViewModel;
+
+        }
+
+        public async Task<IEnumerable<AuthorizationViewModel>> GetAllByBorrowerName(string borrowerName)
+        {
+            var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+            var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.Person.Name.Contains(borrowerName)).ToList();
+
+            return authorizationsViewModel;
+        }
+
         public AuthorizationViewModel GetById(Guid id)
         {
             var authorization = _mapper.Map<AuthorizationViewModel>(_queryContext.AllAuthorizations.Where(r => r.ID == id).First());
@@ -70,5 +87,6 @@ namespace VaccineC.Query.Application.Services
 
             return listAuthorizationSummarySituationViewModel;
         }
+
     }
 }

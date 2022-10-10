@@ -36,6 +36,14 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet, Route("GetAllActive")]
+        public async Task<IActionResult> GetAllActive()
+        {
+            var command = new GetEventListActiveQuery();
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // POST api/<EventsController>/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] EventViewModel eventClass)

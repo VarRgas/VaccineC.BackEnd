@@ -42,11 +42,11 @@ namespace VaccineC.Command.Application.Commands.Authorization
                 throw new ArgumentException("Evento não encontrado!");
             }
 
-            var end = (request.StartDateEvent + request.StartTimeEvent).AddMinutes(await getApplicationTimePerMinute());
-            var endFormated = TimeZoneInfo.ConvertTime(end, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
+            var end = (request.StartDateEvent.Date + request.StartTimeEvent).AddMinutes(await getApplicationTimePerMinute());
+            //var endFormated = TimeZoneInfo.ConvertTime(end, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 
-            var endTimeEvent = endFormated.TimeOfDay;
-            var endDateEvent = endFormated.Date;
+            var endTimeEvent = end.TimeOfDay;
+            var endDateEvent = end.Date;
 
             eventClass.SetStartDate(request.StartDateEvent);
             eventClass.SetStartTime(request.StartTimeEvent);
