@@ -18,5 +18,6 @@ namespace VaccineC.Query.Application.ViewModels
         public BudgetProductViewModel? BudgetProduct { get; set; }
         public Event? Event { get; set; }
         public PersonViewModel? Person { get; set; }
+
     }
 }

@@ -229,7 +229,10 @@ namespace VaccineC.Query.Data.QueryContext
                .Set<Authorization>()
                .Include(bp => bp.BudgetProduct)
                 .ThenInclude(p => p.Product)
+               .Include(bp => bp.BudgetProduct)
+                .ThenInclude(b => b.Budget)
                .Include(pr => pr.Person)
+               .Include(e => e.Event)
                .OrderBy(r => r.AuthorizationNumber);
             }
         }

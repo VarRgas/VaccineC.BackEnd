@@ -19,6 +19,7 @@ namespace VaccineC.Query.Model.Models
         public string SituationProduct { get; set; }
         public DateTime Register { get; set; }
         public Product? Product { get; set; }
+        public Budget? Budget { get; set; }
 
         [ForeignKey("BorrowerPersonId")]
         public Person? Person { get; set; }

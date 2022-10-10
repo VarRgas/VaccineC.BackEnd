@@ -12,13 +12,15 @@ namespace VaccineC.Command.Application.Commands.Authorization
         private readonly IAuthorizationAppService _appService;
         private readonly VaccineCCommandContext _ctx;
         private readonly IMediator _mediator;
+        private readonly IEventRepository _eventRepository;
 
-        public DeleteAuthorizationCommandHandler(IAuthorizationRepository repository, IAuthorizationAppService appService, VaccineCCommandContext ctx, IMediator mediator)
+        public DeleteAuthorizationCommandHandler(IAuthorizationRepository repository, IAuthorizationAppService appService, VaccineCCommandContext ctx, IMediator mediator, IEventRepository eventRepository)
         {
             _repository = repository;
             _appService = appService;
             _ctx = ctx;
             _mediator = mediator;
+            _eventRepository = eventRepository; 
         }
 
         public async Task<IEnumerable<AuthorizationViewModel>> Handle(DeleteAuthorizationCommand request, CancellationToken cancellationToken)
@@ -29,9 +31,19 @@ namespace VaccineC.Command.Application.Commands.Authorization
             {
                 throw new ArgumentException("Autorização não encontrada!");
             }
-            
-            _repository.Remove(authorization);
+
+            authorization.SetSituation("X");
             await _repository.SaveChangesAsync();
+
+            var eventClass = _eventRepository.GetById(authorization.EventId);
+
+            if (eventClass == null)
+            {
+                throw new ArgumentException("Evento não encontrado!");
+            }
+
+            eventClass.SetSituation("X");
+            await _eventRepository.SaveChangesAsync();
 
             return await _appService.GetAllAsync();
 

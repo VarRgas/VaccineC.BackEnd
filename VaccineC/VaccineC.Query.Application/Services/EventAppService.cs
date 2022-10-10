@@ -21,7 +21,7 @@ namespace VaccineC.Query.Application.Services
         public async Task<IEnumerable<EventViewModel>> GetAllAsync()
         {
             var events = await _queryContext.AllEvents.ToListAsync();
-            var eventsViewModel = events.Select(r => _mapper.Map<EventViewModel>(r)).ToList();
+            var eventsViewModel = events.Select(r => _mapper.Map<EventViewModel>(r)).Where(e => e.Situation.Equals("A")).ToList();
 
             foreach (var eventClass in eventsViewModel)
             {
@@ -31,6 +31,7 @@ namespace VaccineC.Query.Application.Services
                 string firstName = authorizationViewModel.Person.Name.Split(" ")[0];
 
                 eventClass.Info = firstName + " - " + authorizationViewModel.BudgetProduct.Product.Name;
+                eventClass.CompleteInfo = authorizationViewModel.Person.Name+ " - " + authorizationViewModel.BudgetProduct.Product.Name;
             }
 
             return eventsViewModel;

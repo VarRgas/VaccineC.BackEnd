@@ -8,28 +8,17 @@ namespace VaccineC.Command.Application.Commands.Authorization
         public Guid ID;
         public Guid UserId;
         public Guid EventId;
-        public Guid BudgetProductId;
-        public Guid BorrowerPersonId;
-        public int AuthorizationNumber;
-        public string Situation;
-        public string TypeOfService;
-        public string Notify;
-        public DateTime AuthorizationDate;
         public DateTime Register;
+        public DateTime StartDateEvent;
+        public TimeSpan StartTimeEvent;
 
-        public UpdateAuthorizationCommand(Guid id, Guid userId, Guid eventId, Guid budgetProductId, Guid borrowerPersonId, int authorizationNumber, string situation, string typeOfService, string notify, DateTime authorizationDate, DateTime register)
-        {
+        public UpdateAuthorizationCommand(Guid id, Guid userId, Guid eventId, DateTime register, DateTime startDateEvent, TimeSpan startTimeEvent) {
             ID = id;
             UserId = userId;
             EventId = eventId;
-            BudgetProductId = budgetProductId;
-            BorrowerPersonId = borrowerPersonId;
-            AuthorizationNumber = authorizationNumber;
-            Situation = situation;
-            TypeOfService = typeOfService;
-            Notify = notify;
-            AuthorizationDate = authorizationDate;
             Register = register;
+            StartDateEvent = startDateEvent;
+            StartTimeEvent = startTimeEvent;
         }
     }
 }

@@ -24,5 +24,6 @@ namespace VaccineC.Query.Model.Models
 
         [ForeignKey("BorrowerPersonId")]
         public Person? Person { get; set; }
+        public Event? Event { get; set; }
     }
 }

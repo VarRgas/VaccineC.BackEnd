@@ -1,5 +1,7 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using VaccineC.Query.Application.ViewModels;
+using VaccineC.Query.Data.Context;
 
 namespace VaccineC.Query.Application.Queries.Authorization
 {
@@ -8,7 +10,7 @@ namespace VaccineC.Query.Application.Queries.Authorization
 
         private readonly IMediator _mediator;
 
-        public GetAuthorizationByIdQueryHandler(IMediator mediator)
+        public GetAuthorizationByIdQueryHandler(IMediator mediator, IMapper mapper, VaccineCContext context)
         {
             _mediator = mediator;
         }
@@ -16,7 +18,7 @@ namespace VaccineC.Query.Application.Queries.Authorization
         public async Task<AuthorizationViewModel> Handle(GetAuthorizationByIdQuery request, CancellationToken cancellationToken)
         {
             var authorizations = await _mediator.Send(new GetAuthorizationListQuery());
-            var authorization = authorizations.FirstOrDefault(bp => bp.ID == request.Id);
+            var authorization = authorizations.FirstOrDefault(a => a.ID == request.Id);
             return authorization;
         }
     }

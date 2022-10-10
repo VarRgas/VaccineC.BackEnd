@@ -46,6 +46,15 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        // GET api/<AuthorizationsController>/GetAuthorizationByEventId
+        [HttpGet("{eventId}/GetAuthorizationByEventId")]
+        public async Task<IActionResult> getAuthorizationByEventId(Guid eventId)
+        {
+            var command = new GetAuthorizationByEventIdQuery(eventId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // POST api/<AuthorizationsController>/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] AuthorizationViewModel authorization)
@@ -92,7 +101,7 @@ namespace VaccineC.Controllers
 
         // PUT api/<AuthorizationsController>/3/Update
         [HttpPut("{id}/Update")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] AuthorizationViewModel authorization)
+        public async Task<IActionResult> Update(Guid id, [FromBody] AuthorizationUpdateViewModel authorization)
         {
             try
             {
@@ -100,14 +109,9 @@ namespace VaccineC.Controllers
                     id,
                     authorization.UserId,
                     authorization.EventId,
-                    authorization.BudgetProductId,
-                    authorization.BorrowerPersonId,
-                    authorization.AuthorizationNumber,
-                    authorization.Situation,
-                    authorization.TypeOfService,
-                    authorization.Notify,
-                    authorization.AuthorizationDate,
-                    authorization.Register);
+                    authorization.Register,
+                    authorization.StartDateEvent,
+                    authorization.StartTimeEvent);
 
                 var result = await _mediator.Send(command);
                 return Ok(result);
