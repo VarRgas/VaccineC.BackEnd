@@ -99,6 +99,7 @@ namespace VaccineC
             services.AddScoped<IDiscardAppService, DiscardAppService>();
             services.AddScoped<IBudgetHistoricAppService, BudgetHistoricAppService>();
             services.AddScoped<IEventAppService, EventAppService>();
+            services.AddScoped<IAuthorizationNotificationAppService, AuthorizationNotificationAppService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));

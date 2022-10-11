@@ -136,13 +136,13 @@ namespace VaccineC.Controllers
         }
 
 
-        // DELETE api/<AuthorizationsController>/3/Delete
-        [HttpDelete("{id}/Delete")]
-        public async Task<IActionResult> Delete(Guid id)
+        // DELETE api/<AuthorizationsController>/3/4/Delete
+        [HttpDelete("{id}/{userId}/Delete")]
+        public async Task<IActionResult> Delete(Guid id, Guid userId)
         {
             try
             {
-                var command = new DeleteAuthorizationCommand(id);
+                var command = new DeleteAuthorizationCommand(id, userId);
                 var result = await _mediator.Send(command);
                 return Ok(result);
             }

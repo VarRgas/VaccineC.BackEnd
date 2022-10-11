@@ -37,6 +37,7 @@ namespace VaccineC.Query.Data.Context
         public DbSet<Discard> Discards { get; set; }
         public DbSet<BudgetHistoric> BudgetsHistorics { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<AuthorizationNotification> AuthorizationsNotifications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -66,6 +67,7 @@ namespace VaccineC.Query.Data.Context
             modelBuilder.Entity<Discard>().ToTable("Discards");
             modelBuilder.Entity<BudgetHistoric>().ToTable("BudgetsHistorics");
             modelBuilder.Entity<Event>().ToTable("Events");
+            modelBuilder.Entity<AuthorizationNotification>().ToTable("AuthorizationsNotifications");
 
             base.OnModelCreating(modelBuilder);
         }

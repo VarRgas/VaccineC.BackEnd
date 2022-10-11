@@ -32,6 +32,7 @@ namespace VaccineC.Query.Application.Services
 
                 eventClass.Info = firstName + " - " + authorizationViewModel.BudgetProduct.Product.Name;
                 eventClass.CompleteInfo = authorizationViewModel.Person.Name + " - " + authorizationViewModel.BudgetProduct.Product.Name;
+                eventClass.AuthSituation = authorizationViewModel.Situation;
             }
 
             return eventsViewModel;
