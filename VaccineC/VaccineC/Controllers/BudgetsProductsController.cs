@@ -55,6 +55,15 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        // GET: api/<BudgetsProductsController>/5/GetAllPendingBudgetsProductsByResponsible
+        [HttpGet("{budgetId}/GetAllPendingBudgetsProductsByResponsible")]
+        public async Task<IActionResult> GetAllPendingBudgetsProductsByResponsible(Guid budgetId)
+        {
+            var command = new GetPendingBudgetProductListByResponsibleQuery(budgetId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // POST api/<BudgetsProductsController>/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] BudgetProductViewModel budgetProductViewModel)

@@ -43,6 +43,14 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{responsibleId}/GetAllByResponsible")]
+        public async Task<IActionResult> GetAllByResponsible(Guid responsibleId)
+        {
+            var command = new GetBudgetListByResponsibleQuery(responsibleId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {

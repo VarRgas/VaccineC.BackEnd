@@ -48,6 +48,29 @@ namespace VaccineC.Query.Application.Services
             return budgetsViewModel;
         }
 
+        public async Task<IEnumerable<BudgetViewModel>> GetAllByResponsible(Guid responsibleId)
+        {
+            var budgets = (from b in _context.Budgets
+                           where b.PersonId.Equals(responsibleId) && b.Situation.Equals("A")
+                           orderby b.Register descending
+                           select b).ToList();
+
+            var budgetsViewModel = _mapper.Map<IEnumerable<BudgetViewModel>>(budgets);
+
+            foreach (var budget in budgetsViewModel)
+            {
+                var person = (from p in _context.Persons
+                              where p.ID.Equals(budget.PersonId) 
+                              select p).FirstOrDefault();
+
+                var personViewModel = _mapper.Map<PersonViewModel>(person);
+
+                budget.Persons = personViewModel;
+            }
+
+            return budgetsViewModel;
+        }
+
         public async Task<IEnumerable<BudgetViewModel>> GetAllByBorrower(Guid borrowerId)
         {
 
