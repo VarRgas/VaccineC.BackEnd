@@ -32,6 +32,23 @@ namespace VaccineC.Query.Application.Services
            return personsPhonesViewModel;
         }
 
+        public async Task<IEnumerable<PersonPhoneViewModel>> GetAllPersonsPhonesCelByPersonId(Guid personId)
+        {
+            var personsPhones = await _queryContext.AllPersonsPhones.Where(pp => pp.PersonID == personId).ToListAsync();
+            var personsPhonesViewModel = personsPhones.Select(r => _mapper.Map<PersonPhoneViewModel>(r)).ToList();
+
+            List<PersonPhoneViewModel> personPhonesValid = new List<PersonPhoneViewModel>();
+
+            foreach(var personPhone in personsPhonesViewModel)
+            {
+                if (personPhone.NumberPhone.StartsWith("9") && personPhone.NumberPhone.Length >= 8) {
+                    personPhonesValid.Add(personPhone);
+                }
+            }
+
+            return personPhonesValid;
+        }
+
         public PersonPhoneViewModel GetById(Guid id)
         {
             var personPhone = _mapper.Map<PersonPhoneViewModel>(_queryContext.AllPersonsPhones.Where(r => r.ID == id).First());

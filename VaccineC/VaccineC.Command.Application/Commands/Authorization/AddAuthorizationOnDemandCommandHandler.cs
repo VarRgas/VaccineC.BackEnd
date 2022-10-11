@@ -1,10 +1,14 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using VaccineC.Command.Application.Commands.AuthorizationNotification;
 using VaccineC.Command.Application.Commands.BudgetHistoric;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
 using VaccineC.Query.Data.Context;
+using VaccineC.Query.Model.Abstractions;
 
 namespace VaccineC.Command.Application.Commands.Authorization
 {
@@ -20,8 +24,11 @@ namespace VaccineC.Command.Application.Commands.Authorization
         private readonly VaccineCCommandContext _ctx;
         private readonly VaccineCContext _context;
         private readonly IMediator _mediator;
+        private readonly IQueryContext _queryContext;
+        private readonly IMapper _mapper;
 
-        public AddAuthorizationOnDemandCommandHandler(IAuthorizationRepository repository, IAuthorizationAppService appService, IEventRepository eventRepository, IEventAppService eventAppService, ICompanyParameterRepository companyParameterRepository, IBudgetProductRepository budgetProductRepository, VaccineCCommandContext ctx, IMediator mediator, IBudgetRepository budgetRepository, VaccineCContext context)
+
+        public AddAuthorizationOnDemandCommandHandler(IAuthorizationRepository repository, IAuthorizationAppService appService, IEventRepository eventRepository, IEventAppService eventAppService, ICompanyParameterRepository companyParameterRepository, IBudgetProductRepository budgetProductRepository, VaccineCCommandContext ctx, IMediator mediator, IBudgetRepository budgetRepository, VaccineCContext context, IQueryContext queryContext, IMapper mapper)
         {
             _repository = repository;
             _appService = appService;
@@ -32,7 +39,9 @@ namespace VaccineC.Command.Application.Commands.Authorization
             _ctx = ctx;
             _mediator = mediator;
             _context = context;
-            _budgetRepository = budgetRepository;   
+            _budgetRepository = budgetRepository;
+            _mapper = mapper;
+            _queryContext = queryContext;
         }
 
         public async Task<IEnumerable<EventViewModel>> Handle(AddAuthorizationOnDemandCommand request, CancellationToken cancellationToken)
@@ -83,6 +92,11 @@ namespace VaccineC.Command.Application.Commands.Authorization
                 _repository.Add(newAuthorization);
                 await _repository.SaveChangesAsync();
 
+                if (newAuthorization.Notify.Equals("S"))
+                {
+                    await createAuthorizationNotification(newAuthorization, newEvent, authorizationViewModel.PersonPhone);
+                }
+
                 var budgetProduct = _budgetProductRepository.GetById(authorizationViewModel.BudgetProductId);
 
                 if (budgetProduct == null)
@@ -97,6 +111,29 @@ namespace VaccineC.Command.Application.Commands.Authorization
             }
 
             return await _eventAppService.GetAllAsync();
+        }
+
+        private async Task<Unit> createAuthorizationNotification(Domain.Entities.Authorization authorization, Domain.Entities.Event eventClass, string personPhone)
+        {
+            var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+            var authorizationViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.ID == authorization.ID).FirstOrDefault();
+
+            string dateMessage = eventClass.StartDate.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            string message = $"LEMBRETE: {authorizationViewModel.Person.Name.Split(" ")[0]}, a aplicação de {authorizationViewModel.BudgetProduct.Product.Name} ({doseFormated(authorizationViewModel.BudgetProduct.ProductDose)}) está agendada para {dateMessage} {eventClass.StartTime.ToString(@"hh\:mm")}";
+
+            await _mediator.Send(new AddAuthorizationNotificationCommand(
+                 Guid.NewGuid(),
+                 authorization.ID,
+                 authorization.EventId,
+                 personPhone,
+                 message,
+                 eventClass.StartDate.Date.AddDays(-1),
+                 eventClass.StartTime,
+                 DateTime.Now
+                 ));
+
+
+            return Unit.Value;
         }
 
         public async Task<double> getApplicationTimePerMinute()
@@ -187,6 +224,29 @@ namespace VaccineC.Command.Application.Commands.Authorization
                 return "Em Negociação";
             }
             else
+            {
+                return "";
+            }
+        }
+
+        public string doseFormated(string doseType)
+        {
+            if (doseType.Equals("DU")) 
+            {
+                return "DOSE ÚNICA";
+            }else if (doseType.Equals("D1"))
+            {
+                return "DOSE 1";
+            }else if (doseType.Equals("D2"))
+            {
+                return "DOSE 2";
+            }else if (doseType.Equals("D3"))
+            {
+                return "DOSE 3";
+            }else if (doseType.Equals("DR"))
+            {
+                return "DOSE DE REFORÇO";
+            }else
             {
                 return "";
             }

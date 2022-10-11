@@ -46,6 +46,15 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        // GET: api/<PersonsPhonesController>/5/GetAllPersonsPhonesCellByPersonId
+        [HttpGet("{personId}/GetAllPersonsPhonesCellByPersonId")]
+        public async Task<IActionResult> GetAllPersonsPhonesCellByPersonId(Guid personId)
+        {
+            var command = new GetPersonPhoneCelListQuery(personId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         // POST api/<PersonsPhonesController>/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] PersonPhoneViewModel personPhone)

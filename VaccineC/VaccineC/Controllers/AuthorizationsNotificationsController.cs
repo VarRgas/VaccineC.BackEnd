@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using VaccineC.Command.Application.Commands.AuthorizationNotification;
 using VaccineC.Query.Application.Queries.AuthorizationNotification;
 using VaccineC.Query.Application.ViewModels;
 
@@ -42,6 +43,32 @@ namespace VaccineC.Controllers
             var command = new GetAuthorizationNotificationByAuthorizationIdQuery(authorizationId);
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+
+        // POST api/<AuthorizationsNotificationsController>/Create
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([FromBody] AuthorizationNotificationViewModel authorizationNotification)
+        {
+            try
+            {
+                var command = new AddAuthorizationNotificationCommand(
+                    authorizationNotification.ID,
+                    authorizationNotification.AuthorizationId,
+                    authorizationNotification.EventId,
+                    authorizationNotification.PersonPhone,
+                    authorizationNotification.Message,
+                    authorizationNotification.SendDate,
+                    authorizationNotification.SendHour,
+                    authorizationNotification.Register);
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
