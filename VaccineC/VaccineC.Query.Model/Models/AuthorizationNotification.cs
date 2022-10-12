@@ -17,6 +17,7 @@ namespace VaccineC.Query.Model.Models
         public DateTime SendDate { get; set; }
         public TimeSpan SendHour { get; set; }
         public DateTime Register { get; set; }
+        public string? ReturnId { get; set; }
 
     }
 }

@@ -573,6 +573,7 @@
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "MediatR": "10.0.1",
+          "Newtonsoft.Json": "13.0.1",
           "VaccineC.Query.Data": "1.0.0",
           "VaccineC.Query.Model": "1.0.0",
           "VaccineC.Security": "1.0.0"

@@ -119,7 +119,17 @@ namespace VaccineC.Command.Application.Commands.Authorization
             var authorizationViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.ID == authorization.ID).FirstOrDefault();
 
             string dateMessage = eventClass.StartDate.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-            string message = $"LEMBRETE: {authorizationViewModel.Person.Name.Split(" ")[0]}, a aplicação de {authorizationViewModel.BudgetProduct.Product.Name} ({doseFormated(authorizationViewModel.BudgetProduct.ProductDose)}) está agendada para {dateMessage} {eventClass.StartTime.ToString(@"hh\:mm")}";
+            string message = "";
+
+            if (authorizationViewModel.BudgetProduct.ProductDose.Equals(null) || authorizationViewModel.BudgetProduct.ProductDose.Equals(""))
+            {
+                message = $"LEMBRETE: {authorizationViewModel.Person.Name.Split(" ")[0]}, a aplicação de {authorizationViewModel.BudgetProduct.Product.Name} está agendada para {dateMessage} {eventClass.StartTime.ToString(@"hh\:mm")}";
+            }
+            else
+            {
+                message = $"LEMBRETE: {authorizationViewModel.Person.Name.Split(" ")[0]}, a aplicação de {authorizationViewModel.BudgetProduct.Product.Name} ({doseFormated(authorizationViewModel.BudgetProduct.ProductDose)}) está agendada para {dateMessage} {eventClass.StartTime.ToString(@"hh\:mm")}";
+
+            }
 
             await _mediator.Send(new AddAuthorizationNotificationCommand(
                  Guid.NewGuid(),
@@ -129,7 +139,8 @@ namespace VaccineC.Command.Application.Commands.Authorization
                  message,
                  eventClass.StartDate.Date.AddDays(-1),
                  eventClass.StartTime,
-                 DateTime.Now
+                 DateTime.Now,
+                 null
                  ));
 
 

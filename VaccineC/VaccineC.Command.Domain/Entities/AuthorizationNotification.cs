@@ -19,7 +19,7 @@ namespace VaccineC.Command.Domain.Entities
         [Column("personPhone", TypeName = "varchar(20)")]
         public string PersonPhone { get; set; }
 
-        [Column("message", TypeName = "varchar(100)")]
+        [Column("message", TypeName = "varchar(160)")]
         public string Message { get; set; }
 
         [Column("sendDate", TypeName = "date")]
@@ -31,7 +31,10 @@ namespace VaccineC.Command.Domain.Entities
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        public AuthorizationNotification(Guid id, Guid authorizationId, Guid eventId, string personPhone, string message, DateTime sendDate, TimeSpan sendHour, DateTime register)
+        [Column("returnId", TypeName = "varchar(100)")]
+        public string? ReturnId { get; set; }
+
+        public AuthorizationNotification(Guid id, Guid authorizationId, Guid eventId, string personPhone, string message, DateTime sendDate, TimeSpan sendHour, DateTime register, string? returnId)
         {
             ID = id;
             AuthorizationId = authorizationId;
@@ -41,6 +44,7 @@ namespace VaccineC.Command.Domain.Entities
             SendDate = sendDate;
             SendHour = sendHour;
             Register = register;
+            ReturnId = returnId;    
         }
 
         public AuthorizationNotification()
@@ -81,6 +85,11 @@ namespace VaccineC.Command.Domain.Entities
         public void SetRegister(DateTime register)
         {
             Register = register;
+        }
+
+        public void SetReturnId(string? returnId)
+        {
+            ReturnId = returnId;
         }
     }
 }

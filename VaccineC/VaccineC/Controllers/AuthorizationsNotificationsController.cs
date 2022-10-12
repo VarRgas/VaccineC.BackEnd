@@ -60,7 +60,8 @@ namespace VaccineC.Controllers
                     authorizationNotification.Message,
                     authorizationNotification.SendDate,
                     authorizationNotification.SendHour,
-                    authorizationNotification.Register);
+                    authorizationNotification.Register,
+                    authorizationNotification.ReturnId);
 
                 var result = await _mediator.Send(command);
                 return Ok(result);
