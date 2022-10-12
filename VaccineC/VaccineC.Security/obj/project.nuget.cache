@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zOy2a+M8RSxkoL+qj1T59wklqm3B+S2wkKcpwo2BkH7Wwo9zLSl67xxzQ7GeT3vxz4b1GoIgfocgdZ8gPOXpFw==",
+  "dgSpecHash": "Y+5EcHYhSKzMGDX1Ig0xPcPJq0Ot+La3gI8FO78WHyJtbXn8gMjU5C2Ya5tkzpNGXfwelDX4gfsM842B6JcsWg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj",
+  "projectFilePath": "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amanda Maschio\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
   ],

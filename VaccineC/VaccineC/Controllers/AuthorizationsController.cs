@@ -108,6 +108,22 @@ namespace VaccineC.Controllers
             }
         }
 
+        // POST api/<AuthorizationsController>/SuggestDoses
+        [HttpPost("SuggestDoses")]
+        public async Task<IActionResult> SuggestDoses([FromBody] List<AuthorizationSuggestionViewModel> listAuthorizationSuggestionViewModel)
+        {
+            try
+            {
+                var command = new SuggestDosesCommand(listAuthorizationSuggestionViewModel);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         // PUT api/<AuthorizationsController>/3/Update
         [HttpPut("{id}/Update")]
         public async Task<IActionResult> Update(Guid id, [FromBody] AuthorizationUpdateViewModel authorization)

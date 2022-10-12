@@ -31,10 +31,18 @@ namespace VaccineC.Query.Application.Services
             return budgetsProductsViewModel;
         }
 
-        public async Task<IEnumerable<BudgetProductViewModel>> GetAllPendingBudgetsProductsByBorrower(Guid budgetId, Guid borrowerId)
+        public async Task<IEnumerable<BudgetProductViewModel>> GetAllPendingBudgetsProductsByBorrower(Guid budgetId, Guid borrowerId, DateTime startDate)
         {
+            var startDateFormated = TimeZoneInfo.ConvertTime(startDate, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
+
             var budgetsProducts = await _queryContext.AllBudgetsProducts.Where(bp => bp.BudgetId == budgetId && bp.BorrowerPersonId == borrowerId && bp.SituationProduct.Equals("P")).ToListAsync();
             var budgetsProductsViewModel = budgetsProducts.Select(r => _mapper.Map<BudgetProductViewModel>(r)).ToList();
+
+            if (budgetsProductsViewModel.Count() > 0)
+            {
+                budgetsProductsViewModel[0].ApplicationDate = startDateFormated;
+            }
+
             return budgetsProductsViewModel;
         }
 

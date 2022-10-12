@@ -47,10 +47,10 @@ namespace VaccineC.Controllers
         }
 
         // GET: api/<BudgetsProductsController>/5/5/GetAllPendingBudgetsProductsByBorrower
-        [HttpGet("{budgetId}/{borrowerId}/GetAllPendingBudgetsProductsByBorrower")]
-        public async Task<IActionResult> GetAllPendingBudgetsProductsByBorrower(Guid budgetId, Guid borrowerId)
+        [HttpGet("{budgetId}/{borrowerId}/{startDate}/GetAllPendingBudgetsProductsByBorrower")]
+        public async Task<IActionResult> GetAllPendingBudgetsProductsByBorrower(Guid budgetId, Guid borrowerId, DateTime startDate)
         {
-            var command = new GetPendingBudgetProductListByBorrowerQuery(budgetId, borrowerId);
+            var command = new GetPendingBudgetProductListByBorrowerQuery(budgetId, borrowerId, startDate);
             var result = await _mediator.Send(command);
             return Ok(result);
         }

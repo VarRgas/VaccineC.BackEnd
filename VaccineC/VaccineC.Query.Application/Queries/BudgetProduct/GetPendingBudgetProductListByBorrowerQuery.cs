@@ -8,11 +8,13 @@ namespace VaccineC.Query.Application.Queries.BudgetProduct
     {
         public Guid BudgetId;
         public Guid BorrowerId;
+        public DateTime StartDate;
 
-        public GetPendingBudgetProductListByBorrowerQuery(Guid budgetId, Guid borrowerId)
+        public GetPendingBudgetProductListByBorrowerQuery(Guid budgetId, Guid borrowerId, DateTime startDate)
         {
             BudgetId = budgetId;
-            BorrowerId = borrowerId;    
+            BorrowerId = borrowerId;
+            StartDate = startDate;
         }
     }
 }

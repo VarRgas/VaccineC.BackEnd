@@ -52,7 +52,9 @@ namespace VaccineC.Command.Application.Commands.Authorization
             {
 
                 var eventSearch = authorizationViewModel.Event;
-                
+
+                await validateEventStartDate(eventSearch);
+
                 var end = (eventSearch.StartDate + eventSearch.StartTime).AddMinutes(await getApplicationTimePerMinute());
                 var endFormated = TimeZoneInfo.ConvertTime(end, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 
@@ -111,6 +113,25 @@ namespace VaccineC.Command.Application.Commands.Authorization
             }
 
             return await _eventAppService.GetAllAsync();
+        }
+
+        private async Task<Unit> validateEventStartDate(Query.Model.Models.Event? eventSearch)
+        {
+            DateTime date = eventSearch.StartDate;
+            DateTime before = new DateTime(2010, 01, 01);
+            DateTime after = new DateTime(2055, 01, 01);
+
+            if (date <= before)
+            {
+                throw new ArgumentException("Data(s) informada(s) inválida(s), verifique!");
+            }
+
+            if (date >= after)
+            {
+                throw new ArgumentException("Data(s) informada(s) inválida(s), verifique!");
+            }
+
+            return Unit.Value;
         }
 
         private async Task<Unit> createAuthorizationNotification(Domain.Entities.Authorization authorization, Domain.Entities.Event eventClass, string personPhone)

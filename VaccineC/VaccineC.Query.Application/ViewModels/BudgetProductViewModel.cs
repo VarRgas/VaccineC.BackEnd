@@ -15,5 +15,6 @@
         public ProductViewModel? Product { get; set; }
         public PersonViewModel? Person { get; set; }
         public BudgetViewModel? Budget { get; set; }
+        public DateTime? ApplicationDate { get; set; }
     }
 }
