@@ -1,9 +1,13 @@
 ﻿using MediatR;
+using System.Collections.Specialized;
+using System.Net;
+using System.Text;
 using VaccineC.Command.Application.Commands.BudgetHistoric;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Domain.Abstractions.Repositories;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
+using VaccineC.Query.Data.Context;
 
 namespace VaccineC.Command.Application.Commands.Authorization
 {
@@ -16,8 +20,10 @@ namespace VaccineC.Command.Application.Commands.Authorization
         private readonly IEventRepository _eventRepository;
         private readonly IBudgetProductRepository _budgetProductRepository;
         private readonly IBudgetRepository _budgetRepository;
+        private readonly IAuthorizationNotificationRepository _authorizationNotificationRepository;
+        private readonly VaccineCContext _context;
 
-        public DeleteAuthorizationCommandHandler(IAuthorizationRepository repository, IAuthorizationAppService appService, VaccineCCommandContext ctx, IMediator mediator, IEventRepository eventRepository, IBudgetProductRepository budgetProductRepository, IBudgetRepository budgetRepository)
+        public DeleteAuthorizationCommandHandler(IAuthorizationRepository repository, IAuthorizationAppService appService, VaccineCCommandContext ctx, IMediator mediator, IEventRepository eventRepository, IBudgetProductRepository budgetProductRepository, IBudgetRepository budgetRepository, IAuthorizationNotificationRepository authorizationNotificationRepository, VaccineCContext context)
         {
             _repository = repository;
             _appService = appService;
@@ -25,7 +31,9 @@ namespace VaccineC.Command.Application.Commands.Authorization
             _mediator = mediator;
             _eventRepository = eventRepository;
             _budgetProductRepository = budgetProductRepository;
-            _budgetRepository = budgetRepository;   
+            _budgetRepository = budgetRepository;
+            _authorizationNotificationRepository = authorizationNotificationRepository;
+            _context = context; 
         }
 
         public async Task<IEnumerable<AuthorizationViewModel>> Handle(DeleteAuthorizationCommand request, CancellationToken cancellationToken)
@@ -35,6 +43,10 @@ namespace VaccineC.Command.Application.Commands.Authorization
             if (authorization == null)
             {
                 throw new ArgumentException("Autorização não encontrada!");
+            }
+
+            if (authorization.Notify.Equals("S")) {
+                await deleteAuthorizatioNotification(authorization.ID);
             }
 
             authorization.SetSituation("X");
@@ -64,6 +76,44 @@ namespace VaccineC.Command.Application.Commands.Authorization
 
             return await _appService.GetAllAsync();
 
+        }
+
+        private async Task<Unit> deleteAuthorizatioNotification(Guid id)
+        {
+
+            var idSearch = (from p in _context.AuthorizationsNotifications
+                                             where p.AuthorizationId.Equals(id)
+                                             select p.ID).FirstOrDefault();
+
+            var authorizationNotification =_authorizationNotificationRepository.GetById(idSearch);
+
+            if (authorizationNotification != null) {
+
+                await deleteSMSNotification(authorizationNotification.ReturnId);
+             
+            }
+
+            return Unit.Value;
+        }
+
+        private async Task<Unit> deleteSMSNotification(string? returnId)
+        {
+            string url = "https://api.smsdev.com.br/v1/cancel";
+            string key = "M30A09QH6Z80WHY0DFS9QECUBIBUVBVT67P50CY9BYSL54W6A504FO9XLB5VLLAD7Y6WUW9PELVVI90LNCYA05RSJU0LY9MIXYIZ06VOQVZXXAJ9N45LQ25QS7IS5V7B";
+
+            using (var wb = new WebClient())
+            {
+                var data = new NameValueCollection();
+                data["key"] = key;
+                data["id"] = returnId;
+               
+                var response = wb.UploadValues(url, "POST", data);
+                string responseInString = Encoding.UTF8.GetString(response);
+
+                
+            }
+
+            return Unit.Value;
         }
 
         public async Task<Unit> treatBudget(Guid budgetId, Guid userId, int authorizationNumber)
