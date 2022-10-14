@@ -12,7 +12,7 @@ using VaccineC.Query.Model.Abstractions;
 
 namespace VaccineC.Command.Application.Commands.Authorization
 {
-    public class AddAuthorizationOnDemandCommandHandler : IRequestHandler<AddAuthorizationOnDemandCommand, IEnumerable<EventViewModel>>
+    public class AddAuthorizationOnDemandCommandHandler : IRequestHandler<AddAuthorizationOnDemandCommand, Unit>
     {
         private readonly IAuthorizationRepository _repository;
         private readonly IAuthorizationAppService _appService;
@@ -44,75 +44,90 @@ namespace VaccineC.Command.Application.Commands.Authorization
             _queryContext = queryContext;
         }
 
-        public async Task<IEnumerable<EventViewModel>> Handle(AddAuthorizationOnDemandCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(AddAuthorizationOnDemandCommand request, CancellationToken cancellationToken)
         {
             List<AuthorizationViewModel> listAuthorizationViewModel = request.ListAuthorizationViewModel;
 
-            foreach(AuthorizationViewModel authorizationViewModel in listAuthorizationViewModel)
+            if (listAuthorizationViewModel.Count() > 0)
             {
 
-                var eventSearch = authorizationViewModel.Event;
+                var firstAuth = listAuthorizationViewModel[0];
+                Domain.Entities.BudgetProduct bp = new Domain.Entities.BudgetProduct();
 
-                await validateEventStartDate(eventSearch);
-
-                var end = (eventSearch.StartDate + eventSearch.StartTime).AddMinutes(await getApplicationTimePerMinute());
-                var endFormated = TimeZoneInfo.ConvertTime(end, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
-
-                var endTime = endFormated.TimeOfDay;
-                var endDate = endFormated.Date;
-
-                Domain.Entities.Event newEvent = new Domain.Entities.Event(
-                   Guid.NewGuid(),
-                   eventSearch.UserId,
-                   eventSearch.Situation,
-                   eventSearch.Concluded,
-                   eventSearch.StartDate,
-                   endDate,
-                   eventSearch.StartTime,
-                   endTime,
-                   eventSearch.Details,
-                   DateTime.Now
-                   );
-
-                _eventRepository.Add(newEvent);
-                await _eventRepository.SaveChangesAsync();
-
-                Domain.Entities.Authorization newAuthorization = new Domain.Entities.Authorization(
-                Guid.NewGuid(),
-                authorizationViewModel.UserId,
-                newEvent.ID,
-                authorizationViewModel.BudgetProductId,
-                authorizationViewModel.BorrowerPersonId,
-                authorizationViewModel.AuthorizationNumber,
-                authorizationViewModel.Situation,
-                authorizationViewModel.TypeOfService,
-                authorizationViewModel.Notify,
-                authorizationViewModel.AuthorizationDate,
-                DateTime.Now
-                );
-
-                _repository.Add(newAuthorization);
-                await _repository.SaveChangesAsync();
-
-                if (newAuthorization.Notify.Equals("S"))
+                foreach (AuthorizationViewModel authorizationViewModel in listAuthorizationViewModel)
                 {
-                    await createAuthorizationNotification(newAuthorization, newEvent, authorizationViewModel.PersonPhone);
+
+                    var eventSearch = authorizationViewModel.Event;
+
+                    await validateEventStartDate(eventSearch);
+
+                    var end = (eventSearch.StartDate + eventSearch.StartTime).AddMinutes(await getApplicationTimePerMinute());
+                    var endFormated = TimeZoneInfo.ConvertTime(end, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
+
+                    var endTime = endFormated.TimeOfDay;
+                    var endDate = endFormated.Date;
+
+                    Domain.Entities.Event newEvent = new Domain.Entities.Event(
+                       Guid.NewGuid(),
+                       eventSearch.UserId,
+                       eventSearch.Situation,
+                       eventSearch.Concluded,
+                       eventSearch.StartDate,
+                       endDate,
+                       eventSearch.StartTime,
+                       endTime,
+                       eventSearch.Details,
+                       DateTime.Now
+                       );
+
+                    _eventRepository.Add(newEvent);
+                    await _eventRepository.SaveChangesAsync();
+
+                    Domain.Entities.Authorization newAuthorization = new Domain.Entities.Authorization(
+                    Guid.NewGuid(),
+                    authorizationViewModel.UserId,
+                    newEvent.ID,
+                    authorizationViewModel.BudgetProductId,
+                    authorizationViewModel.BorrowerPersonId,
+                    authorizationViewModel.AuthorizationNumber,
+                    authorizationViewModel.Situation,
+                    authorizationViewModel.TypeOfService,
+                    authorizationViewModel.Notify,
+                    authorizationViewModel.AuthorizationDate,
+                    DateTime.Now
+                    );
+
+                    _repository.Add(newAuthorization);
+                    await _repository.SaveChangesAsync();
+
+                    if (newAuthorization.Notify.Equals("S"))
+                    {
+                        await createAuthorizationNotification(newAuthorization, newEvent, authorizationViewModel.PersonPhone);
+                    }
+
+                    var budgetProduct = _budgetProductRepository.GetById(authorizationViewModel.BudgetProductId);
+
+                    if (budgetProduct == null)
+                    {
+                        throw new ArgumentException("Orçamento Produto não encontrado!");
+                    }
+
+                    bp = budgetProduct;
+
+                    budgetProduct.SetSituationProduct("E");
+                    await _budgetProductRepository.SaveChangesAsync();
+
                 }
 
-                var budgetProduct = _budgetProductRepository.GetById(authorizationViewModel.BudgetProductId);
+                await treatBudget(bp.BudgetId, firstAuth.UserId);
 
-                if (budgetProduct == null)
-                {
-                    throw new ArgumentException("Orçamento Produto não encontrado!");
-                }
-
-                budgetProduct.SetSituationProduct("E");
-                await _budgetProductRepository.SaveChangesAsync();
-
-                await treatBudget(budgetProduct.BudgetId, authorizationViewModel.UserId);
+            }
+            else
+            {
+                throw new ArgumentException("É necessário selecionar ao menos um Produto para agendar!");
             }
 
-            return await _eventAppService.GetAllAsync();
+            return Unit.Value;
         }
 
         private async Task<Unit> validateEventStartDate(Query.Model.Models.Event? eventSearch)

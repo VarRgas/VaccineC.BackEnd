@@ -46,7 +46,7 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET: api/<BudgetsProductsController>/5/5/GetAllPendingBudgetsProductsByBorrower
+        // GET: api/<BudgetsProductsController>/5/5/date/GetAllPendingBudgetsProductsByBorrower
         [HttpGet("{budgetId}/{borrowerId}/{startDate}/GetAllPendingBudgetsProductsByBorrower")]
         public async Task<IActionResult> GetAllPendingBudgetsProductsByBorrower(Guid budgetId, Guid borrowerId, DateTime startDate)
         {
@@ -55,11 +55,11 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        // GET: api/<BudgetsProductsController>/5/GetAllPendingBudgetsProductsByResponsible
-        [HttpGet("{budgetId}/GetAllPendingBudgetsProductsByResponsible")]
-        public async Task<IActionResult> GetAllPendingBudgetsProductsByResponsible(Guid budgetId)
+        // GET: api/<BudgetsProductsController>/5/date/GetAllPendingBudgetsProductsByResponsible
+        [HttpGet("{budgetId}/{startDate}/GetAllPendingBudgetsProductsByResponsible")]
+        public async Task<IActionResult> GetAllPendingBudgetsProductsByResponsible(Guid budgetId, DateTime startDate)
         {
-            var command = new GetPendingBudgetProductListByResponsibleQuery(budgetId);
+            var command = new GetPendingBudgetProductListByResponsibleQuery(budgetId, startDate);
             var result = await _mediator.Send(command);
             return Ok(result);
         }

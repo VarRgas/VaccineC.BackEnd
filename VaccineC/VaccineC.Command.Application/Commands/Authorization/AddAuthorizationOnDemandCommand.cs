@@ -3,7 +3,7 @@ using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Command.Application.Commands.Authorization
 {
-    public class AddAuthorizationOnDemandCommand : IRequest<IEnumerable<EventViewModel>>
+    public class AddAuthorizationOnDemandCommand : IRequest
     {
         public List<AuthorizationViewModel> ListAuthorizationViewModel;
 

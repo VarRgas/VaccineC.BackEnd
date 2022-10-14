@@ -16,7 +16,7 @@ namespace VaccineC.Query.Application.Queries.BudgetProduct
 
         public async Task<IEnumerable<BudgetProductViewModel>> Handle(GetPendingBudgetProductListByResponsibleQuery request, CancellationToken cancellationToken)
         {
-            return await _appService.GetAllPendingBudgetsProductsByResponsible(request.BudgetId);
+            return await _appService.GetAllPendingBudgetsProductsByResponsible(request.BudgetId, request.StartDate);
         }
     }
 }
