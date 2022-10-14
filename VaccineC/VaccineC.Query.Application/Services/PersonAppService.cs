@@ -136,7 +136,7 @@ namespace VaccineC.Query.Application.Services
             else
             {
                 List<Person> persons = (from p in _context.Persons
-                                        where p.Name.Contains(information)
+                                        where p.Name.ToLower().Contains(information.ToLower())
                                         select p).ToList();
 
                 var response = _mapper.Map<IEnumerable<PersonViewModel>>(persons);

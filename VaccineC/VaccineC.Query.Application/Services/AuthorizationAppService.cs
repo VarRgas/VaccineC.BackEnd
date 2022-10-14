@@ -35,8 +35,14 @@ namespace VaccineC.Query.Application.Services
 
         public async Task<IEnumerable<AuthorizationViewModel>> GetAllByBorrowerName(string borrowerName)
         {
+
+            if (borrowerName.Count() < 3)
+            {
+                throw new ArgumentException("É necessário informar no mínimo 3 caracteres para realizar a busca!");
+            }
+
             var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
-            var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.Person.Name.Contains(borrowerName)).ToList();
+            var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.Person.Name.ToLower().Contains(borrowerName.ToLower())).OrderBy(a => a.Event.StartDate).ToList();
 
             return authorizationsViewModel;
         }

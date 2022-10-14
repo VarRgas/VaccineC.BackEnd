@@ -31,22 +31,14 @@ namespace VaccineC.Command.Application.Commands.Authorization
 
             List<AuthorizationSuggestionViewModel> listAuthorizationSuggestionViewModel = request.ListAuthorizationSuggestionViewModel;
 
-            if (listAuthorizationSuggestionViewModel == null || listAuthorizationSuggestionViewModel.Count() <= 1)
-            {
-                throw new ArgumentException("É necessário selecionar 2 ou mais produtos para a sugestão de doses!");
-            }
+            await validateDoses(listAuthorizationSuggestionViewModel);
 
             var firstBudgetProduct = listAuthorizationSuggestionViewModel[0];
             var dateFormated = TimeZoneInfo.ConvertTime(firstBudgetProduct.StartDate, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
             listAuthorizationSuggestionViewModel.RemoveAt(0);
 
-            foreach (var budgetProduct in listAuthorizationSuggestionViewModel)
-            {
-                if(budgetProduct.ProductId != firstBudgetProduct.ProductId)
-                {
-                    throw new ArgumentException("Não é possível sugerir datas para Produtos diferentes!");
-                }
-            }
+            await validateStartDate(firstBudgetProduct.StartDate);
+            await validateDifferentProducts(firstBudgetProduct, listAuthorizationSuggestionViewModel);
 
             if (firstBudgetProduct.DoseType.Equals("DU") || firstBudgetProduct.DoseType.Equals("DR"))
             {
@@ -209,6 +201,19 @@ namespace VaccineC.Command.Application.Commands.Authorization
             return budgetsProductsViewModel;
         }
 
+        private async Task<Unit> validateDifferentProducts(AuthorizationSuggestionViewModel firstBudgetProduct, List<AuthorizationSuggestionViewModel> listAuthorizationSuggestionViewModel)
+        {
+            foreach (var budgetProduct in listAuthorizationSuggestionViewModel)
+            {
+                if (budgetProduct.ProductId != firstBudgetProduct.ProductId)
+                {
+                    throw new ArgumentException("Não é possível sugerir datas para Produtos diferentes!");
+                }
+            }
+
+            return Unit.Value;
+        }
+
         private int getProductDoseTypeInterval(string interval, List<ProductDosesViewModel> productDoseslist)
         {
             foreach (var productDose in productDoseslist)
@@ -230,6 +235,49 @@ namespace VaccineC.Command.Application.Commands.Authorization
                 .OrderBy(r => r.DoseType)
                 .ToList();
             return productsDosesViewModel;
+        }
+
+        private async Task<Unit> validateDoses(List<AuthorizationSuggestionViewModel> listAuthorizationSuggestionViewModel)
+        {
+            if (listAuthorizationSuggestionViewModel == null || listAuthorizationSuggestionViewModel.Count() <= 1)
+            {
+                throw new ArgumentException("É necessário selecionar 2 ou mais produtos para a sugestão de doses!");
+            }
+
+            foreach (var budgetProduct in listAuthorizationSuggestionViewModel)
+            {
+
+                if (budgetProduct.DoseType.Equals(""))
+                {
+                    throw new ArgumentException("Produto(s) sem Doses configuradas!");
+                }
+            }
+
+            return Unit.Value;
+        }
+
+        private async Task<Unit> validateStartDate(DateTime startDate)
+        {
+
+            DateTime before = new DateTime(2010, 01, 01);
+            DateTime after = new DateTime(2055, 01, 01);
+
+            if (startDate == null)
+            {
+                throw new ArgumentException("Data informada inválida, verifique!");
+            }
+
+            if (startDate <= before)
+            {
+                throw new ArgumentException("Data informada inválida, verifique!");
+            }
+
+            if (startDate >= after)
+            {
+                throw new ArgumentException("Data informada inválida, verifique!");
+            }
+
+            return Unit.Value;
         }
     }
 }

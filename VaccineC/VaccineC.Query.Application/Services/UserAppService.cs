@@ -37,14 +37,13 @@ namespace VaccineC.Query.Application.Services
 
         public async Task<IEnumerable<UserViewModel>> GetByEmail(String information)
         {
-           
 
             if (System.Net.Mail.MailAddress.TryCreate(information, out var mailAddress)) {
 
                 var users = await _queryContext.AllUsers.ToListAsync();
                 var usersViewModel = users
                     .Select(u => _mapper.Map<UserViewModel>(u))
-                    .Where(u => u.Email.Contains(information, StringComparison.InvariantCultureIgnoreCase))
+                    .Where(u => u.Email.ToLower().Contains(information.ToLower()))
                     .ToList();
                 return usersViewModel;
             }
@@ -53,7 +52,7 @@ namespace VaccineC.Query.Application.Services
                 var users = await _queryContext.AllUsers.ToListAsync();
                 var usersViewModel = users
                     .Select(u => _mapper.Map<UserViewModel>(u))
-                    .Where(u => u.Person.Name.Contains(information, StringComparison.InvariantCultureIgnoreCase))
+                    .Where(u => u.Person.Name.ToLower().Contains(information.ToLower()))
                     .ToList();
                 return usersViewModel;
             }

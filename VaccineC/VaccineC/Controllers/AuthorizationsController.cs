@@ -59,9 +59,17 @@ namespace VaccineC.Controllers
         [HttpGet("{information}/GetAuthorizationByParameter")]
         public async Task<IActionResult> getAuthorizationByParameter(string information)
         {
-            var command = new GetAuthorizationByParameterQuery(information);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetAuthorizationByParameterQuery(information);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
         // POST api/<AuthorizationsController>/Create
