@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj": {}
+    "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj": {
+    "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj",
+        "projectUniqueName": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj",
         "projectName": "VaccineC.Security",
-        "projectPath": "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj",
-        "packagesPath": "C:\\Users\\Amanda Maschio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Security\\obj\\",
+        "projectPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Security\\VaccineC.Security.csproj",
+        "packagesPath": "C:\\Users\\varggu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\varggu\\OneDrive - 2020 Spaces\\Área de Trabalho\\Guilherme Vargas\\VaccineC\\VaccineC.BackEnd\\VaccineC\\VaccineC.Security\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Amanda Maschio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\varggu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.305\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

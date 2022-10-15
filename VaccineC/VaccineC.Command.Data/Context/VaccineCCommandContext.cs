@@ -45,6 +45,7 @@ namespace VaccineC.Command.Data.Context
         public DbSet<Event> Events { get; set; }
         public DbSet<Authorization> Authorizations { get; set; }
         public DbSet<AuthorizationNotification> AuthorizationsNotifications { get; set; }
+        public DbSet<Application> Applications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -75,6 +76,7 @@ namespace VaccineC.Command.Data.Context
             modelBuilder.Entity<Event>().ToTable("Events");
             modelBuilder.Entity<Authorization>().ToTable("Authorizations");
             modelBuilder.Entity<AuthorizationNotification>().ToTable("AuthorizationsNotifications");
+            modelBuilder.Entity<Application>().ToTable("Applications");
 
             base.OnModelCreating(modelBuilder);
         }

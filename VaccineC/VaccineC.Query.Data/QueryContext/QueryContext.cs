@@ -237,6 +237,17 @@ namespace VaccineC.Query.Data.QueryContext
             }
         }
 
+        public IQueryable<Application> AllApplications
+        {
+            get
+            {
+                return _context
+               .Set<Application>()
+               .Include(r => r.Persons)
+               .OrderByDescending(r => r.ApplicationDate);
+            }
+        }
+
         public IQueryable<Notification> AllNotifications
         {
             get
@@ -267,7 +278,7 @@ namespace VaccineC.Query.Data.QueryContext
                .Include(d => d.ProductSummaryBatch)
                 .ThenInclude(psb => psb.Products)
                .Include(d => d.User)
-                .ThenInclude(u => u.Person)   
+                .ThenInclude(u => u.Person)
                .OrderByDescending(d => d.Register);
             }
         }
