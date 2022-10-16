@@ -24,16 +24,40 @@ namespace VaccineC.Query.Application.Services
             return authorizationsViewModel;
         }
 
-        public async Task<IEnumerable<AuthorizationViewModel>> GetAllByAuthNumber(int authNumber)
+        public async Task<IEnumerable<AuthorizationViewModel>> GetAllByAuthNumber(int authNumber, string situation, Guid responsibleId)
         {
-            var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
-            var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.AuthorizationNumber == authNumber).ToList();
+            if (situation.Equals("T") && responsibleId == Guid.Empty)
+            {
+                var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+                var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.AuthorizationNumber == authNumber).OrderBy(a => a.Event.StartDate).ToList();
 
-            return authorizationsViewModel;
+                return authorizationsViewModel;
+            }
+            else if (!situation.Equals("T") && responsibleId == Guid.Empty)
+            {
+                var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+                var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.AuthorizationNumber == authNumber && a.Situation.Equals(situation)).OrderBy(a => a.Event.StartDate).ToList();
 
+                return authorizationsViewModel;
+            }
+            else if (situation.Equals("T") && responsibleId != Guid.Empty)
+            {
+                var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+                var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.AuthorizationNumber == authNumber && a.BudgetProduct.Budget.PersonId.Equals(responsibleId)).OrderBy(a => a.Event.StartDate).ToList();
+
+                return authorizationsViewModel;
+
+            }
+            else
+            {
+                var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+                var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.AuthorizationNumber == authNumber && a.Situation.Equals(situation) && a.BudgetProduct.Budget.PersonId.Equals(responsibleId)).OrderBy(a => a.Event.StartDate).ToList();
+
+                return authorizationsViewModel;
+            }
         }
 
-        public async Task<IEnumerable<AuthorizationViewModel>> GetAllByBorrowerName(string borrowerName)
+        public async Task<IEnumerable<AuthorizationViewModel>> GetAllByBorrowerName(string borrowerName, string situation, Guid responsibleId)
         {
 
             if (borrowerName.Count() < 3)
@@ -41,10 +65,35 @@ namespace VaccineC.Query.Application.Services
                 throw new ArgumentException("É necessário informar no mínimo 3 caracteres para realizar a busca!");
             }
 
-            var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
-            var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.Person.Name.ToLower().Contains(borrowerName.ToLower())).OrderBy(a => a.Event.StartDate).ToList();
+            if (situation.Equals("T") && responsibleId == Guid.Empty)
+            {
+                var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+                var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.Person.Name.ToLower().Contains(borrowerName.ToLower())).OrderBy(a => a.Event.StartDate).ToList();
 
-            return authorizationsViewModel;
+                return authorizationsViewModel;
+            }
+            else if(!situation.Equals("T") && responsibleId == Guid.Empty)
+            {
+                var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+                var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.Person.Name.ToLower().Contains(borrowerName.ToLower()) && a.Situation.Equals(situation)).OrderBy(a => a.Event.StartDate).ToList();
+
+                return authorizationsViewModel;
+            }
+            else if (situation.Equals("T") && responsibleId != Guid.Empty)
+            {
+                var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+                var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.Person.Name.ToLower().Contains(borrowerName.ToLower()) && a.BudgetProduct.Budget.PersonId.Equals(responsibleId)).OrderBy(a => a.Event.StartDate).ToList();
+
+                return authorizationsViewModel;
+            }
+            else
+            {
+                var authorizations = await _queryContext.AllAuthorizations.ToListAsync();
+                var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.Person.Name.ToLower().Contains(borrowerName.ToLower()) && a.BudgetProduct.Budget.PersonId.Equals(responsibleId) && a.Situation.Equals(situation)).OrderBy(a => a.Event.StartDate).ToList();
+
+                return authorizationsViewModel;
+            }
+
         }
 
         public AuthorizationViewModel GetById(Guid id)

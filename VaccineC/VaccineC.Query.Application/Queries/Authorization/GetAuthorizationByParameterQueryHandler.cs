@@ -24,11 +24,11 @@ namespace VaccineC.Query.Application.Queries.Authorization
             if (isNumeric)
             {
                 int authNumber = int.Parse(request.Information);
-                return await _appService.GetAllByAuthNumber(authNumber);
+                return await _appService.GetAllByAuthNumber(authNumber, request.Situation, request.ResponsibleId);
             }
             else
             {
-                return await _appService.GetAllByBorrowerName(request.Information);
+                return await _appService.GetAllByBorrowerName(request.Information, request.Situation, request.ResponsibleId);
 
             }
         }

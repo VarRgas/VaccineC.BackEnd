@@ -243,7 +243,6 @@ namespace VaccineC.Query.Data.QueryContext
             {
                 return _context
                .Set<Application>()
-               .Include(r => r.Persons)
                .OrderByDescending(r => r.ApplicationDate);
             }
         }

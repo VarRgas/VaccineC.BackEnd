@@ -13,8 +13,7 @@
         public string ApplicationPlace { get; set; }
         public string? Details { get; set; }
         public DateTime? Register { get; set; }
-        public Guid? MovementsProductsId { get; set; }
-        public Guid AuthorizationsId { get; set; }
-        public PersonViewModel? Persons { get; set; }
+        public Guid? MovementProductId { get; set; }
+        public Guid AuthorizationId { get; set; }
     }
 }

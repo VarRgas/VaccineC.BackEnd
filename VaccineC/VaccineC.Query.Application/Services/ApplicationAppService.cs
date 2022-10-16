@@ -37,8 +37,7 @@ namespace VaccineC.Query.Application.Services
         {
             var applications = await _queryContext.AllApplications.ToListAsync();
             var applicationsViewModel = applications
-                .Select(r => _mapper.Map<ApplicationViewModel>(r))
-                .Where(r => r.Persons.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).ToList();
+                .Select(r => _mapper.Map<ApplicationViewModel>(r)).ToList();
             return applicationsViewModel;
         }
     }

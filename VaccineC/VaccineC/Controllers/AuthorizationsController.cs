@@ -56,12 +56,12 @@ namespace VaccineC.Controllers
         }
 
         // GET api/<AuthorizationsController>/GetAuthorizationByParameter
-        [HttpGet("{information}/GetAuthorizationByParameter")]
-        public async Task<IActionResult> getAuthorizationByParameter(string information)
+        [HttpGet("{information}/{situation}/{responsibleId}/GetAuthorizationByParameter")]
+        public async Task<IActionResult> getAuthorizationByParameter(string information, string situation, Guid responsibleId)
         {
             try
             {
-                var command = new GetAuthorizationByParameterQuery(information);
+                var command = new GetAuthorizationByParameterQuery(information, situation, responsibleId);
                 var result = await _mediator.Send(command);
                 return Ok(result);
             }

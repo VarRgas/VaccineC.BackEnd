@@ -41,11 +41,11 @@ namespace VaccineC.Command.Domain.Entities
         [Column("register", TypeName = "datetime")]
         public DateTime? Register { get; set; }
 
-        [Column("movementsProductsId")]
-        public Guid? MovementsProductsId { get; set; }
+        [Column("movementProductId")]
+        public Guid? MovementProductId { get; set; }
 
-        [Column("authorizationsId")]
-        public Guid AuthorizationsId { get; set; }
+        [Column("authorizationId")]
+        public Guid AuthorizationId { get; set; }
 
         public Application(Guid id,
                            Guid userId,
@@ -58,8 +58,8 @@ namespace VaccineC.Command.Domain.Entities
                            string applicationPlace,
                            string? details,
                            DateTime register,
-                           Guid? movementsProductsId,
-                           Guid authorizationsId
+                           Guid? movementProductId,
+                           Guid authorizationId
             )
         {
             ID = id;
@@ -73,8 +73,8 @@ namespace VaccineC.Command.Domain.Entities
             ApplicationPlace = applicationPlace;
             Details = details;
             Register = register;
-            MovementsProductsId = movementsProductsId;
-            AuthorizationsId = authorizationsId;
+            MovementProductId = movementProductId;
+            AuthorizationId = authorizationId;
         }
 
         public Application()
@@ -132,14 +132,14 @@ namespace VaccineC.Command.Domain.Entities
             Register = register;
         }
 
-        public void SetMovementsProductsId(Guid? movementsProductsId)
+        public void SetMovementProductId(Guid? movementProductId)
         {
-            MovementsProductsId = movementsProductsId;
+            MovementProductId = movementProductId;
         }
 
-        public void SetAuthorizationsId(Guid authorizationsId)
+        public void SetAuthorizationId(Guid authorizationId)
         {
-            AuthorizationsId = authorizationsId;
+            AuthorizationId = authorizationId;
         }
     }
 }
