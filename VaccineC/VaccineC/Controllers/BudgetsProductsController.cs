@@ -139,6 +139,31 @@ namespace VaccineC.Controllers
             }
         }
 
+        // PUT api/<BudgetsProductsController>/UpdateBorrowerPerson
+        [HttpPut("{id}/UpdateBorrowerPerson")]
+        public async Task<IActionResult> UpdateBorrowerPerson(Guid id, [FromBody] BudgetProductViewModel budgetProductViewModel)
+        {
+            try
+            {
+                var command = new UpdateBudgetProductBorrowerPersonCommand(
+                    id,
+                    budgetProductViewModel.BorrowerPersonId,
+                    budgetProductViewModel.UserId
+                );
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Conflict(ex);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         // DELETE api/<BudgetsProductsController>/5/Delete
         [HttpDelete("{id}/{userId}/Delete")]
         public async Task<IActionResult> Delete(Guid id, Guid userId)
