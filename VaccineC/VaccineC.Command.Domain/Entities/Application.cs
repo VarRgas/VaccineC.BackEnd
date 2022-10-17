@@ -14,8 +14,8 @@ namespace VaccineC.Command.Domain.Entities
         [Column("userId")]
         public Guid UserId { get; set; }
 
-        [Column("budgetId")]
-        public Guid? BudgetId { get; set; }
+        [Column("budgetProductId")]
+        public Guid? BudgetProductId { get; set; }
 
         [Column("inclusionDate", TypeName = "datetime")]
         public DateTime InclusionDate { get; set; }
@@ -41,15 +41,15 @@ namespace VaccineC.Command.Domain.Entities
         [Column("register", TypeName = "datetime")]
         public DateTime? Register { get; set; }
 
-        [Column("movementProductId")]
-        public Guid? MovementProductId { get; set; }
+        [Column("productSummaryBatchId")]
+        public Guid? ProductSummaryBatchId { get; set; }
 
         [Column("authorizationId")]
         public Guid AuthorizationId { get; set; }
 
         public Application(Guid id,
                            Guid userId,
-                           Guid? budgetId,
+                           Guid? budgetProductId,
                            DateTime inclusionDate,
                            string situation,
                            DateTime? applicationDate,
@@ -58,13 +58,13 @@ namespace VaccineC.Command.Domain.Entities
                            string applicationPlace,
                            string? details,
                            DateTime register,
-                           Guid? movementProductId,
+                           Guid? productSummaryBatchId,
                            Guid authorizationId
             )
         {
             ID = id;
             UserId = userId;
-            BudgetId = budgetId;
+            BudgetProductId = budgetProductId;
             InclusionDate = inclusionDate;
             Situation = situation;
             ApplicationDate = applicationDate;
@@ -73,7 +73,7 @@ namespace VaccineC.Command.Domain.Entities
             ApplicationPlace = applicationPlace;
             Details = details;
             Register = register;
-            MovementProductId = movementProductId;
+            ProductSummaryBatchId = productSummaryBatchId;
             AuthorizationId = authorizationId;
         }
 
@@ -87,9 +87,9 @@ namespace VaccineC.Command.Domain.Entities
             UserId = userId;
         }
 
-        public void SetBudgetId(Guid? budgetId)
+        public void SetBudgetProductId(Guid? budgetProductId)
         {
-            BudgetId = budgetId;
+            BudgetProductId = budgetProductId;
         }
 
         public void SetInclusionDate(DateTime inclusionDate)
@@ -132,9 +132,9 @@ namespace VaccineC.Command.Domain.Entities
             Register = register;
         }
 
-        public void SetMovementProductId(Guid? movementProductId)
+        public void SetProductSummaryBatchId(Guid? productSummaryBatchId)
         {
-            MovementProductId = movementProductId;
+            ProductSummaryBatchId = productSummaryBatchId;
         }
 
         public void SetAuthorizationId(Guid authorizationId)
