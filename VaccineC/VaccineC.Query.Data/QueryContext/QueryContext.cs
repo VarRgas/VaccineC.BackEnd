@@ -245,9 +245,13 @@ namespace VaccineC.Query.Data.QueryContext
                .Set<Application>()
                .Include(a => a.Authorization)
                 .ThenInclude(at => at.Person)
+                .ThenInclude(p => p.PersonsPhysical)
                .Include(a => a.Authorization)
                 .ThenInclude(at => at.Event)
-               .OrderByDescending(a => a.ApplicationDate);
+               .Include(a => a.Authorization)
+                .ThenInclude(at => at.BudgetProduct)
+                .ThenInclude(bp => bp.Product)
+               .OrderBy(a => a.ApplicationDate);
             }
         }
 
