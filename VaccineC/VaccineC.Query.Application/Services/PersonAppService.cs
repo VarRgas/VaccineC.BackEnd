@@ -115,6 +115,23 @@ namespace VaccineC.Query.Application.Services
                                             where x.CpfNumber.Contains(information)
                                             select p).ToList();
 
+                    foreach (var person in persons)
+                    {
+                        if (person.PersonType.Equals("F"))
+                        {
+                            var personPhysical = (from pf in _context.PersonsPhysical
+                                                  where pf.PersonID.Equals(person.ID)
+                                                  select pf).FirstOrDefault();
+
+                            if (personPhysical != null)
+                            {
+                                person.PersonsPhysical = personPhysical;
+                            }
+
+                        }
+
+                    }
+
                     var response = _mapper.Map<IEnumerable<PersonViewModel>>(persons);
 
                     return Task.FromResult(response);
@@ -126,6 +143,23 @@ namespace VaccineC.Query.Application.Services
                                             from x in _c.DefaultIfEmpty()
                                             where x.CnpjNumber.Contains(information)
                                             select p).ToList();
+
+                    foreach (var person in persons)
+                    {
+                        if (person.PersonType.Equals("F"))
+                        {
+                            var personPhysical = (from pf in _context.PersonsPhysical
+                                                  where pf.PersonID.Equals(person.ID)
+                                                  select pf).FirstOrDefault();
+
+                            if (personPhysical != null)
+                            {
+                                person.PersonsPhysical = personPhysical;
+                            }
+
+                        }
+
+                    }
 
                     var response = _mapper.Map<IEnumerable<PersonViewModel>>(persons);
 
@@ -139,8 +173,23 @@ namespace VaccineC.Query.Application.Services
                                         where p.Name.ToLower().Contains(information.ToLower())
                                         select p).ToList();
 
-                var response = _mapper.Map<IEnumerable<PersonViewModel>>(persons);
+                foreach (var person in persons)
+                {
+                    if (person.PersonType.Equals("F"))
+                    {
+                        var personPhysical = (from pf in _context.PersonsPhysical
+                                              where pf.PersonID.Equals(person.ID)
+                                              select pf).FirstOrDefault();
 
+                        if (personPhysical != null)
+                        {
+                            person.PersonsPhysical = personPhysical;
+                        }
+
+                    }
+
+                }
+                var response = _mapper.Map<IEnumerable<PersonViewModel>>(persons);
                 return Task.FromResult(response);
             }
 

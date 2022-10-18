@@ -2,7 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
+using VaccineC.Query.Data.Context;
 using VaccineC.Query.Model.Abstractions;
+using VaccineC.Query.Model.Models;
 
 namespace VaccineC.Query.Application.Services
 {
@@ -10,11 +12,13 @@ namespace VaccineC.Query.Application.Services
     {
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
+        private readonly VaccineCContext _context;
 
-        public AuthorizationAppService(IQueryContext queryContext, IMapper mapper)
+        public AuthorizationAppService(IQueryContext queryContext, IMapper mapper, VaccineCContext context)
         {
             _queryContext = queryContext;
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task<IEnumerable<AuthorizationViewModel>> GetAllAsync()
@@ -94,6 +98,40 @@ namespace VaccineC.Query.Application.Services
                 return authorizationsViewModel;
             }
 
+        }
+
+        public async Task<IEnumerable<AuthorizationViewModel>> GetAllForApplication()
+        {
+
+            var dateNow = DateTime.Now;
+            var minimumHour = new TimeSpan(0, 0, 0);
+            var maximumHour = new TimeSpan(23, 59, 59);
+
+            var authorizationsId = (from a in _context.Authorizations
+                                                  join ap in _context.Applications on a.ID equals ap.AuthorizationId into _ap
+                                                  from x in _ap.DefaultIfEmpty()
+                                                  join e in _context.Events on a.EventId equals e.ID
+                                                  where a.Situation.Equals("C")
+                                                  where x.ID.Equals(null)
+                                                  where e.StartDate >= dateNow.Date + minimumHour
+                                                  where e.StartDate <= dateNow.Date + maximumHour
+                                                  select a.ID).ToList();
+
+            var allAuthorizations = await _queryContext.AllAuthorizations.ToListAsync();
+            var authorizationsViewModel = allAuthorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).ToList();
+
+            List<AuthorizationViewModel> listAuthorizationViewModelReturn = new List<AuthorizationViewModel>();
+
+            foreach (var authorization in authorizationsViewModel)
+            {
+                foreach (var authorizationId in authorizationsId) {
+                    if (authorization.ID.Equals(authorizationId)) {
+                        listAuthorizationViewModelReturn.Add(authorization);
+                    }
+                }
+            }
+
+            return listAuthorizationViewModelReturn;
         }
 
         public AuthorizationViewModel GetById(Guid id)
