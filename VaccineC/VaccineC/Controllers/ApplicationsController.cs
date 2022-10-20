@@ -32,12 +32,30 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
-        //[HttpGet("{name}/GetByName")]
-        //public async Task<IActionResult> GetByName(string name)
-        //{
-        //    var command = new GetApplicationsByPersonNameQuery(name);
-        //    var result = await _mediator.Send(command);
-        //    return Ok(result);
-        //}
+        [HttpGet("{personId}/GetPersonApplicationNumber")]
+        public async Task<IActionResult> GetPersonApplicationNumber(Guid personId)
+        {
+            var command = new GetApplicationNumberByPersonIdQuery(personId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpGet("{personId}/GetAvailableApplicationsByPersonId")]
+        public async Task<IActionResult> GetAvailableApplicationsByPersonId(Guid personId)
+        {
+            var command = new GetHistoryApplicationsByPersonIdQuery(personId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpGet("{personId}/GetHistoryApplicationsByPersonId")]
+        public async Task<IActionResult> GetHistoryApplicationsByPersonId(Guid personId)
+        {
+            var command = new GetHistoryApplicationsByPersonIdQuery(personId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+
     }
 }

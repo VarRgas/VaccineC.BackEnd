@@ -38,6 +38,7 @@ namespace VaccineC.Query.Application.Mapper
             CreateMap<Event, EventViewModel>();
             CreateMap<AuthorizationNotification, AuthorizationNotificationViewModel>();
             CreateMap <Query.Model.Models.Application, ApplicationViewModel>();
+
         }
     }
 }
