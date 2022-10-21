@@ -43,7 +43,7 @@ namespace VaccineC.Controllers
         [HttpGet("{personId}/GetAvailableApplicationsByPersonId")]
         public async Task<IActionResult> GetAvailableApplicationsByPersonId(Guid personId)
         {
-            var command = new GetHistoryApplicationsByPersonIdQuery(personId);
+            var command = new GetAvailableApplicationsByPersonIdQuery(personId);
             var result = await _mediator.Send(command);
             return Ok(result);
         }

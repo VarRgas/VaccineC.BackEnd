@@ -38,9 +38,42 @@ namespace VaccineC.Query.Application.Services
             return applicationNumber;
         }
 
-        public async Task<IEnumerable<ApplicationViewModel>> GetAvailableApplicationsByPersonId(Guid personId)
+        public async Task<IEnumerable<ApplicationAvailableViewModel>> GetAvailableApplicationsByPersonId(Guid personId)
         {
-            return null;
+
+            var dateNow = DateTime.Now;
+            var maximumHour = new TimeSpan(23, 59, 59);
+
+            var authorizations = (from a in _context.Authorizations
+                                    join ap in _context.Applications on a.ID equals ap.AuthorizationId into _ap
+                                    from x in _ap.DefaultIfEmpty()
+                                    join e in _context.Events on a.EventId equals e.ID
+                                    join bp in _context.BudgetsProducts on a.BudgetProductId equals bp.ID
+                                    join p in _context.Products on bp.ProductId equals p.ID
+                                    join b in _context.Budgets on bp.BudgetId equals b.ID
+                                    join prb in _context.Persons on b.PersonId equals prb.ID
+                                    where a.Situation.Equals("C")
+                                    where x.ID.Equals(null)
+                                    where a.BorrowerPersonId.Equals(personId)
+                                    where e.StartDate <= dateNow.Date + maximumHour
+                                    orderby e.StartDate, e.StartTime
+                                    select new ApplicationAvailableViewModel
+                                    {
+                                        ProductId = p.ID,
+                                        ProductName = p.Name,
+                                        DoseType = bp.ProductDose,
+                                        AuthorizationId = a.ID,
+                                        AuthorizationNumber = a.AuthorizationNumber,
+                                        TypeOfService = a.TypeOfService,
+                                        StartDate = e.StartDate,
+                                        StartTime = e.StartTime,
+                                        BudgetId = b.ID,
+                                        BudgetNumber = b.BudgetNumber,
+                                        PersonBudget = prb.Name,
+                                        TotalBudgetAmount = b.TotalBudgetAmount
+                                    }).ToList();
+
+            return authorizations;
         }
 
         public async Task<IEnumerable<ApplicationHistoryViewModel>> GetHistoryApplicationsByPersonId(Guid personId)
@@ -56,7 +89,7 @@ namespace VaccineC.Query.Application.Services
                                          join u in _context.Users on a.UserId equals u.ID
                                          join ps in _context.Persons on u.PersonId equals ps.ID
                                          where ats.BorrowerPersonId.Equals(personId)
-                                         select new
+                                         select new ApplicationHistoryViewModel
                                          {
                                              ApplicationId = a.ID,
                                              ApplicationDate = a.ApplicationDate,
@@ -71,32 +104,9 @@ namespace VaccineC.Query.Application.Services
                                              UserPersonName = ps.Name,
                                              BudgetNumber = b.BudgetNumber,
                                              PersonResponsible = ps2.Name
-                                         }).ToList();
+                                         }).OrderByDescending(a => a.Register).ToList();
 
-            List<ApplicationHistoryViewModel> listApplicationHistoryViewModel = new List<ApplicationHistoryViewModel>();
-
-            foreach (var availableApplication in availableApplications)
-            {
-                ApplicationHistoryViewModel applicationHistoryViewModel = new ApplicationHistoryViewModel();
-                applicationHistoryViewModel.ApplicationId = availableApplication.ApplicationId;
-                applicationHistoryViewModel.ApplicationDate = availableApplication.ApplicationDate;
-                applicationHistoryViewModel.InclusionDate = availableApplication.InclusionDate;
-                applicationHistoryViewModel.ApplicationPlace = availableApplication.ApplicationPlace;
-                applicationHistoryViewModel.DoseType = availableApplication.DoseType;
-                applicationHistoryViewModel.RouteOfAdministration = availableApplication.RouteOfAdministration;
-                applicationHistoryViewModel.Register = availableApplication.Register;
-                applicationHistoryViewModel.ProductName = availableApplication.ProductName;
-                applicationHistoryViewModel.Batch = availableApplication.Batch;
-                applicationHistoryViewModel.ProductSummaryBatchId = availableApplication.ProductSummaryBatchId;
-                applicationHistoryViewModel.UserPersonName = availableApplication.UserPersonName;
-                applicationHistoryViewModel.BudgetNumber = availableApplication.BudgetNumber;
-                applicationHistoryViewModel.PersonResponsible = availableApplication.PersonResponsible;
-
-                listApplicationHistoryViewModel.Add(applicationHistoryViewModel);
-            }
-
-
-            return listApplicationHistoryViewModel;
+            return availableApplications;
         }
 
         public ApplicationViewModel GetById(Guid id)
