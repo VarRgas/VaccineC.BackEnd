@@ -17,12 +17,6 @@ namespace VaccineC.Command.Domain.Entities
         [Column("budgetProductId")]
         public Guid? BudgetProductId { get; set; }
 
-        [Column("inclusionDate", TypeName = "datetime")]
-        public DateTime InclusionDate { get; set; }
-
-        [Column("situation", TypeName = "varchar(1)")]
-        public string Situation { get; set; }
-
         [Column("applicationDate", TypeName = "datetime")]
         public DateTime? ApplicationDate { get; set; }
 
@@ -34,9 +28,6 @@ namespace VaccineC.Command.Domain.Entities
 
         [Column("applicationPlace", TypeName = "varchar(2)")]
         public string ApplicationPlace { get; set; }
-
-        [Column("details", TypeName = "text")]
-        public string? Details { get; set; }
 
         [Column("register", TypeName = "datetime")]
         public DateTime? Register { get; set; }
@@ -50,13 +41,10 @@ namespace VaccineC.Command.Domain.Entities
         public Application(Guid id,
                            Guid userId,
                            Guid? budgetProductId,
-                           DateTime inclusionDate,
-                           string situation,
                            DateTime? applicationDate,
                            string doseType,
                            string routeOfAdministration,
                            string applicationPlace,
-                           string? details,
                            DateTime register,
                            Guid? productSummaryBatchId,
                            Guid authorizationId
@@ -65,13 +53,10 @@ namespace VaccineC.Command.Domain.Entities
             ID = id;
             UserId = userId;
             BudgetProductId = budgetProductId;
-            InclusionDate = inclusionDate;
-            Situation = situation;
             ApplicationDate = applicationDate;
             DoseType = doseType;
             RouteOfAdministration = routeOfAdministration;
             ApplicationPlace = applicationPlace;
-            Details = details;
             Register = register;
             ProductSummaryBatchId = productSummaryBatchId;
             AuthorizationId = authorizationId;
@@ -92,16 +77,6 @@ namespace VaccineC.Command.Domain.Entities
             BudgetProductId = budgetProductId;
         }
 
-        public void SetInclusionDate(DateTime inclusionDate)
-        {
-            InclusionDate = inclusionDate;
-        }
-
-        public void SetSituation(string situation)
-        {
-            Situation = situation;
-        }
-
         public void SetApplicationDate(DateTime? applicationDate)
         {
             ApplicationDate = applicationDate;
@@ -120,11 +95,6 @@ namespace VaccineC.Command.Domain.Entities
         public void SetApplicationPlace(string applicationPlace)
         {
             ApplicationPlace = applicationPlace;
-        }
-
-        public void SetDetails(string details)
-        {
-            Details = details;
         }
 
         public void SetRegister(DateTime register)

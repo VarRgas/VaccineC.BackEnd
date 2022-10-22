@@ -51,9 +51,8 @@ namespace VaccineC.Query.Application.Services
             return productsSummariesBatchesViewModel;
         }
 
-        public async Task<IEnumerable<ProductSummaryBatchViewModel>> GetValidProductSummaryBatchList(Guid productsId)
+        public async Task<IEnumerable<ProductSummaryBatchViewModel>> GetNotEmptyProductsSummaryBatchListByProductId(Guid productsId)
         {
-            //.Where(r => r.ProductsId == productsId && r.NumberOfUnitsBatch > 0 && r.ValidityBatchDate >= DateTime.Now)
             var productsSummariesBatches = await _queryContext.AllProductsSummariesBatches.ToListAsync();
             var productsSummariesBatchesViewModel = productsSummariesBatches
                 .Select(r => _mapper.Map<ProductSummaryBatchViewModel>(r))
@@ -70,6 +69,18 @@ namespace VaccineC.Query.Application.Services
             var productsSummariesBatchesViewModel = productsSummariesBatches
                 .Select(r => _mapper.Map<ProductSummaryBatchViewModel>(r))
                 .Where(r => r.NumberOfUnitsBatch > 0)
+                .OrderBy(r => r.ValidityBatchDate)
+                .ToList();
+
+            return productsSummariesBatchesViewModel;
+        }
+
+        public async Task<IEnumerable<ProductSummaryBatchViewModel>> GetValidProductsSummariesBatchesByProductId(Guid productsId)
+        {
+            var productsSummariesBatches = await _queryContext.AllProductsSummariesBatches.ToListAsync();
+            var productsSummariesBatchesViewModel = productsSummariesBatches
+                .Select(r => _mapper.Map<ProductSummaryBatchViewModel>(r))
+                .Where(r => r.ProductsId == productsId && r.NumberOfUnitsBatch > 0 && r.ValidityBatchDate >= DateTime.Now)
                 .OrderBy(r => r.ValidityBatchDate)
                 .ToList();
 
@@ -110,5 +121,6 @@ namespace VaccineC.Query.Application.Services
 
                 return listProductBelowMinimumViewModel;
         }
+
     }
 }

@@ -72,6 +72,7 @@ namespace VaccineC
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IAuthorizationRepository, AuthorizationRepository>();
             services.AddScoped<IAuthorizationNotificationRepository, AuthorizationNotificationRepository>();
+            services.AddScoped<IApplicationRepository, ApplicationRepository>();
 
             //AppServices
             services.AddScoped<IExampleAppService, ExampleAppService>();

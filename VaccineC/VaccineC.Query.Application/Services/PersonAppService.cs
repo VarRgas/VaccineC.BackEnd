@@ -58,7 +58,7 @@ namespace VaccineC.Query.Application.Services
 
         public Task<IEnumerable<PersonViewModel>> GetAllCompanyAutocomplete()
         {
-
+         
             List<Person> persons = (from p in _context.Persons
                                     join c in _context.Companies on p.ID equals c.PersonId into _c
                                     from x in _c.DefaultIfEmpty()

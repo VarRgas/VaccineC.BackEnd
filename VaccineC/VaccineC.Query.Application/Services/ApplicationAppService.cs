@@ -93,7 +93,6 @@ namespace VaccineC.Query.Application.Services
                                          {
                                              ApplicationId = a.ID,
                                              ApplicationDate = a.ApplicationDate,
-                                             InclusionDate = a.InclusionDate,
                                              ApplicationPlace = a.ApplicationPlace,
                                              DoseType = a.DoseType,
                                              RouteOfAdministration = a.RouteOfAdministration,
