@@ -79,8 +79,9 @@ namespace VaccineC.Query.Application.Services
         public async Task<IEnumerable<ApplicationHistoryViewModel>> GetHistoryApplicationsByPersonId(Guid personId)
         {
 
-            var availableApplications = (from a in _context.Applications
+            var historyApplications = (from a in _context.Applications
                                          join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                         join e in _context.Events on ats.EventId equals e.ID
                                          join bp in _context.BudgetsProducts on a.BudgetProductId equals bp.ID
                                          join b in _context.Budgets on bp.BudgetId equals b.ID
                                          join ps2 in _context.Persons on b.PersonId equals ps2.ID
@@ -102,10 +103,12 @@ namespace VaccineC.Query.Application.Services
                                              ProductSummaryBatchId = psb.ID,
                                              UserPersonName = ps.Name,
                                              BudgetNumber = b.BudgetNumber,
-                                             PersonResponsible = ps2.Name
+                                             PersonResponsible = ps2.Name,
+                                             StartDate = e.StartDate,
+                                             StartTime = e.StartTime
                                          }).OrderByDescending(a => a.Register).ToList();
 
-            return availableApplications;
+            return historyApplications;
         }
 
         public ApplicationViewModel GetById(Guid id)

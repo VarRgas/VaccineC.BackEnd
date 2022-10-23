@@ -21,5 +21,7 @@ namespace VaccineC.Query.Application.ViewModels
         public string UserPersonName { get; set; }
         public int BudgetNumber { get; set; }
         public string PersonResponsible { get; set; }
+        public DateTime StartDate { get; set; }
+        public TimeSpan StartTime { get; set; }
     }
 }

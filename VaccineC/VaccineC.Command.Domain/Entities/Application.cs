@@ -21,7 +21,7 @@ namespace VaccineC.Command.Domain.Entities
         public DateTime? ApplicationDate { get; set; }
 
         [Column("doseType", TypeName = "varchar(2)")]
-        public string DoseType { get; set; }
+        public string? DoseType { get; set; }
 
         [Column("routeOfAdministration", TypeName = "varchar(1)")]
         public string RouteOfAdministration { get; set; }
@@ -42,7 +42,7 @@ namespace VaccineC.Command.Domain.Entities
                            Guid userId,
                            Guid? budgetProductId,
                            DateTime? applicationDate,
-                           string doseType,
+                           string? doseType,
                            string routeOfAdministration,
                            string applicationPlace,
                            DateTime register,
@@ -82,7 +82,7 @@ namespace VaccineC.Command.Domain.Entities
             ApplicationDate = applicationDate;
         }
 
-        public void SetDoseType(string doseType)
+        public void SetDoseType(string? doseType)
         {
             DoseType = doseType;
         }

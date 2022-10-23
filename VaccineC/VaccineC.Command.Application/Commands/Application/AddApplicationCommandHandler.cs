@@ -34,12 +34,16 @@ namespace VaccineC.Command.Application.Commands.Application
 
         public async Task<IEnumerable<ApplicationAvailableViewModel>> Handle(AddApplicationCommand request, CancellationToken cancellationToken)
         {
+            DateTime applicationDate = (DateTime)request.ApplicationDate;
+            var applicationDateFormated = TimeZoneInfo.ConvertTime(applicationDate, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
+
+            await validateApplicationDate(applicationDateFormated);
 
             Domain.Entities.Application newApplication = new Domain.Entities.Application(
                 Guid.NewGuid(),
                 request.UserId,
                 request.BudgetProductId,
-                request.ApplicationDate,
+                applicationDateFormated,
                 request.DoseType,
                 request.RouteOfAdministration,
                 request.ApplicationPlace,
@@ -61,6 +65,18 @@ namespace VaccineC.Command.Application.Commands.Application
 
             return await _appService.GetAvailableApplicationsByPersonId(applicationBorrowerId);
 
+        }
+
+        private async Task<Unit> validateApplicationDate(DateTime applicationDateFormated)
+        {
+            DateTime now = DateTime.Now;
+
+            if (applicationDateFormated.Date > now.Date)
+            {
+                throw new ArgumentException("A Data de aplicação não pode ser maior que a data atual!");
+            }
+
+            return Unit.Value;
         }
 
         private async Task<Unit> updateAuthorizationSituation(Domain.Entities.Application application)
