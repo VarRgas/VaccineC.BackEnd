@@ -10,6 +10,8 @@
         public string? ProfilePic { get; set; }
         public string? Details { get; set; }
         public DateTime Register { get; set; }
+        public string? PersonBudgetResponsible { get; set; }
+        public DateTime? ApplicationDate { get; set; }
         public PersonsPhysicalViewModel? PersonsPhysical { get; set; }
         public PersonsJuridicalViewModel? PersonsJuridical { get; set; }
         public PersonAddressViewModel? PersonPrincipalAddress { get; set; }

@@ -58,6 +58,15 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+
+        [HttpGet("{personName}/{responsibleId}/{applicationDate}/GetApplicationsByParameters")]
+        public async Task<IActionResult> GetApplicationsByParameters(string personName, Guid responsibleId, DateTime applicationDate)
+        {
+            var command = new GetApplicationsByParametersQuery(responsibleId, applicationDate, personName);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] ApplicationViewModel application)
         {

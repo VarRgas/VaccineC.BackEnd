@@ -38,6 +38,8 @@ namespace VaccineC.Command.Application.Commands.Application
             var applicationDateFormated = TimeZoneInfo.ConvertTime(applicationDate, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 
             await validateApplicationDate(applicationDateFormated);
+            await validateBorrowerData(request.AuthorizationId);
+            await validateUserData(request.UserId);
 
             Domain.Entities.Application newApplication = new Domain.Entities.Application(
                 Guid.NewGuid(),
@@ -65,6 +67,52 @@ namespace VaccineC.Command.Application.Commands.Application
 
             return await _appService.GetAvailableApplicationsByPersonId(applicationBorrowerId);
 
+        }
+
+        private async Task<Unit> validateUserData(Guid userId)
+        {
+            var pfUser = (from u in _context.Users
+                             join p in _context.Persons on u.PersonId equals p.ID
+                             join pf in _context.PersonsPhysical on p.ID equals pf.PersonID
+                             where u.ID.Equals(userId)
+                             select pf).FirstOrDefault();
+
+            if (pfUser == null)
+            {
+                throw new ArgumentException("O Usuário aplicador não possui informações complementares cadastradas para prosseguir com a aplicação!");
+            }
+
+            if (pfUser.CnsNumber.Equals("") || pfUser.CnsNumber.Equals(null)) {
+                if (pfUser.CpfNumber.Equals("") || pfUser.CpfNumber.Equals(null))
+                {
+                    throw new ArgumentException("O Usuário aplicador deve possuir um CPF e/ou CNS cadastrados para realizar a aplicação!");
+                }
+            }
+
+            return Unit.Value;
+        }
+
+        private async Task<Unit> validateBorrowerData(Guid authorizationId)
+        {
+            var pfBorrower = (from a in _context.Authorizations
+                          join p in _context.Persons on a.BorrowerPersonId equals p.ID
+                          join pf in _context.PersonsPhysical on p.ID equals pf.PersonID
+                          where a.ID.Equals(authorizationId)
+                          select pf).FirstOrDefault();
+
+            if (pfBorrower == null) {
+                throw new ArgumentException("O Tomador não possui informações complementares cadastradas para prosseguir com a aplicação!");
+            }
+
+            if (pfBorrower.CnsNumber.Equals("") || pfBorrower.CnsNumber.Equals(null))
+            {
+                if (pfBorrower.CpfNumber.Equals("") || pfBorrower.CpfNumber.Equals(null))
+                {
+                    throw new ArgumentException("O Tomador deve possuir um CPF e/ou CNS cadastrados para receber a aplicação!");
+                }
+            }
+
+            return Unit.Value;
         }
 
         private async Task<Unit> validateApplicationDate(DateTime applicationDateFormated)

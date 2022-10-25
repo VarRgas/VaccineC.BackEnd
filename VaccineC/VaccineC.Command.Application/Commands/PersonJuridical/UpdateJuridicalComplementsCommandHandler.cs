@@ -52,7 +52,7 @@ namespace VaccineC.Command.Application.Commands.PersonJuridical
 
             var person = (from pj in _context.PersonsJuridical
                           join p in _context.Persons on pj.PersonID equals p.ID
-                          where pj.CnpjNumber.Equals(cnpj)
+                          where pj.CnpjNumber.Equals(cnpj) && pj.ID != id
                           select p).FirstOrDefault();
 
             if (person == null)
