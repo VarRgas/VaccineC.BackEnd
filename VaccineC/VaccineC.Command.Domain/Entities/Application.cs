@@ -38,6 +38,9 @@ namespace VaccineC.Command.Domain.Entities
         [Column("authorizationId")]
         public Guid AuthorizationId { get; set; }
 
+        [Column("sipniIntegrationId", TypeName = "varchar(100)")]
+        public string? SipniIntegrationId { get; set; }
+
         public Application(Guid id,
                            Guid userId,
                            Guid? budgetProductId,
@@ -47,7 +50,8 @@ namespace VaccineC.Command.Domain.Entities
                            string applicationPlace,
                            DateTime register,
                            Guid? productSummaryBatchId,
-                           Guid authorizationId
+                           Guid authorizationId,
+                           string? sipniIntegrationId
             )
         {
             ID = id;
@@ -60,6 +64,7 @@ namespace VaccineC.Command.Domain.Entities
             Register = register;
             ProductSummaryBatchId = productSummaryBatchId;
             AuthorizationId = authorizationId;
+            SipniIntegrationId = sipniIntegrationId;
         }
 
         public Application()
@@ -110,6 +115,11 @@ namespace VaccineC.Command.Domain.Entities
         public void SetAuthorizationId(Guid authorizationId)
         {
             AuthorizationId = authorizationId;
+        }
+
+        public void SetSipniIntegrationId(string? sipniIntegrationId)
+        {
+            SipniIntegrationId = sipniIntegrationId;
         }
     }
 }

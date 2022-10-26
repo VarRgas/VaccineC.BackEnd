@@ -15,8 +15,9 @@ namespace VaccineC.Command.Application.Commands.Application
         public DateTime? Register;
         public Guid? ProductSummaryBatchId;
         public Guid AuthorizationId;
+        public string? SipniIntegrationId;
 
-        public AddApplicationCommand(Guid id, Guid userId, Guid? budgetProductId, DateTime? applicationDate, string doseType, string routeOfAdministration, string applicationPlace, DateTime? register, Guid? productSummaryBatchId, Guid authorizationId)
+        public AddApplicationCommand(Guid id, Guid userId, Guid? budgetProductId, DateTime? applicationDate, string doseType, string routeOfAdministration, string applicationPlace, DateTime? register, Guid? productSummaryBatchId, Guid authorizationId, string? sipniIntegrationId)
         {
             ID = id;
             UserId = userId;
@@ -28,6 +29,7 @@ namespace VaccineC.Command.Application.Commands.Application
             Register = register;
             ProductSummaryBatchId = productSummaryBatchId;
             AuthorizationId = authorizationId;
+            SipniIntegrationId = sipniIntegrationId;
         }
     }
 }

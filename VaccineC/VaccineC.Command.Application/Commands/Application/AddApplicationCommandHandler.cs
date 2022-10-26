@@ -51,7 +51,8 @@ namespace VaccineC.Command.Application.Commands.Application
                 request.ApplicationPlace,
                 DateTime.Now,
                 request.ProductSummaryBatchId,
-                request.AuthorizationId
+                request.AuthorizationId,
+                request.SipniIntegrationId
                 );
 
             _repository.Add(newApplication);
@@ -65,8 +66,29 @@ namespace VaccineC.Command.Application.Commands.Application
                                            where a.ID.Equals(newApplication.AuthorizationId)
                                            select p.ID).FirstOrDefault();
 
+
+            if (await isVaccineApplication(newApplication)) {
+                await _mediator.Send(new AddSipniImunizationCommand(newApplication));
+            } 
+           
             return await _appService.GetAvailableApplicationsByPersonId(applicationBorrowerId);
 
+        }
+
+        private async Task<Boolean> isVaccineApplication(Domain.Entities.Application newApplication)
+        {
+            var sbimVaccineId = (from bp in _context.BudgetsProducts
+                                 join p in _context.Products on bp.ProductId equals p.ID
+                                 where bp.ID.Equals(newApplication.BudgetProductId)
+                                 select p.SbimVaccinesId).FirstOrDefault();
+
+            if (sbimVaccineId.Equals(null)) {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private async Task<Unit> validateUserData(Guid userId)
@@ -82,8 +104,8 @@ namespace VaccineC.Command.Application.Commands.Application
                 throw new ArgumentException("O Usuário aplicador não possui informações complementares cadastradas para prosseguir com a aplicação!");
             }
 
-            if (pfUser.CnsNumber.Equals("") || pfUser.CnsNumber.Equals(null)) {
-                if (pfUser.CpfNumber.Equals("") || pfUser.CpfNumber.Equals(null))
+            if (pfUser.CnsNumber == null || pfUser.CnsNumber.Equals("")) {
+                if (pfUser.CpfNumber == null || pfUser.CpfNumber.Equals(""))
                 {
                     throw new ArgumentException("O Usuário aplicador deve possuir um CPF e/ou CNS cadastrados para realizar a aplicação!");
                 }
@@ -104,9 +126,9 @@ namespace VaccineC.Command.Application.Commands.Application
                 throw new ArgumentException("O Tomador não possui informações complementares cadastradas para prosseguir com a aplicação!");
             }
 
-            if (pfBorrower.CnsNumber.Equals("") || pfBorrower.CnsNumber.Equals(null))
+            if (pfBorrower.CnsNumber == null || pfBorrower.CnsNumber.Equals(""))
             {
-                if (pfBorrower.CpfNumber.Equals("") || pfBorrower.CpfNumber.Equals(null))
+                if (pfBorrower.CpfNumber == null || pfBorrower.CpfNumber.Equals(""))
                 {
                     throw new ArgumentException("O Tomador deve possuir um CPF e/ou CNS cadastrados para receber a aplicação!");
                 }

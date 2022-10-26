@@ -17,14 +17,16 @@ namespace VaccineC.Command.Domain.Entities
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
+        [Column("rndsId", TypeName = "varchar(100)")]
+        public string RndsId { get; set; }
 
 
-
-        public SbimVaccines(Guid id, string name, DateTime register)
+        public SbimVaccines(Guid id, string name, DateTime register, string rndsId)
         {
             ID = id;
             Name = name;
             Register = register;
+            RndsId = rndsId;
         }
         public SbimVaccines()
         {
@@ -39,6 +41,11 @@ namespace VaccineC.Command.Domain.Entities
         public void SetRegister(DateTime register)
         {
             Register = register;
+        }
+
+        public void SetRdnsId(string rdnsId)
+        {
+            RndsId = rdnsId;
         }
     }
 }

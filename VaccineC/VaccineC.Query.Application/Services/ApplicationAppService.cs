@@ -106,8 +106,26 @@ namespace VaccineC.Query.Application.Services
                                            BudgetNumber = b.BudgetNumber,
                                            PersonResponsible = ps2.Name,
                                            StartDate = e.StartDate,
-                                           StartTime = e.StartTime
+                                           StartTime = e.StartTime,
+                                           SipniIntegrationId = a.SipniIntegrationId,
+                                           SbimVaccineId = p.SbimVaccinesId
                                        }).OrderByDescending(a => a.Register).ToList();
+
+            foreach (var history in historyApplications) {
+                if (history.SbimVaccineId != null && history.SipniIntegrationId == null)
+                {
+                    history.IntegrationSituation = "error";
+                } 
+                else if (history.SbimVaccineId != null && history.SipniIntegrationId != null)
+                {
+                    history.IntegrationSituation = "success";
+                }
+                else if (history.SbimVaccineId == null) 
+                {
+                    history.IntegrationSituation = "invalid";
+                }
+            
+            }
 
             return historyApplications;
         }

@@ -13,5 +13,6 @@
         public Guid? ProductSummaryBatchId { get; set; }
         public Guid AuthorizationId { get; set; }
         public AuthorizationViewModel? Authorization { get; set; }
+        public string? SipniIntegrationId { get; set; }
     }
 }

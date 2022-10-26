@@ -82,7 +82,8 @@ namespace VaccineC.Controllers
                     application.ApplicationPlace,
                     application.Register,
                     application.ProductSummaryBatchId,
-                    application.AuthorizationId);
+                    application.AuthorizationId,
+                    application.SipniIntegrationId);
 
                 var result = await _mediator.Send(command);
                 return Ok(result);
