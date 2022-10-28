@@ -17,26 +17,12 @@ namespace VaccineC.Command.Application.Commands.Application
     public class AddSipniImunizationCommandHandler : IRequestHandler<AddSipniImunizationCommand, Unit>
     {
         private readonly IApplicationRepository _repository;
-        private readonly IMovementRepository _movementRepository;
-        private readonly IMovementProductRepository _movementProductRepository;
-        private readonly IProductSummaryBatchRepository _productSummaryBatchRepository;
-        private readonly IAuthorizationRepository _authorizationRepository;
-        private readonly IApplicationAppService _appService;
-        private readonly VaccineCCommandContext _ctx;
         private readonly VaccineCContext _context;
-        private readonly IMediator _mediator;
 
-        public AddSipniImunizationCommandHandler(IApplicationRepository repository, IApplicationAppService appService, VaccineCCommandContext ctx, IMediator mediator, IMovementRepository movementRepository, IMovementProductRepository movementProductRepository, IProductSummaryBatchRepository productSummaryBatchRepository, VaccineCContext context, IAuthorizationRepository authorizationRepository)
+        public AddSipniImunizationCommandHandler(IApplicationRepository repository,VaccineCContext context)
         {
             _repository = repository;
-            _appService = appService;
-            _ctx = ctx;
-            _mediator = mediator;
-            _movementRepository = movementRepository;
-            _movementProductRepository = movementProductRepository;
-            _productSummaryBatchRepository = productSummaryBatchRepository;
             _context = context;
-            _authorizationRepository = authorizationRepository;
         }
 
         public async Task<Unit> Handle(AddSipniImunizationCommand request, CancellationToken cancellationToken)

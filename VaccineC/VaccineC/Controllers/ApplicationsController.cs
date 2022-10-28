@@ -42,6 +42,22 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{personId}/{productId}/GetPersonApplicationProductSameDay")]
+        public async Task<IActionResult> GetPersonApplicationProductSameDay(Guid personId, Guid productId)
+        {
+            var command = new GetPersonApplicationProductSameDayQuery(personId, productId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpGet("{applicationId}/GetSipniImunizationById")]
+        public async Task<IActionResult> GetSipniImunizationById(Guid applicationId)
+        {
+            var command = new GetSipniImunizationByIdQuery(applicationId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpGet("{personId}/GetAvailableApplicationsByPersonId")]
         public async Task<IActionResult> GetAvailableApplicationsByPersonId(Guid personId)
         {

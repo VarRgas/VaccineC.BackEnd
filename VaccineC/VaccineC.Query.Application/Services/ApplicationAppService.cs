@@ -339,6 +339,7 @@ namespace VaccineC.Query.Application.Services
 
         public async Task<IEnumerable<PersonViewModel>> GetAllApplicationsByParameter(string personName, Guid responsibleId)
         {
+
             var personsId = (from a in _context.Applications
                              join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
                              join p in _context.Persons on ats.BorrowerPersonId equals p.ID
@@ -365,6 +366,32 @@ namespace VaccineC.Query.Application.Services
                            }).OrderBy(p => p.Name).ToList();
 
             return persons;
+        }
+
+        public async Task<bool> GetPersonApplicationProductSameDay(Guid personId, Guid productId)
+        {
+
+            var minimumHour = new TimeSpan(0, 0, 0);
+            var maximumHour = new TimeSpan(23, 59, 59);
+            DateTime now = DateTime.Now.Date;
+
+            var applicationId = (from a in _context.Applications
+                               join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                               join bp in _context.BudgetsProducts on a.BudgetProductId equals bp.ID
+                               where ats.BorrowerPersonId.Equals(personId)
+                               where bp.ProductId.Equals(productId)
+                               where a.ApplicationDate >= now + minimumHour
+                               where a.ApplicationDate <= now + maximumHour
+                               select a.ID).ToList();
+
+            if (applicationId.Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     } 
 }
