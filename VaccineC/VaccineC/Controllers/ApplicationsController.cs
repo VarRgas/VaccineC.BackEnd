@@ -110,6 +110,22 @@ namespace VaccineC.Controllers
             }
         }
 
+        [HttpPost("{applicationId}/{personId}/AddSipniImunizationById")]
+        public async Task<IActionResult> AddSipniImunizationById(Guid applicationId, Guid personId)
+        {
+            try
+            {
+                var command = new AddSipniImunizationByIdCommand(
+                    applicationId,
+                    personId);
 
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
