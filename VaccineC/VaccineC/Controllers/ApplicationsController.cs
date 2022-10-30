@@ -83,6 +83,86 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{month}/{year}/GetApplicationsByPersonGender")]
+        public async Task<IActionResult> GetApplicationsByPersonGender(int month, int year)
+        {
+            try
+            {
+                var command = new GetApplicationsByPersonGenderQuery(month, year);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+        [HttpGet("{month}/{year}/GetApplicationsByProductId")]
+        public async Task<IActionResult> GetApplicationsByProductId(int month, int year)
+        {
+            try
+            {
+                var command = new GetApplicationsByProductIdQuery(month, year);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+        [HttpGet("{month}/{year}/GetApplicationsByAge")]
+        public async Task<IActionResult> GetApplicationsByAge(int month, int year)
+        {
+            try
+            {
+                var command = new GetApplicationsByAgeQuery(month, year);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+        [HttpGet("{month}/{year}/GetSipniIntegrationSituation")]
+        public async Task<IActionResult> GetSipniIntegrationSituation(int month, int year)
+        {
+            try
+            {
+                var command = new GetSipniIntegrationSituationQuery(month, year);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+        [HttpGet("{month}/{year}/GetApplicationNumbers")]
+        public async Task<IActionResult> GetApplicationNumbers(int month, int year)
+        {
+            try
+            {
+                var command = new GetApplicationNumbersQuery(month, year);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] ApplicationViewModel application)
         {

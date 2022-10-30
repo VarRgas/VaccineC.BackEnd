@@ -25,7 +25,6 @@ namespace VaccineC.Query.Application.ViewModels
         public TimeSpan StartTime { get; set; }
         public string? SipniIntegrationId { get; set; }
         public Guid? SbimVaccineId { get; set; }
-
         public string? IntegrationSituation { get; set; }
     }
 }

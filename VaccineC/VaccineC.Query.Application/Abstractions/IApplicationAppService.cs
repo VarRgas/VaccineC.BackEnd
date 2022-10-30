@@ -9,6 +9,11 @@ namespace VaccineC.Query.Application.Abstractions
         Task<IEnumerable<ApplicationAvailableViewModel>> GetAvailableApplicationsByPersonId(Guid personId);
         Task<IEnumerable<ApplicationHistoryViewModel>> GetHistoryApplicationsByPersonId(Guid personId);
         Task<IEnumerable<PersonViewModel>> GetAllApplicationsByParameter(string personName, DateTime applicationDate, Guid responsibleId);
+        Task<IEnumerable<ApplicationPersonGenderViewModel>> GetApplicationsByPersonGender(int month, int year);
+        Task<IEnumerable<ApplicationPersonAgeViewModel>> GetApplicationsByPersonAge(int month, int year);
+        Task<IEnumerable<ApplicationSipniIntegrationViewModel>> GetSipniIntegrationSituation(int month, int year);
+        Task<IEnumerable<ApplicationProductViewModel>> GetApplicationsByProductId(int month, int year);
+        Task <ApplicationNumberViewModel> GetApplicationsNumbers(int month, int year);
         Task<bool> GetPersonApplicationProductSameDay(Guid personId, Guid productId);
         Task<int> GetApplicationNumberByPersonId(Guid personId);
         ApplicationViewModel GetById(Guid id);
