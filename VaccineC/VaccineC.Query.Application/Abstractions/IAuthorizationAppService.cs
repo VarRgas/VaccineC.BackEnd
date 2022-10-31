@@ -9,6 +9,7 @@ namespace VaccineC.Query.Application.Abstractions
         Task<IEnumerable<AuthorizationViewModel>> GetAllByAuthNumber(int authNumber, string situation, Guid responsibleId);
         Task<IEnumerable<AuthorizationViewModel>> GetAllByBorrowerName(string borrowerName, string situation, Guid responsibleId);
         Task<IEnumerable<AuthorizationSummarySituationViewModel>> GetSummarySituationAuthorization();
+        Task<AuthorizationDashInfoViewModel> GetAuthorizationDashInfo(int month, int year);
         AuthorizationViewModel GetById(Guid id);
     }
 }

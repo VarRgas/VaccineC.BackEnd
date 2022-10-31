@@ -55,6 +55,22 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{month}/{year}/GetAuthorizationsDashInfo")]
+        public async Task<IActionResult> GetAuthorizationsDashInfo(int month, int year)
+        {
+            try
+            {
+                var command = new GetAuthorizationsDashInfoQuery(month, year);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         // GET api/<AuthorizationsController>/GetAuthorizationByParameter
         [HttpGet("{information}/{situation}/{responsibleId}/GetAuthorizationByParameter")]
         public async Task<IActionResult> getAuthorizationByParameter(string information, string situation, Guid responsibleId)

@@ -1,5 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
+using System.Net;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
 using VaccineC.Query.Data.Context;
@@ -50,7 +54,6 @@ namespace VaccineC.Query.Application.Services
                 var authorizationsViewModel = authorizations.Select(r => _mapper.Map<AuthorizationViewModel>(r)).Where(a => a.AuthorizationNumber == authNumber && a.BudgetProduct.Budget.PersonId.Equals(responsibleId)).OrderBy(a => a.Event.StartDate).ToList();
 
                 return authorizationsViewModel;
-
             }
             else
             {
@@ -132,6 +135,142 @@ namespace VaccineC.Query.Application.Services
             }
 
             return listAuthorizationViewModelReturn;
+        }
+
+        public async Task<AuthorizationDashInfoViewModel> GetAuthorizationDashInfo(int month, int year)
+        {
+
+            DateTime dateSearchMinimum = new DateTime(year, month, 1);
+            DateTime dateSearchMaximum = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+            AuthorizationDashInfoViewModel authorizationDashInfoViewModel = new AuthorizationDashInfoViewModel();
+
+            var authorizations = (from a in _context.Authorizations
+                                  join e in _context.Events on a.EventId equals e.ID
+                                  where e.StartDate >= dateSearchMinimum.Date
+                                  where e.StartDate <= dateSearchMaximum.Date
+                                  select a).ToList();
+
+            foreach(var auth in authorizations)
+            {
+                if (auth.Situation.Equals("P")) 
+                {
+                    authorizationDashInfoViewModel.AuthorizationConcludedNumber++;
+                }
+                else if (auth.Situation.Equals("X"))
+                {
+                    authorizationDashInfoViewModel.AuthorizationCanceledNumber++;
+                }
+                else
+                {
+                    authorizationDashInfoViewModel.AuthorizationScheduleNumber++;
+                }
+
+                if (auth.Notify.Equals("N")) 
+                {
+                    authorizationDashInfoViewModel.AuthorizationsWithoutNotification++;
+                }
+                else
+                {
+                    authorizationDashInfoViewModel.AuthorizationsWithNotification++;
+                }
+            }
+
+            var authorizationsNotificationsIds = (from an in _context.AuthorizationsNotifications
+                                                  join ats in _context.Authorizations on an.AuthorizationId equals ats.ID
+                                                  join e in _context.Events on ats.EventId equals e.ID
+                                                  where e.StartDate >= dateSearchMinimum.Date
+                                                  where e.StartDate <= dateSearchMaximum.Date
+                                                  select an.ReturnId).ToList();
+
+            authorizationDashInfoViewModel.authorizationNotificationDashInfos = await getSmsSituation(authorizationsNotificationsIds);
+
+            return authorizationDashInfoViewModel;
+        }
+
+        private async Task<List<AuthorizationNotificationDashInfo>> getSmsSituation(List<String> authorizationsNotificationsIds)
+        {
+            string url = "https://api.smsdev.com.br/v1/dlr";
+            string key = "M30A09QH6Z80WHY0DFS9QECUBIBUVBVT67P50CY9BYSL54W6A504FO9XLB5VLLAD7Y6WUW9PELVVI90LNCYA05RSJU0LY9MIXYIZ06VOQVZXXAJ9N45LQ25QS7IS5V7B";
+
+            List<AuthorizationNotificationDashInfo> listAuthorizationNotificationDashInfo = new List<AuthorizationNotificationDashInfo>();
+            
+            AuthorizationNotificationDashInfo recebida = new AuthorizationNotificationDashInfo();
+            recebida.Description = "RECEBIDA";
+
+            AuthorizationNotificationDashInfo enviada = new AuthorizationNotificationDashInfo();
+            enviada.Description = "ENVIADA";
+
+            AuthorizationNotificationDashInfo erro = new AuthorizationNotificationDashInfo();
+            erro.Description = "ERRO";
+
+            AuthorizationNotificationDashInfo fila = new AuthorizationNotificationDashInfo();
+            fila.Description = "FILA";
+
+            AuthorizationNotificationDashInfo cancelada = new AuthorizationNotificationDashInfo();
+            cancelada.Description = "CANCELADA";
+
+            AuthorizationNotificationDashInfo blacklist = new AuthorizationNotificationDashInfo();
+            blacklist.Description = "BLACKLIST";
+
+            foreach (var id in authorizationsNotificationsIds) 
+            {
+                using (var cliente = new HttpClient())
+                {
+                    cliente.BaseAddress = new Uri(url);
+                    cliente.DefaultRequestHeaders.Accept.Clear();
+                    cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    var data = new
+                    {
+                        key = key,
+                        id = id
+                    };
+
+                    var response = await cliente.PostAsJsonAsync("", data);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+
+                        var responseString = await response.Content.ReadAsStringAsync();
+                        var situation = JObject.Parse(responseString)["descricao"].ToString();
+                      
+                        if (situation.ToUpper().Trim().Equals("RECEBIDA"))
+                        {
+                            recebida.Quantity++;
+                        }
+                        else if (situation.ToUpper().Trim().Equals("ENVIADA"))
+                        {
+                            enviada.Quantity++;
+                        }
+                        else if (situation.ToUpper().Trim().Equals("ERRO"))
+                        {
+                            erro.Quantity++;
+                        }
+                        else if (situation.ToUpper().Trim().Equals("FILA"))
+                        {
+                            fila.Quantity++;
+                        }
+                        else if (situation.ToUpper().Trim().Equals("CANCELADA"))
+                        {
+                            cancelada.Quantity++;
+                        }
+                        else if (situation.ToUpper().Trim().Equals("BLACKLIST"))
+                        {
+                            blacklist.Quantity++;
+                        }
+
+                    }
+                }
+            }
+
+            listAuthorizationNotificationDashInfo.Add(recebida);
+            listAuthorizationNotificationDashInfo.Add(enviada);
+            listAuthorizationNotificationDashInfo.Add(erro);
+            listAuthorizationNotificationDashInfo.Add(fila);
+            listAuthorizationNotificationDashInfo.Add(cancelada);
+            listAuthorizationNotificationDashInfo.Add(blacklist);
+
+            return listAuthorizationNotificationDashInfo;
         }
 
         public AuthorizationViewModel GetById(Guid id)
