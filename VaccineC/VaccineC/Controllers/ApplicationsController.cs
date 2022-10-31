@@ -131,6 +131,23 @@ namespace VaccineC.Controllers
 
         }
 
+
+        [HttpGet("{month}/{year}/GetApplicationsByType")]
+        public async Task<IActionResult> GetApplicationsByType(int month, int year)
+        {
+            try
+            {
+                var command = new GetApplicationsByTypeQuery(month, year);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpGet("{month}/{year}/GetSipniIntegrationSituation")]
         public async Task<IActionResult> GetSipniIntegrationSituation(int month, int year)
         {

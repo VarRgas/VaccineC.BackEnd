@@ -401,13 +401,13 @@ namespace VaccineC.Query.Application.Services
             List<ApplicationPersonGenderViewModel> listApplicationPersonGenderViewModel = new List<ApplicationPersonGenderViewModel>();
 
             var numberApplicationsFem = (from a in _context.Applications
-                                   join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
-                                   join p in _context.Persons on ats.BorrowerPersonId equals p.ID
-                                   join pf in _context.PersonsPhysical on p.ID equals pf.PersonID
-                                   where pf.Gender.Equals("F")
-                                   where a.ApplicationDate >= dateSearchMinimum.Date
-                                   where a.ApplicationDate <= dateSearchMaximum.Date
-                                   select a.ID).Count();
+                                        join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                        join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                        join pf in _context.PersonsPhysical on p.ID equals pf.PersonID
+                                        where pf.Gender.Equals("F")
+                                        where a.ApplicationDate >= dateSearchMinimum.Date
+                                        where a.ApplicationDate <= dateSearchMaximum.Date
+                                        select a.ID).Count();
 
             var numberApplicationsMas = (from a in _context.Applications
                                          join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
@@ -645,6 +645,49 @@ namespace VaccineC.Query.Application.Services
             applicationNumberViewModel.ApplicationsPending = applicationsPending;
 
             return applicationNumberViewModel;
+        }
+
+        public async Task<IEnumerable<ApplicationTypeViewModel>> GetApplicationsByType(int month, int year)
+        {
+            DateTime dateSearchMinimum = new DateTime(year, month, 1);
+            DateTime dateSearchMaximum = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+            List<ApplicationTypeViewModel> applicationTypeViewModel = new List<ApplicationTypeViewModel>();
+
+            var authorizations = (from a in _context.Applications
+                                join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                where a.ApplicationDate >= dateSearchMinimum.Date
+                                where a.ApplicationDate <= dateSearchMaximum.Date
+                                select ats).ToList();
+
+            var typeClinic = new ApplicationTypeViewModel
+            {
+                Type = "Na Clínica",
+                NumberOfApplications = 0
+            };
+
+            var typeHome = new ApplicationTypeViewModel
+            {
+                Type = "A Domicílio",
+                NumberOfApplications = 0
+            };
+
+            foreach (var authorization in authorizations)
+            {
+                if (authorization.TypeOfService.Equals("C")) 
+                {
+                    typeClinic.NumberOfApplications++;
+                }
+                else
+                {
+                    typeHome.NumberOfApplications++;
+                }
+            }
+
+            applicationTypeViewModel.Add(typeClinic);
+            applicationTypeViewModel.Add(typeHome);
+
+            return applicationTypeViewModel;
+
         }
     } 
 }
