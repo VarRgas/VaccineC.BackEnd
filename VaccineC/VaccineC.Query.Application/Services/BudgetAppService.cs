@@ -106,5 +106,130 @@ namespace VaccineC.Query.Application.Services
             return budget;
         }
 
+        public async Task<BudgetDashInfoViewModel> GetBudgetsDashInfo(int month, int year)
+        {
+            DateTime dateSearchMinimum = new DateTime(year, month, 1);
+            DateTime dateSearchMaximum = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+
+            DateTime dateSearchMinimumPrevious = dateSearchMinimum.AddMonths(-1);
+            DateTime dateSearchMaximumPrevious = dateSearchMaximum.AddMonths(-1);
+
+            BudgetDashInfoViewModel budgetDashInfoViewModel = new BudgetDashInfoViewModel();
+            budgetDashInfoViewModel.totalBudgetDiscount = 0;
+
+            var budgets = (from b in _context.Budgets
+                          join p in _context.Persons on b.PersonId equals p.ID
+                          where b.Register >= dateSearchMinimum.Date
+                          where b.Register <= dateSearchMaximum.Date
+                          select new BudgetViewModel
+                          {
+                              Situation = b.Situation,
+                              DiscountPercentage = b.DiscountPercentage,
+                              DiscountValue = b.DiscountValue,
+                              TotalBudgetedAmount = b.TotalBudgetedAmount, 
+                              Persons = new PersonViewModel()
+                              {
+                                  PersonType = p.PersonType
+                              }
+                          }).ToList();
+
+            var budgetsPrevious = (from b in _context.Budgets
+                                   join p in _context.Persons on b.PersonId equals p.ID
+                                   where b.Register >= dateSearchMinimumPrevious.Date
+                                   where b.Register <= dateSearchMaximumPrevious.Date
+                                   select new BudgetViewModel
+                                   {
+                                       DiscountPercentage = b.DiscountPercentage,
+                                       DiscountValue = b.DiscountValue,
+                                       TotalBudgetedAmount = b.TotalBudgetedAmount,
+                                   }).ToList();
+
+            var budgetsAmount = (from bn in _context.BudgetsNegotiations
+                                 join b in _context.Budgets on bn.BudgetId equals b.ID
+                                 where b.Register >= dateSearchMinimum.Date
+                                 where b.Register <= dateSearchMaximum.Date
+                                 select bn.TotalAmountTraded).Sum();
+
+            var budgetsAmountPrevious = (from bn in _context.BudgetsNegotiations
+                                         join b in _context.Budgets on bn.BudgetId equals b.ID
+                                         where b.Register >= dateSearchMinimumPrevious.Date
+                                         where b.Register <= dateSearchMaximumPrevious.Date
+                                         select bn.TotalAmountTraded).Sum();
+
+
+
+            foreach (var budget in budgets)
+            {
+                if (budget.Situation.Equals("A")) 
+                {
+                    budgetDashInfoViewModel.budgetAprovedNumber++;
+                }
+                else if (budget.Situation.Equals("P")) 
+                {
+                    budgetDashInfoViewModel.budgetPendingNumber++;
+                }
+                else if (budget.Situation.Equals("X"))
+                {
+                    budgetDashInfoViewModel.budgetCanceledNumber++;
+                }
+                else if (budget.Situation.Equals("V"))
+                {
+                    budgetDashInfoViewModel.budgetOverduedNumber++;
+                }
+                else if (budget.Situation.Equals("F"))
+                {
+                    budgetDashInfoViewModel.budgetFinalizedNumber++;
+                }
+                else if (budget.Situation.Equals("E"))
+                {
+                    budgetDashInfoViewModel.budgetNegotiationNumber++;
+                }
+
+                if (budget.Persons.PersonType.Equals("F")) 
+                {
+                    budgetDashInfoViewModel.personPhysicalNumber++;
+                }
+                else
+                {
+                    budgetDashInfoViewModel.personJuridicalNumber++;
+                }
+
+                if (budget.DiscountValue != 0 && budget.DiscountPercentage == 0)
+                {
+                    budgetDashInfoViewModel.totalBudgetDiscount += budget.DiscountValue;
+                } 
+                else if (budget.DiscountValue == 0 && budget.DiscountPercentage != 0) 
+                { 
+                    var percentageNumber = budget.DiscountPercentage/100;
+                    var result = budget.TotalBudgetedAmount * percentageNumber;
+
+                    budgetDashInfoViewModel.totalBudgetDiscount += result;
+                }
+
+            }
+
+            foreach (var budgetPrevious in budgetsPrevious)
+            {
+                if (budgetPrevious.DiscountValue != 0 && budgetPrevious.DiscountPercentage == 0)
+                {
+                    budgetDashInfoViewModel.totalBudgetDiscountPrevious += budgetPrevious.DiscountValue;
+                }
+                else if (budgetPrevious.DiscountValue == 0 && budgetPrevious.DiscountPercentage != 0)
+                {
+                    var percentageNumber = budgetPrevious.DiscountPercentage / 100;
+                    var result = budgetPrevious.TotalBudgetedAmount * percentageNumber;
+
+                    budgetDashInfoViewModel.totalBudgetDiscountPrevious += result;
+                }
+            }
+
+            budgetDashInfoViewModel.totalBudgetNumber = budgets.Count();
+            budgetDashInfoViewModel.totalBudgetNumberPrevious = budgetsPrevious.Count();
+            budgetDashInfoViewModel.totalBudgetAmount = budgetsAmount;
+            budgetDashInfoViewModel.totalBudgetAmountPrevious = budgetsAmountPrevious;
+
+            return budgetDashInfoViewModel;
+
+        }
     }
 }

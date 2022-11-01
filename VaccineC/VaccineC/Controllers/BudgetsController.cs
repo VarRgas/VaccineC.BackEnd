@@ -59,6 +59,22 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{month}/{year}/GetBudgetsDashInfo")]
+        public async Task<IActionResult> GetBudgetsDashInfo(int month, int year)
+        {
+            try
+            {
+                var command = new GetBudgetsDashInfoQuery(month, year);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] BudgetViewModel budget)
         {
