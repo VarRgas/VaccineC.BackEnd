@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VaccineC.Query.Application.Queries.Login;
 
@@ -18,6 +19,7 @@ namespace VaccineC.Controllers
 
         // GET: api/<LoginController>
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginQuery query)
         {
             try

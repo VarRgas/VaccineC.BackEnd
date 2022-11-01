@@ -1,0 +1,12 @@
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\bin\Debug\net6.0\VaccineC.Authentication.deps.json
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\bin\Debug\net6.0\VaccineC.Authentication.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\bin\Debug\net6.0\ref\VaccineC.Authentication.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\bin\Debug\net6.0\VaccineC.Authentication.pdb
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.csproj.AssemblyReference.cache
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.AssemblyInfoInputs.cache
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.AssemblyInfo.cs
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.csproj.CoreCompileInputs.cache
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\ref\VaccineC.Authentication.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.pdb

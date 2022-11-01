@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
+using VaccineC.Authentication.Interfaces;
 using VaccineC.Query.Application.ViewModels;
 using VaccineC.Query.Data.Context;
 using VaccineC.Query.Model.Abstractions;
@@ -13,12 +13,14 @@ namespace VaccineC.Query.Application.Queries.Login
         private readonly VaccineCContext _context;
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
+        private readonly IJwtService _jwtService;
 
-        public LoginQueryHandler(VaccineCContext context, IQueryContext queryContext, IMapper mapper)
+        public LoginQueryHandler(VaccineCContext context, IQueryContext queryContext, IMapper mapper, IJwtService jwtService)
         {
             _context = context;
             _queryContext = queryContext;
-            _mapper = mapper;   
+            _mapper = mapper;
+            _jwtService = jwtService;
         }
 
         public async Task<LoginViewModel> Handle(LoginQuery request, CancellationToken cancellationToken)
@@ -44,14 +46,14 @@ namespace VaccineC.Query.Application.Queries.Login
             }
 
             int userValidId = (from u in _context.UsersResources
-                                      join r in _context.Resources on u.ResourcesId equals r.ID
-                                      where r.Name.Equals("SITUAÇÃO ESTOQUE")
-                                      && u.UsersId.Equals(user.ID)
-                                      select u).Count();
+                               join r in _context.Resources on u.ResourcesId equals r.ID
+                               where r.Name.Equals("SITUAÇÃO ESTOQUE")
+                               && u.UsersId.Equals(user.ID)
+                               select u).Count();
 
             string showNotification = "";
 
-            if (userValidId > 0) 
+            if (userValidId > 0)
             {
                 showNotification = "S";
             }
@@ -60,6 +62,8 @@ namespace VaccineC.Query.Application.Queries.Login
                 showNotification = "N";
             }
 
+            var token = _jwtService.GenerateToken(user.ID, user.Name, user.Email);
+
             return new LoginViewModel()
             {
                 ID = user.ID,
@@ -67,7 +71,7 @@ namespace VaccineC.Query.Application.Queries.Login
                 PersonID = user.PersonID,
                 PersonName = user.Name,
                 PersonProfilePic = user.ProfilePic,
-                Token = "",
+                Token = token,
                 ShowNotification = showNotification
             };
 

@@ -1,22 +1,3 @@
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Application.deps.json
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Application.dll
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\ref\VaccineC.Query.Application.dll
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Application.pdb
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Data.dll
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Model.dll
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Data.pdb
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Model.pdb
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.csproj.AssemblyReference.cache
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.AssemblyInfoInputs.cache
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.AssemblyInfo.cs
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.csproj.CoreCompileInputs.cache
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.csproj.CopyComplete
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.dll
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\ref\VaccineC.Query.Application.dll
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.pdb
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Security.dll
-C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Security.pdb
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Application.deps.json
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Application.dll
 C:\Users\Amanda Maschio\Documents\VaccineC\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Application.pdb
@@ -112,3 +93,24 @@ C:\Users\Amanda Maschio\Documents\Backend\VaccineC\VaccineC.Query.Application\ob
 C:\Users\Amanda Maschio\Documents\Backend\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\refint\VaccineC.Query.Application.dll
 C:\Users\Amanda Maschio\Documents\Backend\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.pdb
 C:\Users\Amanda Maschio\Documents\Backend\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\ref\VaccineC.Query.Application.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Application.deps.json
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Application.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\ref\VaccineC.Query.Application.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Application.pdb
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Authentication.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Data.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Model.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Security.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Authentication.pdb
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Data.pdb
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Query.Model.pdb
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Security.pdb
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.csproj.AssemblyReference.cache
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.AssemblyInfoInputs.cache
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.AssemblyInfo.cs
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.csproj.CoreCompileInputs.cache
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.csproj.CopyComplete
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\ref\VaccineC.Query.Application.dll
+C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.pdb

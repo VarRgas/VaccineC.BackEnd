@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VaccineC.Query.Data", "Vacc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VaccineC.Query.Model", "VaccineC.Query.Model\VaccineC.Query.Model.csproj", "{F9009306-2168-409D-9A33-08961D36621C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccineC.Security", "VaccineC.Security\VaccineC.Security.csproj", "{120B25C9-027B-4B28-B169-7C79A135AD18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VaccineC.Security", "VaccineC.Security\VaccineC.Security.csproj", "{120B25C9-027B-4B28-B169-7C79A135AD18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccineC.Authentication", "VaccineC.Authentication\VaccineC.Authentication.csproj", "{F92746FE-CEDA-437B-8949-0CC84617C3EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{120B25C9-027B-4B28-B169-7C79A135AD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{120B25C9-027B-4B28-B169-7C79A135AD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{120B25C9-027B-4B28-B169-7C79A135AD18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F92746FE-CEDA-437B-8949-0CC84617C3EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F92746FE-CEDA-437B-8949-0CC84617C3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F92746FE-CEDA-437B-8949-0CC84617C3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F92746FE-CEDA-437B-8949-0CC84617C3EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

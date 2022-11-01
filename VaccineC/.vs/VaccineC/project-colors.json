@@ -45,7 +45,12 @@
       "ProjectGuid": "120b25c9-027b-4b28-b169-7c79a135ad18",
       "DisplayName": "VaccineC.Security",
       "ColorIndex": 7
+    },
+    "f92746fe-ceda-437b-8949-0cc84617c3ec": {
+      "ProjectGuid": "f92746fe-ceda-437b-8949-0cc84617c3ec",
+      "DisplayName": "VaccineC.Authentication",
+      "ColorIndex": 8
     }
   },
-  "NextColorIndex": 8
+  "NextColorIndex": 9
 }

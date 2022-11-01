@@ -1,8 +1,13 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Newtonsoft.Json.Serialization;
+using VaccineC.Authentication.Extensions;
+using VaccineC.Authentication.Interfaces;
+using VaccineC.Authentication.Services;
 using VaccineC.Command.Data.Context;
 using VaccineC.Command.Data.Repositories;
 using VaccineC.Command.Domain.Abstractions.Repositories;
@@ -31,19 +36,33 @@ namespace VaccineC
         {
             services.AddCors(options =>
             {
-                options.AddPolicy(name: FrontendOrigins, builder =>
-                {
-                    builder
-                        .WithOrigins("http://localhost:4200")
-                        .WithHeaders("Content-Type")
-                        .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
-                });
+                options.AddPolicy(name: FrontendOrigins,
+                                  builder =>
+                                  {
+                                      builder.AllowAnyOrigin()
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod();
+                                  });
             });
+
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                 });
+
+            services.AddMvcCore(o =>
+            {
+                //#if !DEBUG
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                o.Filters.Add(new AuthorizeFilter(policy));
+                //#endif
+
+                //o.Filters.Add<NotificationFilter>();
+                o.EnableEndpointRouting = false;
+            });
 
             //Repositories
             services.AddScoped<IUserRepository, UserRepository>();
@@ -103,6 +122,7 @@ namespace VaccineC
             services.AddScoped<IEventAppService, EventAppService>();
             services.AddScoped<IAuthorizationNotificationAppService, AuthorizationNotificationAppService>();
             services.AddScoped<IApplicationAppService, ApplicationAppService>();
+            services.AddScoped<IJwtService, JwtService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(AppDomain.CurrentDomain.Load("VaccineC.Command.Application"));
@@ -111,19 +131,21 @@ namespace VaccineC
             services.AddScoped<IQueryContext, QueryContext>();
 
             //Conexão Amanda
-            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
-            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
+            //services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
+            //services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("Data Source=DESKTOP-LDCPPUG\\SQLEXPRESS;Initial Catalog=vaccinec;persist security info=True;Integrated Security=SSPI;"));
 
             //Conexão Guilherme
-            //services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
-            //services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
+            services.AddDbContext<VaccineCCommandContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
+            services.AddDbContext<VaccineCContext>(options => options.UseSqlServer("data source=CXJ0975;initial catalog=vaccinecdb;user id=sa;password=PromobSQL2021"));
 
             services.Configure<FormOptions>(o =>
             {
                 o.ValueLengthLimit = int.MaxValue;
                 o.MultipartBodyLengthLimit = int.MaxValue;
                 o.MemoryBufferThreshold = int.MaxValue;
+
             });
+            services.AddJwtAuthentication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -145,6 +167,7 @@ namespace VaccineC
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
