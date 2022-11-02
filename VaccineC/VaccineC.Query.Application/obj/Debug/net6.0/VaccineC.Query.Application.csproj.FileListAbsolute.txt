@@ -114,3 +114,5 @@ C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\Vaccin
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.dll
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\ref\VaccineC.Query.Application.dll
 C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\VaccineC\VaccineC.BackEnd\VaccineC\VaccineC.Query.Application\obj\Debug\net6.0\VaccineC.Query.Application.pdb
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Authentication.dll
+C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Query.Application\bin\Debug\net6.0\VaccineC.Authentication.pdb

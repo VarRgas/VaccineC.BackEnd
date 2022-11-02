@@ -689,5 +689,25 @@ namespace VaccineC.Query.Application.Services
             return applicationTypeViewModel;
 
         }
+
+        public async Task<bool> VerifyApplicationAbleUpdate(Guid applicationId, Guid userId)
+        {
+            var application = (from a in _context.Applications
+                               where a.ID.Equals(applicationId)
+                               select a).FirstOrDefault();
+
+            if (application == null) {
+                throw new ArgumentException("Aplicação não encontrada!");
+            }
+
+            var applicationDate = (DateTime)application.ApplicationDate;
+            var today = DateTime.Now.Date;
+
+            if (application.UserId == userId && applicationDate.Date == today) {
+                return true;
+            }
+
+            return false;
+        }
     } 
 }

@@ -22,5 +22,7 @@ namespace VaccineC.Query.Application.ViewModels
         public decimal totalBudgetAmountPrevious { get; set; }
         public decimal totalBudgetDiscount { get; set; }
         public decimal totalBudgetDiscountPrevious { get; set; }
+
+        public List<ProductBudgetDashInfoViewModel> listProductBudgetDashInfoViewModel = new List<ProductBudgetDashInfoViewModel>();
     }
 }

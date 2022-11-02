@@ -7,11 +7,13 @@ namespace VaccineC.Command.Application.Commands.Application
     {
         public Guid ApplicationId;
         public Guid PersonId;
+        public Guid UserId;
 
-        public AddSipniImunizationByIdCommand(Guid applicationId, Guid personId)
+        public AddSipniImunizationByIdCommand(Guid applicationId, Guid personId, Guid userId)
         {
             ApplicationId = applicationId;
             PersonId = personId;
+            UserId = userId;
         }
     }
 }

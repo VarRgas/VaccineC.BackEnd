@@ -74,6 +74,13 @@ namespace VaccineC.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{applicationId}/{userId}/VerifyApplicationAbleUpdate")]
+        public async Task<IActionResult> VerifyApplicationAbleUpdate(Guid applicationId, Guid userId)
+        {
+            var command = new VerifyApplicationAbleUpdateQuery(applicationId, userId);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
 
         [HttpGet("{personName}/{responsibleId}/{applicationDate}/GetApplicationsByParameters")]
         public async Task<IActionResult> GetApplicationsByParameters(string personName, Guid responsibleId, DateTime applicationDate)
@@ -207,14 +214,15 @@ namespace VaccineC.Controllers
             }
         }
 
-        [HttpPost("{applicationId}/{personId}/AddSipniImunizationById")]
-        public async Task<IActionResult> AddSipniImunizationById(Guid applicationId, Guid personId)
+        [HttpPost("{applicationId}/{personId}/{userId}/AddSipniImunizationById")]
+        public async Task<IActionResult> AddSipniImunizationById(Guid applicationId, Guid personId, Guid userId)
         {
             try
             {
                 var command = new AddSipniImunizationByIdCommand(
                     applicationId,
-                    personId);
+                    personId,
+                    userId);
 
                 var result = await _mediator.Send(command);
                 return Ok(result);

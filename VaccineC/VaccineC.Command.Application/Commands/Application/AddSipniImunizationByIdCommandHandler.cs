@@ -38,6 +38,19 @@ namespace VaccineC.Command.Application.Commands.Application
                 throw new ArgumentException("Aplicação não encontrada!");
             }
 
+            var applicationDate = (DateTime)application.ApplicationDate;
+            var today = DateTime.Now.Date;
+
+            if (application.UserId != request.UserId)
+            {
+                throw new ArgumentException("Não é possível realizar a comunicação: O usuário comunicador deve ser o mesmo responsável pela aplicação.");
+            }
+
+            if (applicationDate.Date != today)
+            {
+                throw new ArgumentException("Não é possível realizar a comunicação: a comunicação deve ser realizada no mesmo dia da aplicação.");
+            }
+
             await _mediator.Send(new AddSipniImunizationCommand(application));
 
             return await _appService.GetHistoryApplicationsByPersonId(request.PersonId);

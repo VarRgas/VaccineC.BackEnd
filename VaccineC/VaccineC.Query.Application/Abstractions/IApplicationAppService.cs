@@ -17,6 +17,7 @@ namespace VaccineC.Query.Application.Abstractions
         Task <ApplicationNumberViewModel> GetApplicationsNumbers(int month, int year);
         Task<bool> GetPersonApplicationProductSameDay(Guid personId, Guid productId);
         Task<int> GetApplicationNumberByPersonId(Guid personId);
+        Task<bool> VerifyApplicationAbleUpdate(Guid applicationId, Guid userId);
         ApplicationViewModel GetById(Guid id);
     }
 }

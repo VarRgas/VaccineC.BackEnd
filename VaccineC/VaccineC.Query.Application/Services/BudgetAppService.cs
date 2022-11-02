@@ -117,6 +117,8 @@ namespace VaccineC.Query.Application.Services
             BudgetDashInfoViewModel budgetDashInfoViewModel = new BudgetDashInfoViewModel();
             budgetDashInfoViewModel.totalBudgetDiscount = 0;
 
+            List<ProductBudgetDashInfoViewModel> listProductBudgetDashInfoViewModel = new List<ProductBudgetDashInfoViewModel>();
+
             var budgets = (from b in _context.Budgets
                           join p in _context.Persons on b.PersonId equals p.ID
                           where b.Register >= dateSearchMinimum.Date
@@ -156,7 +158,33 @@ namespace VaccineC.Query.Application.Services
                                          where b.Register <= dateSearchMaximumPrevious.Date
                                          select bn.TotalAmountTraded).Sum();
 
+            var products = (from bp in _context.BudgetsProducts
+                            join b in _context.Budgets on bp.BudgetId equals b.ID
+                            join p in _context.Products on bp.ProductId equals p.ID
+                            where b.Register >= dateSearchMinimum.Date
+                            where b.Register <= dateSearchMaximum.Date
+                            select new ProductViewModel
+                            {
+                                ID = p.ID,
+                                Name = p.Name
+                            }).Distinct().ToList();
 
+            foreach (var product in products)
+            {
+
+                var quantityProduct = (from bp in _context.BudgetsProducts
+                                       join b in _context.Budgets on bp.BudgetId equals b.ID
+                                       join p in _context.Products on bp.ProductId equals p.ID
+                                       where b.Register >= dateSearchMinimum.Date
+                                       where p.ID.Equals(product.ID)
+                                       select p.ID).Count();
+                
+                ProductBudgetDashInfoViewModel productBudgetDashInfoViewModel = new ProductBudgetDashInfoViewModel();
+                productBudgetDashInfoViewModel.Name = product.Name;
+                productBudgetDashInfoViewModel.Quantity = quantityProduct;
+                listProductBudgetDashInfoViewModel.Add(productBudgetDashInfoViewModel);
+            }
+             
 
             foreach (var budget in budgets)
             {
@@ -227,6 +255,7 @@ namespace VaccineC.Query.Application.Services
             budgetDashInfoViewModel.totalBudgetNumberPrevious = budgetsPrevious.Count();
             budgetDashInfoViewModel.totalBudgetAmount = budgetsAmount;
             budgetDashInfoViewModel.totalBudgetAmountPrevious = budgetsAmountPrevious;
+            budgetDashInfoViewModel.listProductBudgetDashInfoViewModel = listProductBudgetDashInfoViewModel;
 
             return budgetDashInfoViewModel;
 
