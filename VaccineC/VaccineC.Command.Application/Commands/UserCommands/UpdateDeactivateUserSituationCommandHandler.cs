@@ -17,6 +17,12 @@ namespace VaccineC.Command.Application.Commands.UserCommands
         public async Task<UserViewModel> Handle(UpdateDeactivateUserSituationCommand request, CancellationToken cancellationToken)
         {
             var user = _userRepository.GetById(request.ID);
+
+            if (user == null)
+            {
+                throw new ArgumentException("Usuário não encontrado!");
+            }
+
             user.SetSituation("I");
             user.SetRegister(DateTime.Now);
 

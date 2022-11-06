@@ -16,6 +16,12 @@ namespace VaccineC.Command.Application.Commands.PaymentForm
         public async Task<Unit> Handle(DeletePaymentFormCommand request, CancellationToken cancellationToken)
         {
             var paymentForm = _paymentFormRepository.GetById(request.Id);
+
+            if (paymentForm == null)
+            {
+                throw new ArgumentException("Forma de Pagamento não encontrada!");
+            }
+
             _paymentFormRepository.Remove(paymentForm);
             await _paymentFormRepository.SaveChangesAsync();
 

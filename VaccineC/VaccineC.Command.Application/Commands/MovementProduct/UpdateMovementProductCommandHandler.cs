@@ -44,6 +44,12 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
             }
 
             var movementProduct = _movementProductRepository.GetById(request.ID);
+
+            if (movementProduct == null)
+            {
+                throw new ArgumentException("Movimento Produto não encontrado!");
+            }
+
             movementProduct.SetProductId(request.ProductsId);
             movementProduct.SetBatch(request.Batch);
             movementProduct.SetUnitsNumber(request.UnitsNumber);

@@ -21,6 +21,12 @@ namespace VaccineC.Command.Application.Commands.PersonPhone
         {
 
             var personPhone = _personPhoneRepository.GetById(request.ID);
+
+            if (personPhone == null)
+            {
+                throw new ArgumentException("Telefone não encontrado!");
+            }
+
             personPhone.SetNumberPhone(request.NumberPhone);
             personPhone.SetCodeArea(request.CodeArea);
             personPhone.SetPhoneType(request.PhoneType);

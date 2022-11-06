@@ -22,27 +22,48 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetMovementListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetMovementListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<MovementsController>/5/GetAllByMovementNumber
         [HttpGet("{info}/GetAllByMovementNumber")]
         public async Task<IActionResult> GetByName(string info)
         {
-            var command = new GetMovementListByMovementNumberQuery(info);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetMovementListByMovementNumberQuery(info);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<MovementsController>/5/
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetMovementByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetMovementByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("Create")]

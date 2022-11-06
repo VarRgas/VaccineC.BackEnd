@@ -108,6 +108,11 @@ namespace VaccineC.Query.Application.Services
 
         public async Task<BudgetDashInfoViewModel> GetBudgetsDashInfo(int month, int year)
         {
+
+            List<string> budgetSituations = new List<string>();
+            budgetSituations.Add("A");
+            budgetSituations.Add("F");
+
             DateTime dateSearchMinimum = new DateTime(year, month, 1);
             DateTime dateSearchMaximum = new DateTime(year, month, DateTime.DaysInMonth(year, month));
 
@@ -121,8 +126,8 @@ namespace VaccineC.Query.Application.Services
 
             var budgets = (from b in _context.Budgets
                           join p in _context.Persons on b.PersonId equals p.ID
-                          where b.Register >= dateSearchMinimum.Date
-                          where b.Register <= dateSearchMaximum.Date
+                          where b.CreationDate >= dateSearchMinimum.Date
+                          where b.CreationDate <= dateSearchMaximum.Date
                           select new BudgetViewModel
                           {
                               Situation = b.Situation,
@@ -137,8 +142,8 @@ namespace VaccineC.Query.Application.Services
 
             var budgetsPrevious = (from b in _context.Budgets
                                    join p in _context.Persons on b.PersonId equals p.ID
-                                   where b.Register >= dateSearchMinimumPrevious.Date
-                                   where b.Register <= dateSearchMaximumPrevious.Date
+                                   where b.CreationDate >= dateSearchMinimumPrevious.Date
+                                   where b.CreationDate <= dateSearchMaximumPrevious.Date
                                    select new BudgetViewModel
                                    {
                                        DiscountPercentage = b.DiscountPercentage,
@@ -148,21 +153,23 @@ namespace VaccineC.Query.Application.Services
 
             var budgetsAmount = (from bn in _context.BudgetsNegotiations
                                  join b in _context.Budgets on bn.BudgetId equals b.ID
-                                 where b.Register >= dateSearchMinimum.Date
-                                 where b.Register <= dateSearchMaximum.Date
+                                 where b.CreationDate >= dateSearchMinimum.Date
+                                 where b.CreationDate <= dateSearchMaximum.Date
+                                 where budgetSituations.Contains(b.Situation)
                                  select bn.TotalAmountTraded).Sum();
 
             var budgetsAmountPrevious = (from bn in _context.BudgetsNegotiations
                                          join b in _context.Budgets on bn.BudgetId equals b.ID
-                                         where b.Register >= dateSearchMinimumPrevious.Date
-                                         where b.Register <= dateSearchMaximumPrevious.Date
+                                         where b.CreationDate >= dateSearchMinimumPrevious.Date
+                                         where b.CreationDate <= dateSearchMaximumPrevious.Date
+                                         where budgetSituations.Contains(b.Situation)
                                          select bn.TotalAmountTraded).Sum();
 
             var products = (from bp in _context.BudgetsProducts
                             join b in _context.Budgets on bp.BudgetId equals b.ID
                             join p in _context.Products on bp.ProductId equals p.ID
-                            where b.Register >= dateSearchMinimum.Date
-                            where b.Register <= dateSearchMaximum.Date
+                            where b.CreationDate >= dateSearchMinimum.Date
+                            where b.CreationDate <= dateSearchMaximum.Date
                             select new ProductViewModel
                             {
                                 ID = p.ID,
@@ -175,7 +182,7 @@ namespace VaccineC.Query.Application.Services
                 var quantityProduct = (from bp in _context.BudgetsProducts
                                        join b in _context.Budgets on bp.BudgetId equals b.ID
                                        join p in _context.Products on bp.ProductId equals p.ID
-                                       where b.Register >= dateSearchMinimum.Date
+                                       where b.CreationDate >= dateSearchMinimum.Date
                                        where p.ID.Equals(product.ID)
                                        select p.ID).Count();
                 
@@ -251,14 +258,66 @@ namespace VaccineC.Query.Application.Services
                 }
             }
 
+            budgetDashInfoViewModel.year = year;
+            budgetDashInfoViewModel.month = month;
             budgetDashInfoViewModel.totalBudgetNumber = budgets.Count();
             budgetDashInfoViewModel.totalBudgetNumberPrevious = budgetsPrevious.Count();
             budgetDashInfoViewModel.totalBudgetAmount = budgetsAmount;
             budgetDashInfoViewModel.totalBudgetAmountPrevious = budgetsAmountPrevious;
             budgetDashInfoViewModel.listProductBudgetDashInfoViewModel = listProductBudgetDashInfoViewModel;
+            budgetDashInfoViewModel.listBudgetProfitMonthViewModel = await getProfitMonths(year);
+
+            if (budgetsAmountPrevious > 0) {
+                if (budgetsAmount - budgetsAmountPrevious > 0)
+                {
+                    budgetDashInfoViewModel.totalBudgetAmountIncrease = budgetsAmount - budgetsAmountPrevious;
+                    budgetDashInfoViewModel.totalBudgetAmountIncreasePercent = ((budgetsAmount - budgetsAmountPrevious) / budgetsAmountPrevious * 100) ;
+                }
+                else if (budgetsAmount - budgetsAmountPrevious < 0)
+                {
+                    budgetDashInfoViewModel.totalBudgetAmountDecrease = budgetsAmount - budgetsAmountPrevious;
+                    budgetDashInfoViewModel.totalBudgetAmountDecreasePercent = ((budgetsAmount - budgetsAmountPrevious) / budgetsAmountPrevious * 100) ;
+                }
+            }
+
 
             return budgetDashInfoViewModel;
 
+        }
+
+        private async Task<List<BudgetProfitMonthViewModel>> getProfitMonths(int year)
+        {
+
+            List<BudgetProfitMonthViewModel> listBudgetProfitMonthViewModel = new List<BudgetProfitMonthViewModel>();
+
+            var month = 1;
+            
+            while (month < 13)
+            {
+                BudgetProfitMonthViewModel budgetProfitMonthViewModel = new BudgetProfitMonthViewModel();
+                budgetProfitMonthViewModel.Month = month;
+                budgetProfitMonthViewModel.Amount = await getMonthBudgetAmount(month, year);
+                listBudgetProfitMonthViewModel.Add(budgetProfitMonthViewModel);
+
+                month++;
+            }
+
+            return listBudgetProfitMonthViewModel;
+        }
+
+        private async Task<decimal> getMonthBudgetAmount(int month, int year)
+        {
+
+            DateTime dateMinimum = new DateTime(year, month, 1);
+            DateTime dateMaximum = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+
+            var budgetsAmount = (from bn in _context.BudgetsNegotiations
+                                 join b in _context.Budgets on bn.BudgetId equals b.ID
+                                 where b.CreationDate >= dateMinimum.Date
+                                 where b.CreationDate <= dateMaximum.Date
+                                 select bn.TotalAmountTraded).Sum();
+
+            return budgetsAmount;
         }
     }
 }

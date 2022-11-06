@@ -30,7 +30,7 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
 
             if (budgetProductViewModel == null)
             {
-                throw new ArgumentException("Produto Orçamento não encontrado!");
+                throw new ArgumentException("Orçamento Produto não encontrado!");
 
             }
 

@@ -23,27 +23,49 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetPersonAddressListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonAddressListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<PersonsAddressesController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetPersonAddressByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonAddressByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
         // GET: api/<PersonsAddressesController>/5/GetAllPersonsAddressesByPersonId
         [HttpGet("{personId}/GetAllPersonsAddressesByPersonId")]
         public async Task<IActionResult> GetAllCompaniesSchedulesByCompanyID(Guid personId)
         {
-            var command = new GetPersonsAddressesByPersonIdQuery(personId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonsAddressesByPersonIdQuery(personId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST api/<PersonsAddressesController>/Create
@@ -104,23 +126,41 @@ namespace VaccineC.Controllers
             {
                 return Conflict(ex);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<PersonsAddressesController>/3/Delete
         [HttpDelete("{id}/Delete")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeletePersonAddressCommand(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new DeletePersonAddressCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{personId}/GetPrincipalPersonAddress")]
         public async Task<IActionResult> GetPrincipalPersonAddress(Guid personId)
         {
-            var command = new GetPrincipalPersonAddressByPersonIdQuery(personId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPrincipalPersonAddressByPersonIdQuery(personId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

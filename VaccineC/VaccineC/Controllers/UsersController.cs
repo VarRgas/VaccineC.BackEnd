@@ -23,36 +23,64 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetUserListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetUserListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<UsersController>/Info/GetByEmail
         [HttpGet("{name}/GetByEmail")]
         public async Task<IActionResult> GetByEmail(string name)
         {
-            var command = new GetUserByEmailQuery(name);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetUserByEmailQuery(name);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<UsersController>/GetAllActive
         [HttpGet, Route("GetAllActive")]
         public async Task<IActionResult> GetAllActive()
         {
-            var command = new GetUserListActiveQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetUserListActiveQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetUserByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetUserByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
@@ -102,6 +130,10 @@ namespace VaccineC.Controllers
             {
                 return Conflict(ex);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<UsersController>/3/Delete
@@ -117,6 +149,10 @@ namespace VaccineC.Controllers
             catch (DbUpdateException ex)
             {
                 return BadRequest("Existem informações vinculadas a este usuário que impedem sua exclusão.");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

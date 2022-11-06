@@ -21,6 +21,12 @@ namespace VaccineC.Command.Application.Commands.CompanySchedule
         {
 
             var companySchedule = _companyScheduleRepository.GetById(request.ID);
+
+            if (companySchedule == null)
+            {
+                throw new ArgumentException("Horário não encontrado!");
+            }
+
             companySchedule.SetDay(request.Day);
             companySchedule.SetStartTime(request.StartTime);
             companySchedule.SetFinalTime(request.FinalTime);

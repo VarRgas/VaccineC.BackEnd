@@ -22,26 +22,47 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetEventListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetEventListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<EventsController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetEventByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetEventByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet, Route("GetAllActive")]
         public async Task<IActionResult> GetAllActive()
         {
-            var command = new GetEventListActiveQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetEventListActiveQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST api/<EventsController>/Create

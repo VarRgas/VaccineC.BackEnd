@@ -21,25 +21,46 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetProductDosesListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetProductDosesListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{productsId}/GetAllByProductId")]
         public async Task<IActionResult> GetProductsDosesByProductId(Guid productsId)
         {
-            var command = new GetProductsDosesByProductIdQuery(productsId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetProductsDosesByProductIdQuery(productsId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetProductDosesByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetProductDosesByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("Create")]
@@ -82,6 +103,10 @@ namespace VaccineC.Controllers
             {
                 return Conflict(ex);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}/Delete")]
@@ -94,6 +119,10 @@ namespace VaccineC.Controllers
                 return Ok(result);
             }
             catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
             }

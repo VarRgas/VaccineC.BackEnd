@@ -23,45 +23,81 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetBudgetProductListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetProductListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<BudgetsProductsController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetBudgetProductByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetProductByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<BudgetsProductsController>/5/GetBudgetsProductsByBudget
         [HttpGet("{budgetId}/GetBudgetsProductsByBudget")]
         public async Task<IActionResult> GetAllBudgetsProductsByBudgetID(Guid budgetId)
         {
-            var command = new GetBudgetProductListByBudgetQuery(budgetId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetProductListByBudgetQuery(budgetId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<BudgetsProductsController>/5/5/date/GetAllPendingBudgetsProductsByBorrower
         [HttpGet("{budgetId}/{borrowerId}/{startDate}/GetAllPendingBudgetsProductsByBorrower")]
         public async Task<IActionResult> GetAllPendingBudgetsProductsByBorrower(Guid budgetId, Guid borrowerId, DateTime startDate)
         {
-            var command = new GetPendingBudgetProductListByBorrowerQuery(budgetId, borrowerId, startDate);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPendingBudgetProductListByBorrowerQuery(budgetId, borrowerId, startDate);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
         // GET: api/<BudgetsProductsController>/5/date/GetAllPendingBudgetsProductsByResponsible
         [HttpGet("{budgetId}/{startDate}/GetAllPendingBudgetsProductsByResponsible")]
         public async Task<IActionResult> GetAllPendingBudgetsProductsByResponsible(Guid budgetId, DateTime startDate)
         {
-            var command = new GetPendingBudgetProductListByResponsibleQuery(budgetId, startDate);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPendingBudgetProductListByResponsibleQuery(budgetId, startDate);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST api/<BudgetsProductsController>/Create
@@ -175,6 +211,10 @@ namespace VaccineC.Controllers
                 return Ok(result);
             }
             catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
             }

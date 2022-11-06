@@ -31,6 +31,12 @@ namespace VaccineC.Command.Application.Commands.PersonPhysical
             await isExistingCpf(request.CpfNumber, request.ID);
 
             var physicalComplements = _repository.GetById(request.ID);
+
+            if (physicalComplements == null)
+            {
+                throw new ArgumentException("Complemento Pessoa Física não encontrado!");
+            }
+
             physicalComplements.SetMaritalStatus(request.MaritalStatus);
             physicalComplements.SetCPF(request.CpfNumber);
             physicalComplements.SetCNS(request.CnsNumber);

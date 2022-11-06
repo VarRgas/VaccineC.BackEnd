@@ -15,6 +15,12 @@ namespace VaccineC.Command.Application.Commands.Resource
         public async Task<Unit> Handle(DeleteResourceCommand request, CancellationToken cancellationToken)
         {
             var resource = _resourceRepository.GetById(request.Id);
+
+            if (resource == null)
+            {
+                throw new ArgumentException("Recurso não encontrado!");
+            }
+
             _resourceRepository.Remove(resource);
             await _resourceRepository.SaveChangesAsync();
 

@@ -27,6 +27,12 @@ namespace VaccineC.Command.Application.Commands.ProductDoses
         {
 
             var updatedDose = _repository.GetById(request.ID);
+
+            if (updatedDose == null)
+            {
+                throw new ArgumentException("Produto Dose não encontrado!");
+            }
+
             updatedDose.SetProductsId(request.ProductsId);
             updatedDose.SetDoseType(request.DoseType);
             updatedDose.SetDoseRangeMonth(request.DoseRangeMonth);

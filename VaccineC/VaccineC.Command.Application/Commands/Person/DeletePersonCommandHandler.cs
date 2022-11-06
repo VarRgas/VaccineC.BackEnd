@@ -15,6 +15,12 @@ namespace VaccineC.Command.Application.Commands.Person
         public async Task<Unit> Handle(DeletePersonCommand request, CancellationToken cancellationToken)
         {
             var person = _personRepository.GetById(request.Id);
+
+            if (person == null)
+            {
+                throw new ArgumentException("Pessoa não encontrada!");
+            }
+
             _personRepository.Remove(person);
             await _personRepository.SaveChangesAsync();
 

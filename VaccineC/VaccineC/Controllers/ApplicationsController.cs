@@ -21,73 +21,136 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetApplicationListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetApplicationListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetApplicationByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetApplicationByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{personId}/GetPersonApplicationNumber")]
         public async Task<IActionResult> GetPersonApplicationNumber(Guid personId)
         {
-            var command = new GetApplicationNumberByPersonIdQuery(personId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetApplicationNumberByPersonIdQuery(personId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{personId}/{productId}/GetPersonApplicationProductSameDay")]
         public async Task<IActionResult> GetPersonApplicationProductSameDay(Guid personId, Guid productId)
         {
-            var command = new GetPersonApplicationProductSameDayQuery(personId, productId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonApplicationProductSameDayQuery(personId, productId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{applicationId}/GetSipniImunizationById")]
         public async Task<IActionResult> GetSipniImunizationById(Guid applicationId)
         {
-            var command = new GetSipniImunizationByIdQuery(applicationId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetSipniImunizationByIdQuery(applicationId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{personId}/GetAvailableApplicationsByPersonId")]
         public async Task<IActionResult> GetAvailableApplicationsByPersonId(Guid personId)
         {
-            var command = new GetAvailableApplicationsByPersonIdQuery(personId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetAvailableApplicationsByPersonIdQuery(personId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{personId}/GetHistoryApplicationsByPersonId")]
         public async Task<IActionResult> GetHistoryApplicationsByPersonId(Guid personId)
         {
-            var command = new GetHistoryApplicationsByPersonIdQuery(personId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetHistoryApplicationsByPersonIdQuery(personId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{applicationId}/{userId}/VerifyApplicationAbleUpdate")]
         public async Task<IActionResult> VerifyApplicationAbleUpdate(Guid applicationId, Guid userId)
         {
-            var command = new VerifyApplicationAbleUpdateQuery(applicationId, userId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new VerifyApplicationAbleUpdateQuery(applicationId, userId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{personName}/{responsibleId}/{applicationDate}/GetApplicationsByParameters")]
         public async Task<IActionResult> GetApplicationsByParameters(string personName, Guid responsibleId, DateTime applicationDate)
         {
-            var command = new GetApplicationsByParametersQuery(responsibleId, applicationDate, personName);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetApplicationsByParametersQuery(responsibleId, applicationDate, personName);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{month}/{year}/GetApplicationsByPersonGender")]
@@ -103,7 +166,6 @@ namespace VaccineC.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
 
         [HttpGet("{month}/{year}/GetApplicationsByProductId")]
@@ -119,7 +181,6 @@ namespace VaccineC.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
 
         [HttpGet("{month}/{year}/GetApplicationsByAge")]
@@ -135,7 +196,6 @@ namespace VaccineC.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
 
 
@@ -152,7 +212,6 @@ namespace VaccineC.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
 
         [HttpGet("{month}/{year}/GetSipniIntegrationSituation")]
@@ -168,7 +227,6 @@ namespace VaccineC.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
 
         [HttpGet("{month}/{year}/GetApplicationNumbers")]
@@ -184,7 +242,6 @@ namespace VaccineC.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
 
         [HttpPost("Create")]

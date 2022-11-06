@@ -23,33 +23,61 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetPersonListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{personType}/GetAllByType")]
         public async Task<IActionResult> GetAllByType(string personType)
         {
-            var command = new GetPersonListByTypeQuery(personType);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonListByTypeQuery(personType);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{name}/GetByName")]
         public async Task<IActionResult> GetByName(string name)
         {
-            var command = new GetPersonListByNameQuery(name);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonListByNameQuery(name);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetPersonByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("Create")]
@@ -98,6 +126,10 @@ namespace VaccineC.Controllers
             {
                 return Conflict(ex);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}/Delete")]
@@ -113,30 +145,55 @@ namespace VaccineC.Controllers
             {
                 return BadRequest("Existem informações vinculadas a esta pessoa que impedem sua exclusão.");
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet, Route("GetAllUserAutocomplete")]
         public async Task<IActionResult> GetAllUserAutocomplete()
         {
-            var command = new GetPersonListUserAutocompleteQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonListUserAutocompleteQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet, Route("GetAllCompanyAutocomplete")]
         public async Task<IActionResult> GetAllCompanyAutocomplete()
         {
-            var command = new GetPersonListCompanyAutocompleteQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonListCompanyAutocompleteQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet, Route("GetAllAuthorizationAutocomplete")]
         public async Task<IActionResult> GetAllAuthorizationAutocomplete()
         {
-            var command = new GetPersonListAuthorizationAutocompleteQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonListAuthorizationAutocompleteQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

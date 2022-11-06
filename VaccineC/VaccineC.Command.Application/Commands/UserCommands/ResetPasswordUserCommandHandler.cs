@@ -19,6 +19,12 @@ namespace VaccineC.Command.Application.Commands.UserCommands
         {
 
             var user = _userRepository.GetById(request.ID);
+
+            if (user == null)
+            {
+                throw new ArgumentException("Usuário não encontrado!");
+            }
+
             user.SetPassword(PasswordManager.HashPassword(request.Password));
             user.SetRegister(DateTime.Now);
 

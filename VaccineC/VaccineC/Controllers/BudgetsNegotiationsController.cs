@@ -22,27 +22,48 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetBudgetNegotiationListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetNegotiationListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<BudgetsNegotiationsController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetBudgetNegotiationByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetNegotiationByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<BudgetsNegotiationsController>/5/GetBudgetsNegotiationsByBudget
         [HttpGet("{budgetId}/GetBudgetsNegotiationsByBudget")]
         public async Task<IActionResult> GetAllBudgetsNegotiationsByBudgetID(Guid budgetId)
         {
-            var command = new GetBudgetNegotiationListByBudgetQuery(budgetId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetNegotiationListByBudgetQuery(budgetId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST api/<BudgetsNegotiationsController>/Create
@@ -81,6 +102,10 @@ namespace VaccineC.Controllers
                 return Ok(result);
             }
             catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
             }

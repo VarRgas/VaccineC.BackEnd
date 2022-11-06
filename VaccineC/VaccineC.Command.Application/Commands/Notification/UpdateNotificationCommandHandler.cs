@@ -22,6 +22,12 @@ namespace VaccineC.Command.Application.Commands.Notification
         public async Task<IEnumerable<NotificationViewModel>> Handle(UpdateNotificationCommand request, CancellationToken cancellationToken)
         {
             var updatedNotification = _notificationRepository.GetById(request.ID);
+
+            if (updatedNotification == null)
+            {
+                throw new ArgumentException("Notificação não encontrada!");
+            }
+
             updatedNotification.SetSituation(request.Situation);
 
             await _notificationRepository.SaveChangesAsync();

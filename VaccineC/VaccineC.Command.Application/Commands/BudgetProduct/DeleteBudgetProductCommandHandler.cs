@@ -25,6 +25,17 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
 
             var budgetProduct = _repository.GetById(request.Id);
             var budgetProductViewModel = _appService.GetById(request.Id);
+
+            if (budgetProduct == null)
+            {
+                throw new ArgumentException("Orçamento Produto não encontrado!");
+            }
+
+            if (budgetProductViewModel == null)
+            {
+                throw new ArgumentException("Orçamento Produto não encontrado!");
+            }
+
             _repository.Remove(budgetProduct);
 
             await _repository.SaveChangesAsync();

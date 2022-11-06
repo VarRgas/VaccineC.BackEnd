@@ -23,36 +23,64 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetAuthorizationListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetAuthorizationListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<AuthorizationsController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetAuthorizationByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetAuthorizationByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<AuthorizationsController>/GetSummarySituationAuthorization
         [HttpGet("GetSummarySituationAuthorization")]
         public async Task<IActionResult> getSummarySituationAuthorization()
         {
-            var command = new GetSummarySituationAuthorizationQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetSummarySituationAuthorizationQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<AuthorizationsController>/GetAuthorizationByEventId
         [HttpGet("{eventId}/GetAuthorizationByEventId")]
         public async Task<IActionResult> getAuthorizationByEventId(Guid eventId)
         {
-            var command = new GetAuthorizationByEventIdQuery(eventId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetAuthorizationByEventIdQuery(eventId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{month}/{year}/GetAuthorizationsDashInfo")]
@@ -92,9 +120,16 @@ namespace VaccineC.Controllers
         [HttpGet("GetAuthorizationsForApplication")]
         public async Task<IActionResult> getAuthorizationsForApplication()
         {
-            var command = new GetAuthorizationForApplicationQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetAuthorizationForApplicationQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST api/<AuthorizationsController>/Create
@@ -219,7 +254,6 @@ namespace VaccineC.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
     }
 }

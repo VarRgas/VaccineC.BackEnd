@@ -26,6 +26,11 @@ namespace VaccineC.Command.Application.Commands.Budget
         {
             var updatedBudget = _repository.GetById(request.ID);
 
+            if (updatedBudget == null)
+            {
+                throw new ArgumentException("Orçamento não encontrado!");
+            }
+
             string budgetSituation = updatedBudget.Situation;
            
             updatedBudget.SetSituation(request.Situation);
@@ -35,7 +40,6 @@ namespace VaccineC.Command.Application.Commands.Budget
             updatedBudget.SetDiscountPercentage(request.DiscountPercentage);
             updatedBudget.SetDiscountValue(request.DiscountValue);
             updatedBudget.SetExpirationDate(request.ExpirationDate);
-            updatedBudget.SetApprovalDate(request.ApprovalDate);
             updatedBudget.SetDetails(request.Details);
             updatedBudget.SetRegister(DateTime.Now);
 

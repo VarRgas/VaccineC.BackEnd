@@ -15,6 +15,12 @@ namespace VaccineC.Command.Application.Commands.Company
         public async Task<Unit> Handle(DeleteCompanyCommand request, CancellationToken cancellationToken)
         {
             var company = _companyRepository.GetById(request.Id);
+
+            if (company == null)
+            {
+                throw new ArgumentException("Empresa não encontrado!");
+            }
+
             _companyRepository.Remove(company);
             await _companyRepository.SaveChangesAsync();
 

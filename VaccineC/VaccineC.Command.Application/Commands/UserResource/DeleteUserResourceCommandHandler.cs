@@ -22,6 +22,12 @@ namespace VaccineC.Command.Application.Commands.UserResource
         public async Task<IEnumerable<ResourceViewModel>> Handle(DeleteUserResourceCommand request, CancellationToken cancellationToken)
         {
             var userResource = _userResourceRepository.GetById(request.Id);
+
+            if (userResource == null)
+            {
+                throw new ArgumentException("Usuário Recurso não encontrado!");
+            }
+
             _userResourceRepository.Remove(userResource);
             await _userResourceRepository.SaveChangesAsync();
 

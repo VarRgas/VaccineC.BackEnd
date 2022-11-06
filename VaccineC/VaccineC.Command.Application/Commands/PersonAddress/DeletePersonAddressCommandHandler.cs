@@ -22,6 +22,12 @@ namespace VaccineC.Command.Application.Commands.PersonAddress
         {
 
             var personAddress = _personAddressRepository.GetById(request.Id);
+
+            if (personAddress == null)
+            {
+                throw new ArgumentException("Endereço não encontrado!");
+            }
+
             _personAddressRepository.Remove(personAddress);
 
             await _personAddressRepository.SaveChangesAsync();

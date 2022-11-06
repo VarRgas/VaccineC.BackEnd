@@ -16,6 +16,12 @@ namespace VaccineC.Command.Application.Commands.PaymentForm
         public async Task<Guid> Handle(UpdatePaymentFormCommand request, CancellationToken cancellationToken)
         {
             var paymentForm = _paymentFormRepository.GetById(request.ID);
+
+            if (paymentForm == null)
+            {
+                throw new ArgumentException("Forma de Pagamento não encontrada!");
+            }
+
             paymentForm.SetName(request.Name);
             paymentForm.SetMaximumInstallments(request.MaximumInstallments);
             paymentForm.SetRegister(DateTime.Now);

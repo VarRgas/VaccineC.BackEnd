@@ -34,8 +34,8 @@ namespace VaccineC.Command.Domain.Entities
         [Column("expirationDate", TypeName = "datetime")]
         public DateTime? ExpirationDate { get; set; }
 
-        [Column("approvalDate", TypeName = "datetime")]
-        public DateTime? ApprovalDate { get; set; }
+        [Column("creationDate", TypeName = "datetime")]
+        public DateTime? CreationDate { get; set; }
 
         [Column("details", TypeName = "varchar(255)")]
         public string? Details { get; set; }
@@ -48,7 +48,7 @@ namespace VaccineC.Command.Domain.Entities
         public DateTime Register { get; set; }
 
         public Budget(Guid id, Guid userId, Guid personId, string situation, decimal discountPercentage, decimal discountValue,
-            decimal totalBudgetAmount, decimal totalBudgetedAmount, DateTime? expirationDate, DateTime? approvalDate, string? details, int budgetNumber, DateTime register)
+            decimal totalBudgetAmount, decimal totalBudgetedAmount, DateTime? expirationDate, DateTime? creationDate, string? details, int budgetNumber, DateTime register)
         {
             ID = id;
             UserId = userId;
@@ -59,7 +59,7 @@ namespace VaccineC.Command.Domain.Entities
             TotalBudgetAmount = totalBudgetAmount;
             TotalBudgetedAmount = totalBudgetedAmount;
             ExpirationDate = expirationDate;
-            ApprovalDate = approvalDate;
+            CreationDate = creationDate;
             Details = details;
             BudgetNumber = budgetNumber;
             Register = register;
@@ -108,9 +108,9 @@ namespace VaccineC.Command.Domain.Entities
             ExpirationDate = expirationDate;
         }
 
-        public void SetApprovalDate(DateTime? approvalDate)
+        public void SetCreationDate(DateTime? creationDate)
         {
-            ApprovalDate = approvalDate;
+            CreationDate = creationDate;
         }
 
         public void SetDetails(string? details)

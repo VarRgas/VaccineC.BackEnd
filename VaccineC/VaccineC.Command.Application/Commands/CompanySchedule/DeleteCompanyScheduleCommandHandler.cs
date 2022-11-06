@@ -22,6 +22,12 @@ namespace VaccineC.Command.Application.Commands.CompanySchedule
         public async Task<IEnumerable<CompanyScheduleViewModel>> Handle(DeleteCompanyScheduleCommand request, CancellationToken cancellationToken)
         {
             var companySchedule = _companyScheduleRepository.GetById(request.Id);
+
+            if (companySchedule == null)
+            {
+                throw new ArgumentException("Horário não encontrado!");
+            }
+
             _companyScheduleRepository.Remove(companySchedule);
             await _companyScheduleRepository.SaveChangesAsync();
 

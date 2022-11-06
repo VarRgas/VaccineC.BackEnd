@@ -31,6 +31,12 @@ namespace VaccineC.Command.Application.Commands.PersonJuridical
             await isExistingCnpj(request.CnpjNumber, request.ID);
 
             var juridicalComplement = _repository.GetById(request.ID);
+
+            if (juridicalComplement == null)
+            {
+                throw new ArgumentException("Complemento Pessoa Jurídica não encontrado!");
+            }
+
             juridicalComplement.SetFantasyName(request.FantasyName);
             juridicalComplement.SetCnpjNumber(request.CnpjNumber);
             juridicalComplement.SetRegister(DateTime.Now);

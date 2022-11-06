@@ -25,6 +25,12 @@ namespace VaccineC.Command.Application.Commands.Product
         {
 
             var updatedProduct = _repository.GetById(request.ID);
+
+            if (updatedProduct == null)
+            {
+                throw new ArgumentException("Produto não encontrado!");
+            }
+
             updatedProduct.SetSbimVaccinesId(request.SbimVaccinesId);
             updatedProduct.SetSituation(request.Situation);
             updatedProduct.SetDetails(request.Details);

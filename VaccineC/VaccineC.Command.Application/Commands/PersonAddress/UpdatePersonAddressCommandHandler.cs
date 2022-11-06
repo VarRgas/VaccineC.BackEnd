@@ -20,6 +20,12 @@ namespace VaccineC.Command.Application.Commands.PersonAddress
         public async Task<IEnumerable<PersonAddressViewModel>> Handle(UpdatePersonAddressCommand request, CancellationToken cancellationToken)
         {
             var personAddress = _personAddressRepository.GetById(request.ID);
+
+            if (personAddress == null)
+            {
+                throw new ArgumentException("Endereço não encontrado!");
+            }
+
             personAddress.SetAddressType(request.AddressType);
             personAddress.SetPublicPlace(request.PublicPlace);
             personAddress.SetDistrict(request.District);

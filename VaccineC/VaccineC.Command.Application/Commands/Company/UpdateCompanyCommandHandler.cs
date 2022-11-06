@@ -24,6 +24,12 @@ namespace VaccineC.Command.Application.Commands.Company
         {
 
             var updatedCompany = _companyRepository.GetById(request.ID);
+
+            if (updatedCompany == null)
+            {
+                throw new ArgumentException("Empresa não encontrado!");
+            }
+
             updatedCompany.SetPersonId(request.PersonId);
             updatedCompany.SetDetails(request.Details);
             updatedCompany.SetRegister(DateTime.Now);

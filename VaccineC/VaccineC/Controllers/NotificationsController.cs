@@ -23,35 +23,63 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetNotificationListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetNotificationListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<NotificationsController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetNotificationByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetNotificationByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<NotificationsController>/5/GetAllNotificationsByUser
         [HttpGet("{userId}/GetAllNotificationsByUser")]
         public async Task<IActionResult> GetAllNotificationsByUser(Guid userId)
         {
-            var command = new GetNotificationByUserIdQuery(userId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetNotificationByUserIdQuery(userId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("ManageNotifications")]
         public async Task<IActionResult> getManageNotifications()
         {
-            var command = new ManageNotificationsCommand();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new ManageNotificationsCommand();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST api/<NotificationsController>/Create
@@ -84,6 +112,10 @@ namespace VaccineC.Controllers
             {
                 return Conflict(ex);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<NotificationsController>/3/Delete
@@ -97,6 +129,10 @@ namespace VaccineC.Controllers
                 return Ok(result);
             }
             catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
             }

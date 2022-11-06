@@ -15,6 +15,12 @@ namespace VaccineC.Command.Application.Commands.PersonPhysical
         public async Task<Unit> Handle(DeletePhysicalComplementsByIdCommand request, CancellationToken cancellationToken)
         {
             var personPhysical = _personPhysicalRepository.GetById(request.Id);
+
+            if (personPhysical == null)
+            {
+                throw new ArgumentException("Complemento Pessoa Física não encontrado!");
+            }
+
             _personPhysicalRepository.Remove(personPhysical);
             await _personPhysicalRepository.SaveChangesAsync();
 

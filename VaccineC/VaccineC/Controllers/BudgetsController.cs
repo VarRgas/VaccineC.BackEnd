@@ -22,41 +22,76 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetBudgetListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{personName}/GetByPersonName")]
         public async Task<IActionResult> GetBudgetsByPersonName(string personName)
         {
-            var command = new GetBudgetByPersonNameQuery(personName);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetByPersonNameQuery(personName);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{borrowerId}/GetAllByBorrower")]
         public async Task<IActionResult> GetAllByBorrower(Guid borrowerId)
         {
-            var command = new GetBudgetListByBorrowerQuery(borrowerId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetListByBorrowerQuery(borrowerId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{responsibleId}/GetAllByResponsible")]
         public async Task<IActionResult> GetAllByResponsible(Guid responsibleId)
         {
-            var command = new GetBudgetListByResponsibleQuery(responsibleId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetListByResponsibleQuery(responsibleId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetBudgetByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetBudgetByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{month}/{year}/GetBudgetsDashInfo")]
@@ -81,7 +116,7 @@ namespace VaccineC.Controllers
             try
             {
                 var command = new AddBudgetCommand(budget.ID, budget.UserId, budget.PersonId, budget.Situation, budget.DiscountPercentage, budget.DiscountValue, budget.TotalBudgetAmount,
-                    budget.TotalBudgetedAmount, budget.ExpirationDate, budget.ApprovalDate, budget.Details, budget.BudgetNumber, budget.Register);
+                    budget.TotalBudgetedAmount, budget.ExpirationDate, budget.CreationDate, budget.Details, budget.BudgetNumber, budget.Register);
 
                 var result = await _mediator.Send(command);
                 return Ok(result);
@@ -106,7 +141,7 @@ namespace VaccineC.Controllers
                                                       budget.TotalBudgetAmount,
                                                       budget.TotalBudgetedAmount, 
                                                       budget.ExpirationDate, 
-                                                      budget.ApprovalDate, 
+                                                      budget.CreationDate, 
                                                       budget.Details, 
                                                       budget.BudgetNumber, 
                                                       budget.Register);

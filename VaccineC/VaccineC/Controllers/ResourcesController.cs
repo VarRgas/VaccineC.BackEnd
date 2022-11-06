@@ -23,18 +23,32 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetResourceListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetResourceListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<ResourcesController>/Info/GetByName
         [HttpGet("{name}/GetByName")]
         public async Task<IActionResult> GetByName(string name)
         {
-            var command = new GetResourceByNameQuery(name);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetResourceByNameQuery(name);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
@@ -42,18 +56,32 @@ namespace VaccineC.Controllers
         [HttpGet("{userId}/GetByUser")]
         public async Task<IActionResult> GetByUser(Guid userId)
         {
-            var command = new GetResourceListByUserResourceQuery(userId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetResourceListByUserResourceQuery(userId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<ResourcesController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetResourceByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetResourceByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST api/<ResourcesController>/Create
@@ -86,6 +114,10 @@ namespace VaccineC.Controllers
             {
                 return Conflict(ex);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<ResourcesController>/3/Delete
@@ -102,7 +134,10 @@ namespace VaccineC.Controllers
             {
                 return BadRequest("Existem informações vinculadas a este recurso que impedem sua exclusão.");
             }
-   
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

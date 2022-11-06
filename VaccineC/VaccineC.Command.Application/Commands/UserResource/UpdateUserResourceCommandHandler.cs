@@ -24,6 +24,12 @@ namespace VaccineC.Command.Application.Commands.UserResource
         {
 
             var userResource = _userResourceRepository.GetById(request.ID);
+
+            if (userResource == null)
+            {
+                throw new ArgumentException("Usuário Recurso não encontrado!");
+            }
+
             userResource.SetResourcesId(request.ResourcesId);
             userResource.SetUsersId(request.UsersId);
             userResource.SetRegister(DateTime.Now);

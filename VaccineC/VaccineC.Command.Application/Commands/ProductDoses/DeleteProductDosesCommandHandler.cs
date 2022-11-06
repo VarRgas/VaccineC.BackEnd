@@ -20,6 +20,12 @@ namespace VaccineC.Command.Application.Commands.ProductDoses
         public async Task<IEnumerable<ProductDosesViewModel>> Handle(DeleteProductDosesCommand request, CancellationToken cancellationToken)
         {
             var dose = _repository.GetById(request.Id);
+
+            if (dose == null)
+            {
+                throw new ArgumentException("Produto Dose não encontrado!");
+            }
+
             _repository.Remove(dose);
             await _repository.SaveChangesAsync();
 

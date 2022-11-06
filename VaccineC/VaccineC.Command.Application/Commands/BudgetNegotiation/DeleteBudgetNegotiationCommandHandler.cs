@@ -24,6 +24,12 @@ namespace VaccineC.Command.Application.Commands.BudgetNegotiation
         {
 
             var budgetNegotiation = _repository.GetById(request.Id);
+
+            if (budgetNegotiation == null)
+            {
+                throw new ArgumentException("Negociação não encontrada!");
+            }
+
             await addNewBudgetHistoric(budgetNegotiation, request.UserId);
             _repository.Remove(budgetNegotiation);
 

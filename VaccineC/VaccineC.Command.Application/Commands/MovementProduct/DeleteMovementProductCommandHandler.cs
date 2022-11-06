@@ -20,6 +20,12 @@ namespace VaccineC.Command.Application.Commands.MovementProduct
         public async Task<IEnumerable<MovementProductViewModel>> Handle(DeleteMovementProductCommand request, CancellationToken cancellationToken)
         {
             var movementProduct = _movementProductRepository.GetById(request.Id);
+
+            if (movementProduct == null)
+            {
+                throw new ArgumentException("Movimento Produto não encontrado!");
+            }
+
             _movementProductRepository.Remove(movementProduct);
 
             await _movementProductRepository.SaveChangesAsync();

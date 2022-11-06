@@ -17,6 +17,12 @@ namespace VaccineC.Command.Application.Commands.CompanyParameter
         {
 
             var companyParameter = _companyParameterRepository.GetById(request.ID);
+
+            if (companyParameter == null)
+            {
+                throw new ArgumentException("Parametros não encontrados!");
+            }
+
             companyParameter.SetMaximumDaysBudgetValidity(request.MaximumDaysBudgetValidity);
             companyParameter.SetDefaultPaymentFormId(request.DefaultPaymentFormId);
             companyParameter.SetApplicationTimePerMinute(request.ApplicationTimePerMinute);

@@ -32,17 +32,31 @@ namespace VaccineC.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetCompanyParameterByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetCompanyParameterByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("GetDefaultCompanyParameter")]
         public async Task<IActionResult> GetDefaultCompanyParameter()
         {
-            var command = new GetDefaultCompanyParametersQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetDefaultCompanyParametersQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("Create")]
@@ -88,6 +102,10 @@ namespace VaccineC.Controllers
             catch (DbUpdateConcurrencyException ex)
             {
                 return Conflict(ex);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

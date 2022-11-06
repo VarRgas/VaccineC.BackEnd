@@ -22,27 +22,49 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetAuthorizationNotificationListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetAuthorizationNotificationListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
         // GET api/<AuthorizationsNotificationsController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetAuthorizationNotificationByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetAuthorizationNotificationByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<AuthorizationsNotificationsController>/GetNotificationsByAuthorizationId
         [HttpGet("{authorizationId}/GetNotificationsByAuthorizationId")]
         public async Task<IActionResult> GetNotificationsByAuthorizationId(Guid authorizationId)
         {
-            var command = new GetAuthorizationNotificationByAuthorizationIdQuery(authorizationId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetAuthorizationNotificationByAuthorizationIdQuery(authorizationId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 

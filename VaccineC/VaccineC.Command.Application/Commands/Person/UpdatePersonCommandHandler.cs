@@ -26,6 +26,11 @@ namespace VaccineC.Command.Application.Commands.Person
 
             var person = _personRepository.GetById(request.ID);
 
+            if (person == null)
+            {
+                throw new ArgumentException("Pessoa não encontrada!");
+            }
+
             if (!person.PersonType.Equals(request.PersonType))
             {
                 if (person.PersonType.Equals("F"))

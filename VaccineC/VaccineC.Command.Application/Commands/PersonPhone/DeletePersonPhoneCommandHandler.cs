@@ -23,6 +23,12 @@ namespace VaccineC.Command.Application.Commands.PersonPhone
         {
 
             var personPhone = _personPhoneRepository.GetById(request.Id);
+
+            if (personPhone == null)
+            {
+                throw new ArgumentException("Telefone não encontrado!");
+            }
+
             _personPhoneRepository.Remove(personPhone);
             await _personPhoneRepository.SaveChangesAsync();
 

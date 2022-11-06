@@ -40,7 +40,7 @@ namespace VaccineC.Command.Application.Commands.Budget
                 request.TotalBudgetAmount,
                 request.TotalBudgetedAmount,
                 request.ExpirationDate,
-                request.ApprovalDate,
+                DateTime.Now,
                 request.Details,
                 request.BudgetNumber,
                 DateTime.Now

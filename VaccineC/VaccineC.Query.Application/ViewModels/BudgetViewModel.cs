@@ -11,7 +11,7 @@
         public decimal TotalBudgetAmount { get; set; }
         public decimal TotalBudgetedAmount { get; set; }
         public DateTime? ExpirationDate { get; set; }
-        public DateTime? ApprovalDate { get; set; }
+        public DateTime? CreationDate { get; set; }
         public string? Details { get; set; }
         public int BudgetNumber { get; set; }
         public DateTime Register { get; set; }

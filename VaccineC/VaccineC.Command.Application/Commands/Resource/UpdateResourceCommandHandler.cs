@@ -16,6 +16,12 @@ namespace VaccineC.Command.Application.Commands.Resource
         public async Task<Guid> Handle(UpdateResourceCommand request, CancellationToken cancellationToken)
         {
             var resource = _resourceRepository.GetById(request.ID);
+
+            if (resource == null)
+            {
+                throw new ArgumentException("Recurso não encontrado!");
+            }
+
             resource.SetName(request.Name);
             resource.SetUrlName(request.UrlName);
             resource.SetRegister(DateTime.Now);

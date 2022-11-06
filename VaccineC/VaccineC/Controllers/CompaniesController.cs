@@ -22,33 +22,61 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetCompanyListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetCompanyListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{name}/GetByName")]
         public async Task<IActionResult> GetByName(string name)
         {
-            var command = new GetCompanyByNameQuery(name);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetCompanyByNameQuery(name);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetCompanyByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetCompanyByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}/GetCompaniesParametersByCompanyID")]
         public async Task<IActionResult> GetCompaniesParametersByCompanyID(Guid id)
         {
-            var command = new GetCompaniesParametersByCompanyIDQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result); //amanda
+            try
+            {
+                var command = new GetCompaniesParametersByCompanyIDQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
@@ -95,6 +123,10 @@ namespace VaccineC.Controllers
             {
                 return Conflict(ex);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}/Delete")]
@@ -109,6 +141,10 @@ namespace VaccineC.Controllers
             catch (DbUpdateException ex)
             {
                 return BadRequest("Existem informações vinculadas a esta empresa que impedem sua exclusão.");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

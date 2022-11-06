@@ -22,65 +22,121 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetProductSummaryBatchListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetProductSummaryBatchListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("GetAllBelowMinimumStock")]
         public async Task<IActionResult> getAllBatchsBelowMinimumStock()
         {
-            var command = new GetProductSummaryBatchBelowMinimumStockListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetProductSummaryBatchBelowMinimumStockListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("GetAllNotEmpty")]
         public async Task<IActionResult> getAllNotEmpty()
         {
-            var command = new GetNotEmptyProductSummaryBatchListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetNotEmptyProductSummaryBatchListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetProductSummaryBatchByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetProductSummaryBatchByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{productsId}/GetAllByProductId")]
         public async Task<IActionResult> GetProductsDosesByProductId(Guid productsId)
         {
-            var command = new GetProductSummaryBatchByProductIdQuery(productsId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetProductSummaryBatchByProductIdQuery(productsId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{productsId}/GetNotEmptyProductSummaryBatchByProductId")]
         public async Task<IActionResult> GetNotEmptyProductSummaryBatchByProductId(Guid productsId)
         {
-            var command = new GetNotEmptyProductSummaryBatchByProductIdListQuery(productsId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetNotEmptyProductSummaryBatchByProductIdListQuery(productsId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{productsId}/GetValidProductsSummariesBatchesByProductId")]
         public async Task<IActionResult> GetValidProductsSummariesBatchesByProductId(Guid productsId)
         {
-            var command = new GetValidProductsSummariesBatchesByProductIdListQuery(productsId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetValidProductsSummariesBatchesByProductIdListQuery(productsId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{productId}/{name}/GetProductSummaryBatchByName")]
         public async Task<IActionResult> GetProductSummaryBatchByName(Guid productId, string name)
         {
-            var command = new GetProductSummaryBatchByNameQuery(productId, name);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetProductSummaryBatchByNameQuery(productId, name);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("Create")]
@@ -129,6 +185,10 @@ namespace VaccineC.Controllers
             {
                 return Conflict(ex);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}/Delete")]
@@ -141,6 +201,10 @@ namespace VaccineC.Controllers
                 return Ok(result);
             }
             catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
             }

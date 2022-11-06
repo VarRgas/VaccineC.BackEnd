@@ -14,13 +14,13 @@ namespace VaccineC.Command.Application.Commands.Budget
         public decimal TotalBudgetAmount;
         public decimal TotalBudgetedAmount;
         public DateTime? ExpirationDate;
-        public DateTime? ApprovalDate;
+        public DateTime? CreationDate;
         public string? Details;
         public int BudgetNumber;
         public DateTime Register;
 
         public AddBudgetCommand(Guid id, Guid userId, Guid personId, string situation, decimal discountPercentage, decimal discountValue,
-            decimal totalBudgetAmount, decimal totalBudgetedAmount, DateTime? expirationDate, DateTime? approvalDate, string? details, int budgetNumber, DateTime register)
+            decimal totalBudgetAmount, decimal totalBudgetedAmount, DateTime? expirationDate, DateTime? creationDate, string? details, int budgetNumber, DateTime register)
         {
             ID = id;
             UserID = userId;
@@ -31,7 +31,7 @@ namespace VaccineC.Command.Application.Commands.Budget
             TotalBudgetAmount = totalBudgetAmount;
             TotalBudgetedAmount = totalBudgetedAmount;
             ExpirationDate = expirationDate;
-            ApprovalDate = approvalDate;
+            CreationDate = creationDate;
             Details = details;
             BudgetNumber = budgetNumber;
             Register = register;

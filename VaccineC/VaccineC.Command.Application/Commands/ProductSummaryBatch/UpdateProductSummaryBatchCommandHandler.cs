@@ -20,6 +20,12 @@ namespace VaccineC.Command.Application.Commands.ProductSummaryBatch
         {
 
             var productSummaryBatch = _repository.GetById(request.ID);
+
+            if (productSummaryBatch == null)
+            {
+                throw new ArgumentException("Produto Lote não encontrado!");
+            }
+
             productSummaryBatch.SetBatch(request.Batch);
             productSummaryBatch.SetNumberOfUnitsBatch(request.NumberOfUnitsBatch);
             productSummaryBatch.SetManufacturingDate(request.ManufacturingDate);

@@ -29,6 +29,11 @@ namespace VaccineC.Command.Application.Commands.Movement
 
             var movement = _movementRepository.GetById(request.ID);
 
+            if (movement == null)
+            {
+                throw new ArgumentException("Movimento não encontrado!");
+            }
+
             if (movement.Situation.Equals("F") || movement.Situation.Equals("C"))
             {
                 string situationMovement = movement.Situation.Equals("F") ? "Finalizado" : "Cancelado";

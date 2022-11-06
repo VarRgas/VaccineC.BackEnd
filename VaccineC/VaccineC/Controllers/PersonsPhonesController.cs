@@ -23,36 +23,64 @@ namespace VaccineC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var command = new GetPersonPhoneListQuery();
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonPhoneListQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<PersonsPhonesController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var command = new GetPersonPhoneByIdQuery(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonPhoneByIdQuery(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<PersonsPhonesController>/5/GetAllPersonsPhonesByPersonId
         [HttpGet("{personId}/GetAllPersonsPhonesByPersonId")]
         public async Task<IActionResult> GetAllCompaniesSchedulesByCompanyID(Guid personId)
         {
-            var command = new GetPersonsPhonesByPersonIdQuery(personId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonsPhonesByPersonIdQuery(personId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<PersonsPhonesController>/5/GetAllPersonsPhonesCellByPersonId
         [HttpGet("{personId}/GetAllPersonsPhonesCellByPersonId")]
         public async Task<IActionResult> GetAllPersonsPhonesCellByPersonId(Guid personId)
         {
-            var command = new GetPersonPhoneCelListQuery(personId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPersonPhoneCelListQuery(personId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST api/<PersonsPhonesController>/Create
@@ -99,24 +127,42 @@ namespace VaccineC.Controllers
             {
                 return Conflict(ex);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<PersonsPhonesController>/3/Delete
         [HttpDelete("{id}/Delete")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeletePersonPhoneCommand(id);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new DeletePersonPhoneCommand(id);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
         [HttpGet("{personId}/GetPrincipalPersonPhone")]
         public async Task<IActionResult> GetPrincipalPersonPhone(Guid personId)
         {
-            var command = new GetPrincipalPersonPhoneByPersonIdQuery(personId);
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            try
+            {
+                var command = new GetPrincipalPersonPhoneByPersonIdQuery(personId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

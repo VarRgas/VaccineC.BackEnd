@@ -24,6 +24,12 @@ namespace VaccineC.Command.Application.Commands.BudgetProduct
         {
 
             var updatedBudgetProduct = _repository.GetById(request.ID);
+
+            if (updatedBudgetProduct == null)
+            {
+                throw new ArgumentException("Orçamento Produto não encontrado!");
+            }
+
             updatedBudgetProduct.SetBorrowerPersonId(request.BorrowerPersonId);
             updatedBudgetProduct.SetProductId(request.ProductId);
             updatedBudgetProduct.SetProductDose(request.ProductDose);

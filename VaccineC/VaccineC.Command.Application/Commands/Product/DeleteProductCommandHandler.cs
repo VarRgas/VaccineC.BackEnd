@@ -15,6 +15,12 @@ namespace VaccineC.Command.Application.Commands.Product
         public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
             var product = _repository.GetById(request.Id);
+
+            if (product == null)
+            {
+                throw new ArgumentException("Produto não encontrado!");
+            }
+
             _repository.Remove(product);
             await _repository.SaveChangesAsync();
 
