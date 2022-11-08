@@ -158,5 +158,21 @@ namespace VaccineC.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost("ManageBudgetOverdue")]
+        public async Task<IActionResult> ManageBudgetOverdue()
+        {
+            try
+            {
+                var command = new ManageBudgetOverdueCommand();
+
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
