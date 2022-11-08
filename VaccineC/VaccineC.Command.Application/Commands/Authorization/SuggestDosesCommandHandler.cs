@@ -181,12 +181,14 @@ namespace VaccineC.Command.Application.Commands.Authorization
             var budgetsProducts = await _queryContext.AllBudgetsProducts.Where(bp => bp.BudgetId == firstBudgetProduct.BudgetId && bp.BorrowerPersonId == firstBudgetProduct.BorrowerId && bp.SituationProduct.Equals("P")).ToListAsync();
             var budgetsProductsViewModel = budgetsProducts.Select(r => _mapper.Map<BudgetProductViewModel>(r)).ToList();
 
-            if (budgetsProductsViewModel.Count() > 0)
+            var budgetsProductsViewModelDistinct = budgetsProductsViewModel.GroupBy(x => x.ProductDose).Select(x => x.First()).ToList();
+
+            if (budgetsProductsViewModelDistinct.Count() > 0)
             {
-                budgetsProductsViewModel[0].ApplicationDate = dateFormated;
+                budgetsProductsViewModelDistinct[0].ApplicationDate = dateFormated;
             }
 
-            foreach (var budgetProductViewModel in budgetsProductsViewModel)
+            foreach (var budgetProductViewModel in budgetsProductsViewModelDistinct)
             {
                 foreach (var budgetProductEdited in listAuthorizationSuggestionViewModel)
                 {
@@ -198,7 +200,7 @@ namespace VaccineC.Command.Application.Commands.Authorization
 
             }
 
-            return budgetsProductsViewModel;
+            return budgetsProductsViewModelDistinct;
         }
 
         private async Task<Unit> validateDifferentProducts(AuthorizationSuggestionViewModel firstBudgetProduct, List<AuthorizationSuggestionViewModel> listAuthorizationSuggestionViewModel)

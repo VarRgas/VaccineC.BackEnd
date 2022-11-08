@@ -11,13 +11,11 @@ namespace VaccineC.Query.Application.Services
     {
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
-        private readonly VaccineCContext _context;
 
-        public ProductDosesAppService(IQueryContext queryContext, IMapper mapper, VaccineCContext context)
+        public ProductDosesAppService(IQueryContext queryContext, IMapper mapper)
         {
             _queryContext = queryContext;
             _mapper = mapper;
-            _context = context;
         }
 
         public async Task<IEnumerable<ProductDosesViewModel>> GetAllAsync()

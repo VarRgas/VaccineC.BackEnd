@@ -484,3 +484,6 @@ C:\Users\varggu\OneDrive - 2020 Spaces\Área de Trabalho\Guilherme Vargas\Vaccin
 C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC\bin\Debug\net6.0\VaccineC.Authentication.dll
 C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC\bin\Debug\net6.0\VaccineC.Authentication.pdb
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC\bin\Debug\net6.0\VaccineC.Authentication.dll
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC\bin\Debug\net6.0\VaccineC.Authentication.pdb

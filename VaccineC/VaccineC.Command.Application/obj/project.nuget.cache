@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2jBFsT+k9MfEcPGucEVeDPuFkDeZUiSjRwm47VbiOn0Xtgby4DcDDngWiKXajYJf+Hbn23EC2FrBx7th5hM0bw==",
+  "dgSpecHash": "Z+EGGcDo36OnFBXsIozzhqEjNSWkB7gvDXTjlNtGnHRaNipXKM8BAsKJNfhTIkXbJHT9LwxXg2qvNrzqxiYXgg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amanda Maschio\\Documents\\VaccineC.Backend\\VaccineC\\VaccineC.Command.Application\\VaccineC.Command.Application.csproj",
+  "projectFilePath": "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Application\\VaccineC.Command.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amanda Maschio\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Amanda Maschio\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

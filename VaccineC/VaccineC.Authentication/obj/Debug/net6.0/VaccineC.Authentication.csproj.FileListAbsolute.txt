@@ -22,3 +22,15 @@ C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Authenticat
 C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\refint\VaccineC.Authentication.dll
 C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.pdb
 C:\Users\Amanda Maschio\Documents\VaccineC.Backend\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\ref\VaccineC.Authentication.dll
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\bin\Debug\net6.0\VaccineC.Authentication.deps.json
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\bin\Debug\net6.0\VaccineC.Authentication.dll
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\bin\Debug\net6.0\VaccineC.Authentication.pdb
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.csproj.AssemblyReference.cache
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.AssemblyInfoInputs.cache
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.AssemblyInfo.cs
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.csproj.CoreCompileInputs.cache
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.dll
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\refint\VaccineC.Authentication.dll
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\VaccineC.Authentication.pdb
+C:\Users\Amanda Maschio\Source\Repos\VaccineC.BackEnd\VaccineC\VaccineC.Authentication\obj\Debug\net6.0\ref\VaccineC.Authentication.dll

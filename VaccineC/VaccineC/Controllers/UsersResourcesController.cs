@@ -69,6 +69,22 @@ namespace VaccineC.Controllers
             }
         }
 
+        // GET: api/<UsersResourcesController>/Info/GetResourcesMenuByUser
+        [HttpGet("{usersId}/GetResourcesMenuByUser")]
+        public async Task<IActionResult> GetResourcesMenuByUser(Guid usersId)
+        {
+            try
+            {
+                var command = new GetUserResourceListMenuByUserQuery(usersId);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         // GET: api/<UsersResourcesController>/GetByUserResource
         [HttpPost, Route("GetByUserResource")]
         public async Task<IActionResult> GetByUserResource([FromBody] GetUserResourceByUserResourceQuery query)
