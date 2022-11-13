@@ -1,4 +1,5 @@
-﻿using VaccineC.Query.Application.ViewModels;
+﻿using MediatR;
+using VaccineC.Query.Application.ViewModels;
 
 namespace VaccineC.Query.Application.Abstractions
 {
@@ -7,6 +8,7 @@ namespace VaccineC.Query.Application.Abstractions
         Task<IEnumerable<UserViewModel>> GetAllAsync();
         Task<IEnumerable<UserViewModel>> GetAllActive();
         Task<IEnumerable<UserViewModel>> GetByEmail(String email);
+        Task<Boolean> GetUserPermission(Guid id, string currentUrl);
         UserViewModel GetById(Guid id);
     }
 }

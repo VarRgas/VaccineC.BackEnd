@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qj9BdvBGTuDE8TPY94Yi3815cIqAR4OjWqTTOsZS+8yHCbgVBG2iBWBqSfpE19c/ZcarH6QxgfGx2M6MlzlTXg==",
+  "dgSpecHash": "rQb+LtZczWgoxp8TG+xwAobuFGsYEPmXT6h15d2PU2OGzYlC69v5t2zboPhlkKU/zdv81rFmaHF67dtilDQK7g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj",
+  "projectFilePath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amanda Maschio\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.10\\microsoft.aspnetcore.authentication.jwtbearer.6.0.10.nupkg.sha512",
     "C:\\Users\\Amanda Maschio\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

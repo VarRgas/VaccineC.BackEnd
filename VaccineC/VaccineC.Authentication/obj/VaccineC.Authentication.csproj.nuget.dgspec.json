@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj": {}
+    "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj": {
+    "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj",
+        "projectUniqueName": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj",
         "projectName": "VaccineC.Authentication",
-        "projectPath": "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj",
+        "projectPath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\VaccineC.Authentication.csproj",
         "packagesPath": "C:\\Users\\Amanda Maschio\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Authentication\\obj\\",
         "projectStyle": "PackageReference",

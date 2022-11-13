@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W8LSHNvCR40G+bg8JsXbOp75ZAqp5zCs9ukYksymOg2zs/CKZxFks5+SN904PiaOdreBvk3ojHje5ljbXQYdTw==",
+  "dgSpecHash": "HBZInabg57rYw1/k/lLfO6fzLsMPfT7zS2jCkF6GJE6haozvHVBihs/dmMWmt0y3kth1j9Yn1rtGyYPyvHHvIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj",
+  "projectFilePath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Query.Data\\VaccineC.Query.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amanda Maschio\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Amanda Maschio\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

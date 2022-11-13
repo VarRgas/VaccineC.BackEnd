@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GBGpntmmQNRuFi86HBFOeC6WwBxe7h5wPLgBQqaThJvNC3mCaDTABP68zvfaiP7Flpm4tS1861nrazoJBriMnw==",
+  "dgSpecHash": "3j1rvwj95HfF1Oc90dffXojUWLI0jIdY7+yT452Z8XLp4NLLHiipVEnQnPFejkGcSIdB38UUMHaE8Ky57ioHNg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

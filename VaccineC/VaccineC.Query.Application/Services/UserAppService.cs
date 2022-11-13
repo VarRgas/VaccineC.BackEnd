@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using VaccineC.Query.Application.Abstractions;
 using VaccineC.Query.Application.ViewModels;
+using VaccineC.Query.Data.Context;
 using VaccineC.Query.Model.Abstractions;
 
 
@@ -11,11 +13,13 @@ namespace VaccineC.Query.Application.Services
     {
         private readonly IQueryContext _queryContext;
         private readonly IMapper _mapper;
+        private readonly VaccineCContext _context;
 
-        public UserAppService(IQueryContext queryContext, IMapper mapper)
+        public UserAppService(IQueryContext queryContext, IMapper mapper, VaccineCContext context)
         {
             _queryContext = queryContext;
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task<IEnumerable<UserViewModel>> GetAllAsync()
@@ -66,5 +70,20 @@ namespace VaccineC.Query.Application.Services
             return user;
         }
 
+        public async Task<Boolean> GetUserPermission(Guid id, string currentUrl)
+        {
+            var userResources = (from ur in _context.UsersResources
+                                 join r in _context.Resources on ur.ResourcesId equals r.ID
+                                 where ur.UsersId.Equals(id)
+                                 where r.UrlName.ToLower().Contains(currentUrl.ToLower())
+                                 select r).FirstOrDefault();
+
+            if (userResources != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

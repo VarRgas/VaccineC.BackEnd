@@ -202,5 +202,21 @@ namespace VaccineC.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        // POST api/<UsersController>/3/UserPermission
+        [HttpPost("{userId}/UserPermission")]
+        public async Task<IActionResult> UserPermission(Guid userId, [FromBody] ResourceViewModel resourceViewModel)
+        {
+            try
+            {
+                var command = new GetUserPermissionQuery(userId, resourceViewModel.UrlName);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
