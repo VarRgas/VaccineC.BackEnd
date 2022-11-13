@@ -27,7 +27,8 @@ namespace VaccineC.Command.Application.Commands.UserResource
                 Guid.NewGuid(),
                 request.UsersId,
                 request.ResourcesId,
-                DateTime.Now
+                DateTime.Now,
+                0
             );
 
             _userResourceRepository.Add(newUserResource);

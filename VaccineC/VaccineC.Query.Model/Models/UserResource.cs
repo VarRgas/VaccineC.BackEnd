@@ -6,5 +6,6 @@
         public Guid UsersId { get; set; }
         public Guid ResourcesId { get; set; }
         public DateTime Register { get; set; }
+        public int AccessNumber { get; set; }
     }
 }

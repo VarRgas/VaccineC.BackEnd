@@ -19,12 +19,17 @@ namespace VaccineC.Command.Domain.Entities
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        public UserResource(Guid id, Guid usersId, Guid resourcesId, DateTime register)
+        [Column("accessNumber")]
+        public int AccessNumber { get; set; }
+
+
+        public UserResource(Guid id, Guid usersId, Guid resourcesId, DateTime register, int accessNumber)
         {
             ID = id;
             UsersId = usersId;
             ResourcesId = resourcesId;
             Register = register;
+            AccessNumber = accessNumber;
         }
 
         public UserResource()
@@ -41,6 +46,10 @@ namespace VaccineC.Command.Domain.Entities
             ResourcesId = resourcesId;
         }
 
+        public void SetAccessNumber(int accessNumber)
+        {
+            AccessNumber = accessNumber;
+        }
         public void SetRegister(DateTime register)
         {
             Register = register;

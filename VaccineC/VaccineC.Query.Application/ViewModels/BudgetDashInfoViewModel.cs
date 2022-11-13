@@ -20,6 +20,8 @@ namespace VaccineC.Query.Application.ViewModels
         public int totalBudgetNumberPrevious { get; set; }
         public decimal totalBudgetAmount { get; set; }
         public decimal totalBudgetAmountPrevious { get; set; }
+        public decimal totalBudgetAmountLost { get; set; }
+        public decimal totalBudgetAmountLostPrevious { get; set; }
         public decimal totalBudgetAmountIncrease { get; set; }
         public decimal totalBudgetAmountDecrease { get; set; }
         public decimal totalBudgetAmountIncreasePercent { get; set; }

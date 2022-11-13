@@ -139,6 +139,8 @@ namespace VaccineC.Query.Application.Services
 
         public async Task<AuthorizationDashInfoViewModel> GetAuthorizationDashInfo(int month, int year)
         {
+            var minimumHour = new TimeSpan(0, 0, 0);
+            var maximumHour = new TimeSpan(23, 59, 59);
 
             DateTime dateSearchMinimum = new DateTime(year, month, 1);
             DateTime dateSearchMaximum = new DateTime(year, month, DateTime.DaysInMonth(year, month));
@@ -150,7 +152,7 @@ namespace VaccineC.Query.Application.Services
                                   where e.StartDate <= dateSearchMaximum.Date
                                   select a).ToList();
 
-            foreach(var auth in authorizations)
+            foreach (var auth in authorizations)
             {
                 if (auth.Situation.Equals("P")) 
                 {

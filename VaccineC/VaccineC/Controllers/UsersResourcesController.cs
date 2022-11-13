@@ -116,6 +116,22 @@ namespace VaccineC.Controllers
             }
         }
 
+        // POST api/<UsersResourcesController>/UpdateUserResourceAccessNumber
+        [HttpPost("{userId}/UpdateUserResourceAccessNumber")]
+        public async Task<IActionResult> UpdateUserResourceAccessNumber(Guid userId, [FromBody] ResourceViewModel resource)
+        {
+            try
+            {
+                var command = new UpdateUserResourceAccessNumberCommand(userId, resource.UrlName);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         // PUT api/<UsersResourcesController>/3/Update
         [HttpPut("{id}/Update")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UserResourceViewModel userResource)
