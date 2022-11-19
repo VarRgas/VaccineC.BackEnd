@@ -111,20 +111,21 @@ namespace VaccineC.Query.Application.Services
                                            SbimVaccineId = p.SbimVaccinesId
                                        }).OrderByDescending(a => a.Register).ToList();
 
-            foreach (var history in historyApplications) {
+            foreach (var history in historyApplications)
+            {
                 if (history.SbimVaccineId != null && history.SipniIntegrationId == null)
                 {
                     history.IntegrationSituation = "error";
-                } 
+                }
                 else if (history.SbimVaccineId != null && history.SipniIntegrationId != null)
                 {
                     history.IntegrationSituation = "success";
                 }
-                else if (history.SbimVaccineId == null) 
+                else if (history.SbimVaccineId == null)
                 {
                     history.IntegrationSituation = "invalid";
                 }
-            
+
             }
 
             return historyApplications;
@@ -156,7 +157,7 @@ namespace VaccineC.Query.Application.Services
             else if (personName.Equals("emptyName") && !responsibleId.Equals(Guid.Empty) && applicationDate.Date > dt)
             {
                 return await GetAllApplicationsByParameter(applicationDate.Date, responsibleId);
-            } 
+            }
             else if (personName.Equals("emptyName") && responsibleId.Equals(Guid.Empty) && applicationDate.Date > dt)
             {
                 return await GetAllApplicationsByParameter(applicationDate.Date);
@@ -165,12 +166,15 @@ namespace VaccineC.Query.Application.Services
             {
                 return await GetAllApplicationsByParameter(responsibleId);
             }
-            else if (!personName.Equals("emptyName") && responsibleId.Equals(Guid.Empty) && applicationDate.Date > dt) {
+            else if (!personName.Equals("emptyName") && responsibleId.Equals(Guid.Empty) && applicationDate.Date > dt)
+            {
                 return await GetAllApplicationsByParameter(personName, applicationDate.Date);
             }
-            else if (!personName.Equals("emptyName") && !responsibleId.Equals(Guid.Empty) && applicationDate.Date == dt) {
+            else if (!personName.Equals("emptyName") && !responsibleId.Equals(Guid.Empty) && applicationDate.Date == dt)
+            {
                 return await GetAllApplicationsByParameter(personName, responsibleId);
-            }else
+            }
+            else
             {
                 return null;
             }
@@ -251,27 +255,27 @@ namespace VaccineC.Query.Application.Services
             var maximumHour = new TimeSpan(23, 59, 59);
 
             var personsId = (from a in _context.Applications
-                              join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
-                              join p in _context.Persons on ats.BorrowerPersonId equals p.ID
-                              where a.Register >= applicationDate.Date + minimumHour
-                              where a.Register <= applicationDate.Date + maximumHour
-                              select p.ID).Distinct().ToList();
+                             join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                             join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                             where a.Register >= applicationDate.Date + minimumHour
+                             where a.Register <= applicationDate.Date + maximumHour
+                             select p.ID).Distinct().ToList();
 
-            var persons = (from p in _context.Persons 
-                             join pf in _context.PersonsPhysical on p.ID equals pf.PersonID
-                             where personsId.Contains(p.ID)
-                             select new PersonViewModel
-                                 {
-                                       ID = p.ID,
-                                       Name = p.Name,
-                                       ProfilePic = p.ProfilePic,
-                                       CommemorativeDate = p.CommemorativeDate,
-                                       PersonsPhysical = new PersonsPhysicalViewModel
-                                       {
-                                           Gender = pf.Gender
-                                       }
+            var persons = (from p in _context.Persons
+                           join pf in _context.PersonsPhysical on p.ID equals pf.PersonID
+                           where personsId.Contains(p.ID)
+                           select new PersonViewModel
+                           {
+                               ID = p.ID,
+                               Name = p.Name,
+                               ProfilePic = p.ProfilePic,
+                               CommemorativeDate = p.CommemorativeDate,
+                               PersonsPhysical = new PersonsPhysicalViewModel
+                               {
+                                   Gender = pf.Gender
+                               }
 
-                             }).OrderBy(p => p.Name).ToList();
+                           }).OrderBy(p => p.Name).ToList();
 
             return persons;
         }
@@ -376,13 +380,13 @@ namespace VaccineC.Query.Application.Services
             DateTime now = DateTime.Now.Date;
 
             var applicationId = (from a in _context.Applications
-                               join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
-                               join bp in _context.BudgetsProducts on a.BudgetProductId equals bp.ID
-                               where ats.BorrowerPersonId.Equals(personId)
-                               where bp.ProductId.Equals(productId)
-                               where a.ApplicationDate >= now + minimumHour
-                               where a.ApplicationDate <= now + maximumHour
-                               select a.ID).ToList();
+                                 join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                 join bp in _context.BudgetsProducts on a.BudgetProductId equals bp.ID
+                                 where ats.BorrowerPersonId.Equals(personId)
+                                 where bp.ProductId.Equals(productId)
+                                 where a.ApplicationDate >= now + minimumHour
+                                 where a.ApplicationDate <= now + maximumHour
+                                 select a.ID).ToList();
 
             if (applicationId.Count() > 0)
             {
@@ -401,13 +405,13 @@ namespace VaccineC.Query.Application.Services
             List<ApplicationPersonGenderViewModel> listApplicationPersonGenderViewModel = new List<ApplicationPersonGenderViewModel>();
 
             var numberApplicationsFem = (from a in _context.Applications
-                                        join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
-                                        join p in _context.Persons on ats.BorrowerPersonId equals p.ID
-                                        join pf in _context.PersonsPhysical on p.ID equals pf.PersonID
-                                        where pf.Gender.Equals("F")
-                                        where a.ApplicationDate >= dateSearchMinimum.Date
-                                        where a.ApplicationDate <= dateSearchMaximum.Date
-                                        select a.ID).Count();
+                                         join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                         join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                         join pf in _context.PersonsPhysical on p.ID equals pf.PersonID
+                                         where pf.Gender.Equals("F")
+                                         where a.ApplicationDate >= dateSearchMinimum.Date
+                                         where a.ApplicationDate <= dateSearchMaximum.Date
+                                         select a.ID).Count();
 
             var numberApplicationsMas = (from a in _context.Applications
                                          join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
@@ -464,7 +468,8 @@ namespace VaccineC.Query.Application.Services
                               where a.ApplicationDate <= dateSearchMaximum.Date
                               select bp.ProductId).Distinct().ToList();
 
-            foreach (var productId in productsId) {
+            foreach (var productId in productsId)
+            {
                 var numberApplications = (from a in _context.Applications
                                           join bp in _context.BudgetsProducts on a.BudgetProductId equals bp.ID
                                           where a.ApplicationDate >= dateSearchMinimum.Date
@@ -493,11 +498,11 @@ namespace VaccineC.Query.Application.Services
             List<ApplicationPersonAgeViewModel> listApplicationPersonAgeViewModel = new List<ApplicationPersonAgeViewModel>();
 
             var personsBirthDates = (from a in _context.Applications
-                                      join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
-                                      join p in _context.Persons on ats.BorrowerPersonId equals p.ID
-                                      where a.ApplicationDate >= dateSearchMinimum.Date
-                                      where a.ApplicationDate <= dateSearchMaximum.Date
-                                      select p.CommemorativeDate).ToList();
+                                     join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                     join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                     where a.ApplicationDate >= dateSearchMinimum.Date
+                                     where a.ApplicationDate <= dateSearchMaximum.Date
+                                     select p.CommemorativeDate).ToList();
 
             ApplicationPersonAgeViewModel age0to9 = new ApplicationPersonAgeViewModel();
             age0to9.AgeInterval = "0 a 9 anos";
@@ -523,7 +528,8 @@ namespace VaccineC.Query.Application.Services
             ApplicationPersonAgeViewModel age70plus = new ApplicationPersonAgeViewModel();
             age70plus.AgeInterval = "70 anos +";
 
-            foreach (var personBirthDate in personsBirthDates) {
+            foreach (var personBirthDate in personsBirthDates)
+            {
 
                 int personAge = getAge(personBirthDate);
 
@@ -589,8 +595,9 @@ namespace VaccineC.Query.Application.Services
             ApplicationSipniIntegrationViewModel error = new ApplicationSipniIntegrationViewModel();
             error.Situation = "Não Comunicado";
 
-            foreach (var application in applications) {
-                if (application.SipniIntegrationId == null) 
+            foreach (var application in applications)
+            {
+                if (application.SipniIntegrationId == null)
                 {
                     error.NumberOfIntegrations++;
                 }
@@ -619,7 +626,7 @@ namespace VaccineC.Query.Application.Services
         {
             DateTime dateSearchMinimum = new DateTime(year, month, 1);
             DateTime dateSearchMaximum = new DateTime(year, month, DateTime.DaysInMonth(year, month));
-           ApplicationNumberViewModel applicationNumberViewModel = new ApplicationNumberViewModel();
+            ApplicationNumberViewModel applicationNumberViewModel = new ApplicationNumberViewModel();
 
             var applicationsCompleted = (from a in _context.Applications
                                          where a.ApplicationDate >= dateSearchMinimum.Date
@@ -628,18 +635,18 @@ namespace VaccineC.Query.Application.Services
 
 
             var applicationsPending = (from a in _context.Authorizations
-                                  join ap in _context.Applications on a.ID equals ap.AuthorizationId into _ap
-                                  from x in _ap.DefaultIfEmpty()
-                                  join e in _context.Events on a.EventId equals e.ID
-                                  join bp in _context.BudgetsProducts on a.BudgetProductId equals bp.ID
-                                  join p in _context.Products on bp.ProductId equals p.ID
-                                  join b in _context.Budgets on bp.BudgetId equals b.ID
-                                  join prb in _context.Persons on b.PersonId equals prb.ID
-                                  where a.Situation.Equals("C")
-                                  where x.ID.Equals(null)
-                                  where e.StartDate >= dateSearchMinimum.Date
-                                  where e.StartDate <= dateSearchMaximum.Date
-                                  select a.ID).Count();
+                                       join ap in _context.Applications on a.ID equals ap.AuthorizationId into _ap
+                                       from x in _ap.DefaultIfEmpty()
+                                       join e in _context.Events on a.EventId equals e.ID
+                                       join bp in _context.BudgetsProducts on a.BudgetProductId equals bp.ID
+                                       join p in _context.Products on bp.ProductId equals p.ID
+                                       join b in _context.Budgets on bp.BudgetId equals b.ID
+                                       join prb in _context.Persons on b.PersonId equals prb.ID
+                                       where a.Situation.Equals("C")
+                                       where x.ID.Equals(null)
+                                       where e.StartDate >= dateSearchMinimum.Date
+                                       where e.StartDate <= dateSearchMaximum.Date
+                                       select a.ID).Count();
 
             applicationNumberViewModel.ApplicationsCompleted = applicationsCompleted;
             applicationNumberViewModel.ApplicationsPending = applicationsPending;
@@ -654,10 +661,10 @@ namespace VaccineC.Query.Application.Services
             List<ApplicationTypeViewModel> applicationTypeViewModel = new List<ApplicationTypeViewModel>();
 
             var authorizations = (from a in _context.Applications
-                                join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
-                                where a.ApplicationDate >= dateSearchMinimum.Date
-                                where a.ApplicationDate <= dateSearchMaximum.Date
-                                select ats).ToList();
+                                  join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                  where a.ApplicationDate >= dateSearchMinimum.Date
+                                  where a.ApplicationDate <= dateSearchMaximum.Date
+                                  select ats).ToList();
 
             var typeClinic = new ApplicationTypeViewModel
             {
@@ -673,7 +680,7 @@ namespace VaccineC.Query.Application.Services
 
             foreach (var authorization in authorizations)
             {
-                if (authorization.TypeOfService.Equals("C")) 
+                if (authorization.TypeOfService.Equals("C"))
                 {
                     typeClinic.NumberOfApplications++;
                 }
@@ -696,18 +703,180 @@ namespace VaccineC.Query.Application.Services
                                where a.ID.Equals(applicationId)
                                select a).FirstOrDefault();
 
-            if (application == null) {
+            if (application == null)
+            {
                 throw new ArgumentException("Aplicação não encontrada!");
             }
 
             var applicationDate = (DateTime)application.ApplicationDate;
             var today = DateTime.Now.Date;
 
-            if (application.UserId == userId && applicationDate.Date == today) {
+            if (application.UserId == userId && applicationDate.Date == today)
+            {
                 return true;
             }
 
             return false;
         }
-    } 
+
+        public async Task<IEnumerable<ApplicationSipniViewModel>> GetApplicationSipniIntegration()
+        {
+            var applications = (from a in _context.Applications
+                                join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                join bp in _context.BudgetsProducts on ats.BudgetProductId equals bp.ID
+                                join pr in _context.Products on bp.ProductId equals pr.ID
+                                orderby a.Register descending
+                                select new ApplicationSipniViewModel
+                                {
+                                    ID = a.ID,
+                                    ApplicationDate = (DateTime)a.Register,
+                                    Borrower = p.Name,
+                                    Product = pr.Name,
+                                    isComunicated = a.SipniIntegrationId != null ? true : false
+                                }).ToList();
+
+            return applications;
+        }
+
+        public async Task<IEnumerable<ApplicationSipniViewModel>> GetApplicationSipniIntegrationByParameter(string borrowerName, string situation)
+        {
+            if (borrowerName.ToLower().Equals("replacetonull"))
+            {
+                if (situation.Equals("T"))
+                {
+                    var applications = (from a in _context.Applications
+                                        join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                        join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                        join bp in _context.BudgetsProducts on ats.BudgetProductId equals bp.ID
+                                        join pr in _context.Products on bp.ProductId equals pr.ID
+                                        orderby a.Register descending
+                                        select new ApplicationSipniViewModel
+                                        {
+                                            ID = a.ID,
+                                            ApplicationDate = (DateTime)a.Register,
+                                            Borrower = p.Name,
+                                            Product = pr.Name,
+                                            isComunicated = a.SipniIntegrationId != null ? true : false
+                                        }).ToList();
+
+                    return applications;
+                }
+                else if (situation.Equals("C"))
+                {
+                    var applications = (from a in _context.Applications
+                                        join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                        join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                        join bp in _context.BudgetsProducts on ats.BudgetProductId equals bp.ID
+                                        join pr in _context.Products on bp.ProductId equals pr.ID
+                                        where a.SipniIntegrationId != null
+                                        orderby a.Register descending
+                                        select new ApplicationSipniViewModel
+                                        {
+                                            ID = a.ID,
+                                            ApplicationDate = (DateTime)a.Register,
+                                            Borrower = p.Name,
+                                            Product = pr.Name,
+                                            isComunicated = a.SipniIntegrationId != null ? true : false
+                                        }).ToList();
+
+                    return applications;
+                }
+                else if (situation.Equals("X"))
+                {
+                    var applications = (from a in _context.Applications
+                                        join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                        join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                        join bp in _context.BudgetsProducts on ats.BudgetProductId equals bp.ID
+                                        join pr in _context.Products on bp.ProductId equals pr.ID
+                                        where a.SipniIntegrationId.Equals(null)
+                                        orderby a.Register descending
+                                        select new ApplicationSipniViewModel
+                                        {
+                                            ID = a.ID,
+                                            ApplicationDate = (DateTime)a.Register,
+                                            Borrower = p.Name,
+                                            Product = pr.Name,
+                                            isComunicated = a.SipniIntegrationId != null ? true : false
+                                        }).ToList();
+
+                    return applications;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                if (situation.Equals("T"))
+                {
+                    var applications = (from a in _context.Applications
+                                        join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                        join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                        join bp in _context.BudgetsProducts on ats.BudgetProductId equals bp.ID
+                                        join pr in _context.Products on bp.ProductId equals pr.ID
+                                        where p.Name.ToLower().Contains(borrowerName.ToLower())
+                                        orderby a.Register descending
+                                        select new ApplicationSipniViewModel
+                                        {
+                                            ID = a.ID,
+                                            ApplicationDate = (DateTime)a.Register,
+                                            Borrower = p.Name,
+                                            Product = pr.Name,
+                                            isComunicated = a.SipniIntegrationId != null ? true : false
+                                        }).ToList();
+
+                    return applications;
+                }
+                else if (situation.Equals("C"))
+                {
+                    var applications = (from a in _context.Applications
+                                        join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                        join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                        join bp in _context.BudgetsProducts on ats.BudgetProductId equals bp.ID
+                                        join pr in _context.Products on bp.ProductId equals pr.ID
+                                        where p.Name.ToLower().Contains(borrowerName.ToLower())
+                                        where a.SipniIntegrationId != null
+                                        orderby a.Register descending
+                                        select new ApplicationSipniViewModel
+                                        {
+                                            ID = a.ID,
+                                            ApplicationDate = (DateTime)a.Register,
+                                            Borrower = p.Name,
+                                            Product = pr.Name,
+                                            isComunicated = a.SipniIntegrationId != null ? true : false
+                                        }).ToList();
+
+                    return applications;
+                }
+                else if (situation.Equals("X"))
+                {
+                    var applications = (from a in _context.Applications
+                                        join ats in _context.Authorizations on a.AuthorizationId equals ats.ID
+                                        join p in _context.Persons on ats.BorrowerPersonId equals p.ID
+                                        join bp in _context.BudgetsProducts on ats.BudgetProductId equals bp.ID
+                                        join pr in _context.Products on bp.ProductId equals pr.ID
+                                        where p.Name.ToLower().Contains(borrowerName.ToLower())
+                                        where a.SipniIntegrationId.Equals(null)
+                                        orderby a.Register descending
+                                        select new ApplicationSipniViewModel
+                                        {
+                                            ID = a.ID,
+                                            ApplicationDate = (DateTime)a.Register,
+                                            Borrower = p.Name,
+                                            Product = pr.Name,
+                                            isComunicated = a.SipniIntegrationId != null ? true : false
+                                        }).ToList();
+
+                    return applications;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+        }
+    }
 }

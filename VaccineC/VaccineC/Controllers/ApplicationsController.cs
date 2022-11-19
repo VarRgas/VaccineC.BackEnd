@@ -48,6 +48,36 @@ namespace VaccineC.Controllers
             }
         }
 
+        [HttpGet("GetApplicationSipniIntegration")]
+        public async Task<IActionResult> GetApplicationSipniIntegration()
+        {
+            try
+            {
+                var command = new GetApplicationSipniIntegrationQuery();
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("{borrower}/{situation}/GetApplicationSipniIntegrationByParameter")]
+        public async Task<IActionResult> GetApplicationSipniIntegrationByParameter(string borrower, string situation)
+        {
+            try
+            {
+                var command = new GetApplicationSipniIntegrationByParameterQuery(borrower, situation);
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("{personId}/GetPersonApplicationNumber")]
         public async Task<IActionResult> GetPersonApplicationNumber(Guid personId)
         {

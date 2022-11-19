@@ -85,7 +85,7 @@
         "projectName": "VaccineC.Command.Domain",
         "projectPath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\VaccineC.Command.Domain.csproj",
         "packagesPath": "C:\\Users\\Amanda Maschio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Amanda Maschio\\Source\\Repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Amanda Maschio\\source\\repos\\VaccineC.BackEnd\\VaccineC\\VaccineC.Command.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amanda Maschio\\AppData\\Roaming\\NuGet\\NuGet.Config",
