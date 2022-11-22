@@ -9,8 +9,9 @@ namespace VaccineC.Query.Application.ViewModels
         public Guid? DefaultPaymentFormId { get; set; }
         public int ApplicationTimePerMinute { get; set; }
         public int MaximumDaysBudgetValidity { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan FinalTime { get; set; }
         public DateTime Register { get; set; }
-        public string ScheduleColor { get; set; }
         public CompanyViewModel? Company { get; set; }
         public PaymentFormViewModel? PaymentForm { get; set; }
     }

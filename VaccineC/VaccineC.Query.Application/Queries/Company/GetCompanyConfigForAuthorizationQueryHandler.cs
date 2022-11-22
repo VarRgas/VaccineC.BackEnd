@@ -31,20 +31,11 @@ namespace VaccineC.Query.Application.Queries.Company
                 throw new ArgumentException("Parâmetros não encontrados!");
             }
 
-
-            var listTime = _companyAppService.GetMinMaxCompanySchedule(companyViewModel.ID);
-
-            if (listTime.Count() <= 0)
-            {
-                throw new ArgumentException("Horários não encontrados!");
-            }
-
             return new AuthorizationParameterViewModel()
             {
                 ApplicationTimePerMinute = companyParameterViewModel.ApplicationTimePerMinute,
-                ScheduleColor = companyParameterViewModel.ScheduleColor,
-                MinTime = listTime[0],
-                MaxTime = listTime[1]
+                MinTime = companyParameterViewModel.StartTime,
+                MaxTime = companyParameterViewModel.FinalTime + TimeSpan.FromMinutes(1)
 
             };
 

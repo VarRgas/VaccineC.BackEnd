@@ -22,9 +22,9 @@ namespace VaccineC.Command.Application.Commands.CompanyParameter
                 request.DefaultPaymentFormId,
                 request.ApplicationTimePerMinute,
                 request.MaximumDaysBudgetValidity,
-                DateTime.Now,
-                request.ScheduleColor
-
+                request.StartTime,
+                request.FinalTime,
+                DateTime.Now
             );
 
             _companyParameterRepository.Add(newCompanyParameter);
@@ -37,7 +37,8 @@ namespace VaccineC.Command.Application.Commands.CompanyParameter
                 DefaultPaymentFormId = newCompanyParameter.DefaultPaymentFormId,
                 ApplicationTimePerMinute = newCompanyParameter.ApplicationTimePerMinute,
                 MaximumDaysBudgetValidity = newCompanyParameter.MaximumDaysBudgetValidity,
-                ScheduleColor = newCompanyParameter.ScheduleColor,
+                StartTime = newCompanyParameter.StartTime,
+                FinalTime = newCompanyParameter.FinalTime
             };
         }
     }

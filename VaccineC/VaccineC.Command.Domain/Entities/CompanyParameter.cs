@@ -25,18 +25,22 @@ namespace VaccineC.Command.Domain.Entities
         [Column("register", TypeName = "datetime")]
         public DateTime Register { get; set; }
 
-        [Column("scheduleColor", TypeName = "Varchar(60)")]
-        public string ScheduleColor { get; set; }
+        [Column("startTime", TypeName = "time(0)")]
+        public TimeSpan StartTime { get; set; }
 
-        public CompanyParameter(Guid id, Guid companyId, Guid? defaultPaymentFormId, int applicationTimePerMinute, int maximumDaysBudgetValidity, DateTime register, string scheduleColor)
+        [Column("finalTime", TypeName = "time(0)")]
+        public TimeSpan FinalTime { get; set; }
+
+        public CompanyParameter(Guid id, Guid companyId, Guid? defaultPaymentFormId, int applicationTimePerMinute, int maximumDaysBudgetValidity, TimeSpan startTime, TimeSpan finalTime, DateTime register)
         {
             ID = id;
             CompanyId = companyId;
             DefaultPaymentFormId = defaultPaymentFormId;
             ApplicationTimePerMinute = applicationTimePerMinute;
             MaximumDaysBudgetValidity = maximumDaysBudgetValidity;
+            StartTime = startTime;
+            FinalTime = finalTime;
             Register = register;
-            ScheduleColor = scheduleColor;
         }
         public CompanyParameter()
         {
@@ -68,10 +72,16 @@ namespace VaccineC.Command.Domain.Entities
             Register = register;
         }
 
-        public void SetScheduleColor(string scheduleColor)
+        public void setStartTime(TimeSpan startTime)
         {
-            ScheduleColor = scheduleColor;
+            StartTime = startTime;
         }
+
+        public void setFinalTime(TimeSpan finalTime)
+        {
+            FinalTime = finalTime;
+        }
+
     }
 }
 

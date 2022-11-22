@@ -10,18 +10,20 @@ namespace VaccineC.Command.Application.Commands.CompanyParameter
         public Guid? DefaultPaymentFormId;
         public int ApplicationTimePerMinute;
         public int MaximumDaysBudgetValidity;
+        public TimeSpan StartTime;
+        public TimeSpan FinalTime;
         public DateTime Register;
-        public string ScheduleColor;
 
-        public UpdateCompanyParameterCommand(Guid id, Guid companyId, Guid? defaultPaymentFormId, int applicationTimePerMinute, int maximumDaysBudgetValidity, DateTime register, string scheduleColor)
+        public UpdateCompanyParameterCommand(Guid id, Guid companyId, Guid? defaultPaymentFormId, int applicationTimePerMinute, int maximumDaysBudgetValidity, TimeSpan startTime, TimeSpan finalTime, DateTime register)
         {
             ID = id;
             CompanyId = companyId;
             DefaultPaymentFormId = defaultPaymentFormId;
             ApplicationTimePerMinute = applicationTimePerMinute;
             MaximumDaysBudgetValidity = maximumDaysBudgetValidity;
+            StartTime = startTime;
+            FinalTime = finalTime;
             Register = register;
-            ScheduleColor = scheduleColor;
         }
 
     }

@@ -70,8 +70,9 @@ namespace VaccineC.Controllers
                     companyParameter.DefaultPaymentFormId,
                     companyParameter.ApplicationTimePerMinute,
                     companyParameter.MaximumDaysBudgetValidity,
-                    companyParameter.Register,
-                    companyParameter.ScheduleColor
+                    companyParameter.StartTime,
+                    companyParameter.FinalTime,
+                    companyParameter.Register
                     );
                 var result = await _mediator.Send(command);
                 return Ok(result);
@@ -93,8 +94,9 @@ namespace VaccineC.Controllers
                     companyParameter.DefaultPaymentFormId,
                     companyParameter.ApplicationTimePerMinute,
                     companyParameter.MaximumDaysBudgetValidity,
-                    companyParameter.Register,
-                    companyParameter.ScheduleColor
+                    companyParameter.StartTime,
+                    companyParameter.FinalTime,
+                    companyParameter.Register
                 );
                 var result = await _mediator.Send(command);
                 return Ok(result);
