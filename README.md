@@ -23,7 +23,7 @@
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-funcionalidades">Funcionalidades</a> •
- <a href="#-diagrama-er">Diadrama ER</a> • 
+ <a href="#-diagrama-er">Diagrama ER</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autores">Autores</a> • 
  <a href="#user-content--licença">Licença</a>
