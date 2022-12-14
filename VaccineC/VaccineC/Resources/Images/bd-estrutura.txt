@@ -1,0 +1,582 @@
+-- DROP SCHEMA dbo;
+
+CREATE SCHEMA dbo;
+-- vaccinec.dbo.PaymentForms definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.PaymentForms;
+
+CREATE TABLE vaccinec.dbo.PaymentForms (
+	id uniqueidentifier NOT NULL,
+	name varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	maximumInstallments int DEFAULT 1 NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT paymentFormsPkey PRIMARY KEY (id)
+);
+
+
+-- vaccinec.dbo.Persons definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Persons;
+
+CREATE TABLE vaccinec.dbo.Persons (
+	id uniqueidentifier NOT NULL,
+	personType varchar(1) COLLATE Latin1_General_CI_AS NOT NULL,
+	name varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	commemorativeDate date NULL,
+	email varchar(255) COLLATE Latin1_General_CI_AS NULL,
+	profilePic varchar(255) COLLATE Latin1_General_CI_AS NULL,
+	details text COLLATE Latin1_General_CI_AS NULL,
+	register datetime NOT NULL,
+	CONSTRAINT personID PRIMARY KEY (id)
+);
+
+
+-- vaccinec.dbo.Resources definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Resources;
+
+CREATE TABLE vaccinec.dbo.Resources (
+	id uniqueidentifier NOT NULL,
+	name varchar(255) COLLATE Latin1_General_CI_AI NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	urlName varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	CONSTRAINT pkResources PRIMARY KEY (id)
+);
+
+
+-- vaccinec.dbo.SbimVaccines definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.SbimVaccines;
+
+CREATE TABLE vaccinec.dbo.SbimVaccines (
+	id uniqueidentifier NOT NULL,
+	name varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	rndsId varchar(100) COLLATE Latin1_General_CI_AS NOT NULL,
+	CONSTRAINT sbimVaccinesPkey PRIMARY KEY (id)
+);
+
+
+-- vaccinec.dbo.Companies definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Companies;
+
+CREATE TABLE vaccinec.dbo.Companies (
+	id uniqueidentifier NOT NULL,
+	personId uniqueidentifier NOT NULL,
+	details text COLLATE Latin1_General_CI_AS NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT companiesPkey PRIMARY KEY (id),
+	CONSTRAINT fkCompanyRefPerson FOREIGN KEY (personId) REFERENCES vaccinec.dbo.Persons(id)
+);
+
+
+-- vaccinec.dbo.CompaniesParameters definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.CompaniesParameters;
+
+CREATE TABLE vaccinec.dbo.CompaniesParameters (
+	id uniqueidentifier NOT NULL,
+	companyId uniqueidentifier NOT NULL,
+	applicationTimePerMinute int NOT NULL,
+	maximumDaysBudgetValidity int DEFAULT 30 NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	defaultPaymentFormId uniqueidentifier NULL,
+	startTime time(0) DEFAULT '06:00:00' NOT NULL,
+	finalTime time(0) DEFAULT '20:00:00' NOT NULL,
+	CONSTRAINT pkCompaniesParameters PRIMARY KEY (id),
+	CONSTRAINT CompaniesParameters_FK FOREIGN KEY (defaultPaymentFormId) REFERENCES vaccinec.dbo.PaymentForms(id),
+	CONSTRAINT fkConpParRefCompany FOREIGN KEY (companyId) REFERENCES vaccinec.dbo.Companies(id)
+);
+
+
+-- vaccinec.dbo.CompaniesSchedules definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.CompaniesSchedules;
+
+CREATE TABLE vaccinec.dbo.CompaniesSchedules (
+	id uniqueidentifier NOT NULL,
+	companyId uniqueidentifier NOT NULL,
+	[day] varchar(3) COLLATE Latin1_General_CI_AS DEFAULT 'SEG' NOT NULL,
+	startTime time NOT NULL,
+	finalTime time NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT companiesSchedulesPkey PRIMARY KEY (id),
+	CONSTRAINT fkConpScheRefCompany FOREIGN KEY (companyId) REFERENCES vaccinec.dbo.Companies(id)
+);
+ALTER TABLE vaccinec.dbo.CompaniesSchedules WITH NOCHECK ADD CONSTRAINT ckcDayCompany CHECK ([day]='DOM' OR [day]='SAB' OR [day]='SEX' OR [day]='QUI' OR [day]='QUA' OR [day]='TER' OR [day]='SEG');
+
+
+-- vaccinec.dbo.PersonsAddresses definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.PersonsAddresses;
+
+CREATE TABLE vaccinec.dbo.PersonsAddresses (
+	id uniqueidentifier NOT NULL,
+	personId uniqueidentifier NOT NULL,
+	addressType varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'P' NOT NULL,
+	publicPlace varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	district varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	addressNumber varchar(10) COLLATE Latin1_General_CI_AS NOT NULL,
+	complement varchar(255) COLLATE Latin1_General_CI_AS NULL,
+	addressCode varchar(9) COLLATE Latin1_General_CI_AS NOT NULL,
+	referencePoint varchar(255) COLLATE Latin1_General_CI_AS NULL,
+	city varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	state varchar(2) COLLATE Latin1_General_CI_AS NOT NULL,
+	country varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT personsAddressesPkey PRIMARY KEY (id),
+	CONSTRAINT fkPersonsAddressesRefPerson FOREIGN KEY (personId) REFERENCES vaccinec.dbo.Persons(id)
+);
+ALTER TABLE vaccinec.dbo.PersonsAddresses WITH NOCHECK ADD CONSTRAINT ckcAddressType CHECK ([addressType]='O' OR [addressType]='C' OR [addressType]='R' OR [addressType]='P');
+
+
+-- vaccinec.dbo.PersonsJuridical definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.PersonsJuridical;
+
+CREATE TABLE vaccinec.dbo.PersonsJuridical (
+	id uniqueidentifier NOT NULL,
+	personId uniqueidentifier NOT NULL,
+	fantasyName varchar(255) COLLATE Latin1_General_CI_AS NULL,
+	cnpjNumber varchar(14) COLLATE Latin1_General_CI_AS NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT personsJuridicalPkey PRIMARY KEY (id),
+	CONSTRAINT fkPersJuridicalRefPerson FOREIGN KEY (personId) REFERENCES vaccinec.dbo.Persons(id)
+);
+
+
+-- vaccinec.dbo.PersonsPhones definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.PersonsPhones;
+
+CREATE TABLE vaccinec.dbo.PersonsPhones (
+	id uniqueidentifier NOT NULL,
+	personId uniqueidentifier NOT NULL,
+	phoneType varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'P' NOT NULL,
+	numberPhone varchar(20) COLLATE Latin1_General_CI_AS NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	codeArea varchar(2) COLLATE Latin1_General_CI_AS NOT NULL,
+	CONSTRAINT phone_pkey PRIMARY KEY (id),
+	CONSTRAINT fk_person_phone_ref_person FOREIGN KEY (personId) REFERENCES vaccinec.dbo.Persons(id)
+);
+ALTER TABLE vaccinec.dbo.PersonsPhones WITH NOCHECK ADD CONSTRAINT ckc_phone_type CHECK ([phoneType]='O' OR [phoneType]='R' OR [phoneType]='E' OR [phoneType]='C' OR [phoneType]='P');
+
+
+-- vaccinec.dbo.PersonsPhysical definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.PersonsPhysical;
+
+CREATE TABLE vaccinec.dbo.PersonsPhysical (
+	id uniqueidentifier NOT NULL,
+	personId uniqueidentifier NOT NULL,
+	maritalStatus varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'S' NOT NULL,
+	gender varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'M' NOT NULL,
+	deathDate date NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	cnsNumber varchar(15) COLLATE Latin1_General_CI_AS NULL,
+	cpfNumber varchar(11) COLLATE Latin1_General_CI_AS NULL,
+	CONSTRAINT personsPhysicalPkey PRIMARY KEY (id),
+	CONSTRAINT fkPersPhysicalRefPerson FOREIGN KEY (personId) REFERENCES vaccinec.dbo.Persons(id)
+);
+
+
+-- vaccinec.dbo.Products definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Products;
+
+CREATE TABLE vaccinec.dbo.Products (
+	id uniqueidentifier NOT NULL,
+	sbimVaccinesId uniqueidentifier NULL,
+	situation varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'A' NOT NULL,
+	details text COLLATE Latin1_General_CI_AS NULL,
+	saleValue numeric(15,2) DEFAULT 0 NOT NULL,
+	organicSearch varchar(1000) COLLATE Latin1_General_CI_AS DEFAULT ' ' NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	name varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	minimumStock int NOT NULL,
+	CONSTRAINT productsPkey PRIMARY KEY (id),
+	CONSTRAINT fkProdRefSbimVaccines FOREIGN KEY (sbimVaccinesId) REFERENCES vaccinec.dbo.SbimVaccines(id)
+);
+ALTER TABLE vaccinec.dbo.Products WITH NOCHECK ADD CONSTRAINT ckcSituationProd CHECK ([situation]='I' OR [situation]='A');
+
+
+-- vaccinec.dbo.ProductsDoses definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.ProductsDoses;
+
+CREATE TABLE vaccinec.dbo.ProductsDoses (
+	id uniqueidentifier NOT NULL,
+	productsId uniqueidentifier NOT NULL,
+	doseType varchar(2) COLLATE Latin1_General_CI_AS DEFAULT 'DU' NOT NULL,
+	doseRangeMonth int NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT productDosePkey PRIMARY KEY (id),
+	CONSTRAINT fkProdDoseRefProducts FOREIGN KEY (productsId) REFERENCES vaccinec.dbo.Products(id)
+);
+ALTER TABLE vaccinec.dbo.ProductsDoses WITH NOCHECK ADD CONSTRAINT ckcDoseTypeProdDose CHECK ([doseType]='D3' OR [doseType]='D2' OR [doseType]='D1' OR [doseType]='DR' OR [doseType]='DU');
+
+
+-- vaccinec.dbo.ProductsSummariesBatches definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.ProductsSummariesBatches;
+
+CREATE TABLE vaccinec.dbo.ProductsSummariesBatches (
+	id uniqueidentifier NOT NULL,
+	batch varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	numberOfUnitsBatch numeric(15,2) NOT NULL,
+	manufacturingDate date NOT NULL,
+	validityBatchDate date NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	manufacturer varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	productsId uniqueidentifier NOT NULL,
+	CONSTRAINT pkProductsSummariesBatches PRIMARY KEY (id),
+	CONSTRAINT ProductsSummariesBatches_FK FOREIGN KEY (productsId) REFERENCES vaccinec.dbo.Products(id)
+);
+
+
+-- vaccinec.dbo.Users definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Users;
+
+CREATE TABLE vaccinec.dbo.Users (
+	id uniqueidentifier NOT NULL,
+	personID uniqueidentifier NOT NULL,
+	email varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	password varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	situation varchar(1) COLLATE Latin1_General_CI_AS NOT NULL,
+	register datetime NOT NULL,
+	functionUser varchar(1) COLLATE Latin1_General_CI_AS NOT NULL,
+	CONSTRAINT userss_pkey PRIMARY KEY (id),
+	CONSTRAINT Users_FK FOREIGN KEY (personID) REFERENCES vaccinec.dbo.Persons(id)
+);
+ALTER TABLE vaccinec.dbo.Users WITH NOCHECK ADD CONSTRAINT ckcFunctionUsers CHECK ([functionUser]='A' OR [functionUser]='E' OR [functionUser]='G');
+ALTER TABLE vaccinec.dbo.Users WITH NOCHECK ADD CONSTRAINT ckcSituationUsers CHECK ([situation]='I' OR [situation]='A');
+
+
+-- vaccinec.dbo.UsersResources definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.UsersResources;
+
+CREATE TABLE vaccinec.dbo.UsersResources (
+	id uniqueidentifier NOT NULL,
+	usersId uniqueidentifier NOT NULL,
+	resourcesId uniqueidentifier NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	accessNumber int DEFAULT 0 NULL,
+	CONSTRAINT pkUsersResources PRIMARY KEY (id),
+	CONSTRAINT fkResourcesRefUsersResources FOREIGN KEY (resourcesId) REFERENCES vaccinec.dbo.Resources(id),
+	CONSTRAINT fkUsersRefUsersResources FOREIGN KEY (usersId) REFERENCES vaccinec.dbo.Users(id)
+);
+
+
+-- vaccinec.dbo.Budgets definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Budgets;
+
+CREATE TABLE vaccinec.dbo.Budgets (
+	id uniqueidentifier NOT NULL,
+	userId uniqueidentifier NOT NULL,
+	personId uniqueidentifier NOT NULL,
+	situation varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'P' NOT NULL,
+	totalBudgetAmount numeric(15,2) NOT NULL,
+	discountPercentage numeric(15,2) NOT NULL,
+	discountValue numeric(15,2) NOT NULL,
+	expirationDate date NULL,
+	creationDate date NULL,
+	details varchar(1000) COLLATE Latin1_General_CI_AS NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	budgetNumber int IDENTITY(1,1) NOT NULL,
+	totalBudgetedAmount numeric(38,0) NOT NULL,
+	CONSTRAINT pkBudgets PRIMARY KEY (id),
+	CONSTRAINT fkBudgetsRefFinanPerson FOREIGN KEY (personId) REFERENCES vaccinec.dbo.Persons(id),
+	CONSTRAINT fkBudgetsRefUsers FOREIGN KEY (userId) REFERENCES vaccinec.dbo.Users(id)
+);
+ALTER TABLE vaccinec.dbo.Budgets WITH NOCHECK ADD CONSTRAINT ckcSituationBudgets CHECK ([situation]='V' OR [situation]='X' OR [situation]='F' OR [situation]='E' OR [situation]='A' OR [situation]='N' OR [situation]='P');
+
+
+-- vaccinec.dbo.BudgetsHistorics definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.BudgetsHistorics;
+
+CREATE TABLE vaccinec.dbo.BudgetsHistorics (
+	id uniqueidentifier NOT NULL,
+	budgetId uniqueidentifier NOT NULL,
+	userId uniqueidentifier NOT NULL,
+	historic varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT pkBudgetsHistorics PRIMARY KEY (id),
+	CONSTRAINT fkBudgetRefBudgetsHistorics FOREIGN KEY (budgetId) REFERENCES vaccinec.dbo.Budgets(id),
+	CONSTRAINT fkUserRefBudgetsHistorics FOREIGN KEY (userId) REFERENCES vaccinec.dbo.Users(id)
+);
+
+
+-- vaccinec.dbo.BudgetsNegotiations definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.BudgetsNegotiations;
+
+CREATE TABLE vaccinec.dbo.BudgetsNegotiations (
+	id uniqueidentifier NOT NULL,
+	budgetId uniqueidentifier NOT NULL,
+	paymentFormId uniqueidentifier NOT NULL,
+	totalAmountBalance numeric(15,2) NOT NULL,
+	totalAmountTraded numeric(15,2) NOT NULL,
+	installments int NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT pkBudgetsNegotiations PRIMARY KEY (id),
+	CONSTRAINT fkBudgetsNegotiationsRefBudgets FOREIGN KEY (budgetId) REFERENCES vaccinec.dbo.Budgets(id),
+	CONSTRAINT fkBudgetsNegotiationsRefPaymentForms FOREIGN KEY (paymentFormId) REFERENCES vaccinec.dbo.PaymentForms(id)
+);
+
+
+-- vaccinec.dbo.BudgetsProducts definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.BudgetsProducts;
+
+CREATE TABLE vaccinec.dbo.BudgetsProducts (
+	id uniqueidentifier NOT NULL,
+	budgetId uniqueidentifier NOT NULL,
+	productId uniqueidentifier NOT NULL,
+	borrowerPersonId uniqueidentifier NULL,
+	productDose varchar(2) COLLATE Latin1_General_CI_AS DEFAULT 'S' NULL,
+	details varchar(1000) COLLATE Latin1_General_CI_AS NULL,
+	estimatedSalesValue numeric(15,2) NOT NULL,
+	situationProduct varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'P' NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT pkBudgetsProducts PRIMARY KEY (id),
+	CONSTRAINT fkBudgetsProductsRefBorrowerPerson FOREIGN KEY (borrowerPersonId) REFERENCES vaccinec.dbo.Persons(id),
+	CONSTRAINT fkBudgetsProductsRefBudgets FOREIGN KEY (budgetId) REFERENCES vaccinec.dbo.Budgets(id),
+	CONSTRAINT fkBudgetsProductsRefProducts FOREIGN KEY (productId) REFERENCES vaccinec.dbo.Products(id)
+);
+ALTER TABLE vaccinec.dbo.BudgetsProducts WITH NOCHECK ADD CONSTRAINT ckcApprovedBudgetPro CHECK ([situationProduct]='E' OR [situationProduct]='P');
+
+
+-- vaccinec.dbo.Discards definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Discards;
+
+CREATE TABLE vaccinec.dbo.Discards (
+	id uniqueidentifier NOT NULL,
+	productSummaryBatchId uniqueidentifier NOT NULL,
+	batch varchar(255) COLLATE Latin1_General_CI_AS NOT NULL,
+	discardedUnits int NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	userId uniqueidentifier NULL,
+	reason varchar(100) COLLATE Latin1_General_CI_AS NOT NULL,
+	CONSTRAINT pkDiscards PRIMARY KEY (id),
+	CONSTRAINT Discards_FK FOREIGN KEY (userId) REFERENCES vaccinec.dbo.Users(id),
+	CONSTRAINT fkProductSummaryBatchRefDiscards FOREIGN KEY (productSummaryBatchId) REFERENCES vaccinec.dbo.ProductsSummariesBatches(id)
+);
+
+
+-- vaccinec.dbo.Events definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Events;
+
+CREATE TABLE vaccinec.dbo.Events (
+	id uniqueidentifier NOT NULL,
+	details text COLLATE Latin1_General_CI_AS NULL,
+	startDate date NOT NULL,
+	startTime time NOT NULL,
+	endDate date NOT NULL,
+	endTime time NOT NULL,
+	concluded varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'N' NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	situation varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'A' NOT NULL,
+	userId uniqueidentifier NOT NULL,
+	CONSTRAINT eventsPK PRIMARY KEY (id),
+	CONSTRAINT fkEventsRefUsers FOREIGN KEY (userId) REFERENCES vaccinec.dbo.Users(id)
+);
+ALTER TABLE vaccinec.dbo.Events WITH NOCHECK ADD CONSTRAINT ckcConcludedEvents CHECK ([concluded]='N' OR [concluded]='S');
+ALTER TABLE vaccinec.dbo.Events WITH NOCHECK ADD CONSTRAINT ckcSituationEvents CHECK ([situation]='X' OR [situation]='A');
+
+
+-- vaccinec.dbo.Movements definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Movements;
+
+CREATE TABLE vaccinec.dbo.Movements (
+	id uniqueidentifier NOT NULL,
+	movementNumber int IDENTITY(1,1) NOT NULL,
+	usersId uniqueidentifier NOT NULL,
+	movementType varchar(1) COLLATE Latin1_General_CI_AS NOT NULL,
+	productsAmount numeric(15,2) NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	situation varchar(1) COLLATE Latin1_General_CI_AS NOT NULL,
+	CONSTRAINT movement_pkey PRIMARY KEY (id),
+	CONSTRAINT fk_movem_ref_users FOREIGN KEY (usersId) REFERENCES vaccinec.dbo.Users(id)
+);
+ALTER TABLE vaccinec.dbo.Movements WITH NOCHECK ADD CONSTRAINT ckcMovementType CHECK ([movementType]='S' OR [movementType]='E');
+
+
+-- vaccinec.dbo.MovementsProducts definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.MovementsProducts;
+
+CREATE TABLE vaccinec.dbo.MovementsProducts (
+	id uniqueidentifier NOT NULL,
+	movementId uniqueidentifier NOT NULL,
+	productId uniqueidentifier NOT NULL,
+	batch varchar(255) COLLATE Latin1_General_CI_AS NULL,
+	unitsNumber numeric(15,2) NOT NULL,
+	unitaryValue numeric(15,2) DEFAULT 0.0 NOT NULL,
+	amount numeric(15,2) DEFAULT 0.0 NOT NULL,
+	details text COLLATE Latin1_General_CI_AS NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	batchManufacturingDate date NOT NULL,
+	batchExpirationDate date NOT NULL,
+	manufacturer varchar(255) COLLATE Latin1_General_CI_AS NULL,
+	CONSTRAINT movementsProductsPkey PRIMARY KEY (id),
+	CONSTRAINT fkMoveProdRefMovements FOREIGN KEY (movementId) REFERENCES vaccinec.dbo.Movements(id),
+	CONSTRAINT fkMoveProdRefProducts FOREIGN KEY (productId) REFERENCES vaccinec.dbo.Products(id)
+);
+
+
+-- vaccinec.dbo.Notifications definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Notifications;
+
+CREATE TABLE vaccinec.dbo.Notifications (
+	id uniqueidentifier NOT NULL,
+	userId uniqueidentifier NOT NULL,
+	message varchar(255) COLLATE Latin1_General_CI_AI NOT NULL,
+	messageType varchar(1) COLLATE Latin1_General_CI_AS NOT NULL,
+	situation varchar(1) COLLATE Latin1_General_CI_AS NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	CONSTRAINT pkNotifications PRIMARY KEY (id),
+	CONSTRAINT fkNotRefUs FOREIGN KEY (userId) REFERENCES vaccinec.dbo.Users(id)
+);
+ALTER TABLE vaccinec.dbo.Notifications WITH NOCHECK ADD CONSTRAINT ckcSituationNot CHECK ([situation]='L' OR [situation]='X');
+ALTER TABLE vaccinec.dbo.Notifications WITH NOCHECK ADD CONSTRAINT ckcTypeNot CHECK ([messageType]='L' OR [messageType]='P');
+
+
+-- vaccinec.dbo.Authorizations definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Authorizations;
+
+CREATE TABLE vaccinec.dbo.Authorizations (
+	id uniqueidentifier NOT NULL,
+	authorizationNumber int IDENTITY(1,1) NOT NULL,
+	userId uniqueidentifier NOT NULL,
+	authorizationDate date NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	borrowerPersonId uniqueidentifier NOT NULL,
+	situation varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'P' NOT NULL,
+	typeOfService varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'C' NOT NULL,
+	notify varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'N' NOT NULL,
+	eventId uniqueidentifier NOT NULL,
+	budgetProductId uniqueidentifier NOT NULL,
+	CONSTRAINT authorizationsPkey PRIMARY KEY (id),
+	CONSTRAINT Authorizations_FK FOREIGN KEY (budgetProductId) REFERENCES vaccinec.dbo.BudgetsProducts(id),
+	CONSTRAINT authorizationsFK FOREIGN KEY (eventId) REFERENCES vaccinec.dbo.Events(id),
+	CONSTRAINT fkAuthorizRefPersonBor FOREIGN KEY (borrowerPersonId) REFERENCES vaccinec.dbo.Persons(id),
+	CONSTRAINT fkAuthorizRefUsers FOREIGN KEY (userId) REFERENCES vaccinec.dbo.Users(id)
+);
+ALTER TABLE vaccinec.dbo.Authorizations WITH NOCHECK ADD CONSTRAINT ckcIndSituationAutho CHECK ([typeOfService]='D' OR [typeOfService]='C');
+ALTER TABLE vaccinec.dbo.Authorizations WITH NOCHECK ADD CONSTRAINT ckcIndTypeOfServiceAutho CHECK ([situation]='X' OR [situation]='C' OR [situation]='P');
+ALTER TABLE vaccinec.dbo.Authorizations WITH NOCHECK ADD CONSTRAINT ckcNotifyAutho CHECK ([notify]='S' OR [notify]='N');
+
+
+-- vaccinec.dbo.AuthorizationsNotifications definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.AuthorizationsNotifications;
+
+CREATE TABLE vaccinec.dbo.AuthorizationsNotifications (
+	id uniqueidentifier NOT NULL,
+	authorizationId uniqueidentifier NOT NULL,
+	eventId uniqueidentifier NOT NULL,
+	personPhone varchar(20) COLLATE Latin1_General_CI_AS NOT NULL,
+	message varchar(160) COLLATE Latin1_General_CI_AS NOT NULL,
+	sendDate date NOT NULL,
+	sendHour time NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	returnId varchar(100) COLLATE Latin1_General_CI_AS NULL,
+	CONSTRAINT authorizationsNotificationsPkey PRIMARY KEY (id),
+	CONSTRAINT fkAuthNotRefAuth FOREIGN KEY (authorizationId) REFERENCES vaccinec.dbo.Authorizations(id),
+	CONSTRAINT fkAuthNotRefEven FOREIGN KEY (eventId) REFERENCES vaccinec.dbo.Events(id)
+);
+
+
+-- vaccinec.dbo.Applications definition
+
+-- Drop table
+
+-- DROP TABLE vaccinec.dbo.Applications;
+
+CREATE TABLE vaccinec.dbo.Applications (
+	id uniqueidentifier NOT NULL,
+	userId uniqueidentifier NOT NULL,
+	budgetProductId uniqueidentifier NULL,
+	applicationDate datetime NULL,
+	doseType varchar(2) COLLATE Latin1_General_CI_AS DEFAULT 'DU' NULL,
+	routeOfAdministration varchar(1) COLLATE Latin1_General_CI_AS DEFAULT 'I' NOT NULL,
+	applicationPlace varchar(2) COLLATE Latin1_General_CI_AS DEFAULT '00' NOT NULL,
+	register datetime DEFAULT getdate() NOT NULL,
+	productSummaryBatchId uniqueidentifier NULL,
+	authorizationId uniqueidentifier NOT NULL,
+	sipniIntegrationId varchar(100) COLLATE Latin1_General_CI_AS NULL,
+	CONSTRAINT pkApplications PRIMARY KEY (id),
+	CONSTRAINT Applications_FK FOREIGN KEY (productSummaryBatchId) REFERENCES vaccinec.dbo.ProductsSummariesBatches(id),
+	CONSTRAINT Applications_FK_2 FOREIGN KEY (budgetProductId) REFERENCES vaccinec.dbo.BudgetsProducts(id),
+	CONSTRAINT fkApliRefUsers FOREIGN KEY (userId) REFERENCES vaccinec.dbo.Users(id),
+	CONSTRAINT fkAplicRefAuthor FOREIGN KEY (authorizationId) REFERENCES vaccinec.dbo.Authorizations(id)
+);
+ALTER TABLE vaccinec.dbo.Applications WITH NOCHECK ADD CONSTRAINT ckc_iapplication_place_apli CHECK ([applicationPlace]='06' OR [applicationPlace]='05' OR [applicationPlace]='04' OR [applicationPlace]='03' OR [applicationPlace]='02' OR [applicationPlace]='01' OR [applicationPlace]='00');
+ALTER TABLE vaccinec.dbo.Applications WITH NOCHECK ADD CONSTRAINT ckc_dose_type_apli CHECK ([doseType]='D3' OR [doseType]='D2' OR [doseType]='D1' OR [doseType]='DR' OR [doseType]='DU' OR [doseType]=NULL);
+ALTER TABLE vaccinec.dbo.Applications WITH NOCHECK ADD CONSTRAINT ckc_route_of_administration_apli CHECK ([routeOfAdministration]='E' OR [routeOfAdministration]='M' OR [routeOfAdministration]='S' OR [routeOfAdministration]='O' OR [routeOfAdministration]='I');
+
+
